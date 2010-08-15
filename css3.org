@@ -1,0 +1,302 @@
+CSS3 Specification @date(08/14/2010) @link(http://www.w3.org/TR/css3-roadmap/)
+================================================================================
+
+Notes on the working draft of CSS3.  Includes a rough overview of grammar,
+values/units, media, selectors, cascading/inheritance, box model, 
+positioning, inline box model, text/font, form/table elements, 
+columns, math, and media queries.
+
+# Grammar
+## Identifiers
+CSS {{ identifiers }} must start with a letter and consist of alphanumeric
+characters, a dash, or underscore.  They cannot start with a dash followed
+by a number.  They are commonly used as attribute values, but may also 
+represent keywords like values or properties.  
+
+Keywords with the first character being a dash are reserved for vendor
+specific use.
+
+Valid Examples: class-name, id_Name1, -vendor-specific
+Invalid Examples: 0class-name, -0id_name
+
+## Case Sensitivity
+CSS is case insensitive except for parts dealing with your document.  For
+example, type and attribute selectors depend on the document.
+
+DIV[ID=body] would match <div id="body"> in HTML, but would not match
+in XHTML.
+
+## Structure
+A {{ selector }} is used to match elements in a document.
+
+Example: div > div.child ~ div#sibling
+
+A {{ declaration }} consists of a {{ property }} followed by a colon (:),
+followed by a {{ value }} (or multiple values).
+
+Examples:
+  - font-weight: bold
+  - color: red
+
+The properties are "font-weight" and "color".  The values are "bold" and "red".
+
+Declarations can be grouped together and separated with a semi-colon (;)
+to form a {{ declaration block }}:
+
+  { font-weight: bold; color: red }
+
+A {{ rule set }} is a selector followed by a declaration block:
+
+  div > div.child { font-weight: bold }
+
+Rule sets are also called {{ statements }}.  A statement can be either a
+rule set or an {{ at rule }}:
+
+Examples:
+  - div { color: red }  
+  - @import "main.css"
+
+A {{ comment }} is any text that apperas between the characters "/*" and "*/"
+
+## Invalid Grammar
+Given an invalid declaration (due to an unknown property or illegal value), the 
+User Agent will ignore it.  Other declarations within the declaration block will
+still apply.
+
+Given an invalid selector, the User Agent will ignore the entire rule set.
+
+Examples:
+  div > div.child {
+    font-weight: bold; /* still applies */
+    invalid: rule; 
+  }
+
+  div & div.child { /* this entire rule is ignored */
+    font-weight: bold;
+    color: red;
+  }
+
+# Values
+## Lengths
+There are two types of length units: {{ relative }} and {{ absolute }}.  
+Relative units are:
+  * em => relative to font-size property of element on which it is used
+  * ex => relative to x-height of a font
+  * px => relative to pixels of viewing device
+
+Examples:
+  h1 { line-height: 1.2em } /* h1 is 20% greater than font-size of h1 font */
+
+Absolute units are:
+  * in => inches
+  * cm => centimeters
+  * mm => millimeters
+  * pt => points (in CSS 2.1, 1pt == 1/72in)
+  * pc => picas (1pc == 12pt)
+
+## Percentages
+Percantage values are always relative to another value, eg. a property of an
+ancestor element or the width of a containing block.
+
+Examples:
+  p { line-height: 120% } /* 120% of font-size */
+  div { width: 50% } /* half as wide as parent container */
+
+## URIs, see @link(http://www.ietf.org/rfc/rfc3986)
+Uniform resource identifiers are specified with the 'url' keyword followed with
+the uri in parenthesis.  Quotes are optional, but if left off some characters
+may need to be escaped with backslashes such as parentheses, commas, whitespace,
+single quotes, and double quotes.
+
+Examples:
+  div { background: url(http://www.kaching.com/images/logo.png) }
+  div { background: url(/images/logo.png) }
+  div { background: url("/images/logo.png") }
+
+## Counters
+Counters are used to add generated content such as those found in ordered lists.
+
+Examples:
+  p { counter-increment: par-num }
+  h1 { counter-reset: par-num }
+  p::before { content: counter(par-num, upper-roman) ". " }
+
+## Colors
+The color keywords are: aqua, black, blue, fuchsia, gray, green, lime, maroon, 
+navy, olive, orange, purple, red, silver, teal, white, and yellow.
+
+Colors can also be specified with a hash/RGB in hex, or rgb(values).
+
+Examples:
+  div { color: red }
+  div { color: #f00 } /* #rgb, digits are replicated */
+  div { color: #ff0000 } /* #rrggbb */
+  div { color: rgb(255, 0, 0) } 
+  div { color: rgb(100%, 0%, 0%) }
+
+# Media Types
+CSS can be used to specify presentation on different forms of media: screen,
+paper, speech synthesizer, braille, etc...
+
+Use an at-rule to specify the media target for a style sheet:
+  @import url("fancyfonts.css") screen;
+  @media print { /* style sheet goes here */ }
+
+Or you can specify your target using the media attribute of the <link> element:
+  <link rel="stylesheet" type="text/css" media="print, handheld" href="foo.css">
+
+Recognized media types:
+* all
+* braille
+* embossed (paged braille printers)
+* handheld
+* print
+* projection
+* screen
+* speech
+* tty (terminals, fixed-width characters)
+* tv (low resolution, sound available)
+
+These media groups contain multiple media types, see the spec for more info:
+* continuous, paged
+* visual, audio, speech, tactile
+* grid, bitmap
+* interactive, static
+* all
+
+# Selectors
+Selectors are pattern matching rules which determine which style rules apply to
+which elements in the document tree.
+
+## Summary
++-----------------+----------------------------------------------+-------------+
+| Example         | Meaning                                      | Category    |
++-----------------+----------------------------------------------+-------------+
+| *               | Matches any element                          | Universal   |
++-----------------+----------------------------------------------+-------------+
+| E               | Matches any E element (i.e., an              | Type        |
+|                 | element of type E)                           |             |
++-----------------+----------------------------------------------+-------------+
+| E F             | Matches any F element that is                | Combinator  |
+|                 | a descendant of an E element                 |             |
++-----------------+----------------------------------------------+-------------+
+| E > F           | Matches any F element that                   | Combinator  |
+|                 | is a child of an element E                   |             |
++-----------------+----------------------------------------------+-------------+
+| E + F           | Matches any F element immediately preceded   | Combinator  |
+|                 | by a sibling element E                       |             |
++-----------------+----------------------------------------------+-------------+
+| E ~ F           | Matches any F element preceded by a sibling  | Combinator  |
+|                 | element E                                    |             |
++-----------------+----------------------------------------------+-------------+
+| E:class         | Matches element E when                       | Pseudo-class|
+|                 | E satisfies psuedo-class                     |             |
++-----------------+----------------------------------------------+-------------+
+| E:class(val)    | Psuedo-class selectors                       | Pseudo-class|
+|                 | may also take arguments                      |             |
++-----------------+----------------------------------------------+-------------+
+| E[foo]          | Matches any E element with the "foo"         | Attribute   |
+|                 | attribute set (whatever the value)           |             |
++-----------------+----------------------------------------------+-------------+
+| E[foo=warning]  | Matches any E element whose "foo"            | Attribute   |
+|                 | attribute value is exactly equal to "warning"|             |
++-----------------+----------------------------------------------+-------------+
+| E[foo~=warning] | Matches any E element whose "foo"            | Attribute   |
+|                 | attribute value is a list of                 |             |
+|                 | space-separated values, one of which         |             |
+|                 | is exactly equal to "warning"                |             |
++-----------------+----------------------------------------------+-------------+
+| E[lang|=en]     | Matches any E element whose "lang"           | Attribute   |
+|                 | attribute has a hyphen-separated list of     |             |
+|                 | values beginning (from the left) with "en"   |             |
++-----------------+----------------------------------------------+-------------+
+| E[foo^=warning] | Matches any E element whose "foo"            | Attribute   |
+| E[foo$=warning] | attribute exactly starts with, ends with,    |             |
+| E[foo*=warning] | or contains the value "warning".             |             |
++-----------------+----------------------------------------------+-------------+
+| E.warning       | Language specific. (In HTML,                 | Class       |
+|                 | the same as E[class~=warning])               |             |
++-----------------+----------------------------------------------+-------------+
+| E#myid          | Matches any E element with ID equals "myid"  | ID          |
++-----------------+----------------------------------------------+-------------+
+
+Note for attribute selectors, the value must be in quotes if it does not qualify
+as a CSS identifier (starts with an alphabet character and is made up of 
+alphanumeric characters, dashses, and/or underscores).
+
+## Syntax
+Selectors may be grouped together into a comma-seaprated list:
+  h1 { font-size: 10pt }
+  h2 { font-size: 10pt }
+  h3 { font-size: 10pt }
+  /* is equal to */
+  h1, h2, h3 { font-size: 10pt }
+
+## Selector types
+A {{ simple selector }} is either a {{ type selector }}, 
+{{ universal selector }}, {{ attribute selector }}, {{ id selector }},
+or {{ pseudo-class selector }}.
+
+A sequence of selectors is made up of simple selectors separated
+by {{ combinators }}.  
+
+## Psuedo Classes
+Psuedo classes permi selection based on information outside of the document
+tree or that cannot be expressed by other selectors.
+
+{{ Dyanmic pseudo classes }} classify elements on characteristics other than
+those from the document tree.
+
+Examples:
+* :link, :visited
+* :hover, :active, :focus, :enabled, :disabled, :checked
+* :target
+* :lang(en)
+
+{{ Structural pseudo classes }} classify elements based on information found
+in the document tree.
+
+Examples:
+* :root
+* :nth-child(2n+1), :nth-child(odd), :nth-child(-n+6)
+* :nth-last-child, :nth-of-type, :nth-last-of-type
+* :first-child, :last-child, :only-child, :only-of-type, :empty
+* :not(selector)
+
+## Pseudo Elements
+{{ Pseudo elements }} create abstractions about the document tree beyond those
+specified by the document language.
+
+Examples:
+* p::first-line { text-transform: uppercase } /* formats first line */
+* ::first-letter, ::before, ::after
+
+## Specificity
+A selector's {{ specificity }} is used to determine which declarations apply
+to which elements in case of collisions.
+
+A selector's specificity is calculated as follows:
+1. count the number of ID selectors in the selector (= a)
+2. count the number of class selectors, attributes selectors, 
+   and pseudo-classes in the selector (= b)
+3. count the number of type selectors and pseudo-elements in the selector (= c)
+4. ignore the universal selector
+
+Selectors inside the negation pseudo-class are counted like any other, but the 
+negation itself does not count as a pseudo-class.
+
+Now concatenate the numbers a-b-c (aka a*100 + b*10 + c).  Higher specificity
+takes higher precedence.  In case of equal specificities, the rule set
+which occurs later in the stylesheet will be applied.
+
+Examples:
+  *               /* a=0 b=0 c=0 -> specificity =   0 */
+  li              /* a=0 b=0 c=1 -> specificity =   1 */
+  ul li           /* a=0 b=0 c=2 -> specificity =   2 */
+  ul ol+li        /* a=0 b=0 c=3 -> specificity =   3 */
+  h1 + *[rel=up]  /* a=0 b=1 c=1 -> specificity =  11 */
+  ul ol li.red    /* a=0 b=1 c=3 -> specificity =  13 */
+  li.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
+  #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
+  #s12:not(foo)   /* a=1 b=0 c=1 -> specificity = 101 */
+
