@@ -301,6 +301,72 @@ Examples:
   #s12:not(foo)   /* a=1 b=0 c=1 -> specificity = 101 */
 
 # Cascading and Inheritance
+## Values
+A user agent goes through a few steps to calculate values for properties:
+1. {{ Computed values }} can be calculated without the user agent rendering the
+   document, for example absolute 'px' or other lengths.
+2. {{ Used values }} can only be calculated by formatting the document, for
+   example an element's 50% width of parent element.
+3. {{ Actual values }} are what the user agent actually renders.  If an author
+   specifies decimal pixels, a the actual value might be an integer because
+   of browser limitations.
+
+## Inheritance
+{{ Inheritance }} occurs when an element inherits a property value from its
+parents.  Each property will define whether it is inheritable in the spec.
+
+Example:
+  <div style="color:red">Hello <b>World</b></div> /* <b> will be red */
+
+A property can be declared with an {{ inherit }} value explicitly, which can
+also be used on properties that are not normally inherited.
+
+Example:
+  <div>Hello <b>World</b></div>
+  /* CSS */
+  div { color: red }
+  b { color: inherit }
+
+## @import rule
+You can import style rules from another style sheet.  You can also specify
+media dependent import rules.
+
+Example:
+  @import "mystyle.css";
+  @import url("mystyle.css");
+  @import url("mystyle.css") projection, tv;
+
+## Cascading
+{{ Cascade }} means a succession of stages or operations or processes or units.
+
+In the context of CSS, it means the order in which style rules override one
+another.  At the highest level, there is the {{ origin }} of the style sheet:
+- author => this is the author of the css file or website
+- user => this is the user viewing the document/css file
+- user agent => this is the user's browser
+
+CSS from the author is common.  Sometimes, users define their own style rules
+for documents they view.  This is the case for accessibility (larger fonts).
+The user agent defines its own default rules, such as default properties to
+present a document (h1, h2, ul, li, p, etc...).
+
+Rules may also be marked as {{ !important }}.  A declaration marked as
+!important will override other declarations on the same element that
+are not marked.
+
+Example:
+p { font-size: 10pt !important } /* this rule will be enforced */
+p.class { font-size: 9pt }
+
+The cascading order concerning origin and important declarations is:
+1. user agent declarations       /* lowest precedence */
+2. user normal declarations
+3. author normal declarations
+4. author important declarations
+5. user important declarations   /* highest precedence */
+
+For each origin/important section, the rules are then sorted by specificity.  If
+the specificity of two rules match, the latter declaration will be used.
 
 # Box Model
 
