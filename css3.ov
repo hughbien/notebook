@@ -529,11 +529,90 @@ There are two {{ table width algorithms }} which is set by the
 Example:
   table { table-layout: auto } /* default */
   table { table-layout: fixed }
-  
+
+The fixed table layout is the faster of the two, the width of each column
+is determined:
+- A column element with a value other than 'auto' for the 'width' property sets 
+  the width for that column.
+- Otherwise, a cell in the first row with a value other than 'auto' for the 
+  'width' property determines the width for that column. If the cell spans more 
+  than one column, the width is divided over the columns.
+- Any remaining columns equally divide the remaining horizontal table space 
+  (minus borders or cell spacing).
+
+In the automatic table layout, the width of the table is determined by the
+width of its columns.  
 
 # Text and Font
+The properties which apply to fonts are:
+- font-family
+- font-style
+- font-variant
+- font-weight
+- font-size
+
+The values for {{ font-family }} are a comma separated list of families 
+(specific and generic).  The generic options are:
+- serif
+- sans-serif
+- cursive
+- fantasy
+- monospace
+
+Families given early in the list have highest priority.  Authors are encouraged
+to use a generic family as the final value.
+
+Example:
+  p { font-family: Gill, Helvetica, sans-serif; } 
+
+{{ font-style }} values may be normal (default), italic, or oblique.  Oblique 
+characters still use the same font family but are slightly skewed.
+Italic characters may use a different font (that are still skewed).
+
+The {{ font-variant }} property lets authors style their text so that lowercase
+letters use the same style as uppercase ones (althought slightly smaller).
+Examples:
+  p { font-variant: small-caps; }
+  p { font-variant: normal; }  /* default */
+
+{{ font-weight }} specifies the weight (or boldness) of characters.  Values
+may be: normal | bold | bolder | lighter | 100 - 900 (in steps of 100).
+Examples:
+  p { font-weight: 400; } /* same as normal */
+  p { font-weight: 700; } /* same as bold */
+
+{{ font-size }} specifies the size of characters.  Values may be absolute,
+relative, a length, or a percentage.  Absolute sizes are:
+- xx-small
+- x-small
+- small
+- medium (default)
+- large
+- x-large
+- xx-large
+
+Relative sizes are calculated based on the size of the parent element:
+- larger
+- smaller
+
+Examples:
+  p { font-size: larger; }
+  p { font-size: 1.5em; }
+  p { font-size: 150%; }
+
+There is also a shorthand {{ font }} property whose value:
+[[ <'font-style'> || <'font-variant'> || <'font-weight'> ]? <'font-size'> 
+  [ / <'line-height'> ]? <'font-family'> ] | caption | icon | menu | message-box
+  | small-caption | status-bar | inherit
+
+Examples:
+  p { font: bold italic 12px/1.5em Helvetica, sans-serif; }
+
+This property will reset any property not explicitly given a value to its
+initial value.
 
 # Forms and UI Elements
+
 
 # Media Queries
 
