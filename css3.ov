@@ -220,6 +220,8 @@ which elements in the document tree.
 | E#myid          | Matches any E element with ID equals "myid"  | ID          |
 +-----------------+----------------------------------------------+-------------+
 
+See http://www.quirksmode.org/css/contents.html for browser support.
+
 Note for attribute selectors, the value must be in quotes if it does not qualify
 as a CSS identifier (starts with an alphabet character and is made up of 
 alphanumeric characters, dashses, and/or underscores).
@@ -543,7 +545,8 @@ is determined:
 In the automatic table layout, the width of the table is determined by the
 width of its columns.  
 
-# Text and Font
+# Fonts and Text
+## Font Properties
 The properties which apply to fonts are:
 - font-family
 - font-style
@@ -610,6 +613,52 @@ Examples:
 
 This property will reset any property not explicitly given a value to its
 initial value.
+
+## Text Properties
+These properties affect the visual presentation of characters, spaces, words,
+and paragraphs:
+- text-indent
+- text-align
+- text-decoration
+- letter-spacing
+- word-spacing
+- text-transform
+- white-space
+
+The {{ text-indent }} property is used to indent the first line of text in a
+block, inline-block, or table cell element.  Example:
+  p { text-indent: 12px; }
+
+The {{ text-align }} property is used to justify text in block level elements.
+Values for it are: left, right, center, and justify.  Examples:
+  p { text-align: left; } /* default in ltr languages */
+  p { text-align: right; } /* default in rtl languages */
+
+The {{ text-decoration }} property may be used to decorate text and applies
+to all elements.  Values include:
+- none (default, has no decoration)
+- underline
+- overline
+- line-through
+- blink
+
+{{ letter-spacing }} and {{ word-spacing }} specifies the spacing (or kerning)
+between letters and words respectively.  The default value for both these
+properties is normal.  Other possible values are lengths (eg 1px, 1.5em, 20%).
+
+{{ text-transform }} controls capitalization effects of an element's text.
+- none (default, does nothing)
+- capitalize (uppercase first character of each word)
+- uppercase
+- lowercase
+
+{{ white-space }} declares how white space is handled inside elements.
+- normal: default, does nothing
+- pre: prevents UAs from collapsing white space, preserves line breaks
+- nowrap: collapses white space as normal, but supresses line breaks
+- pre-wrap: prevents collapsing white space, preserves line breaks, 
+  and also adds line breaks as necessary to fill line boxes
+- pre-line: UAs may collapse white space
 
 # Forms and UI Elements
 
