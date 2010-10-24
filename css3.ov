@@ -661,7 +661,33 @@ properties is normal.  Other possible values are lengths (eg 1px, 1.5em, 20%).
 - pre-line: UAs may collapse white space
 
 # Forms and UI Elements
+These properties affect the visual presentation of UI elements which users
+may interact with.
 
+The {{ cursor }} property specifies the type of cursor to be displayed when
+the cursor is hovered over that element.  If applies to all elements.
+Values:
+- auto (default value, UA determines)
+- crosshair
+- default (default platform dependent cursor)
+- pointer (indicates link)
+- move
+- {e,ne,nw,n,se,sw,s,w}-resize
+- text
+- wait
+- progress
+- help
+- <uri> (eg. p { cursor: url(dinosaur.png); }
 
-# Media Queries
+The {{ outline }} property are used to make visual objects stand out.  They 
+differ from borders in two ways: they don't take up space and may be
+non-rectangular.  Properties are:
+- outline-width (values are border-widths)
+- outline-style (values are border-styles)
+- outline-color (values are colors)
+- outline (a shorthand property to specify the above 3)
+
+Example:
+  p { outline: 1px dotted #000; }
+
 
