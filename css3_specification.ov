@@ -1,6 +1,7 @@
-CSS3 Specification @date(08/14/2010) @link(http://www.w3.org/TR/css3-roadmap/)
+CSS3 Specification @link(http://www.w3.org/TR/css3-roadmap/)
 ================================================================================
 
+# Overview
 Notes on the working draft of CSS3.  Includes a rough overview of grammar,
 values/units, media, selectors, cascading/inheritance, box model, 
 positioning, inline box model, text/font, form/table elements, 
@@ -689,5 +690,4 @@ non-rectangular.  Properties are:
 
 Example:
   p { outline: 1px dotted #000; }
-
 
