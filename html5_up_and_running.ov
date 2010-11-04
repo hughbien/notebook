@@ -2,7 +2,62 @@ HTML5 Up and Running @link(http://oreilly.com/catalog/9780596806033)
 ================================================================================
 
 # Overview
+HTML5 Up and Running by Mark Pilgrim is an informative guide to select features
+from the HTML5 Specification. It's available at @link(http://diveintohtml5.org/)
+
 # History
+Every element, attribute, feature of HTML was created by someone who decided how
+it should work and wrote it all down.  For example the <img> element:
+1. Before there was a W3C, Marc Andreesen emailed his proposal for
+   an <img> element with a "src" attribute to a mailing list.
+2. People debated on it, came up with alternatives, and various implementations
+   of it were done for different browsers.
+3. Marc ended up implementing his original proposal in Mosaic.
+4. And now we have an <img> element that became an HTML standard.
+
+It's really as simple as this: we have an <img> element because Marc Andreesen
+shipped on in his browser, and shipping code wins.
+
+HTML has been constantly evolving.  It's always been developed between browser
+makers, authors, standards "wonks", and other people who just wanted to get
+involved.
+
+In 1997, the W3C published the HTML 4.0 specification.  They then published the
+XML 1.0 specification and decided to reformulate HTML into XML instead of 
+trying to extend HTML.  That gave birth to XHTML 1.0 and XHTML 1.1.
+
+XHTML has "draconian error handling".  If served with the correct MIME type,
+{{ application/xhtml+xml }} browsers would complete break pages when there were
+any minor errors.  So most people ended up using the {{ text/html }} MIME type,
+which was a loophole.  It allowed authors to use an XHTML syntax but keep
+serving it in a forgiving environment.
+
+In 2004, the W3C branched off the What Working Group.  What WG wanted to work on
+an evolution of the existing HTML 4 standard to include features for modern
+web aplication developers:
+* backward compatibility based on existing tech: HTML, CSS, DOM, and JavaScript
+* well defined error handling (as opposed to the draconian error handling or 
+  inconsistent error handling implementations between browsers)
+* users should not be exposed to author errors
+* practical useful features
+* embrace scripting
+* avoidance of device specific profiling
+* web forms
+
+WHAT Working Group = {{ Web Hypertext Applications Technology Working Group }}
+They called their specification {{ Web Applications 1.0 }}
+
+For years the W3C and What WG ignored each other, working on XHTML 2.0 and
+Web Applications 1.0 respectively.  By 2006, Web Applications 1.0 was 
+picking up more momentum while XHTML 2 remained mostly unimplemented by
+browsers.  In October 2006, Tim Berners Lee announched that the What WG
+and W3C would begin working together.  
+
+Web Applications 1.0 was renamed to {{ HTML5 }}.  In October 2009, The W3C shut
+down the XHTML2 Working Group.
+
+"The ones that win are the ones that ship." - Mark Pilgrim
+
 # Feature Detection
 # Semantic Elements
 # Canvas
