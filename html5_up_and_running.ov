@@ -225,6 +225,87 @@ Example:
   context.drawImage(document.getElementById("id-of-img-element"), 0, 0);
 
 # Video
+HTML5 defines a standard way to embed video into a web page using the 
+<video> element.
+
+## Video Containers
+"AVI" and "MP4" are just container formats like how a ZIP file can contain
+any sort of file within it.  Container formats define how to store things in
+them and what kind of data is stored.  Some of hte most popular formats are:
+- MPEG-4 (mp4, m4v)
+- Flash Video (flv)
+- Ogg (ogv)
+
+## Video Codecs
+When you watch a video, your player is:
+- interpreting the container format to find out which video/audo tracks
+  are available and how they are stored
+- decoding the video stream to display images onto the screen
+- decoding the audio stream to send sound to speakers
+
+{{ Codec }} is a combination of "coder" and "decoder".  It's the algorithm
+used to encode video streams.  The video player decodes a video stream to
+display a series of images, aka {{ frames }} to the screen.
+
+Some popular video codecs are:
+- H.264 (aka MPEG-4 part 10)
+- Theora
+- VP8 
+
+Some popular audio codecs are:
+- MPEG-1 Audo Layer (aka mp3)
+- Advanced Audio Coding (AAC)
+- Vorbis
+
+For cross browser reasons, you'll have to encode your video in more than one
+format and probably provide a fallback mechanism for IE < 9.
+- FF >3.5 and Opera >10.5 supports Theora video and Vorbis audio 
+  in an Ogg container
+- Chrome >3.0 supports supports Theora/Vorbis in an Ogg container.  Also
+  supports H.264 video and AAC audio in an MP4 container.
+- Safari support anything QuickTime supports.  Out of the box this does
+  not include Theora/Vorbis in Ogg.  It does support H.264 and AAC in an
+  MP4 container.
+- Mobile devices like iPhone and Android phones support H.264/AAC in MP4.
+- Flash supports H.264/AAC in an MP4 container also.
+- IE9 will support H.264 and AAC in MP4.
+- IE <9 have no support for HTML5 video, you'll need to fallback to flash.
+
+To encode ogg video, use the {{ Firefogg }} Firefox plugin.  To encode H.264,
+use the open source {{ HandBrake }} application.
+
+## The Markup
+The markup is similar to the <img> element:
+  <video src="videofile.mp4" width="320" height="240"></video>
+
+Your browser will center the video inside the box.  It won't be scaled out of
+proportion.
+
+The <video> element does not expose any player controls.  You can do that
+yourself using its API: play(), pause(), and currentTime property.  There's
+also volume/muted properties.  If you don't want to build your own UI, you
+can use the browser's default with the {{ controls }} property:
+  <video src="videofile.mp4" width="320" height="240" controls></vide>
+
+There's also the {{ preload }} property which will begin downloading the
+video file and the {{ autoplay }} property.
+
+A <video> element may have <source> children.  This is useful to have more
+than one encoding to support multiple browsers:
+  <video width="320" height="240" controls> 
+    <source src="pr6.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'> 
+    <source src="pr6.webm" type='video/webm; codecs="vp8, vorbis"'> 
+    <source src="pr6.ogv" type='video/ogg; codecs="theora, vorbis"'>
+  </video>
+
+The {{ type }} attribute is important so the browser won't have to download an
+entire video file just to check to see if it can play it.
+
+Important: VIDEO FILES MUST BE SERVED WITH THE PROPER MIME TYPE!
+
+For IE, you'll need to fallback using Flash.  A recommended library to use is
+{{ FlowPlayer }}.
+
 # Geolocation
 # Local Storage
 # Offline Web Apps
