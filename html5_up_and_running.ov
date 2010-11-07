@@ -156,6 +156,74 @@ Here is the HTML5 enabling script for IE by Remy Sharp:
   </script> <![endif]-->
 
 # Canvas
+The {{ <canvas> }} element is a "resolution-dependent bitmap canvas which
+can be used for rendering graphs, game graphics, or other visual images
+on the fly."  Example:
+  <canvas id="acanvas" width="300" height="225"></canvas>
+  <script>
+    var a_canvas = document.getElementById("acanvas");
+    a_canvas.getContext("2d");  /* only supported context right now */
+    a_canvas.fillRect(50, 25, 150, 100)
+  </script>
+
+Canvas support for IE7+ is available via the {{ excanvas library }}.  To detect
+support for canvas:
+  !!document.createElement("canvas").getContext;
+
+A sample of the API for drawing shapes:
+- fillStyle property, which can be a CSS color or pattern or gradient
+- fillRect(x, y, width, height) draws a recntangle
+- strokeStyle property is just like fillStyle
+- strokeRect(x, y, width, height) draws a rectangle w/ current strokeStyle
+- clearRect(x, y, width, height) clears the pixels in specificed rectangle
+
+To reset the canvas, just set its width:
+  a_canvas.width = a_canvas.widht;   // works even if it's the same width
+
+Lines are drawn using {{ paths }}:
+- moveTo(x, y) moves your pencil to this coordinate
+- lineTo(x, y) draws a line to specified ending point
+- stroke() will actually do the drawing (like finalizing in ink)
+  this also uses the current strokeStyle of the context
+
+Example:
+  context.beginPath();
+  context.moveTo(0, 40);
+  context.lineTo(240, 40);
+  context.strokeStyle = "#000";
+  context.stroke();
+
+Text may also be drawn onto the canvas:
+- font property is similar to any CSS font rule, including: font style, variant,
+  weight, size, line-height, and font family.
+- textAlign property controls the alignment.  Possible values are: start, end,
+  left, right, and center.
+- textBaseline controls where the text is drawn relative to the starting point.
+  Values are: top, hanging, middle, alphabetic, ideographic, and bottom.
+
+Example:
+  context.font = "bold 12px sans-serif";
+  context.fillText("Lorem Ipsum", 248, 43);
+
+Gradients can be created via:
+- createLinearGradient(x0, y0, x1, y1)
+- createRadialGradient(x0, y0, r0, x1, y1, r1)
+
+Example:
+  var gradient = context.createLinearGradient(0, 0, 300, 0);
+  gradient.addColorStop(0, "black");
+  gradient.addColorStop(1, "white");
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, 300, 225);
+
+To draw an image onto the canvas:
+- drawImage(image, dx, dy) where dx/dy make up the upper-left corner
+- drawImage(image, dx, dy, dw, dh) scales it to dw/dh
+- drawImage(image, sx, sy, sw, sh, dx, dy, dw, dh) to clip and scale
+
+Example:
+  context.drawImage(document.getElementById("id-of-img-element"), 0, 0);
+
 # Video
 # Geolocation
 # Local Storage
