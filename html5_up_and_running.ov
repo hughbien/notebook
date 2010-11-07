@@ -228,6 +228,19 @@ Example:
 HTML5 defines a standard way to embed video into a web page using the 
 <video> element.
 
+## Feature Detection
+To detect whether the browser supports HTML5 video or not:
+  !!document.createElement("video").canPlayType;
+
+To detect whether or not it can play a certain format:
+  var v = document.createElement("video");
+  v.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"');
+
+This will return one of 3 values:
+- "probably" if the browser is confident it can play it
+- "maybe" if the browser thinks it can play it
+- "" if the browser is certain it cannot play it
+
 ## Video Containers
 "AVI" and "MP4" are just container formats like how a ZIP file can contain
 any sort of file within it.  Container formats define how to store things in
