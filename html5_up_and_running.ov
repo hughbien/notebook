@@ -59,6 +59,19 @@ down the XHTML2 Working Group.
 "The ones that win are the ones that ship." - Mark Pilgrim
 
 # Feature Detection
+You can start using HTML5 now, it's a collection of individual features.
+You can do this using feature detection.  If the current browser has a
+certain feature - use it, otherwise fallback.
+
+Detection techniques fall in four categories:
+1. Check for property on global object (ie. window or navigator)
+2. Create an element, then check if that element has a certain property
+3. Create an element, check if a method exists, call that method, and check
+   the return value
+4. Create an element, set a property and check if the value is retained
+
+Modenizr @link(http://www.modernizr.com/) is an HTML5 detection library.
+
 # Semantic Elements
 # Canvas
 # Video
