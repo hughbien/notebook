@@ -72,7 +72,89 @@ Detection techniques fall in four categories:
 
 Modenizr @link(http://www.modernizr.com/) is an HTML5 detection library.
 
-# Semantic Elements
+# Updated and New Elements
+## Doctype, Html, and Head
+The new {{ doctype }} for HTML5 is: <!DOCTYPE html>
+
+The root element just needs a {{ lang }} attribute set: <html lang="en">
+
+Inside the {{ head }} element, you'll need to specify the content type and
+character encoding of your document.  You may also specify any stylesheets,
+alternate formats, and general meta data.  Example:
+  <head>
+    <meta charset="utf-8" />  
+    <link rel="stylesheet" href="/path/to/styles.css" />
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml" />
+  </head>
+
+Many of the mandatory HTML4 attributes were dropped in favor of defaults.  IE,
+you no longer have to specify the type="text/css" for stylesheets.
+
+## New Semantic Elements
+From the specification: 
+@link(http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html)
+
+New elements include:
++-----------+-----------------------------------------------------------------+
+| <section> | Represents a generic section of a document, provides thematic   |
+|           | grouping, typically with a header.                              |
++-----------+-----------------------------------------------------------------+
+| <nav>     | Represents a section that links to other pages or parts.        |
+|           | Only major navigations are appropriate for <nav>, for example a |
+|           | footer with many links is not appropriate.                      |
++-----------+-----------------------------------------------------------------+
+| <article> | A self-contained composition in a document, which can be        |
+|           | independently distributed.  Eg: newspaper article, blog entry,  |
+|           | user comment, or interactive widget                             |
++-----------+-----------------------------------------------------------------+
+| <aside>   | Sections which are only tagnentially related to the main        |
+|           | content of the page.  Eg: sidebars, ads, or featured quotes.    |
++-----------+-----------------------------------------------------------------+
+| <hgroup>  | The heading of a section which groups h1-h6 elements when       |
+|           | headings have multiple levels.  Eg: subheading or taglines.     |
++-----------+-----------------------------------------------------------------+
+| <header>  | Introductory or navigational aids.  Usually contains h1-h6 and  |
+|           | hgroup elements.  May also contain table of contents, search    |
+|           | form, or relevant logos.                                        |
++-----------+-----------------------------------------------------------------+
+| <footer>  | Typically contains information about its ancestor such as the   |
+|           | author, links to related documents, or copyright.               |
++-----------+-----------------------------------------------------------------+
+| <time>    | Either a time on a 24-hour clock or precise date.               |
++-----------+-----------------------------------------------------------------+
+| <mark>    | Run of text in one document highlighted for reference.          |
++-----------+-----------------------------------------------------------------+
+
+Not all browsers support these elements yet.  Two important questions to ask
+when a browser finds an {{ unknown element }}:
+- How should this element be styled?
+- What should the element's DOM look like?
+
+For non-IE browsers, you can style unknown elements:
+  article { border: 1px solid red; } /* Won't be applied in IE < 9 */
+
+Unfortunately, if IE doesn't recognize the element name, it will insert the
+element into the DOM as an empty node with no children.  Any actual children
+will become siblings.
+
+To solve both problems in IE, just create a dummy element of the same type
+before you use it in the page:
+  <head>
+    <!-- Now articles will be recognized! -->
+    <script>document.createElement("article");</script>
+  </head>
+
+Here is the HTML5 enabling script for IE by Remy Sharp:
+  @link(http://html5shiv.googlecode.com/svn/trunk/html5.js)
+  <!--[if lt IE 9]> <script>
+    var e = ("abbr,article,aside,audio,canvas,datalist,details," + 
+             "figure,footer,header,hgroup,mark,menu,meter,nav,output," + 
+             "progress,section,time,video").split(',');
+    for (var i = 0; i < e.length; i++) {
+      document.createElement(e[i]);
+    } 
+  </script> <![endif]-->
+
 # Canvas
 # Video
 # Geolocation
