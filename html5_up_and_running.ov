@@ -320,6 +320,62 @@ For IE, you'll need to fallback using Flash.  A recommended library to use is
 {{ FlowPlayer }}.
 
 # Geolocation
+Geolocation lets you figure out where in the world the user is.  Privacy is a
+strong concern and user agents must not send location information to websites
+without the express permission of the user.
+
+## Feature Detection
+If your browser supports geolocation, there will be a geolocation property on
+the global navigator object:
+  !!navigator.geolocation
+
+## Usage
+The first time you ask for a user's location, the end user will decide whether
+or not to disclose it.  The end user gets to know which website wants to know
+the location, can choose to share or not share it, and can tell the browser
+to remember the choice.
+
+Example usage:
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var latitute = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var timestamp = position.timestamp;
+  });
+
+Properties are:
+- coords.latitutde (double, decimal degrees)
+- coords.longitude (double, decimal degrees)
+- coords.altitude (double or null)
+- coords.accuracy (doubles in meters)
+- coords.altitudeAccuracy (double in meters)
+- coords.heading (degrees clockwise from true north, double or null)
+- coords.speed (double or null, meters/second)
+- timestamp (DOMTimeStamp, like Date() object)
+
+You may also include error handling:
+  navigator.geolocation.getCurrentPosition(fn_callback, error_callback);
+  function error_callback(code, message) {
+    /* code is a short, enumerated value */
+    /* message is a string, not intended for end users */
+  }
+
+Possible error codes are:
+- 1 = PERMISSION_DENIED
+- 2 = POSITION_UNAVAILABLE
+- 3 = TIMEOUT
+- 4 = UNKNOWN_ERROR
+
+getCurrentPosition has a third optional parameter, a PositionOptions object with
+three possible properties:
+- enableHighAccuracy (boolean)
+- timeout (long in milliseconds)
+- maximumAge (long in milliseconds)
+
+## IE Support
+IE does not support the geolocation API, but you can fallback onto the Gears
+library.  {{ geo.js }} is an abstraction above the standards HTML5 geolocation
+and Gears.
+
 # Local Storage
 # Offline Web Apps
 # Forms
