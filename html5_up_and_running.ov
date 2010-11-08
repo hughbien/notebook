@@ -377,6 +377,105 @@ library.  {{ geo.js }} is an abstraction above the standards HTML5 geolocation
 and Gears.
 
 # Local Storage
+## Goal of Local Storage
+What we want is a lot of local storage space, on the client, that persists
+beyond a page refresh, and is not transmitted to the server.
+
+Cookies were invented in the early days but it has several downsides:
+- included in every HTTP request (waste of bandwidth)
+- could be sent unencrypted
+- limited to about 4KB of data
+
+## History
+IE invented "userData" to store up to 64KB of data per domain.  Adobe invented 
+the "Local Shared Objects, or LSOs".  It became known as the Flash cookie.  
+
+Brad Neuberg developed "AJAX Massive Storage System" or AMASS to interface with 
+JavaScript.  It was later re-written into the Dojo Toolkit under dojox.storage.
+
+In 2007, Google launched Google Gears which was an open source browser plugin 
+aimed at providing additional capabilities in browsers.  It embedded a local 
+SQL database and provided an API for accessing and storing data.
+
+The dojo team hacked away at dojox.storage to provide a unified interface to all
+of these plugins and APIs.
+
+HTML5 set out to provide a standardized API, implemented natively and constantly
+in multiple browsers without relying on third-party plugins.
+
+HTML5 Storage is actually a specification named {{ Web Storage }}.  It was once
+part of the HTML5 specification but was split out into its own specification
+due to political reasons.  Certain browsers also call it "Local Storage" or
+"DOM Storage".
+
+HTML5 Storage is a way for web pages to store named key/value pairs on the
+client web browser.
+
+## Feature Detection
+HTML5 storage support:
+- IE 8+
+- FF 3.5+
+- Safari 4.0+
+- Chrome 4.0+
+- Opera 10.5+
+- iPhone 2.0+
+- Android 2.0+
+
+To detect the feature:
+  ("localStorage" in window) && window["localStorage"] != null;
+
+## Usage
+Key/values are strings.  If you store anything that is not a string, it will
+be converted to one and you'll need to coerce that value when retrieving it.
+
+Example:
+  var foo = localStorage.getItem("bar"); /* returns null if empty */
+  // ...
+  localStorage.setItem("bar", foo);
+
+Or you can use the shorter square-bracket syntax:
+  var foo = localStorage["bar"];
+  // ...
+  localStorage["bar"] = foo;
+
+There are also methods to remove/clear:
+  localStorage.removeItem("bar");
+  localStorage.clear();
+
+And a length property and key method to get the name of a key:
+  localStorage.length;
+  localStorage.key(0); /* key name, useful for iterating through all keys */
+
+The {{ storage }} event is fired on the window object whenever setItem(),
+removeItem(), or clear() is called and actually changes something.  Example:
+  if (window.addEventListener) {
+    window.addEventListener("storage", handle_storage, false);
+  } else {
+    window.attachEvent("onstorage", handle_storage);
+  }
+
+  function handle_storage(e) { /* StorageEvent object */
+    if (!e) { e = window.event; }
+    e.key; /* String, key that was added, removed, or modified */
+    e.oldValue; /* previous value or null */
+    e.newValue; /* new value or null if item was removed */
+    e.url; /* String, page that called the method */
+  }
+
+## Limitations
+The specification suggested (should vs must) that browsers implement a 5MB limit
+of storage space per origin.  Although just a suggestion, most browsers 
+implemented local storage with a 5MB limit.  If you exceed the quota, a
+QUOTA_EXCEEDED_ERR exception will be thrown.
+
+## Beyond Key/Value
+Google Gears influenced the creation of the {{ Web SQL Database }} spec.  It
+provides a thin wrapper around a SQL database.
+
+Another API that's popping up is the "Indexed Database API" aka "IndexedDB".
+This is more of a client-side ORM.  At the moment it's currently not
+implemented in any major browsers ... but maybe one day it will be.
+
 # Offline Web Apps
 # Forms
 # Microdata
