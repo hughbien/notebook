@@ -34,7 +34,7 @@ serving it in a forgiving environment.
 
 In 2004, the W3C branched off the What Working Group.  What WG wanted to work on
 an evolution of the existing HTML 4 standard to include features for modern
-web aplication developers:
+web application developers:
 * backward compatibility based on existing tech: HTML, CSS, DOM, and JavaScript
 * well defined error handling (as opposed to the draconian error handling or 
   inconsistent error handling implementations between browsers)
@@ -50,7 +50,7 @@ They called their specification {{ Web Applications 1.0 }}
 For years the W3C and What WG ignored each other, working on XHTML 2.0 and
 Web Applications 1.0 respectively.  By 2006, Web Applications 1.0 was 
 picking up more momentum while XHTML 2 remained mostly unimplemented by
-browsers.  In October 2006, Tim Berners Lee announched that the What WG
+browsers.  In October 2006, Tim Berners Lee announced that the What WG
 and W3C would begin working together.  
 
 Web Applications 1.0 was renamed to {{ HTML5 }}.  In October 2009, The W3C shut
@@ -107,7 +107,7 @@ New elements include:
 |           | independently distributed.  Eg: newspaper article, blog entry,  |
 |           | user comment, or interactive widget                             |
 +-----------+-----------------------------------------------------------------+
-| <aside>   | Sections which are only tagnentially related to the main        |
+| <aside>   | Sections which are only tangentially related to the main        |
 |           | content of the page.  Eg: sidebars, ads, or featured quotes.    |
 +-----------+-----------------------------------------------------------------+
 | <hgroup>  | The heading of a section which groups h1-h6 elements when       |
@@ -172,13 +172,13 @@ support for canvas:
 
 A sample of the API for drawing shapes:
 - fillStyle property, which can be a CSS color or pattern or gradient
-- fillRect(x, y, width, height) draws a recntangle
+- fillRect(x, y, width, height) draws a rectangle
 - strokeStyle property is just like fillStyle
 - strokeRect(x, y, width, height) draws a rectangle w/ current strokeStyle
-- clearRect(x, y, width, height) clears the pixels in specificed rectangle
+- clearRect(x, y, width, height) clears the pixels in specified rectangle
 
 To reset the canvas, just set its width:
-  a_canvas.width = a_canvas.widht;   // works even if it's the same width
+  a_canvas.width = a_canvas.width;   // works even if it's the same width
 
 Lines are drawn using {{ paths }}:
 - moveTo(x, y) moves your pencil to this coordinate
@@ -244,14 +244,14 @@ This will return one of 3 values:
 ## Video Containers
 "AVI" and "MP4" are just container formats like how a ZIP file can contain
 any sort of file within it.  Container formats define how to store things in
-them and what kind of data is stored.  Some of hte most popular formats are:
+them and what kind of data is stored.  Some of the most popular formats are:
 - MPEG-4 (mp4, m4v)
 - Flash Video (flv)
 - Ogg (ogv)
 
 ## Video Codecs
 When you watch a video, your player is:
-- interpreting the container format to find out which video/audo tracks
+- interpreting the container format to find out which video/audio tracks
   are available and how they are stored
 - decoding the video stream to display images onto the screen
 - decoding the audio stream to send sound to speakers

@@ -57,7 +57,7 @@ Examples:
   - div { color: red }  
   - @import "main.css"
 
-A {{ comment }} is any text that apperas between the characters "/*" and "*/"
+A {{ comment }} is any text that appears between the characters "/*" and "*/"
 
 ## Invalid Grammar
 Given an invalid declaration (due to an unknown property or illegal value), the 
@@ -225,10 +225,10 @@ See http://www.quirksmode.org/css/contents.html for browser support.
 
 Note for attribute selectors, the value must be in quotes if it does not qualify
 as a CSS identifier (starts with an alphabet character and is made up of 
-alphanumeric characters, dashses, and/or underscores).
+alphanumeric characters, dashes, and/or underscores).
 
 ## Syntax
-Selectors may be grouped together into a comma-seaprated list:
+Selectors may be grouped together into a comma-separated list:
   h1 { font-size: 10pt }
   h2 { font-size: 10pt }
   h3 { font-size: 10pt }
@@ -244,10 +244,10 @@ A sequence of selectors is made up of simple selectors separated
 by {{ combinators }}.  
 
 ## Psuedo Classes
-Psuedo classes permi selection based on information outside of the document
+Psuedo classes permit selection based on information outside of the document
 tree or that cannot be expressed by other selectors.
 
-{{ Dyanmic pseudo classes }} classify elements on characteristics other than
+{{ Dynamic pseudo classes }} classify elements on characteristics other than
 those from the document tree.
 
 Examples:
@@ -444,10 +444,10 @@ When the spec mentions {{ containing block }}, it is usually the element's
 parent, but is not always the case.  For instance, the containing block for an
 absolute positioned element is the closest positioned ancestor.
 
-Each elemenet in the document tree generates zero or more boxes according to the
+Each element in the document tree generates zero or more boxes according to the
 box model.  The layout of these boxes are then determined by their:
 - box dimensions and type
-- position scheme (normal flow, float, and absolutle positioning)
+- position scheme (normal flow, float, and absolute positioning)
 - relationship between elements in document tree
 - external information (ie. viewport size)
 
@@ -474,7 +474,7 @@ Example:
   div { float: left }
   div { float: right }
   p { clear: left } /* or right or both */
-  div { float: none } /* default value, can be used to override a delcaration */
+  div { float: none } /* default value, can be used to override a declaration */
 
 In {{ absolute positioning }}, a box is explicitly offset with respect to its 
 containing block.  The containing block is an ancestor box that is positioned or
@@ -487,7 +487,7 @@ Example:
   div.inner { position: absolute; left: 20px; top: 30px; }
   .inner.off { left: auto; } /* default value */
 
-## Table Visual Formartting
+## Table Visual Formatting
 Formatting for tables can be done on non-table elements by changing their
 display properties:
 - table => table or inline-table
@@ -500,7 +500,7 @@ display properties:
 - caption => table-caption
 
 When other elements are placed where table elements are expected, a
-correspoding table container will be generated.  For example, a table
+corresponding table container will be generated.  For example, a table
 cell may be generated to contain an unexpected P tag.
 
 Table cells may belong to two contexts: rows and columns.  The following
@@ -574,7 +574,7 @@ characters still use the same font family but are slightly skewed.
 Italic characters may use a different font (that are still skewed).
 
 The {{ font-variant }} property lets authors style their text so that lowercase
-letters use the same style as uppercase ones (althought slightly smaller).
+letters use the same style as uppercase ones (although slightly smaller).
 Examples:
   p { font-variant: small-caps; }
   p { font-variant: normal; }  /* default */
@@ -656,7 +656,7 @@ properties is normal.  Other possible values are lengths (eg 1px, 1.5em, 20%).
 {{ white-space }} declares how white space is handled inside elements.
 - normal: default, does nothing
 - pre: prevents UAs from collapsing white space, preserves line breaks
-- nowrap: collapses white space as normal, but supresses line breaks
+- nowrap: collapses white space as normal, but suppresses line breaks
 - pre-wrap: prevents collapsing white space, preserves line breaks, 
   and also adds line breaks as necessary to fill line boxes
 - pre-line: UAs may collapse white space
