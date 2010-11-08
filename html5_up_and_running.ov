@@ -579,5 +579,65 @@ The events {{ online }} and {{ offline }} are fired on the Window object when
 the browser changes state.
 
 # Forms
+HTML5 offers a dozen new input types and other new features for forms.  All of
+these degrade gracefully in older browsers.  If an input type is unrecognized,
+browsers will treat it as a "text" input.  If an attribute is unrecognized,
+browsers will simply ignore it.
+
+## New Attributes
+{{ placeholder }} is used for placeholder text on a form field.  When a user
+focuses on a field, the placeholder text will disappear.  Example:
+  <input type="text" placeholder="Search Bookmarks">
+
+{{ autofocus }} is used to provide focus on a particular input when the page
+finishes loading.  Google uses autofocus on its search field.  Example:
+  <input type="text" autofocus>
+
+To detect placeholder/autofocus, create an input element and check whether or
+not the attribute is in the new element:
+  "autofocus" in document.createElement("input");
+  "placeholder" in document.createElement("input");
+
+## New Input Types
+Having more input types is great for validation and iPhone keyboards.  When
+the iPhone recognizes a type, it will display the correct keyboard making it
+easier for users to type into the field.  Some browsers may also perform
+validation or render the input fields differently.
+
+The {{ email }} type is used for email addresses:
+  <input type="email"> 
+
+The {{ url }} type is used for web addresses:
+  <input type="url">
+
+Numbers may be inputted via spinboxes and the {{ number }} type:
+  <input type="number" min="0" max="10" step="2" value="6">
+
+The number type also comes with JavaScript methods:
+- input.stepUp(n)
+- input.stepDown(n)
+- input.valueAsNumber
+
+There are also sliders via the {{ range }} type:
+  <input type="range" min="0" max="10" step="2" value="6">
+
+HTML5 includes a native datepicker via these types, only supported in Opera:
+- type="date"
+- type="month"
+- type="week"
+- type="time"
+- type="datetime"
+- type="datetime-local"
+
+There is also the {{ search }} type, which Safari renders differently:
+  <input type="search">
+
+And there's a color picker via the {{ color }} type:
+  <input type="color">
+
+As of now, only Opera 10 takes steps to include validation with these new
+inputs.  It's part of the specification, but no browsers have implemented
+validations yet.
+
 # Microdata
 
