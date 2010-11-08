@@ -640,4 +640,42 @@ inputs.  It's part of the specification, but no browsers have implemented
 validations yet.
 
 # Microdata
+Microdata is a way to extend the HTML language with additional semantics.  It's 
+tightly integrated into the specification itself.
+
+"Microdata annotates the DOM with scoped name/value pairs from custom 
+vocabularies."
+
+Microdata is about applying additional semantics to data that's already visible
+on your page using name/value pairs.  For most HTML elements, the property value
+is simply the text content of the element.  Exceptions are:
+- <meta> uses content attribute
+- <audio>, <embed>, <iframe>, <img>, <source>, <video> use src attribute
+- <a>, <area>, <link> use href attribute
+- <object> uses data attribute
+- <time> uses datetime attribute
+- other elements use the text content
+
+To declare a microdata {{ vocabulary }} you use the {{ itemtype }} and
+{{ itemscope }} attributes.  Example:
+  <section itemscope itemtype="http://.../Vocab">
+
+The property key is specified via the {{ itemprop }} attribute:
+  <h1 itemprop="name">Mark Pilgrim</h1>
+
+You can add microdata properties to any HTML markup.  An example of microdata 
+vocabulary can be found: http://www.data-vocabulary.org/Person/
+
+To add hidden values, use the <meta> tag.  This should only be used as a last
+resort (eg. geolocation data):
+  <meta itemprop="latitude" content="37.4149" />
+
+Microdata is useful to tell search engines extra information on the page.
+Google picks up certain vocabularies and displays additional information in
+its search results: such as annotated information about a person, organization,
+or a review.
+
+Google supports microdata via the {{ Rich Snippets }} program.  You can even use
+the tool http://www.google.com/webmasters/tools/richsnippets to test what
+Google will see on your own pages.
 
