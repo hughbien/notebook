@@ -1,0 +1,104 @@
+HTTP, The Definitive Guide
+================================================================================
+
+# Overview
+The Hypertext Transfer Protocol is used to communicate over the Web.  HTTP, The
+Definitive Guide is an informative guide on this protocol.  The authors are very
+knowledgeable about HTTP and have covered almost the entire specification (along
+with additional HTTP-related information) in an easy to read format.
+
+# HTTP: The Web's Foundation
+## Overview of HTTP
+Web browsers, servers, and other web apps all talk to each other via the
+Hypertext Transfer Protocol.
+
+HTTP uses reliable data-transmission protocols that guarantee that your data
+will not be damaged or scrambled in transit.
+
+{{ Servers }} store data, {{ clients }} send HTTP requests to servers.  Servers
+return the requested data in HTTP responses.
+
+Web servers host are said to host {{ resources }}, which can range from text
+files, HTML files, images, movies, or even dynamic content.
+
+HTTP tags each object being transported through the Web with a data format
+called a {{ MIME type - Multipurpose Internet Mail Extensions }}.  It was
+originally designed for emails, but it worked so well that HTTP adopted it.
+When a client gets back an object with the MIME type, it will usually know
+how to deal with it.
+
+Example MIME types:
+- text/html
+- text/plain
+- image/jpeg
+- image/gif
+- video/quicktime
+- application/vnd.ms-powerpoint
+
+A {{ URL - uniform resource locator }} describes a resource's location.  It
+tells precisely where a resource is located and how to access it.  Most URLs
+have 3 main parts:
+- the scheme (http://)
+- server's Internet address (www.joes-hardware.com or 192.168.1.1)
+- path to specific resource on server (/specials/saw-blade.gif)
+
+A URL is a kind of {{ URI - uniform resource identifier }}, which act like
+the postal addresses of the Internet.  Another kind of URI is the
+{{ URN - uniform resource name }}.  A URN is a unique name for a particular
+piece of content, independent of where the resource currently resides.
+For example:
+  urn:ietf:rfc:2141
+
+URNs are still experimental and not yet widely adopted.
+
+An {{ HTTP transaction }} consists of a {{ request }} command and a 
+{{ response }} result.  The communication happens with formatted blocks of data
+called {{ HTTP messages }}.
+
+There are different types of requests called {{ HTTP methods }}, which tells the
+server what action to perform.  For example (incomplete):
+- GET, send named resource form server to client
+- PUT, store data from client into a named server resource
+- DELETE, delete named resource from a server
+- POST, send client data into a server gateway application
+- HEAD, send just the HTTP headers from the response for the named resource
+
+Every HTTP response comes back with a three-digit numeric {{ status code }} that
+tells the client if the request succeeded or if other actions are required.
+For example (incomplete):
+- 200; OK. Document returned correctly
+- 302; Redirect. Go someplace else to get the resource.
+- 404; Not Found. Can't find this resource.
+
+HTTP also sends a textual "reason phrase" with each numeric status code.  It's
+included only for descriptive purposes.
+
+## URLs and Resources
+## HTTP Messages
+## Connection Management
+
+# HTTP Architecture
+## Web Servers
+## Proxies
+## Caching
+## Integration Points: Gateways, Tunnels, and Relays
+## Web Robots
+## HTTP-NG
+
+# Identification, Authorization, Security
+## Client Identification and Cookies
+## Basic Authentication
+## Digest Authentication
+## Secure HTTP
+
+# Entities, Encodings, and Internationalization
+## Entities and Encodings
+## Internationalization
+## Content Negotiation and Transcoding
+
+# Content Publishing and Distribution
+## Web Hosting
+## Publishing Systems
+## Redirection and Load Balancing
+## Logging and Usage Tracking
+
