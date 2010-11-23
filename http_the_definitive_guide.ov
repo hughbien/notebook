@@ -1,4 +1,4 @@
-HTTP, The Definitive Guide
+HTTP, The Definitive Guide @link(http://oreilly.com/catalog/9781565925090)
 ================================================================================
 
 # Overview
@@ -73,7 +73,87 @@ For example (incomplete):
 HTTP also sends a textual "reason phrase" with each numeric status code.  It's
 included only for descriptive purposes.
 
+HTTP messages are plain text, line-oriented messages.  Example request/response:
+
++---------------------------------+--------------------------+
+| Request                         | Response                 |
++---------------------------------+--------------------------+
+| GET /test/hi-there.txt HTTP/1.0 | HTTP/1.0 200 OK          |
+| Accept: text/*                  | Content-Type: text/plain |
+| Accept-Language: en,fr          | Content-length: 19       |
+|                                 |                          |
+|                                 | Hi!  I'm a message!      |
++---------------------------------+--------------------------+
+
+Messages consist of 3 parts:
+- {{ start line }}, first line of message indicating what to do 
+  or what happened.
+- {{ header fields }}, name/value pairs per line.
+- {{ body }}, optionally following a blank line after the headers.
+  Unlike the other parts, the body can contain arbitrary binary data.
+
+Messages use {{ Transmission Control Protocol (TCP) }} connections to
+move from place to place.  HTTP is an application layer protocol, it
+leaves the details of networking to {{ TCP/IP }}.  TCP provides:
+- error free data transportation
+- in order delivery
+- unsegmented data stream
+
+HTTP is layered over TCP which is in turn layered of IP:
+1. HTTP: application layer
+2. TCP: transport layer
+3. IP (Internet Protocol): network layer
+4. Network-specific link interface: data link layer
+5. Physical network hardware: physical layer
+
+Before an HTTP client sends a message to the server it establishes a
+TCP/IP connection using an IP address and port number.  Browsers usually
+retrieve the IP address using a {{ hostname }}, example: www.netscape.com.
+Hostnames are converted to IP addresses through the {{ Domain Name Service }}
+or DNS.
+
+The steps of a typical transaction are:
+1. Browser extracts server's hostname from URL
+2. Browser converts server's hostname into server's IP address
+3. Browser extracts port number from URL (or defaults to 80)
+4. Browser establishes TCP connection with web server
+5. Browser sends an HTTP request to server
+6. Server sends HTTP response back to browser
+7. Connection is closed and browser displays the document
+
+Some other architectural components of the web include:
+- proxies: HTTP intermediaries that sit between clients/servers
+- caches: HTTP storehouses that keep copies of pages close to clients
+- gateways: special servers that connect to other applications
+- tunnels: special proxies that blindly forward HTTP communications
+- agents: semi-intelligence web clients that make automated requests
+
+A {{ proxy }} sits between the client and server, receives all the client's HTTP
+requests and relays it to the server (maybe modifying them).  They're often used
+for security.  They can filter requests/responses; for example to detect viruses
+or filter adult content.
+
+{{ Caches }} are a special type of proxy server that keeps copies of popular
+documents for performance reasons.  A client can download a document much more
+quickly from a nearby cache than from a distant web server.
+
+{{ Gateways }} are servers that act as intermediaries for other servers.  They
+often convert HTTP traffic to another protocol.
+
+{{ Tunnels }} are HTTP applications that blindly relay raw data between two
+connections.  HTTP tunnels are often used to transport non-HTTP data over one
+or more HTTP connections.  One popular example is to carry SSL encrypted traffic
+through an HTTP connection.
+
+{{ Agents }} are client programs that make HTTP requests on the user's behalf.
+For example: web browsers are a kind of HTTP agent.
+
 ## URLs and Resources
+### Syntax and URL components
+### Shortcuts, relative URLs and expandomatic URLs
+### Encoding and character rules
+### Common schemes
+### Future and URNs
 ## HTTP Messages
 ## Connection Management
 
