@@ -9,6 +9,7 @@ with additional HTTP-related information) in an easy to read format.
 
 # HTTP: The Web's Foundation
 ## Overview of HTTP
+### Servers and Clients
 Web browsers, servers, and other web apps all talk to each other via the
 Hypertext Transfer Protocol.
 
@@ -35,6 +36,7 @@ Example MIME types:
 - video/quicktime
 - application/vnd.ms-powerpoint
 
+### URIs and URLs
 A {{ URL - uniform resource locator }} describes a resource's location.  It
 tells precisely where a resource is located and how to access it.  Most URLs
 have 3 main parts:
@@ -51,6 +53,7 @@ For example:
 
 URNs are still experimental and not yet widely adopted.
 
+### HTTP Messages
 An {{ HTTP transaction }} consists of a {{ request }} command and a 
 {{ response }} result.  The communication happens with formatted blocks of data
 called {{ HTTP messages }}.
@@ -99,6 +102,7 @@ leaves the details of networking to {{ TCP/IP }}.  TCP provides:
 - in order delivery
 - unsegmented data stream
 
+### Behind The Scenes
 HTTP is layered over TCP which is in turn layered of IP:
 1. HTTP: application layer
 2. TCP: transport layer
@@ -121,6 +125,7 @@ The steps of a typical transaction are:
 6. Server sends HTTP response back to browser
 7. Connection is closed and browser displays the document
 
+### Other Components
 Some other architectural components of the web include:
 - proxies: HTTP intermediaries that sit between clients/servers
 - caches: HTTP storehouses that keep copies of pages close to clients
@@ -150,9 +155,97 @@ For example: web browsers are a kind of HTTP agent.
 
 ## URLs and Resources
 ### Syntax and URL components
-### Shortcuts, relative URLs and expandomatic URLs
-### Encoding and character rules
-### Common schemes
+Breaking down the URL http://www.joes-hardware.com/seasonal/index-fall.html:
+- The first part (http) is the URL {{ scheme }} that tells the web client how
+  to access the resource.  In this case, it says use the HTTP protocol.
+- The second part (www.joes-hardware.com) is the {{ host }} and tells the
+  client where the resource is hosted.
+- The third part (/seasonal/index-fall.html) is the {{ resource path }} and
+  tells the client what particular local resource on the server is requested.
+
+URLs can point to any resource on the Internet, from an email account:
+  mailto:president@whitehouse.gov
+to files available through FTP:
+  ftp://ftp.lots-o-books.com/pub/complete-price-list.xls
+
+Most URLs adhere to this nine-part general format:
+  <scheme>://<user>:<password>@<host>:<port>/<path>;<params>?<query>#<frag>
+
++-----------+--------------------------------------------+-----------------+
+| Component | Description                                | Default         |
++-----------+--------------------------------------------+-----------------+
+| scheme    | which protocol to use                      | none            |
++-----------+--------------------------------------------+-----------------+
+| user      | username some schemes require for auth     | anonymous       |
++-----------+--------------------------------------------+-----------------+
+| password  | password for auth                          | <email address> |
++-----------+--------------------------------------------+-----------------+
+| host      | hostname or dotted IP address of server    | none            |
++-----------+--------------------------------------------+-----------------+
+| port      | port number server is listening on         | scheme-specific |
++-----------+--------------------------------------------+-----------------+
+| path      | local name for resource on server          | none            |
++-----------+--------------------------------------------+-----------------+
+| params    | name/value pairs                           | none            |
++-----------+--------------------------------------------+-----------------+
+| query     | also used to pass params                   | none            |
++-----------+--------------------------------------------+-----------------+
+| frag      | name for piece of the resource, not passed | none            |
+|           | to the server (only used by client)        |                 |
++-----------+--------------------------------------------+-----------------+
+
+Some servers require a username/password before you can access data.  If none
+is given a default value of 'anonymous' is given for the username.  Browsers
+will also send a default password (IE sends "IEUser" and Netscape Navigator
+sends the password "mozilla").
+
+URLs also have a {{ params }} component which is a list of name/value pairs.
+They provide applications with any additional info that is needed to access
+the resource.  For example, the FTP protocol allows you to define the transfer
+mode to be text or binary:
+  ftp://prep.ai.mit.edu/pub/gnu;type=d
+
+The path component may be divided into {{ path segments }} separated by the "/"
+character.  Each segment can have its own params component:
+  http://www.joes-hardware.com/hammers;sale=false/index.html;graphics=true
+
+Everything to the right of a '?' character is the {{ query }} component:
+  http://www.joes-hardware.com/inventory-check.cgi?item=12731&color=red
+
+The query string has no required format except that some characters are illegal.
+By convention, most gateways expect the query string to be formatted as 
+name/value pairs separated by the "&" character.
+
+{{ Fragments }} allow clients to divide the resources into sections, for example
+a chapter in a large HTML document.  Clients don't pass fragments to servers,
+after your browser gets the entire resource from the server it will use the
+fragment to display the part of the resource you're interested in:
+  http://www.joes-hardware.com/tools.html#drills
+
+### Shortcuts and Relative URLs
+URLs come in two flavors: {{ absolute }} and {{ relative }}.  A relative URL
+is interpreted relative to another URL, called its {{ base }}.  For example,
+if your resource location is:
+  http://www.joes-hardware.com/tools.html
+And inside the document there was an anchor:
+  <a href="./hammers.html">hammers</a>
+It will be interpreted relative to the base "/tools.html" on joes-hardware.com:
+  http://www.joes-hardware.com/hammers.html
+
+Relative URLs may also infer the scheme:
+  ://www.joes-hardware.com/hammers.html
+
+### Encoding and Character Rules
+URLs are permitted to contain only characters from a relatively small, 
+universally safe alphabet in order to be portable and readable.  There are
+also escape mechanisms so that URLs may be complete.
+
+An encoding scheme was devised to represent characters in a URL that are not
+safe.  It represents unsafe characters by an "escape" notion, consisting of a
+percent sign (%) followed by two hexadecimal digits that represent the ASCII
+code of the character.
+
+### Common Schemes
 ### Future and URNs
 ## HTTP Messages
 ## Connection Management
