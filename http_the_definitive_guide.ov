@@ -245,9 +245,64 @@ safe.  It represents unsafe characters by an "escape" notion, consisting of a
 percent sign (%) followed by two hexadecimal digits that represent the ASCII
 code of the character.
 
+Some characters have special meaning inside of a URL, are not defined by the
+US-ASCII printable set, or are discouraged due to confusing some Internet
+gateways and protocols:
+- % escape token for encoded characters
+- / delimiting splitting up path segments in path component
+- ' reserved in the path component 
+- " reserved in the path component
+- # reserved for fragment delimiter
+- ? reserved as query string delimiter
+- ; reserved as params delimiter
+- : reserved to delimit scheme, user/password, and host/port
+- $,+ reserved characters
+- @&= special meaning in context of some schemes
+- {}|\^~[]‘  unsafe handling by various agents
+- <>" should be encoding because they often have special meaning
+- 0x00 to 0x1F, 0x7F restricted non-printable characters
+- > 0x7F don't fall within 7-bit range of US ASCII set
+
+Once all unsafe characters have been encoded, the URL is in a
+{{ canonical form }} that can be shared.
+
 ### Common Schemes
+Some popular schemes:
+- http, conforms to general URL format
+- https, twin to http scheme but uses SSL to provide encryption.
+  Its default port is 443.
+- mailto, refers to email addresses.  It's got a different format because
+  it behaves differently (it does not refer to objects that can be accessed
+  directly).  Documented in internet RFC822.
+- ftp, File Transfer Protocol which follows the general format:
+  ftp://<user>:<password>@<host>:<port>/<path>;<params>
+- rtsp, rtspu are identifiers for audio/video media resources via the
+  Real Time Streaming Protocol.
+- file, denotes files directly accessible on given host machine by local disk
+- telnet, access interactive services with the general format:
+  telnet://<user>:<password>@<host>:<port>/
+
 ### Future and URNs
+The {{ Internet Engineering Task Force (IETF) }} have been working on a new
+standard, {{ uniform resource names (URNs) }}.  Whereas URLs represent a
+location, URNs represent a name.  So even if a given resource moves, if you
+have its name you should still be able to find it (similar to domain names vs
+IP addresses).
+
+URNs have been around for a while but have not been heavily adopted yet.  URLs
+are currently the standard and will be for a while.
+
 ## HTTP Messages
+### How Messages Flow
+### Start Line
+### Headers
+### Entity Body
+### Request
+### Response
+### HTTP Methods
+### Status Codes
+### HTTP Headers
+
 ## Connection Management
 
 # HTTP Architecture
