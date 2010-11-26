@@ -294,14 +294,346 @@ are currently the standard and will be for a while.
 
 ## HTTP Messages
 ### How Messages Flow
+Messages are blocks of data send between HTTP applications.  Their direction is
+described to be {{ inbound }}, {{ outbound }}, {{ upstream }}, or 
+{{ downstream }}.
+
+{{ Transactional }} direction are said to be inbound and outbound.  Messages
+travel inbound to the origin server and when their work is done, they travel
+outbound back to the user agent.
+
+All messages flow downstream, regardless of whether they are requests or
+responses.  The sender of the message is upstream of the receiver.
+
+All HTTP messages are either {{ request }} or {{ response }} messages.  Requests
+carry an action to a web server.  Response carries results back to a client.
+
+The format of a request message:
+  <method> <request-URL> <version>
+  <headers>
+
+  <entity-body>
+
+And the format of a response message:
+  <version> <status> <reason-phrase>
+  <headers>
+
+  <entity-body>
+
 ### Start Line
+All messages begin with a start line which says what to do or what happened.
+The start line for a request is the <method> <request-URL> and <version>.
+Response start lines contain the <version> <status> and <reason-phrase>.
+
+Version number appear in both request/response message start lines.  They
+are in the format HTTP/x.y where x is the major version and y is the minor
+version.  They're provided to help applications speak HTTP to each other.
+
 ### Headers
+HTTP header fields add additional information to request/response messages,
+they're name/value pairs.  For example:
+  Content-length: 19
+
+The spec defines several header fields, applications are also free to invent
+their own headers.  They're classified into:
+- General, can appear in both request/response
+- Request, provides additional info about the request
+- Response, provides additional info about the response
+- Entity, describes body size, contents, or the resource itself
+- Extension, new headers not defined by spec
+
+The syntax is simple: a name, followed by a colon, followed by optional
+whitespace, followed by the field value, followed by CRLF (Carriage Return
+Line Feed).
+
+Long header lines can be made readable by breaking them into multiple lines,
+preceding each extra line with at least one space or tab character:
+  HTTP/1.0 200 OK
+  Content-Type: image/gif
+  Server: Test Server
+    Version 1.0
+  Content-Length: 8572
+
+For a complete list of headers defined in the spec, see the HTTP/1.1 
+specification or Appendix C of this book.  Here's a general overview:
+* General Headers
+ - Connection: allows clients/server to specify options about connection
+ - Date: timestamp for message
+ - MIME-Version: MIME version sender is using
+ - Trailer: set of headers in trailer of message encoded
+ - Transfer-Encoding: what encoding was performed on message for transport
+ - Upgrade: new version or protocol that sender would like to upgrade to
+ - Via: shows what intermediaries message has gone through
+* General Caching Headers
+ - Cache-Control: pass cache directions with message
+ - Pragma: another way to pass directions not specific to caching
+* Request Headers
+ - Client-IP: IP address of client
+ - From: email address of client's user
+ - Host: hostname and port being sent to
+ - Referrer: URL of document that contains current request URI
+ - UA-Color: capabilities of client machine's display
+ - UA-CPU: type/manufacturer of client's CPU
+ - UA-Disp: info about client's display capabilities
+ - UA-OS: name/version of client's OS
+ - UA-Pixels: pixel information about client's display
+ - User-Agent: tells server name of application making request
+* Accept Request Headers
+ - Accept: what media types are okay to send
+ - Accept-Charset: what charsets are okay
+ - Accept-Encoding: what encodings are okay
+ - Accept-Language: what languages are okay
+ - TE: what extension transfer codings are okay
+* Conditional Request Headers
+ - Expect: list of server behaviors that client requires
+ - If-Match: only get if entity tag matches
+ - If-Modified-Since: only get if resource has been modified since
+ - If-None-Match: get if entity tags supplied do not match
+ - If-Range: get conditional range of document
+ - If-Unmodified-Since: get if not modified since date
+ - Range: request a specific range of resource
+* Security Request Headers
+ - Authorization: client supplied data to authenticate itself
+ - Cookie: used to pass a token to server
+ - Cookie2: note version of cookies a requestor supports
+* Proxy Request Headers
+ - Max-Forwards: max # of times a request should be forwarded
+ - Proxy-Authorization: auth data for proxy
+ - Proxy-Connection: options for proxy connection
+* Response Headers
+ - Age: how old response is
+ - Public: list of request methods server supports
+ - Retry-After: timestamp to try again if resource is unavailable
+ - Server: name/version of server's application software
+ - Title: for HTML documents, title of document
+ - Warning: more detailed warning message than reason phrase
+* Negotiation Response Headers
+ - Accept-Ranges: type of ranges server will accept
+ - Vary: list of headers server looks at
+* Security Response Headers
+ - Proxy-Authenticate: list of challenges for client from proxy
+ - Set-Cookie: sets cookie on client side
+ - Set-Cookie2: similar to Set-Cookie
+ - WWW-Authenticate: list of challenges for the client from server
+* Entity Headers
+ - Allow: lists of request methods allowed on this resource
+ - Location: tells client where entity is really located (redirect)
+* Content Headers
+ - Content-Base: base URL for resolving relative URLs within body
+ - Content-Encoding: encoding performed on body
+ - Content-Language: natural language best used
+ - Content-Length: length or size of body
+ - Content-Location: where resource is actually located
+ - Content-MD5: MD5 checksum of body
+ - Content-Range: range of bytes entity represents of entire resource
+ - Content-Type: type of object that this body is
+* Entity Caching Headers
+ - ETag: entity tag associated with this resource
+ - Expires: timestamp for when this resource will no longer be valid
+ - Last-Modified: timestamp when this entity changed
+
 ### Entity Body
-### Request
-### Response
+Entity bodies are what HTTP was designed to transport, they can carry many kinds
+of digital data: images, video, plain text, HTML, software apps, etc...
+
 ### HTTP Methods
+Methods help tell the server what to do in an HTTP request:
++---------+---------------------------------------------------+----------------+
+| Method  | Description                                       | Body Required? |
++---------+---------------------------------------------------+----------------+
+| GET     | Gets a document from the server                   | No             |
++---------+---------------------------------------------------+----------------+
+| HEAD    | Gets just the headers for a document              | No             |
++---------+---------------------------------------------------+----------------+
+| POST    | Send data to server for processing                | Yes            |
++---------+---------------------------------------------------+----------------+
+| PUT     | Store the body of the request on the server       | Yes            |
++---------+---------------------------------------------------+----------------+
+| TRACE   | Trace the message through proxy servers to server | No             |
++---------+---------------------------------------------------+----------------+
+| OPTIONS | Determine what methods can operate on a server    | No             |
++---------+---------------------------------------------------+----------------+
+| DELETE  | Removes a document from the server                | No             |
++---------+---------------------------------------------------+----------------+
+
+Not all servers implement all seven methods and HTTP was designed to be
+extensible so servers may implement their own request methods called
+{{ extension methods }}.
+
+To be compliant with HTTP v1.1, a server only needs to implement the GET and
+HEAD methods for its resources.
+
+HTTP defines a set of {{ safe }} methods (ie. GET or HEAD) meaning no action
+should occur as a result of an HTTP request that uses GET or HEAD.  They're
+meant to distinguish unsafe methods from end-users, ie. as a result of a request
+your credit card may be charged.
+
+HTTP was designed to be extensible and some additional methods are in common use
+that are not declared in the spec, for example the WebDAV extension that
+supports publishing content to servers:
+- LOCK allows users to lock a resource
+- MKCOL allows user to create a resource
+- COPY facilitates copying resources
+- MOVE moves a resource on a server
+
+It's best to be tolerant of extension methods, since HTTP applications could run
+into extension methods that it does not understand.  Proxies should forward them
+and end servers should response with a 501 Not Implemented status code.  "Be
+conservative in what you send, be liberal in what you accept."
+
 ### Status Codes
-### HTTP Headers
+Status codes tell the client what happened in HTTP responses:
++---------------+---------------+---------------+
+| Overall Range | Defined Range | Category      |
++---------------+---------------+---------------+
+| 100-199       | 100-101       | Informational |
++---------------+---------------+---------------+
+| 200-299       | 200-206       | Successful    |
++---------------+---------------+---------------+
+| 300-399       | 300-305       | Redirection   |
++---------------+---------------+---------------+
+| 400-499       | 400-415       | Client error  |
++---------------+---------------+---------------+
+| 500-599       | 500-505       | Server error  |
++---------------+---------------+---------------+
+
+Current versions of HTTP define only a few codes for each category.  The
+specification will add more status codes in the future, but developers
+may decide to extend the current protocol with their own status codes.  In
+that case, you should treat it as a general member of the class whose range
+it falls into.
+
+{{ Reason phrases }} also come along with status codes.  Whereas status
+codes are for machines, reason phrases are a textual explanation of the
+status that's meant for humans.  The spec does not provide any hard rules
+for what reason phrases should look like.
+
+100-199 are informational status codes:
++------+---------------------+-------------------------------------------------+
+| Code | Reason              | Meaning                                         |
++------+---------------------+-------------------------------------------------+
+| 100  | Continue            | Initial part of request received, client should |
+|      |                     | continue sending requests                       |
++------+---------------------+-------------------------------------------------+
+| 101  | Switching Protocols | Server is changing protocols to one             |
+|      |                     | in "Upgrade" header                             |
++------+---------------------+-------------------------------------------------+
+
+For clients to use the 100 status code, it must send a request with an Expect
+header with the value 100-continue.
+
+200-299 are successful status codes:
++------+-----------------+----------------------------------------------------+
+| Code | Reason          | Meaning                                            |
++------+-----------------+----------------------------------------------------+
+| 200  | OK              | Request is OK, body contains requested resource    |
++------+-----------------+----------------------------------------------------+
+| 201  | Created         | For unsafe requests, ie. PUT has created resource  |
+|      |                 | with Location header containing specific reference |
++------+-----------------+----------------------------------------------------+
+| 202  | Accepted        | Request accepted, but no action performed yet      |
++------+-----------------+----------------------------------------------------+
+| 203  | Non-Auth        | Headers did not come from origin server            |
+|      | Information     |                                                    |
++------+-----------------+----------------------------------------------------+
+| 204  | No Content      | Response has start line and status, but no body.   |
+|      |                 | Eg. update browsers without redirecting/refreshing |
++------+-----------------+----------------------------------------------------+
+| 205  | Reset Content   | Eg. clear any HTML form elements on current page   |
++------+-----------------+----------------------------------------------------+
+| 206  | Partial Content | Partial range successful, expecting more.          |
++------+-----------------+----------------------------------------------------+
+
+300-399 are redirection status codes.  They tie heavily with the Location header
+which should tell clients where to go to next:
++------+--------------------+--------------------------------------------------+
+| Code | Reason             | Meaning                                          |
++------+--------------------+--------------------------------------------------+
+| 300  | Multiple Choices   | Multiple redirect choices, preferred in          |
+|      |                    | Location header                                  |
++------+--------------------+--------------------------------------------------+
+| 301  | Moved Permanently  | Resource moved, use new URL                      |
++------+--------------------+--------------------------------------------------+
+| 302  | Found              | Like 301, but is temporarily moved and client    |
+|      |                    | should continue using the old URL                |
++------+--------------------+--------------------------------------------------+
+| 303  | See Other          | Redirect response for POST for created resource  |
++------+--------------------+--------------------------------------------------+
+| 304  | Not Modified       | If client sends conditional headers, such as the |
+|      |                    | If-Modified-Since, server responds without body  |
++------+--------------------+--------------------------------------------------+
+| 305  | Use Proxy          | Resource must be accessed through proxy          |
++------+--------------------+--------------------------------------------------+
+| 307  | Temporary Redirect | Like 302, used for backwards compatibility       |
++------+--------------------+--------------------------------------------------+
+
+400-499 are client error status codes:
++------+--------------------+-------------------------------------------------+
+| Code | Reason             | Meaning                                         |
++------+--------------------+-------------------------------------------------+
+| 400  | Bad Request        | Client has send malformed request               |
++------+--------------------+-------------------------------------------------+
+| 401  | Unauthorized       | Client requires authorization                   |
++------+--------------------+-------------------------------------------------+
+| 402  | Payment Required   | Not used                                        |
++------+--------------------+-------------------------------------------------+
+| 403  | Forbidden          | Request refused by server                       |
++------+--------------------+-------------------------------------------------+
+| 404  | Not Found          | Server cannot find requested URL                |
++------+--------------------+-------------------------------------------------+
+| 405  | Method Not         | Request made with unsupported method. Should    |
+|      | Allowed            | include Allow header with supported methods     |
++------+--------------------+-------------------------------------------------+
+| 406  | Not Acceptable     | Client's "Accept" header has no available       |
+|      |                    | option for server                               |
++------+--------------------+-------------------------------------------------+
+| 407  | Proxy Auth Req.    | Proxy requires authentication                   |
++------+--------------------+-------------------------------------------------+
+| 408  | Request Timeout    | Client taking too long to send request          |
++------+--------------------+-------------------------------------------------+
+| 409  | Conflict           | Server is afraid conflict of resource may arise |
++------+--------------------+-------------------------------------------------+
+| 410  | Gone               | Similar to 404 but permanent                    |
++------+--------------------+-------------------------------------------------+
+| 411  | Length Required    | Client needs to send Content-Length header      |
++------+--------------------+-------------------------------------------------+
+| 412  | Precondition       | Client included an Expect header and conditions |
+|      | Failed             | cannot be met by server                         |
++------+--------------------+-------------------------------------------------+
+| 413  | Request Body       | Client's entity body larger than what server    |
+|      | Too Large          | can or wants to process                         |
++------+--------------------+-------------------------------------------------+
+| 414  | Request URI        | Same as 413, but with request URI               |
+|      | Too Long           |                                                 |
++------+--------------------+-------------------------------------------------+
+| 415  | Unsupported Media  | Client sends an entity of content type that the |
+|      | Type               | server does not support                         |
++------+--------------------+-------------------------------------------------+
+| 416  | Requested Range    | Requested range is invalid                      |
+|      | Not Satisfiable    |                                                 |
++------+--------------------+-------------------------------------------------+
+| 417  | Expectation Failed | Request's Expect header cannot be satisfied     |
++------+--------------------+-------------------------------------------------+
+
+500-599 are server error status codes.  This occurs if the client sends a valid
+request, but the server itself has an error:
++------+---------------------+-------------------------------------------------+
+| Code | Reason              | Meaning                                         |
++------+---------------------+-------------------------------------------------+
+| 500  | Internal Server     | Server encounters error                         |
+|      | Error               |                                                 |
++------+---------------------+-------------------------------------------------+
+| 501  | Not Implemented     | Client makes request beyond server's capability |
++------+---------------------+-------------------------------------------------+
+| 502  | Bad Gateway         | Server acting as proxy/gateway encounters error |
++------+---------------------+-------------------------------------------------+
+| 503  | Service Unavailable | Server temporarily cannot service request       |
++------+---------------------+-------------------------------------------------+
+| 504  | Gateway Timeout     | Similar to 408, except response is from gateway |
++------+---------------------+-------------------------------------------------+
+| 505  | HTTP Version        | Server does not support client's HTTP version   |
+|      | Not Supported       |                                                 |
++------+---------------------+-------------------------------------------------+
 
 ## Connection Management
 
