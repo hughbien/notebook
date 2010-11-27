@@ -636,6 +636,162 @@ request, but the server itself has an error:
 +------+---------------------+-------------------------------------------------+
 
 ## Connection Management
+### TCP Connections
+TCP gives HTTP a {{ reliable bit pipe }}.  Bytes stuffed in one side will come
+out the other side correctly and in the right order.  TCP sends data in little
+chunks called {{ IP packets}} or IP datagrams.  HTTP is a top layer over TCP,
+HTTPS inserts a TSL/SSL layer over TCP.
+
+HTTP messages are streamed through an open TCP connection which is chopped up
+into {{ segments }} and transported across the internet in IP packets.  Each TCP
+segment contains an IP packet header, TCP segment header, and a chunk of data.
+
+The IP header contains the source/destination IP addresses, the size, and other
+flags.  The TCP segment header contains TCP port numbers, TCP control flags, and
+numeric values used for data ordering/integrity checking.
+
+Computers may have multiple TCP connections open concurrently, TCP keeps these
+connections straight through {{ port numbers }}.  Four values of a TCP 
+connection define it:
+  <source-IP-address, source-port, destination-IP-address, destination-port>
+
+### Delays, Bottlenecks, and Clogs
+Here's an example of an HTTP transaction:
+1. DNS lookup
+2. Connect
+3. Request
+4. Process
+5. Response
+6. Close
+
+Unless the client or server is overloaded or executing complex resources, most
+HTTP delays are caused by TCP network delays.
+
+Some TCP-related delays affecting HTTP programmers are:
+- TCP connection setup handshake
+- TCP slow-start congestion control
+- Nagle's algorithm for data aggregation
+- TCP's delayed acknowledgement algorithm for piggybacked acknowledgements
+- TIME_WAIT delays and port exhaustion
+
+The initial handshake is broken up into three steps:
+1. client requests new TCP connection, sends a small TCP packet (40-60 bytes)
+   with the "SYN" flag set which means it's a connection request.
+2. server accepts, sends back TCP packet with "SYN" and "ACK" flags set
+   indicating connection request is accepted.
+3. client sends acknowledgement back to server (usually TCP allows client to
+   send data along also, ie. the HTTP request data).  This time it's just the
+   "ACK" flag that's set.
+
+The {{ SYN/SYN+ACK handshake }} creates a measurable delay when transactions do 
+not exchange much data and the handshake becomes the main overhead.  HTTP allows
+reuse of existing connections to eliminate the impact of the TCP setup delay.
+
+Internet routers are free to destroy packets if overloaded so TCP implements
+its own acknowledgement scheme to guarantee data delivery.  Each packet gets
+a sequence number and data-integrity checksum.  The receiver of each segment
+returns an acknowledgement back to the sender.  If the sender doesn't receive
+the acknowledgement, it will conclude the packet was destroyed/corrupted and
+resend the data.  Acknowledgements are small an may "piggyback" on outgoing
+data packets heading in the same direction.  
+
+To increase the chances of piggybacking, many TCP stacks implement a 
+{{ delayed acknowledgement }} where they're stored in a buffer for a certain
+time window (ie. 100-200 milliseconds) looking for something to piggyback on.
+If it cannot find one, an acknowledgement packet will be sent on its own.
+
+Unfortunately for the request/reply behavior of HTTP, it's hard to find other
+packets headed in the reverse direction.  It's usually best to turn the
+delayed acknowledgement feature off.
+
+TCP connections "tune" themselves over time, initially limiting the max speed
+and increasing it to prevent sudden overloading/congestion of the Internet.
+This is called the {{ TCP slow start }}.  Because tuned connections are faster,
+HTTP allows reuse of existing connections.
+
+Since each TCP packet carries flags/headers (at least 40 bytes), network
+performance can be degraded when sending large numbers of packets containing
+small amounts of data as opposed to a small number of packets with large amounts
+of data.  {{ Nagle's algorithm }} attempts to bundle up large amount of TCP
+data before sending a packet.  It will only allow small packets if all others
+have been acknowledged.  This causes a problem with HTTP, since small messages
+may not fill a packet and waiting for an acknowledgement may take a while when
+considering delayed acknowledgements.  HTTP applications often disable Nagle's
+algorithm by setting the {{ TCP_NODELAY }} parameter on their stacks, but you
+must ensure that you won't write large chunks of data that will create a small
+flurry of small packets.
+
+TCP performance delays can add up if connections are managed naively, ie. in
+serial transactions.  If a web page has 3 embedded images and each transaction
+requires a new connection, that's 4 connection delays.
+
+### Optimizations like Parallel, Keep-Alive, and Pipelined Connections
+The {{ Connection }} header carries 3 different types of tokens:
+- HTTP header field names relevant for only this connection
+- Arbitrary token values, describing options for this connection
+- The value "close", indicating the connection will be closed when done
+
+HTTP header field names listed in the Connection header must not be forwarded,
+this is known as {{ protecting the header }}.
+
+Several techniques are available to improve HTTP connections:
+- Parallel connections, concurrent requests across multiple TCP connections
+- Persistent connections, reuse TCP connections to eliminate delays
+- Pipelined connections, concurrent requests across shared TCP connection
+- Multiplexed connections, interleaving chunks of requests/responses
+
+{{ Parallel connections }} allow a browser to perform multiple transactions in
+parallel, for example loading 3 embedded images at the same time.  If any of
+these individual requests aren't taking up the entire bandwidth limit and
+the delays are overlapped, using parallel connections will be faster.  They
+are not always faster though, ie. if the client's bandwidth is scarce.  In
+practice browsers do use parallel connections but limit it (often to 4).
+
+An application that initiates an HTTP request to a server will likely have more
+requests to the same server in the near future, called {{ site locality }}.
+HTTP allows devices to keep TCP connections open after transactions complete,
+called {{ persistent connections }}.  Using persistent connections will avoid
+the slow setup cost and the slow-start phase.
+
+There are two types of persistent connections: HTTP/1.0+ "keep-alive" and the
+modern HTTP/1.1 "persistent" connections.  
+
+Keep-alive handshaking is deprecated but still commonly used.  Clients will send
+the header "Connection: Keep-Alive" and servers will respond with the same
+header if they accept.  It comes along with a Keep-Alive header, which has an
+estimation of how long the connection is alive for (timeout) and an estimate of
+how many more transactions the server is likely to keep the connection alive for
+Example:
+  Connection: Keep-Alive
+  Keep-Alive: max=5, timeout=120
+
+HTTP/1.1 phased out support for keep-alive connections, replacing them with
+persistent connections.  HTTP/1.1 assumes all connections are persistent unless
+otherwise indicated.  HTTP/1.1 applications have to add a "Connection: close"
+header to indicate a connection should close after transaction is complete.
+
+For both cases, servers are free to close any persistent connection they deem
+idle or if they become overloaded.  Clients should be prepared to retry requests
+that they think failed, unless it may have repeated side effects.  All requests
+should have a correct Content-Length header so servers can distinguish between
+requests.
+
+HTTP/1.1 permits optional {{ request pipelining }} over persistent connections,
+an optimization over keep-alive connections.  Multiple requests can be enqueued
+before the response arrives.
+
+### Do's and Don'ts for Managing Connections
+Any HTTP client, server, or proxy can close a connection at any time.  Each HTTP
+response should have an accurate Content-Length header.  When a client/proxy
+receives a response that terminates due to connection closing, they can match
+the Content-Length to determine the correctness of length.  
+
+HTTP applications have to be ready to handle unexpected closes.  Clients can
+reopen connection and retry requests, unless the transaction has side effects.
+A transaction is {{ idempotent }} if it yields the same results regardless of
+whether it is executed once or many times.  Implementors can assume these
+methods are idempotent: GET, HEAD, PUT, DELETE, TRACE, and OPTIONS.  Clients 
+should not pipeline non-idempotent requests (such as POSTs).
 
 # HTTP Architecture
 ## Web Servers
