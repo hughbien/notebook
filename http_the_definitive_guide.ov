@@ -795,7 +795,140 @@ should not pipeline non-idempotent requests (such as POSTs).
 
 # HTTP Architecture
 ## Web Servers
+Web servers come in all flavors, shapes, and sizes but they all receive HTTP
+requests for resources and serve content back to the clients.  They perform
+several common tasks:
+1. setup connection
+2. receive request
+3. process request
+4. access resource
+5. construct response
+6. send response
+7. log transaction
+
+High performance servers support thousands of simultaneous connections.
+{{ Single-threaded }} servers process one request at a time until completion.
+This is easy to implement but causes serious performance problems, is only
+appropriate for low-load servers and diagnostic tools.
+
+{{ Multiprocess and multithreaded }} servers dedicate multiple processes/threads
+to process requests simultaneously.  The threads/processes may be created on
+demand or in advance.  Many servers put a limit on the max number of threads
+and processes to make sure it doesn't consume too much memory or resources.
+
+In a {{ multiplexed }} architecture, all connections are simultaneously watched
+for activity.  When a connection changes state a small amount of processing is
+performed.  Work is done on a connection only when there is something needs to
+be done; threads/processes are not tied up waiting on idle connections.
+
+Some systems combine multithreading and multiplexing architectures.
+
+Servers support different kinds of resource mapping, the simplest uses the
+request URI to name a file on the server's filesystem.  The root folder is
+usually called the {{ document root }} or {{ docroot }}.
+
+{{ Virtually hosted }} servers host multiple sites on the same web server,
+giving each site its own distinct document root.  It maps to document roots
+using the IP address or hostname in the URI or Host header.
+
+Servers can also map URIs to dynamic resources - programs that generate content
+on demand.  A whole class of specialized servers that do this are called
+{{ application servers }}.
+
+Servers also provide support for {{ server-side includes }}, if a resource is
+flagged the server will do additional processing on its contents before sending
+them to the client.
+
+Web servers will construct a response message to send back to the client.  If
+the generated response includes a body, it will usually also contain:
+- Content-Type header, describing the MIME type of the body
+- Content-Length header, size of body
+- actual message body content
+
 ## Proxies
+Proxies sit between clients and servers and act as "middlemen," shuffling HTTP
+messages back and forth between the parties.  HTTP proxy servers act as both
+web servers and we clients.
+
+Proxies dedicated to a single client are {{ private proxies }}, shared across
+numerous clients are called {{ public proxies }}.  Here are a few examples
+of how proxies may be used:
+- child filter to block access to adult content
+- document access control for audit trail
+- security firewall
+- web cache that maintains local copies of popular documents
+- surrogate or reverse proxies, which receive real requests but then
+  initiate communication with other servers to locate requested content
+- transcoder proxies will translate data representations (ie. GIF to JPEG)
+- anonymizer proxies will provide privacy by removing identifying 
+  characteristics such as client IP address or cookies
+
+Proxies can be cascaded in chains called {{ proxy hierarchies }}, messages
+are passed from proxy to proxy until they reach the {{ origin server }} and
+are then passed proxy to proxy until they reach the client.
+
+Proxy servers in a hiearchy are assigned {{ parent }} and {{ child }}
+relationships and the next {{ inbound }} (closer to the server) is called the
+parent and the next {{ outbound }} (closer to the client) is called the child.
+
+These relationships can be dynamic, ie. a proxy which load balances might pick
+different parents based on the current level of workload.
+
+There are 4 common ways to cause client traffic to get to a proxy:
+- modify the client (popular browsers support proxy configuration)
+- modify the network, called {{ intercepting }} proxy, without the client's
+  knowledge or participation (ie. the corporate content filter)
+- modify the DNS namespace (ie. surrogates or reverse proxies)
+- modify the web server to redirect client requests to a proxy
+
+Clients, such as modern web browsers, have multiple ways of configuring proxies:
+- manual configuration
+- browser pre-configuration (maybe a distributor already did it for you)
+- proxy auto-configuration (PAC), if you provide a URI to a JavaScript PAC file,
+  the client will fetch it and configure it
+- WPAD proxy discovery will detect automatically a configuration server
+
+The original HTTP specification did not take into account proxies and virtual
+hosts, so http requests did not have to contain the absolute URI.  Now, requests
+to servers/proxies are identical except requests to proxies require the absolute
+URI so proxies know where the origin server is.
+
+This also created a problem with virtual hosts, most servers will require either
+an explicit absolute URI from a proxy or that the request includes the "Host"
+header to determine which virtual host to use.
+
+Proxies should take into account that they might not receive the full absolute
+URI because sometimes they remain invisible to the client.  Generally:
+- if a full URI is provided, use it
+- if partial and Host header is present, use the Host header
+- otherwise, determine the origin server in another way (ie. surrogates
+  usually know the real server's address) or return an error message
+
+The {{ Via }} header lists information about each intermediate node, each time a
+message passes through a proxy the node must be added to the end of the list.
+The list is a comma-separated list of {{ waypoints }}, each representing an
+individual proxy server or gateway hop.  Example:
+  Via: 1.1 cache.joes-hardware, 1.1 proxy.irenes-isp.net
+
+The {{ Server }} response header describes the software of the origin server.
+Proxies should take extra care not to overwrite this header.
+
+HTTP/1.1's {{ TRACE }} method lets you trace a request message through a chain 
+of proxies, observing what proxies the message passes through and how each proxy
+modifies the request message.  When it reaches the origin server, the entire
+message is reflected back to the sender.  You can use the {{ Max-Forwards }}
+header to limit the number of hops for TRACE and OPTIONS requests.
+
+The {{ OPTIONS }} method lets you discover supported functionality of a server.
+Using an asterisk as the URI pertains to the entire server's supported
+functionality, or the request can inquire about a particular resource.  Example:
+  OPTIONS * HTTP/1.1
+  OPTIONS http://www.joes-hardware.com/index.html HTTP/1.1
+
+The response will include header fields with various optional features, for
+example the {{ Allow }} header which specifies which methods are allowed:
+  Allow: GET, HEAD, PUT
+
 ## Caching
 ## Integration Points: Gateways, Tunnels, and Relays
 ## Web Robots
