@@ -867,7 +867,7 @@ Proxies can be cascaded in chains called {{ proxy hierarchies }}, messages
 are passed from proxy to proxy until they reach the {{ origin server }} and
 are then passed proxy to proxy until they reach the client.
 
-Proxy servers in a hiearchy are assigned {{ parent }} and {{ child }}
+Proxy servers in a hierarchy are assigned {{ parent }} and {{ child }}
 relationships and the next {{ inbound }} (closer to the server) is called the
 parent and the next {{ outbound }} (closer to the client) is called the child.
 
@@ -930,6 +930,137 @@ example the {{ Allow }} header which specifies which methods are allowed:
   Allow: GET, HEAD, PUT
 
 ## Caching
+Web caches are HTTP devices that automatically keep copies of popular documents.
+They have the following benefits:
+- reduce redundant data transfers
+- reduce network bottlenecks
+- reduce demand on origin servers
+- reduce distance delays
+
+Requests that arrive at a cache that can be served an available copy of the
+resource is called a {{ cache hit }}.  If the cache must forward it to the
+origin server to retrieve and copy a resource, it's called a {{ cache miss }}.
+
+Caches must check the origin server to check if their copies are still up to
+date, these checks are called HTTP {{ revalidations }}.  Special requests may
+be made so they don't have to re-download the entire content.  A cache may do a
+GET with the {{ If-Modified-Since }} header set.  If the cache's copy is still 
+valid, it will usually get a {{ 304 Not Modified }} response.  This is
+called a {{ revalidate hit }} or {{ slow hit }}.  On a {{ revalidate miss }},
+the origin server will send back the full content in a normal 200 response.
+
+The {{ cache hit rate }} is the fraction of requests that are served from the
+cache, sometimes called the {{ document hit rate }}.  Some people prefer the
+{{ byte hit rate }} because it's more accurate of overall data traffic.
+
+Web browsers often have {{ private caches }} which don't need much horsepower
+or storage space.  Private caches serve only one client.  {{ Public caches }}
+are shared among multiple clients and are often called {{ proxy caches }} or
+{{ caching proxy servers }}.  In practice, caches are often deployed in 
+hierarchies.  Smaller caches are often closer to the client while larger caches
+are closer to the origin server.  Some networks have {{ cache meshes }} which
+talk to each other to determine cache hits/misses.
+
+HTTP lets an origin server attach an expiration date using the 
+{{ Cache-Control }} and {{ Expires }} header.  These headers dictate how long
+content should be viewed as fresh and eliminate the need for freshness or
+revalidation checks.  Example:
++-----------------------------------------+------------------------------------+
+| Expires                                 | Cache-Control                      |
++-----------------------------------------+------------------------------------+
+| HTTP/1.0 200 OK                         | HTTP/1.0 200 OK                    |
+| Date: Sat, 20 Jun 2002, 14:30:00 GMT    | Date: Sat 20 Jun 2002 14:30:00 GMT |
+| Content-type: text/plain                | Content-type: text/plain           |
+| Content-length: 11                      | Content-length: 11                 |
+| Expires: Fri, 05 Jul 2002, 05:00:00 GMT | Cache-Control: max-age=484200      |
+|                                         |                                    |
+| Lorem Ipsum                             | Lorem Ipsum                        |
++-----------------------------------------+------------------------------------+
+
+HTTP/1.0+'s Expires and HTTP/1.1's Cache-Control do the same thing but 
+Cache-Control is preferred because it uses relative time.  Absolute dates depend
+on computer clocks being set correctly.
+
+If the copy has expired, it does a revalidation.  If the content has changed,
+a full response is made with another Cache-Control header max-age set.  If the
+content has not changed, a 304 Not Modified response with a later max-age will
+be returned.
+
+{{ Conditional Methods }} allows clients to make a request and have the server
+send back an object body only if the document is different from the copy in the
+cache.  HTTP defines 5 conditional request headers, the 2 most useful for cache
+revalidation are:
+* If-Modified-Since: <date>
+* If-None-Match: <tags>
+
+If-Modified-Since was described earlier.  {{ If-None-Match }} headers use
+{{ entity tags }} also known as {{ ETags }}, which are arbitrary labels attached
+to the document.  They might contain a serial number, version name, a checksum,
+or another fingerprint of the document content.  ETags are set using the
+{{ ETag }} header in the response (value in quotes).  An example transaction:
+  GET /announce.html HTTP/1.0
+  If-None-Match: "v2.6"
+  ====
+  HTTP/1.0 304 Not Modified
+  ETag: "v2.6"
+
+Requests may send several etag values, meaning the client has each copy of the
+document with those specific tags:
+  If-None-Match: "v2.4","v2.5","v2.6"
+
+ETags support {{ strong validation }} and {{ weak validation }}.  When a strong
+validation etag changes for a document, it means the resource should be
+re-downloaded.  When a weak validation etag is a cache hit, it just means the
+documents are semantically equivalent.  There could have been a minor change,
+such as a spelling fix.  Weak ETags are prefixed with a W/, example:
+  ETag: W/"v2.6"
+  If-None-Match: W/"v2.6"
+
+Caches may be controlled, in decreasing order of priority a server can:
+- add Cache-Control: no-store header to response
+- add Cache-Control: no-cache header to response
+- add Cache-Control: must-revalidate header to response
+- add Cache-Control: max-age header to response
+- add Expires date header to response
+
+The no-store and no-cache headers prevent caches from serving unverified
+cached objects:
+  Cache-Control: no-store
+  Cache-Control: no-cache
+  Pragma: no-cache
+
+A response marked "no-store" forbids a cache from making a copy, caches would
+typically delete its object and forward the response to its client.  A
+"no-cache" response can actually be stored in the local cache storage but it
+cannot be served without first revalidating the freshness with the origin
+server.  The Pragma: no-cache header is included in HTTP/1.1 for backward
+compatibility with HTTP/1.0+.
+
+Caches may be configured to serve stale (expired) objects, a response may have
+the Cache-Control: must-revalidate header set to explicitly require a
+revalidation.
+
+Clients may use Cache-Control request headers to tighten or loosen expiration
+constraints:
+- Cache-Control: max-stale, cache is free to serve stale document
+- Cache-Control: max-stale=<s>
+- Cache-Control: min-fresh=<s>, the document must still be fresh for at least
+  <s> seconds in the future
+- Cache-Control: max-age=<s>, cache cannot return a document that has been
+  cached for longer than <s> seconds
+- Cache-Control: no-cache, client won't accept cached resource unless it has
+  been revalidated.  Also "Pragma: no-cache".
+- Cache-Control: no-store, cache should delete every trace of document
+- Cache-Control: only-if-cached, client wants a copy only if it's cached
+
+HTML 2.0 defined the <meta http-equiv> tag which lets HTML authors define HTTP
+headers without editing server config files, example:
+  <meta http-equiv="Cache-Control" content="no-cache">
+
+Unfortunately, servers aren't guaranteed to parse HTML files and send these HTTP
+headers.  Some browsers do apply cache headers, but you should not depend on
+the client.
+
 ## Integration Points: Gateways, Tunnels, and Relays
 ## Web Robots
 ## HTTP-NG
