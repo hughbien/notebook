@@ -1062,6 +1062,67 @@ headers.  Some browsers do apply cache headers, but you should not depend on
 the client.
 
 ## Integration Points: Gateways, Tunnels, and Relays
+### Gateways
+{{ Gateways }} speak HTTP on one side and a different protocol on another.  
+They're interpreters and are labeled in the format 
+<client-protocol>/<server-protocol>.  Examples:
+* HTTP/FTP
+* HTTPS/HTTP
+
+{{ Server-side gateway }} and {{ client-side gateway }} describe what side the
+conversion is done for.  Server-side is HTTP/* and client-side is */HTTP.
+
+As an example, take the request:
+  GET ftp://ftp.irs.gov/pub/00-index.txt HTTP/1.0
+  Host: ftp.irs.gov
+
+The request would follow this timeline:
+  client => ..http req.. => HTTP/FTP gateway => ..ftp req.. => FTP server
+
+The most common form of gateway is the {{ application server }} that combines
+the destination server and gateway into a single server.  The first popular
+API for application gateways was the {{ Common Gateway Interface (CGI) }},
+although more sophisticated interfaces for connecting web servers to
+applications exist now (eg. Sinatra, Rails, Django, etc...)
+
+For CGI, when a request comes to a server a new process is spawned and the query
+is handed off to that running process.  The CGI program will dynamically form a
+response for the client.  {{ FastCGI }} attempts to solve the startup cost of
+spawning a new process for each request by keeping the program running as a 
+daemon.
+
+Although CGI provides a clean protocol for developers, server extension APIs are
+available for performance or plugging in additional behaviors.
+
+The Internet community have also developed a set of standards/protocols to allow
+web applications to talk to each other, most often called {{ web services }}.
+Web services exchange information using XML over SOAP or other agreed upon data
+formats and APIs.
+
+### Tunnels
+{{ Web tunnels }} let you send non-HTTP traffic through HTTP connections,
+allowing other protocols to piggyback on top of HTTP.  The most common reason
+to use tunnels are to embed non-HTTP traffic into an HTTP connection to send it
+through firewalls that only allow web traffic.
+
+Tunnels are established via the HTTP CONNECT method.  It's not specified by
+HTTP/1.1 specification but is widely implemented.  The CONNECT method asks a
+tunnel gateway to establish a TCP connection and blindly relay data.
+
+CONNECT requests' start line contain the hostname and port number instead of
+a path.  Example:
+  CONNECT hone.netscape.com:443 HTTP/1.0
+  User-agent: Mozilla/4.0
+
+### Relays
+{{ HTTP relays }} are simple HTTP proxies that don't fully adhere to the
+specification but process enough HTTP to establish connections and then blindly
+forward bytes.
+
+They should be deployed with great caution because they don't fully understand
+HTTP (ie. causing keep-alive connections to hang because they don't properly
+process the Connection header).
+
 ## Web Robots
 ## HTTP-NG
 
