@@ -1124,6 +1124,76 @@ HTTP (ie. causing keep-alive connections to hang because they don't properly
 process the Connection header).
 
 ## Web Robots
+{{ Web robots }} are automated user agents that act without human interaction.
+Some examples include:
+- stock-graphic robot that repeatedly issues GETs to get stock data
+- a web census robot that crawls the web to figure out its scale and evolution
+- search engine crawlers that collect documents and index them
+- comparison shopping robots that gather and parses web pages to form catalogs
+
+When a robot recursively follows web links it's called a {{ crawler }} or
+{{ spider }}.  The initial set of URLs it starts visiting is the {{ root set }}.
+Crawlers need to do simple HTML parsing to extract links and convert relative
+URLs to their absolute form.  They need to be careful to not get stuck in a
+{{ cycle }} to avoid infinite loops, delays, and server overload.  They
+also need a good data structure to store their trail in (which pages they've
+already visited) and checkpoints to save their progress to disk.  Crawlers may 
+attempt to {{ canonicalize }} URLs into a standard form to detect duplicates.
+
+It's possible for malicious webmasters to create crawler traps, such as a web
+app that dynamically generates links that point to the same web app.  Or having
+a subdirectory be a soft link to its own parent directory, creating an infinite
+loop.  Or webmasters may do so unintentionally (ie. a calendar app that has an
+infinite amount of "next month" links).  Robots can avoid these and other
+cycles/loops by:
+- canonicalizing URLs
+- using breadth-first-search instead of depth-first-search
+- throttling page visits
+- limiting URL size
+- URL/site blacklist
+- pattern detection
+- content fingerprinting
+- human monitoring
+
+It's polite to tell servers if you're a robot by setting some basic headers:
+- User-Agent: name-of-robot
+- From: email address of robot's administrator
+- Accept: tell server what media types are okay to send back to prevent wasted
+  cycles, ie most robots are only interested in text
+- Referer: provide URL of document containing current request URL
+
+Since robots can make tons of requests, it makes sense to use conditional
+requests so only fresh content is downloaded.
+
+The community understood the issues that robots could/did cause so they created
+{{ Robots Exclusion Standard }} but it's often referred to as {{ robots.txt }}.
+If a robot follows this standard, it will request the robots.txt file from the
+web site before accessing any other resource from that site.  It will check to
+see if it has permission to access any particular resource.  If the response is:
+- 2XX status, the robot must parse and follow the exclusion rules
+- 404, no exclusion rules exist for this site and the robot is free to fetch
+  any resources it finds
+- 401 or 403, access to this site should be regarded as completely restricted
+- 503 temporary failure, robot should defer visits until it can retrieve file
+- 3xx redirect, follow the redirection to find exclusion rules
+
+robots.txt files have 3 types of lines: comments, blank, and rules.  Rule lines
+are key/value pairs just like HTTP headers:
+  User-Agent: slurp
+  User-Agent: webcrawler
+  Disallow: /private
+
+A robot will find the group of rules that match its User-Agent (or * wildcard)
+and follow those rules.  Disallow/Allow lines are used for permissions.  When
+a URL is requested, a robot looks for the first line that matches it and follows
+that rule.  If none match, it's assumed that the resource is allowed.
+
+Standard HTTP protocols are used for caching robots.txt so that robots don't
+have to fetch the file every time a request for a resource is made.
+
+Guidelines/etiquette for robots can be found at: 
+http://www.robotstxt.org/wc/guidelines.html
+
 ## HTTP-NG
 
 # Identification, Authorization, Security
