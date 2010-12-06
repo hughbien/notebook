@@ -1160,7 +1160,7 @@ It's polite to tell servers if you're a robot by setting some basic headers:
 - From: email address of robot's administrator
 - Accept: tell server what media types are okay to send back to prevent wasted
   cycles, ie most robots are only interested in text
-- Referer: provide URL of document containing current request URL
+- Referrer: provide URL of document containing current request URL
 
 Since robots can make tons of requests, it makes sense to use conditional
 requests so only fresh content is downloaded.
@@ -1195,12 +1195,325 @@ Guidelines/etiquette for robots can be found at:
 http://www.robotstxt.org/wc/guidelines.html
 
 ## HTTP-NG
+{{ HTTP: The Next Generation (HTTP-NG) }} was a proposal that addressed:
+- complexity
+- extensibility
+- performance
+- transport dependence (use something else besides TCP/IP stack)
+
+The HTTP-NG working group proposed modularizing the protocol into 3 layers:
+- message transport layer, focused on delivering opaque messages between
+  endpoints.  This layer would support various substacks.
+- remote invocation layer, defines request/response functionality where
+  client can invoke operations on server resources.
+- web application layer, provides most of the content-management logic.
+  All of the HTTP methods/header parameters are defined here.
+
+The HTTP-NG team concluded that it's too early to bring the HTTP-NG proposals
+to the IETF for standardization.  At this time, no major HTTP-NG effort is
+underway.
 
 # Identification, Authorization, Security
 ## Client Identification and Cookies
+HTTP started as an anonymous, stateless, request/response protocol.  Client
+identification was born out of necessity.  Some mechanisms to identify users:
+- HTTP headers that carry identity
+- Client IP address tracking
+- User login for authentication
+- Fat URLs
+- Cookies
+
+Some headers commonly used for identification are:
+- From, user's email address
+- User-Agent, user's browser software
+- Referrer, page user came from by following link
+
+In practice, few browsers send the user's email address in the From header
+(think of the spam mail!).  The User-Agent is useful for customizing content
+specifically for browsers and their attributes, but doesn't help identify
+the user.  The Referrer header is also insufficient.
+
+Early web pioneers tried using the IP address as a form of identification.
+Unfortunately, it had some weaknesses:
+- client IP describes the computer being used, not the user
+- ISPs dynamically assign IP addresses to users when they log in
+- firewalls often obscure the user's IP address
+- proxies/gateways typically open new TCP connections
+
+A web server can explicitly ask a user to log in with a username/password.
+HTTP includes a built-in mechanism to pass username information to web
+sites using the {{ WWW-Authenticate }} and {{ Authorization }} headers.
+Once logged in, browsers continually send these headers on each request so
+users can stay logged in.
+
+URLs modified to include user state information are called {{ fat URLs }}.
+The first time a user visits a site, a unique ID is generated and stored
+into subsequent URLs.  Some problems include:
+- ugly URLs
+- can't share URLs
+- breaks caching
+- extra server load
+- escape hatches, too easy to lose your unique id
+- not persistent across sessions
+
+{{ Cookies }} are the best current way to identify users and allow persistent
+sessions.  They were first developed by Netscape but are now supported by
+all major browsers.  A {{ session cookie }} is a temporary cookie that is
+deleted when the user exits the site.  A {{ persistent cookie }} live longer on
+disk and survives browser exits and computer restarts.
+
+Cookies are an arbitrary list of name=value information and are set via the
+Set-Cookie or Set-Cookie2 HTTP response headers.  Cookies are sent to the
+server on each request.  Because the browser is responsible for storing cookie
+information, it's known as {{ client-side state }}.
+
+Some parts of a cookie are:
+- domain
+- allh, whether all hosts or specific host gets the cookie
+- path, path prefix in the domain associated with the cookie
+- secure, should be sent only on SSL connections
+- expiration, expiration date
+- name
+- value
+
+In general, a browser sends to a server only those cookies that the server
+generated.  An example to set a cookie with the domain attribute:
+  Set-cookie: user="mary17"; domain="airtravelbargains.com"
+
+When visiting www.airtravelbargains.com or specials.airtravelbargains.com, the
+request will have the following header:
+  Cookie: user="mary17"
+
+There are two versions of cookies, the most widely used one being Netscape's
+original cookie standard:
+- http://home.netscape.com/newsref/std/cookie_spec.html
+- http://www.ietf.org/rfc/rfc2965.txt
+
+Version 0 (Netscape) cookies look like this:
+  Set-cookie: name=val [; expires=date] [; path=p] [; domain=d] [; secure]
+  Cookie: name1=value1 [; name2=value2] ...
+
++------------+--------------------------------------------------------------+
+| Attribute  | Description                                                  |
++------------+--------------------------------------------------------------+
+| name=value | Mandatory name/value pairs                                   |
++------------+--------------------------------------------------------------+
+| expires    | Expiration date in format: Weekday, DD-Mon-YY HH:MM:SS GMT   |
+|            | GMT only, if it's not specified then cookie will expire when |
+|            | user's session ends.                                         |
++------------+--------------------------------------------------------------+
+| domain     | Restrict cookie to only this hostname. Uses current hostname |
+|            | by default.                                                  |
++------------+--------------------------------------------------------------+
+| path       | Restrict cookie to this particular/other paths that          |
+|            | starts with this value.  Defaults to current path.           |
++------------+--------------------------------------------------------------+
+| secure     | Whether or not to send this cookie on non-SSL connections.   |
++------------+--------------------------------------------------------------+
+
+Version 1 (RFC 2965) is an extension that uses the Set-Cookie2 and Cookie2
+headers and offers backwards compatibility but is not completely supported.
+Some features:
+- descriptive text with each cookie to explain its purpose
+- support forced destruction of cookies on browser exit
+- max-age in relative seconds instead of absolute dates
+- control cookies by port number
+- Cookie header carries back the domain, port, and path filters
+- version number
+- $ prefix in cookie header distinguishes additional keywords from usernames
+
 ## Basic Authentication
+HTTP provides a native {{ challenge/response }} framework for authentication.
+The four phases are:
+1. Request, GET on resource with no authentication.
+   => GET /family/jeff.jpg HTTP/1.0
+2. Challenge, WWW-Authenticate header sent back with 401 Unauthorized
+   response indicated user needs to provide username/password.
+   => HTTP/1.0 401 Authorization Required
+      WWW-Authenticate: Basic realm="Family"
+3. Authorization, client makes a GET request and sends the Authorization
+   header with a hashed username/password.
+   => GET /family/jeff.jpg HTTP/1.0
+      Authorization: Basic YnJpYW4tdG90dHK6T3ch
+4. Success, Authentication-Info header is optionally set with additional
+   info.  Original resource gets sent back.
+   => HTTP/1.0 200 OK
+      Content-type: image/jpeg
+
+Clients will then continue sending the Authorization header on subsequent
+requests for authorization.
+
+Web servers group protected documents into {{ security realms }}, each realm
+can have different sets of authorized users.
+
+{{ Basic authentication }} is the most prevalent HTTP authentication protocol.
+The browser will send a scrambled base-64 representation of the username and
+password joined by a colon, ie. base46encode("username:password").  This also
+helps prevent administrators from accidentally viewing usernames/passwords while
+administering servers (but is not useful for malicious intruders).
+
+Basic authentication sends the username/password across the network in a form
+that can trivially be decoded.  Even if the username/password were encoded more
+securely, it would not prevent replay attacks.  It offers no protection against
+proxies or intermediaries that act as middlemen and can leave the headers intact
+but modify the rest of the message.  It's also vulnerable to spoofing/phishing.
+
+It can be made secure by combining it with encrypted data transmission (such as
+SSL) to conceal the username/password.
+
 ## Digest Authentication
+{{ Digest authentication }} was developed as a compatible, more secure
+alternative to basic authentication.  In particular:
+- it never sends passwords across the network in the clear
+- prevents capturing and replaying authentication
+- optionally can guard against tampering with message contents
+
+Digest authentication is not the most secure protocol possible, many
+needs are better suited with TLS or HTTPS.
+
+Instead of sending the password in clear text, a fingerprint or {{ digest }}
+of the password is sent.  The client and the server both know the digest, so
+they can verify if it's correct or not.  Digests are one-way (ie. MD5 or SHA1),
+so malicious users cannot revert it into a plaintext password.
+
+To prevent replay attacks, the server can pass a special {{ nonce }} token to
+the client which changes frequently.  The client appends this token to the
+password before computing the digest.  Nonces are passed from server to client
+in the WWW-Authenticate challenge and Authentication-Info response header.
+
+RFC 2617 suggests this hypothetical nonce formulation:
+  BASE64(time-stamp H(time-stamp ":" ETag ":" private-key))
+
+Requests/responses may also digest the message body to prevent man-in-the-middle
+attacks which take the authorization headers and change the message body.
+
 ## Secure HTTP
+### Overview
+Previous authentication techniques worked well to identify/authenticate users
+in a friendly community, but they aren't strong enough to protect important
+transactions from a hostile community.  For secure transactions, we combine
+HTTP with digital encryption technology.  It needs to provide:
+- server auth, clients need to know they're talking to the real server
+- client auth, servers need to know they're talking to the real user
+- integrity of data
+- encryption
+- efficiency
+- ubiquity
+- administrative scalability
+- adaptability
+- social viability
+
+{{ HTTPS }} is the most popular secure form of HTTP.  When using it, HTTP
+request/response data is encrypted before being sent across the network.
+It works by providing a transport-level cryptographic security layer,
+either {{ Secure Sockets Layer (SSL) }} or its successor
+{{ Transport Layer Security (TLS) }} underneath HTTP.
+
+Most of the encoding/decoding happens in the SSL layer, so web servers don't
+need to change much to use them:
+- HTTP, application layer
+- SSL or TLS, security layer  <--- layer inserted for HTTPS
+- TCP, transport layer
+- IP, network layer
+- Network interfaces, data link layer
+
+### Digital Cryptography Primer
+{{ Ciphers }} are algorithms for encoding text to make it unreadable.  The
+original message is called {{ plaintext }} or {{ cleartext }}.  After the
+cipher is applied to the message it's often called a {{ ciphertext }}.
+
+{{ Keys }} are numeric parameters that change the behavior of ciphers, in case
+the cipher algorithm and/or message fell into the wrong hands.
+
+{{ Symmetric-key cryptosystems }} are algorithms that use the same key for
+encoding and decoding.  The sender and receiver have a shared secret (key) that
+they both use for encoding/decoding messages.  Some popular symmetric-key cipher
+algorithms are DES, Triple-DES, RC2, and RC4.
+
+It's important that the key stay secret because in many cases the cipher
+algorithm and ciphertext are public knowledge.  A good algorithm will force
+the enemy to try every possible key value possible, called a {{ brute force }}
+or {{ enumeration attack }}.
+
+The number of possible key values depends on the number of bits in the key and
+how many of the possible keys are valid.  An 8-bit key would have 2^8 or 256
+possible values.  40-bit keys are considered safe enough for small, noncritical
+transactions.  128-bit keys are considered very strong for symmetric-key
+cryptography.
+
+Shared keys are an administrative nightmare, if there are N nodes and each node
+has to talk securely with all other N-1 nodes, there are roughly N^2 total keys.
+It may also be difficult to securely transmit shared keys.
+
+{{ Asymmetric-key cryptosystems }} are algorithms that use different keys for
+encoding and decoding.  Public-key cryptography uses two asymmetric keys, one
+for encoding messages and another for decoding the host's messages.  The
+encoding key is publicly known to the world but only the host knows the private
+decoding key.
+
+A popular asymmetric cipher is {{ RSA }} which has many libraries that you can
+use.  It's still difficult to crack even if the attacker has:
+- the public key
+- a piece of intercepted ciphertext
+- a message and its associated ciphertext
+
+Public-key cryptography algorithms tend to be computationally slow.  In
+practice, mixtures of both symmetric and asymmetric schemes are used.  For
+example, it's common to use public-key cryptography to setup a secure channel
+and send over a shared private key to encrypt further messages.
+
+{{ Digital signatures }} are checksums that verify that a message has not been
+forged or tampered with.  Because only the author has the author's top-secret
+private key, only the author can compute these checksums - acting as a personal
+"signature" from the author.  If a malicious assailant modified the message
+in-flight, the checksum would no longer match.  Signatures are often generated
+using asymmetric, public-key technology.
+
+{{ Digital certificates }} are identifying information, verified and signed by
+a trusted organization.  Some forms of identification are harder to forge (ie. 
+passports) so we can trust them more than something relatively easy to forge
+(ie. a business card).
+
+Basic digital certificates commonly contain:
+- subject's name (person, server, organization, etc.)
+- expiration date
+- certificate issuer (who is vouching for the certificate)
+- digital signature from the certificate issuer
+
+### HTTPS Details
+HTTPS combines the HTTP protocol with a powerful set of symmetric, asymmetric,
+and certificate-based cryptographic techniques, making HTTPS very secure but
+also very flexible and easy to administer.
+
+In normal, nonsecure HTTP, the scheme prefix of the URL is http.  In the secure
+HTTPS protocol, the scheme prefix of the URL is https.  If a browser encounters
+the http scheme, it opens a connection to a server on port 80 (default) and
+sends plain-old HTTP commands.  If the URL has an https scheme, the browser
+opens a connection to the server on port 443 (default) and then "handshakes"
+with the server, exchanging some SSL security parameters with the server in a
+binary format, followed by the encrypted HTTP commands.
+
+SSL traffic is a binary protocol, which is why it uses a different port so
+servers won't mistaken binary traffic on port 80 as junk and close connections.
+
+In HTTPS, the client first opens a connection to port 443, then the client and
+server initialize the SSL layer, negotiating cryptography parameters and
+exchanging keys.  When the handshake completes, the initialization is done, and
+the client can send request messages to the security layer.  These messages are
+encrypted before being sent to TCP.
+
+The SSL handshake consists of:
+- exchanging protocol version numbers
+- select a cipher that each side knows
+- authenticate the identity of each side
+- generate temporary session keys to encrypt the channel
+
+Clients no longer typically have certificates, but servers still do.  Server
+certificates typically show the organization's name, address, server DNS domain
+name, and other information.
+
+SSL is a complicated binary protocol, thankfully, several commercial/open source
+libraries exist to make it easier to program SSL: OpenSSL http://www.openssl.org
 
 # Entities, Encodings, and Internationalization
 ## Entities and Encodings
@@ -1212,4 +1525,3 @@ http://www.robotstxt.org/wc/guidelines.html
 ## Publishing Systems
 ## Redirection and Load Balancing
 ## Logging and Usage Tracking
-
