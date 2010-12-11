@@ -1517,7 +1517,107 @@ libraries exist to make it easier to program SSL: OpenSSL http://www.openssl.org
 
 # Entities, Encodings, and Internationalization
 ## Entities and Encodings
+HTTP uses headers to ensure that messages can be identified, unpacked, and 
+arrives complete:
+- Content-Type and Content-Language to identify
+- Content-Length and Content-Encoding to unpack
+- Content-MD5 checksums to make sure it's complete and accurate
+
+HTTP messages are crates and entities are cargo:
+  HTTP/1.0 200 OK
+  Server: Netscape-Enterprise/3.6
+  Date: Sun, 17 Sep 2000 00:01:05 GMT
+  Content-type: text/plain                   <--.
+  Content-length: 18                         <----- Entity
+                                             <---.
+  Hi! I'm a message!                         <--.
+
+Entity headers are:
+* Content-Type, the kind of object carried by the entity
+* Content-Length, the length/size of the message in bytes
+* Content-Language, language of object
+* Content-Encoding, any transformation performed on object
+* Content-Location, alternate location
+* Content-Range, if partial entity define which pieces included
+* Content-MD5, checksum of contents
+* Last-Modified, date which content was created/modified on server
+* Expires, date/time which entity will become stale
+* Allow, request methods are legal on this resource
+* ETag, unique validator for caching
+* Cache-Control, how this document can be cached
+
+The Content-Type header field describes the MIME type of the entity body,
+a standardized name that describes the underlying type of media.  Common
+ones are:
+- text/html
+- text/plain
+- image/gif
+- image/jpeg
+- audio/x-wav
+- model/vrml
+- application/vnd.ms-powerpoint
+- multipart/byteranges
+- message/http
+
+The Content-Type header also supports optional parameters, ie. charset:
+  Content-Type: text/html; charset=iso-8859-4
+
+HTTP supports {{ multipart bodies }} which are usually used in form submissions
+and range responses.  Multipart bodies are multiple messages sent as a single
+one where each component has headers/body.  For example, a multipart form will
+allow you to send different content types (useful for file upload):
+  <form enctype="multipart/form-data" method="post">
+    <input type="text" name"filename" />
+    <input type="file" name="filedata" />
+  </form>
+
+  Content-Type: multipart/form-data; boundary=AaBo3x
+  --AaBo3x
+  Content-Disposition: form-data; name="filename"
+  Random
+  --AaBo3x
+  Content-Disposition: file; filename="imagefile.gif"
+  Content-Type: image/gif
+  ... binary ..
+
+The content body may also be encoded, useful for compressing or encrypting:
+1. Server generates original response with Content-Type and Content-Length.
+2. Server encodes body, message still has the same Content-Type but changes
+   Content-Length to be the new length value.  It adds Content-Encoding.
+3. Receiver gets encoded message, decodes it, obtains original.
+  
+  HTTP/1.1 200 OK
+  Content-Length: 6096
+  Content-Type: image/gif
+  Content-Encoding: gzip
+  [...]
+
+Some common content-encoding tokens are gzip, compress, deflate, and identity.
+Identity means no encoding was done, which can be assumed if Content-Encoding
+header is missing.
+
+Clients can tell servers which encodings they support with the Accept-Encoding
+header:
+  GET /logo.gif HTTP/1.1
+  Accept-encoding: gzip;q=0.5, compress;q=1.0, *;q=0
+  [...]
+
+The Q parameter indicates quality factor, 0 meaning the client does not want and
+1 meaning highest preference.
+
 ## Internationalization
+HTTP supports many languages and alphabets.  Servers need to tell clients the
+alphabet and languages of each document so the client can properly unpack it.
+These are set using the Content-Type and Content-Language headers.  Clients must
+also tell servers which languages/encodings to use by sending the Accept-Charset
+and Accept-Language headers.  Example:
+  Accept-Language: fr, en;q=0.8
+  Accept-Charset: iso-885901, utf-8
+
+The charset tells you how to convert from entity content bits into characters in
+a particular alphabet.  They're standardized in the MIME character set registry
+and maintained by IANA (http://www.iana.org/assignments/character-sets).
+
 ## Content Negotiation and Transcoding
 
 # Content Publishing and Distribution
