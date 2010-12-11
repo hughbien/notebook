@@ -1618,7 +1618,110 @@ The charset tells you how to convert from entity content bits into characters in
 a particular alphabet.  They're standardized in the MIME character set registry
 and maintained by IANA (http://www.iana.org/assignments/character-sets).
 
+Bits to character conversion happens in two steps.  First, the bits are
+converted to a numbered character in a particular coded character set.  Then the
+character code is used to select an element in the set (determined by the
+character encoding).  Internationalized character systems isolate semantics 
+(letters) from the presentation (graphical forms).  HTTP only concerns itself 
+with transporting the character data and associated language/charset labels.  
+If an incorrect character set is given, the client will render characters 
+incorrectly.
+
+The combination of the character encoding and character set is called a
+{{ MIME charset }}, which are used by HTTP in the Content-Type and 
+Accept-Charset headers.  Some common ones are: us-ascii, iso-8859-*, utf-8.
+
+If no charset is given in the response headers and the client cannot infer a
+character encoding from the document, it assums iso-8859-1.
+
+Character Set Terminology:
+* character is an "atom" of writing (letter, numeral, punctuation mark, etc...).
+  The {{ Universal Character Set }} aka {{ Unicode }} has named many characters
+  in many languages, which are often used to conveniently/uniquely name them.
+* glyph is a graphical shape to represent a character.
+* coded character is a unique number assigned to a character.
+* coding space is a range of integers used for character code values.
+* code width is the number of bits in each character code.
+* character repertoire is a particular working set of characters
+* coded character set maps numeric character codes to real characters
+* character encoding scheme is an algorithm to encode numeric codes into
+  bits and vice-versa.
+
+Interestingly, HTTP messages (headers, URIs, etc.) use US-ASCII.  iso-8859 uses
+an extra bit and is a superset of ASCII.  It's not large enough to hold all
+characters so it uses specialized sets for different regions.  iso-8859-1 aka
+Latin1 is the default charset for HTML.  Universal Character Set (UCSD) is a
+worldwide standards effort to combine all world's characters into a single
+coded character set (Unicode).
+
+UTF-8 is a variable-length encoding that is backwards compatible with US-ASCII.
+The first byte tells the length of the encoded character in bytes and subsequent
+bytes contains six bits of code value.  The first byte will set as many 1 bits
+as there are bytes in the character, followed by a 0 flag.
+
+Examples:
+* 0ccccccc  (ascii compatible, 7 bits of code value)
+* 110ccccc 10cccccc  (110 = 2 bytes)
+* 1110cccc 10cccccc 10cccccc (1110 = 3 bytes)
+
+{{ Language tags }} are standardized strings that name languages.  Examples:
+* fr = French
+- en = English
+- de = German
+- en-US = US English
+
+URIs don't provide much support for internationalization, they're comprised of a
+subset of US-ASCII characters.  URI characters have 3 categories:
+* unreserved, may be used in any part of the URL
+  [A-Za-z0-9] | “-” | “_” | “.” | “!” | “~” | “*” | “'” | “(” | “)”
+* reserved, have special meanings in many URIs, shouldn't be used in general
+  “;”|“/”|“?”|“:”|“@”|“&”|“=”|“+”|“$”|“,”
+* escape, safely insert reserved and other unsupported characters
+  “%” <HEX> <HEX>
+
+The two hexadecimal digit characters in an escape sequence represent the code
+for a US-ASCII character.  HTTP applications should unescape URIs only when
+the data is needed, otherwise just forward them as is.  HTTP applications should
+ensure that no URIs are unescaped twice.  Escape values should fall into
+US-ASCII range only (0-127). Sorry, no international characters.
+
+HTTP messages may only contain US-ASCII character set, but not all applications
+follow the spec.  Date formats are specified in the spec for legal GMT formats.
+Once again, applications should be aware that not all clients/server follow the
+spec.
+
 ## Content Negotiation and Transcoding
+{{ Content negotiation }} methods allow clients/servers to determine which
+{{ variant }} of a resource to serve/receive (ie. French vs English versions).
+
+There are 3 categories:
+* client-driven
+  Client makes request, server sends choices back, client chooses.  Easy to
+  implement but adds latency.
+* server-driven
+  Server examines client's request headers and decides what version to serve.
+  If decision is not obvious though, the server must guess.
+* transparent
+  An intermediate device (ie. proxy) does request-negotiation on client's behalf.
+  Offloads negotiation from server, no latency, but no formal spec.
+
+An example of client-driven is sending back an HTML document with links to each
+variant of the document.  Or responding with a 300 Multiple Choices response. 
+
+We've seen examples of Server-Driven negotiation using the Accept,
+Accept-Language, ACcept-Charset, and Accept-Encoding request headers.  Servers
+can also match up responses with other client request headers, such as
+User-Agent (knowing what technology the client's browser supports).
+
+When serving variants of documents, the server must take caching into
+consideration.  You don't want to serve a cached French copy of the document
+to a German viewer.  Cache proxies use the "Vary" header, a server will list
+the headers it takes into account when responding.  Caches must match up the
+request headers with those listed in "Vary" for a hit.
+
+If the server doesn't have a document available that matches the client's
+request, it may {{ transcode }} its existing document into something the client
+wants: HTML => WML, high-res => low-res, colored image => black/white image.
 
 # Content Publishing and Distribution
 ## Web Hosting
