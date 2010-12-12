@@ -1632,7 +1632,7 @@ The combination of the character encoding and character set is called a
 Accept-Charset headers.  Some common ones are: us-ascii, iso-8859-*, utf-8.
 
 If no charset is given in the response headers and the client cannot infer a
-character encoding from the document, it assums iso-8859-1.
+character encoding from the document, it assumes iso-8859-1.
 
 Character Set Terminology:
 * character is an "atom" of writing (letter, numeral, punctuation mark, etc...).
@@ -1725,6 +1725,141 @@ wants: HTML => WML, high-res => low-res, colored image => black/white image.
 
 # Content Publishing and Distribution
 ## Web Hosting
+{{ Web hosting }} is the storing, brokering, and administering content resources.
+{{ Dedicated hosting }} refers to a client having his/her own dedicated web
+server for their site.  {{ Shared hosting }} or {{ virtual hosting }} occurs
+when two or more people share the same physical machine to host separate sites.
+
+An oversight in HTTP/1.0 assumed that every site would be unique to one physical
+machine, so the host information wasn't given in requests making virtual hosting
+impossible.  Enhanced HTTP/1.0 and HTTP/1.1 now require the full URL.  For
+backwards compatibility, web hosts may also give each virtual site its own
+IP Address or determine which site based on the Host header.
+
+Mirrored server farms exist to duplicate/serve content.  There is a
+{{ master origin server }} and {{ replica origin servers }}.  A simple
+way to implement this is with a switch, with the outside world talking
+to the switch and the switch delegating between each servers.  All together,
+this is usually called a {{ server farm }} and is used to:
+* prevent downtime
+* handle traffic spikes
+* provide redundancy for network outages or losses
+
+A {{ content distribution network }} or CDN is a network that distributes
+specific content so it may be served faster or more reliable.  Distributing
+content usually brings it closer to end users, reducing latency.
+
 ## Publishing Systems
+{{ Web Distributed Authoring and Versioning (WebDAV) }} adds collaboration to
+web publishing by extending HTTP.  Some new HTTP methods:
+* PROPFIND retrieves the properties of a resource
+* PROPPATCH sets 1+ properties on 1+ resources
+* MKCOL creates collections
+* COPY copies resource/collection
+* MOVE moves resource/collection
+* LOCK locks 1+ resources
+* UNLOCK unlocks 1+ resources
+
+WebDAV also modifies the existing methods: DELETE, PUT, and OPTIONS.  It uses
+XML to provide extra information on how to handle data and formatting complex
+rules (hierarchies, multiple resources, selective application, etc...).  The
+schema is defined in the specification RFC 2518.
+
+Some headers introduced are:
+* DAV to communicate WebDav capabilities of the server
+* Depth to specify recursive depth of an action
+* Destination to assist COPY or MOVE
+* If defines a set of conditionals for a locked resource
+* Lock-Token used by UNLOCK method
+* Overwrite option used by COPY/MOVE
+* Timeout request header specified by client
+
+WebDAV supports {{ exclusive write locking }} and {{ shared write locking }} of
+a resource/collection.  The state is set with LOCK/UNLOCK.  Example:
+  LOCK /ch-publish.fm HTTP/1.1 
+  Host: minstar 
+  Content-Type: text/xml 
+  Content-Length: 201
+
+  <?xml version="1.0"?> 
+  <a:lockinfo xmlns:a="DAV:">
+    <a:lockscope><a:exclusive/></a:lockscope> 
+    <a:locktype><a:write/></a:locktype> 
+    <a:owner><a:href>AuthorA</a:href></a:owner>
+  </a:lockinfo>
+
+For more information about WebDav, refer to:
+* http://www.ietf.org/rfc/rfc2518.txt?number=2518
+* http://www.ietf.org/rfc/rfc3253.txt?number=3253
+
 ## Redirection and Load Balancing
+HTTP messages often travel through many different network tools, including: HTTP
+redirection, DNS redirection, anycast routing, policy routing, 
+IP MAC forwarding, IP address forwarding, the Web Cache Coordination Protocol
+(WCCP), Intercache Communication Protocol (ICP), Hyper Text Caching Protocol 
+(HTCP), Network Element Control Protocol (NECP), Cache Array Routing Protocol
+(CARP), and Web Proxy Autodiscovery Protocol (WPAD).
+
+Redirections occur to:
+* perform HTTP transactions reliably
+* minimize delay
+* conserve network bandwidth
+
+Most redirection setups work together with load balancing to deliver content
+faster and spread incoming messages across multiple servers.
+
+General redirection methods are:
+* HTTP redirection, initial request goes to 1st server which sends back a
+  redirect response to chosen server
+* DNS redirection, DNS server decides which IP address to send back for hostname
+* Anycast addressing, several servers use same IP address and masquerades as
+  a backbone router.
+* IP Mac forwarding, a network element reads packet's destination and perhaps
+  re-routes it
+* IP Address forwarding, layer-4 switch evaluates a packet's destination port
+  and perhaps changes the IP address to proxy or mirrored server
+
+Proxy/cache redirection techniques:
+* Explicit browser config, client is configured to talk to a nearby proxy/cache
+* Proxy auto-configuration (PAC), client retrieves a PAC file which will
+  configure it to talk to a nearby proxy/cache
+* Web Proxy Autodiscovery Protocol (WPAD), asks config server for PAC file
+* Web Cache Coordination Protocol (WCCP), router evaluates packet's destination
+  and redirects them as necessary
+* Internet Cache Protocol (ICP), proxy cache query group of sibling caches for
+  requested content
+* Cache Array Routing Protocol (CARP), protocol that allows caches to forward a
+  request to a parent cache
+* Hyper Text Caching Protocol (HTCP), proxy caches can query a group of sibling
+  caches for requested content
+
+DNS round robin is a common and simple redirection technique.  One hostname may
+represent more than one IP address/physical machines for load balancing.
+
+  % nslookup www.cnn.com
+  Name:      cnn.com
+  Addresses: 207.25.71.5, 207.25.71.6, ... more ip addresses ...
+  Aliases:   www.cnn.com
+
+Most clients just use the first address, so servers usually rotate addresses.
+Most clients will also cache the DNS lookup, so it doesn't work well for a
+single client.  It does a good job for multiple clients.
+
+Browsers can be configured to talk to a proxy instead of the server.  The proxy
+can them determine which server to send the request to.
+
 ## Logging and Usage Tracking
+Logging is useful for tracking errors and/or to generate statistics.  Most
+commonly lgoged fields of requests/responses are: HTTP method, version, URL,
+status code of response, size of request/response, timestamp,
+referrer and user-agent header values.
+
+There's a {{ Common Log Format }} which logs these fields: remotehost,
+username, auth-username, timestamp, request-line, response-code,
+response-size.  Example:
+  209.1.32.44 - - [03/Oct/1999:14:16:00 -0400] "GET / HTTP/1.0" 200 1024 
+  http-guide.com - dg [03/Oct/1999:14:16:32 -0400] "GET / HTTP/1.0" 200 477 
+  http-guide.com - dg [03/Oct/1999:14:16:32 -0400] "GET /foo HTTP/1.0" 404 0
+
+The {{ Combined Log Format }} adds two additional fields: Referrer and
+User-Agent header values.
