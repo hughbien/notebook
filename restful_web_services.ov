@@ -1,0 +1,32 @@
+RESTful Web Services
+================================================================================
+
+# Overview
+{{ Representational State Transfer }} or REST, described in Roy Fielding's
+dissertation, is an architecture for designing web services that emphasizes
+HTTP's strength and simplicity.  There is no definitive specification and an
+application is never said to be "REST-compliant", instead we say an application
+is "RESTful" - just as you can write functional code in a language designed for
+object oriented programming.
+
+This book introduces the {{ Resource-Oriented Architecture }}, which is a set of
+best practices for developing RESTful web services.  Along the way, it also
+describes what REST means to clients/services and how to implement it.
+
+# Programmable Web
+Some qualities of RESTful web services are:
+* they use the HTTP method to distinguish between actions
+* they use the URI to distinguish between resources and components (ie.
+  filtering a list of resources)
+
+# Web Service Clients
+# What Makes RESTful Services Different
+# Resource-Oriented Architecture
+# Read-Only Resource-Oriented Services
+# Read/Write Resource-Oriented Services
+# Service Implementation
+# REST/ROA Best Practices
+# Building Blocks of Services
+# Resource-Oriented Architecture vs Big Web Services
+# AJAX Applications as REST Clients
+# Frameworks for RESTful Services
