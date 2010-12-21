@@ -17,10 +17,105 @@ describes what REST means to clients/services and how to implement it.
 Some qualities of RESTful web services are:
 * they use the HTTP method to distinguish between actions
 * they use the URI to distinguish between resources and components (ie.
-  filtering a list of resources)
+  scoping information for a list of resources)
 
-# Web Service Clients
+The web is full of data, but instead of downloading all the data at once
+you get a web browser and interact with {{ web services }} like search engines,
+movie databases, book databases, etc... to retrieve data, store/search data,
+and perform other actions.
+
+The programmable web works the same way, except other clients exist besides
+browsers (or you can develop your own client) and instead of HTML pages
+you usually get an easy-to-parse XML or JSON response.
+
+Websites such as google.com and amazon.com are also web services.  URIs are 
+used to fetch data and the responses are in HTML, made for human consumption 
+instead of for a computer to parse.
+
+More commonly known as web services are APIs which give access to data such
+as Amazon's S3 or Delicious' API.  Web services are also commonly used 
+internally in distributed architectures.
+
+This book splits web services into 3 categories:
+* RESTful resource-oriented
+* RPC-style
+* REST-RPC hybrid
+
+RESTful resource-oriented architectures use HTTP verbs to distinguish actions
+and will have URIs designed around {{ resources }}.  A URI represents a thing
+and the HTTP verb that the client sends will tell the server what to do with
+that particular thing.
+
+RPC style architectures tend to convey action information in other ways than the
+standard HTTP verbs.  Ie. they might use the query portion of the URI:
+  GET http://api.example.com/?q=DeleteUser&id=1
+
+They may also define their own {{ envelope }} standard instead of using HTTP.
+For example, all requests may be POSTs with XML entity bodies.  The server
+determines what to do by parsing the entity body.
+
+# Writing Web Service Clients
+A web service client is just a specialized HTTP client that's programmed for
+a specific web service.  It's built to make a request and parse the response.  
+You can use your language's standard library to do this.
+
+Wrappers make developing clients easier because an API is tailored to one
+particular service.  Instead of making raw HTTP GET/PUT requests to Amazon's
+S3 library, it's easier to use the amazon-aws library.
+
+The SOAP RPC community has WSDL, for RESTful web services there is the less
+widely known {{ WADL - Web Application Description Language }}.  The developer
+can write a single WADL file which describes the resources and a client API
+will be generated for it.
+
+{{ ActiveResource }} is another library that's custom made as the client
+library opposite to Rail's REST support.
+
+Ruby has {{ open-uri }} which is easy to use but only supports GET requests
+and does not allow you to set headers.  The author has created his own library,
+{{ rest-open-uri }} which can be used to develop REST clients.  You can also
+dive down into {{ net/http }} which exposes the raw HTTP requests/responses.  On
+the command line, {{ curl }} is a useful utility.
+
+To process the response, you'll need a good XML or JSON library depending on
+which entity encoding is used for the HTTP responses.  There are two types of
+XML parses: the DOM/tree based strategy and the SAX/pull based strategy.  The
+DOM based libraries will parse the entire document at once while the SAX based
+one will allow the programmer to define hooks to events and use the XML document
+as a stream of data.
+
+Ruby has {{ REXML }} which is the default XML parser that supports both DOM and
+SAX interfaces.  The author does not recommend it because it only works with
+well formed documents.  To handle bad markup, the author recommends using 
+{{ hpricot }} available http://code.whytheluckystiff.net/hpricot/,
+
+Here's a sample Delicious client written in Ruby:
+  #!/usr/bin/ruby -w 
+  require 'rubygems' 
+  require 'open-uri' 
+  require 'rexml/document'
+
+  def print_my_recent_bookmarks(username, password)
+    response = open('https://api.del.icio.us/v1/posts/recent', 
+                    :http_basic_authentication => [username, password])
+    xml = response.read  
+    document = REXML::Document.new(xml)
+    REXML::XPath.each(document, "/posts/post") do |e|
+      # Print the bookmark's description and URI
+      puts "#{e.attributes['description']}: #{e.attributes['href']}" 
+    end
+  end
+
+  username, password = ARGV 
+  unless username and password
+    puts "Usage: #{$0} [username] [password]"
+    exit 
+  end
+  print_my_recent_bookmarks(username, password)
+
 # What Makes RESTful Services Different
+Amazon's Simple Storage Service (S3) is an example of a popular RESTful service.
+
 # Resource-Oriented Architecture
 # Read-Only Resource-Oriented Services
 # Read/Write Resource-Oriented Services
