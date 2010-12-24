@@ -115,6 +115,57 @@ Here's a sample Delicious client written in Ruby:
 
 # What Makes RESTful Services Different
 Amazon's Simple Storage Service (S3) is an example of a popular RESTful service.
+S3 has an object-oriented design.  There are two concepts: buckets and objects.
+An object is a file and associated metadata (like filename or permissions) and
+are stored in named buckets.
+
+S3 has a simple RESTful API.  The developer has access to two types of resources
+(the buckets and objects mentioned above).  To perform actions on those
+resources, developers just need to issue plain HTTP requests.  The HTTP method
+used will distinguish between which action:
+
++-----------------+-----------------+--------------+---------------+--------+
+|                 | GET             | HEAD         | PUT           | DELETE |
++-----------------+-----------------+--------------+---------------+--------+
+| /               | List buckets    | -            | -             | -      |
++-----------------+-----------------+--------------+---------------+--------+
+| /{bucket}       | List bucket's   | -            | Create bucket | Delete |
+|                 | objects         |              |               | bucket |
++-----------------+-----------------+--------------+---------------+--------+
+| /{bucket}/{obj} | Download object | Get metadata | Set value     | Delete |
+|                 |                 |              | and metadata  | object |
++-----------------+-----------------+--------------+---------------+--------+
+
+Some examples:
+* GET / => get the list of available buckets
+* PUT /nantucket => creates a new bucket named "nantucket"
+* PUT /nantucket/file1 => uploads a new file named "file1"
+
+RESTful services have obvious APIs because it follows the HTTP specs.  URIs map
+to resources (instead of actions) and the HTTP actions are used to distinguish
+between verbs (ie. create vs delete).
+
+The difference between {{ POST vs PUT }} is subtle.  GET, HEAD, PUT, and DELETE
+actions are supposed to be {{ idempotent }}.  This means there's no difference
+between making one request vs making many.  They were originally defined as
+idempotent methods for faulty networks.  GET and HEAD are {{ safe }} requests
+meaning they should not change any state on the server (actually, it's okay to
+have side-effects like hit counters - but it shouldn't change state where it
+matters).
+
+POST is not idempotent.  If your request changes state and is not idempotent,
+that's an indication that it should be using POST.  Another subtle difference
+between PUT and POST can be seen from the HTTP specification:
+* PUT - used to upload data from the client to the server at a named resource
+* POST - various reasons to use including uploading data from a form to be
+  processed by some gateway application
+
+Rails applications tend to map POST/GET/PUT/DELETE to Create/Read/Update/Delete,
+which mostly works.  Amazon uses the PUT method to create buckets/objects
+because the path for both actions uses an already named resource.  Naming the
+bucket/object occurs on the client-side (and is idempotent).  Rails applications
+tend to use incremental IDs in their paths which are determined on the server
+side, so requests are no longer idempotent.  Hence POST is commonly used.
 
 # Resource-Oriented Architecture
 # Read-Only Resource-Oriented Services
