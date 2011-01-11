@@ -170,7 +170,7 @@ Some example URIs are:
 * http://www.example.com/bugs/by-state/open
 
 {{ Statelessness }} means every HTTP request happens in complete isolation.  
-Possible states of a resouce should be given their own URI.  For example, 
+Possible states of a resource should be given their own URI.  For example, 
 Google handles the state of pagination in its URI using the query string 
 (?page=1).  ROA requires that state be stored on the client side and sent to the
 server on each request.
@@ -181,7 +181,7 @@ lives in the database is perfectly fine and is called {{ resource state }}.
 This is state like a user's email address, or the current state of a blog post.
 
 While a resource has useful information, its {{ representation }} is what the
-client gets.  The representation may be in different parseable formats including
+client gets.  The representation may be in different parse-able formats including
 HTML, XML, or JSON.  It may be in different encodings or different languages.
 A client can tell the service what sort of representation it expects using
 {{ content negotiation }} (via the Accepts header), or the service designer may
@@ -228,7 +228,7 @@ bucket/object occurs on the client-side (and is idempotent).  Rails applications
 tend to use incremental IDs in their paths which are determined on the server
 side, so requests are no longer idempotent.  Hence POST is commonly used.
 
-HTTP was designed with safety and idempotency in mind because of unreliable
+HTTP was designed with idempotent/safe requests in mind because of unreliable
 network connections.  Some clients are designed to with this assumption.  Web
 accelerator was a product which pre-fetched links (using GET) to speed up
 a user's experience on the web.  It was a disaster because developers used
