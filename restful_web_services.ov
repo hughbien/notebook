@@ -236,6 +236,60 @@ links and GET requests to perform non-safe actions.  So the product ended up
 changing server state, such as deleted resources in the database.
 
 # Read-Only Resource-Oriented Services
+
+The author shows us how he would design a read-only ROA web service.  His
+particular service is for retrieving maps of locations around the universe
+(including other planets!).
+
+The steps he goes through are:
+1. Figure out the data set
+2. Split the data set into resources, and for each resource:
+   1. Name the resource with a URI
+   2. Expose a subset of the uniform interface
+   3. Design the representation(s) accepted from the client
+   4. Design the representation(s) served to the client
+   5. Integrate resource into existing resources using hypermedia links/forms
+   6. Consider typical course of events: what's supposed to happen?
+   7. Consider error conditions: what might go wrong?
+
+A resource is anything interesting enough to be the target of a hypermedia link.
+Some examples are:
+* Predefined one-off resources (like homepage or S3's home bucket)
+* A resource for every object exposed through the service
+* Resources representing the results of algorithms applied to the data set,
+  such as a collection of objects from a search result or pagination
+
+Representing and naming resources is similar to OOP.  Whereas procedural code is
+split into procedures, OOP code is split into objects.  RPC-style services tend
+to name functions like doSearch or subscribeFeed.  RESTful services will have
+URIs named after nouns: /searches/jellyfish or /subscriptions/1337;24
+
+The 3 basic rules for URI design:
+1. Use path variables to encode hierarchy: /parent/child
+2. Put punctuation in path variables to avoid implying hierarchy: 
+   /parent/child1;child2 or /parent/child1,child2
+3. Use query variables to provide input to algorithms:
+   /search?query=jellyfish&start=20
+
+You can represent your resources with a wide variety of formats ranging from XML
+to JSON.  The author settles on using plain old XHTML.  Linked anchors are
+also provided in documents for connectedness:
+  <!-- doctype & head -->
+  <body>
+    <ul class="planets">
+      <li><a href="/Earth">Earth</a></li>
+      <li><a href="/Venus">Venus</a></li>
+    </ul>
+  </body>
+
+Using request headers to distinguish between resource representations aren't
+recommended.  Instead, clients can just tweak the URI to get a different 
+representation.  Conditional GETs are recommended.
+
+When an error occurs, your service should return something in the 3xx-5xx range.
+Redirects are useful to provide an alternate location.  4xx should tell the
+clients their error.  5xx for server errors that clients cannot fix themselves.
+
 # Read/Write Resource-Oriented Services
 # Service Implementation
 # REST/ROA Best Practices
