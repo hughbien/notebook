@@ -236,7 +236,6 @@ links and GET requests to perform non-safe actions.  So the product ended up
 changing server state, such as deleted resources in the database.
 
 # Read-Only Resource-Oriented Services
-
 The author shows us how he would design a read-only ROA web service.  His
 particular service is for retrieving maps of locations around the universe
 (including other planets!).
@@ -291,6 +290,39 @@ Redirects are useful to provide an alternate location.  4xx should tell the
 clients their error.  5xx for server errors that clients cannot fix themselves.
 
 # Read/Write Resource-Oriented Services
+User accounts are going to be implemented as resources which you'll be able to
+create/read/update/delete via the API.  This will allow clients to create new
+user accounts straight from their application.
+
+When writing resources, you'll have to take authentication and authorization
+into account.  In this case, the author uses HTTP Basic authentication via the
+WWW-Authenticate header.  He also uses HTTPS to make sure passwords aren't sent
+in the clear.
+
+To send data from the client to the service, clients may put their PUT or POST
+data in any format.  A good lightweight one is just 
+{{ application/x-www-form-urlencoded }} which is the standard for HTML forms.  
+It works well with key value pairs and looks like the query string portion of
+a URI: "color1=blue&color2=green&color3=red".
+
+The example code uses the {{ rest-open-uri }} gem which supports POSTing/PUTing
+to URIs (unlike vanilla open-uri) and is also much more easier to use than
+the standard net/http library which comes along with Ruby.
+
+Since clients determine the named resource of a user account, PUTs are used
+instead of POSTs.  To create a new user:
+  PUT /users/{username} with a x-www-form-urlencoded body of attributes
+
+If the user is created successfully, a 201 code can be returned with the
+Location header set.  If the user already exists and was updated, a 200 OK
+response is sent back.
+
+If the client sends data that's not in the expected format, the service will
+send back a 415 Unsupported Media Type.  If the client tells the service to
+put a resource in an impossible state, the service will respond with a 400
+Bad Request or 409 Conflict.  If authentication or authorization fails, the
+service will send back a 401 Unauthorized.
+
 # Service Implementation
 # REST/ROA Best Practices
 # Building Blocks of Services
