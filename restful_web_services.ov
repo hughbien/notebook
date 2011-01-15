@@ -490,6 +490,43 @@ Base64 can be decoded and is not safe to send over the wire.  When coupled with
 HTTPS, basic authentication works well.  {{ Digest authentication }} works
 over normal HTTP traffic.  It includes a nonce to prevent replay attacks.
 
+Although it's recommended to use different URIs for different representations of
+resources (like English vs Spanish), the author recommends using headers for
+content encoding.  He argues that it's the same representation, it's just
+encoded differently during transit.  Use the {{ Accept-Encoding }} and the
+{{ Content-Encoding }} to determine encoding type.  This goes without saying,
+but the {{ Content-Type }} and {{ Content-length }} headers must always be set.
+
+Services should use {{ HTTP caching, conditional gets, and etags }} 
+whenever possible.  HTTP supports these features via the headers:
+* Last-Modified and If-Modified-Since
+* ETag and If-None-Match
+* Expires and Cache-Control (max-age or no-cache)
+
+ETag can be as simple as an MD5 checksum of your representation.  You might save
+bandwidth that way, but you won't save any server-side processing.  You can
+also just checksum the important data fields of your resource (updated_at).
+
+An interesting feature of HTTP is the opposite of conditional gets, instead of
+saving the server from sending data back - it saves the client from sending data
+to the server.  This is done via the {{ Expect }} header:
+  PUT /filestore/file.txt
+  Content-length: 524288000
+  Expect: 100-continue
+
+The client is asking if the server will allow it to PUT a new representation.
+The server makes it decision based on headers, in this case rejecting the
+the request because 5MB would be too large.  If it had allowed, the response
+would be 100 Continue.  In the case of no, it's 417 Expectation Failed.
+
+Web browsers only support GET and POST requests.  If your RESTful API needs to
+be exposed to a web browser or any other client that does not support the full
+range of methods, you'll have to fake it.  Rails fakes it by adding a "_method"
+key into the query string or entity body of an x-form-urlencoded POST body.
+You can also fake it by using a header like "X-HTTP-Method-Override".  The
+author suggests using the query string/entity body method because if a client
+doesn't support other HTTP methods, it probably doesn't support headers.
+
 # Building Blocks of Services
 # Resource-Oriented Architecture vs Big Web Services
 # AJAX Applications as REST Clients
