@@ -356,7 +356,7 @@ A RESTful service can be built into Rails controllers.  A blog example:
 RESTful controlls follow a uniform interface that fits with HTTP's already
 defined spec.  Browsers only support GET/POST methods, but Rails gets passed
 this by passing a special "_method=PUT" or "_method=DELETE" parameter in the
-x-form-urlencoded body of POST requests.
+x-www-form-urlencoded body of POST requests.
 
 The author takes the existing delicious API and starts mapping them to Rails
 controller/actions:
@@ -522,12 +522,71 @@ would be 100 Continue.  In the case of no, it's 417 Expectation Failed.
 Web browsers only support GET and POST requests.  If your RESTful API needs to
 be exposed to a web browser or any other client that does not support the full
 range of methods, you'll have to fake it.  Rails fakes it by adding a "_method"
-key into the query string or entity body of an x-form-urlencoded POST body.
+key into the query string or entity body of an x-www-form-urlencoded POST body.
 You can also fake it by using a header like "X-HTTP-Method-Override".  The
 author suggests using the query string/entity body method because if a client
 doesn't support other HTTP methods, it probably doesn't support headers.
 
 # Building Blocks of Services
+The author has various suggestions for representation formats:
+* XHTML, because it's hypermedia that's easily parsed
+* XHTML w/ Microformats for more semantics
+* Atom, for resources related to publishing articles/authors
+* SVG for graphics
+* Form-Encoded Key-Value Pairs (application/x-www-form-urlencoded)
+* JSON as a lightweight serialization format (application/json)
+* RDF and RDFa 
+* Plain old XML specific to your application (application/xml)
+
+The uniform interface of HTTP is also re-iterated here.  GET should
+be used as a safe way to retrieve a resource and services should always
+attempt to support conditional GETs.  The most common response code for
+GETs are 200 OKs.
+
+PUT should send data from the client to the server and should be idempotent.
+It can be used to update the resource or create it, but the named URI should 
+come from the client.  If the client sends inconsistent data, the server
+can respond with a 400 Bad Request.  If the change results in a conflict, the
+server may respond with 409 Conflict.  If the resource is updated and
+available at a different URI, use 301 Moved Permanently.  Otherwise if all
+is successful, use 200 OK.
+
+POST can be used to create a new resource or appending to a resource.  The
+common response code is 201 Created with the Location header set for creation.
+For appending, a response code of 200 OK.
+
+DELETE a named resource usually has the common response code of 200 OK.
+
+There are two kinds of hypermedia: links and forms.  Links and application forms
+implement what the author calls connectedness and what Fieldings called
+"hypermedia as the engine of application state".
+
+{{ URI Templates }} are currently a draft that makes simple resource forms
+look like links:
+  https://s3.amazonaws.com/{name-of-bucket}/{name-of-object}
+
+That's currently not a valid URI due to the curly brackets, but it is a URI
+template.  URI templates gives us a price way to fill in the blank portions
+of a URI to form new ones.
+
+A number of HTML tags can be used as links (ie. img), but the two most common
+ones are <a> and <link>.  <a> anchors allow end users to browse the web, jumping
+from one document to another.  <link>s are used to relate one document to
+another, such as alternate formats or stylesheets.
+
+<form> tags drive the web.  They currently only support GET and POST methods,
+but that changes in HTML5.  They're also limited in the URIs they can express,
+since there's no way to fill in a template URI given the value of inputs of
+the form.  Instead, values are appended as part of the query string in a GET
+form and are encoded in the POST body for a POST request.  There are also no
+ways to set HTTP headers or to use any other format other than 
+application/x-www-form-urlencoded.
+
+HTML5 forms support all four basic HTTP methods: GET, POST, PUT, and DELETE.
+There's a proposal that would allow URI templates.  HTML5 also allows two
+other formats for submitting forms: plain text and XML 
+application/x-www-form+xml.
+
 # Resource-Oriented Architecture vs Big Web Services
 # AJAX Applications as REST Clients
 # Frameworks for RESTful Services
