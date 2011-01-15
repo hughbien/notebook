@@ -587,6 +587,3 @@ There's a proposal that would allow URI templates.  HTML5 also allows two
 other formats for submitting forms: plain text and XML 
 application/x-www-form+xml.
 
-# Resource-Oriented Architecture vs Big Web Services
-# AJAX Applications as REST Clients
-# Frameworks for RESTful Services
