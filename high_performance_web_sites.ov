@@ -1,0 +1,97 @@
+High Performance Web Sites @link(http://oreilly.com/catalog/9780596529307)
+================================================================================
+
+# Overview
+High Performance Web Sites by Steve Souders offers 14 techniques to speed up the
+user experience of accessing web sites/applications and make web surfing 
+much faster for end users.  In a way, he's like Tron - he fights for the users!
+
+For most web pages, less than 10-20% of the end user response time is spent
+getting the HTML document from server to browser.  In reality, most time is
+spent fetching assets (JavaScript, CSS, images, etc...), in redirects, DNS
+lookups, blocked requests which should be parallel, and more.
+
+When optimizing any web site, it's critical to profile current performance and
+identify the bottlenecks.  Souders argues that the best bang for the buck of
+optimizing is in the frontend:
+1. More potential for improvement in the frontend, since that's where 80-90%
+   of the end user response time is spent.
+2. Improvements usually require fewer resources, it usually requires updating
+   some configuration files instead of major architecture changes.
+3. It has been proven to work.
+
+The {{ performance golden rule }} is:
+  Only 10–20% of the end user response time is spent downloading the HTML doc-
+  ument. The other 80–90% is spent downloading all the components in the page.
+
+The rest of the book offers guidelines and techniques to reduce that 80-90%.
+
+# Make Fewer HTTP Requests
+The Performance Golden Rule reveals that 80-90% of response time is spent making
+additional HTTP requests for all the components of a web page.  Each request has
+overhead associated with it.  We can use various techniques to reduce the number
+of requests.
+
+## Image Maps and CSS Sprites
+An {{ image map }} allows you to associate multiple URLs with a single image
+using HTML's <map> tag.  Example:
+  <img usemap="#map1" border=0 src="/images/imagemap.gif">
+  <map name="map1">
+  <area shape="rect" coords="0,0,31,31" href="home.html" title="Home">
+  <area shape="rect" coords="36,0,66,31" href="gifts.html" title="Gifts">
+  <area shape="rect" coords="71,0,101,31" href="cart.html" title="Cart">
+  <area shape="rect" coords="106,0,136,31" href="settings.html" title="Setting">
+  <area shape="rect" coords="141,0,171,31" href="help.html" title="Help">
+  </map>
+
+There are some drawbacks to using image maps: defining area coordinates manually
+is tedious and error-prone and it's difficult to work with any shape other than
+rectangles.
+
+{{ CSS Sprites }} let you combine images but are much more flexible.  An element
+can use a large background image, but only show a portion of it:
+  <div style="background-image: url('a_lot_of_sprites.gif');
+              background-position: -260px -90px;
+              width: 26px; height: 24px;"></div>
+
+For a navigation menu, each nav item could be its own element.  Each element
+would use the same background image but have different background positions.
+
+An additional benefit of combined images are they tend to be smaller as a result
+of reducing image overhead (color tables, formatting info, etc...).
+
+## Inline Images
+You can inline image data via the {{ data: }} URL scheme, the spec is at:
+  http://tools.ietf.org/html/rfc2397
+
+the data is in the URL itself following the format:
+  data:[<mediatype>][;base64],<data>
+
+An example of a red star image would look like:
+  <img alt="Red Star" src="data:image/gif;base64,R0lGODlhDAAMALMLAPN8ffB...=" />
+
+It can be used anywhere a URL is specified including <script> and <a> tags.
+There are some major drawbacks:
+1. It's not yet supported in Internet Explorer
+2. Some browsers have size limitations, FF accepts inline images up to 100K
+3. base64 encoding will increase the size of the image
+4. Since they're inlined, they won't be cached across different pages
+
+A clever way to get around the caching drawback is to inline the image in an
+external CSS file and then cache that CSS file.  Since the stylesheet is cached,
+the inline image will also be cached.
+
+## Combined Scripts/Stylesheets
+
+# Use a Content Delivery Network
+# Add an Expires Header
+# Gzip Components
+# Put Stylesheets at the Top
+# Avoid CSS Expressions
+# Make JavaScript and CSS External
+# Reduce DNS Lookups
+# Minify JavaScript
+# Avoid Redirects
+# Remove Duplicate Scripts
+# Configure ETags
+# Make Ajax Cacheable
