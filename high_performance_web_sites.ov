@@ -336,5 +336,61 @@ Sounders offers some alternatives to redirects:
   the "ugly" URL
 
 # Remove Duplicate Scripts
+Including the same external script twice hurts performance with unnecessary HTTP
+requests (IE only, without far future cache) and wasted JavaScript execution.
+
+Duplicate scripts occur due to team size and complexity of the site.  One way to
+avoid it is to use your server-side language handle generating <script> tags.
+For example:
+  <%= javascript_include_tag :cookie %>
+  def javascript_include_tag(script)
+    @scripts ||= [] 
+    if !@scripts.include?(script)
+      "<script src=\"#{script}.js\">".html_safe
+    end
+  end
+
+You could even let your routine handle dependencies between scripts and 
+versioning for far future Expires header.
+
 # Configure ETags
+{{ Entity tags (ETags) }} are a mechanism that servers/browsers use to validate
+cached components, usually using the resource's checksum and conditional GETs.
+
+ETags provide a more flexible mechanism for validating entities than the
+last-modified-date, such as ability to make changes based on incoming headers.
+The problem is different servers may have different ETags for the same resource.
+If the ETags don't match, the client won't get a 304 response that it should.
+
+Even if your components have a far future Expires header, a conditional GET
+request is still made whenever the user clicks Reload or Refresh.
+
+If-None-Match and If-Modified-Since both need to be satisfied for a 304 response
+so an incorrect ETag ruins caching.  It's better to use them correctly or not at
+all.
+
 # Make Ajax Cacheable
+Ajax requests can be passive or active.  {{ Passive requests }} occur in
+anticipation of a user's future needs, like an email client getting the user's
+address book before any composition is made.  {{ Active requests }} are
+made based on the user's current actions.
+
+Thanks to Ajax, the user won't have to endure a complete page load, but it's
+still not instantaneous because the user must wait for the HTTP response.
+
+Many rules still apply to Ajax requests: Gzip components, reduce DNS lookups,
+minify JavaScript, avoid redirects, and configure ETags.  The most important,
+however, is to add an Expires header.  Ajax requests use the same cache headers
+to determine if responses should be cached or not.
+
+Developers have to be careful not to cache private data, or only cache private
+data for the current user.  Sounders suggests placing the user's unique ID or
+username within the URL itself.  He also says the best way to ensure privacy is
+to use SSL, which only caches responses for the current browser session.
+
+Caching Ajax responses is not always as simple as adding a far future Expires
+header.  If the user modifies the data, the server must ensure that the cache
+is invalidated.  A simple solution is to embed the timestamp in the query
+string.  Whenever the client makes an update, the timestamp would be updated
+and the new resource would be fetched instead.  Of course, this only works if
+there is only one client and the resource isn't being shared.
