@@ -1,0 +1,178 @@
+Photoshop CS5: Missing Manual @link(http://oreilly.com/catalog/0636920001140)
+================================================================================
+
+# Overview
+Lesa Snider has written a complete guide to Photoshop CS5 for beginners in this
+missing manual.  It covers most of the features available in Photoshop which
+is a good foundation for users to build upon.  It also covers some techniques
+used to solve common problems (ie. correcting color/lighting).
+
+# Photoshop CS5 Guided Tour
+Photoshop comes with a few different views, use 'Window -> Application Frame'
+to toggle between them.  There's the classic floating-window frame and the
+new application-frame which has one window.
+
+The application frame consists of:
+* Tools panel - list of tools available in Photoshop
+* Application bar - minimize, maximize, etc...
+* Options bar - options for current active tool you're using
+* Document tabs - work on multiple documents at once
+* Live Workspaces - configure placement of panels
+* Panels - commonly used features in Photoshop
+* Document window - the actual image you're working with
+
+It's easier to select tools using keyboard shortcuts.  Some tools actually
+have more than one kind, for example the Gradient or Sold fill.  Hit 'G' once
+to select the tool or hit 'Shift-G' to cycle between types.
+
+Below the tools are color chips, one for foreground and one for background.
+Hit 'X' to toggle between the two.
+
+Use 'Cmd-Option-Z' to undo actions or 'Cmd-Shift-Z' to redo actions.  If you
+need to undo every action since opening this file, use 'File -> Revert'.
+
+# Opening, Viewing, Saving Files
+Use 'Cmd-N' to create a new document.  You'll then input the size,
+resolution, and color profile.  Most of the time this will be RGB.  Be sure
+to set the correct background contents also (most of the time this will be
+transparent).
+
+To save a file use 'File -> Save' or 'Cmd-S'.  Use 'File -> Save As' or
+'Shift-Cmd-S' to save as a different filename or format.
+
+* JPEG is a good format which takes up little space at the price of quality
+* GIF is popular for animations, transparent backgrounds, or images which use
+  little colors
+* PNG has true transparency, a wide range of colors, and higher quality images
+
+It's always a good idea to save your document as PSD so you can edit it later.
+When you're satisfied with your changes, you can export it to the file type you
+want.
+
+{{ Raster }} images are made up of pixels of colors.  {{ Vector }} images are
+made up of points and paths.  Vector images can be scaled without any loss
+of quality.
+
+Use 'File -> Open' or 'Cmd-O' to open an existing document.  You may also open
+documents as Smart Objects using 'File -> Open as Smart Object' which will let
+you edit them non-destructively.
+
+The 'File -> Open Recent' menu option is useful so you won't have to dig through
+your filesystem.
+
+Zoom in and out with 'Cmd-+' and 'Cmd -' (or use your scrollwheel).  To zoom to
+a specific area, use the Zoom tool.  Use 'Cmd-1' to zoom/dezoom to the actual
+size of the document (100%).  Use 'Cmd-0' to zoom to fit the screen.  Hold the
+'H' key to get a aerial view of your document to move around.  Open the
+Navigator panel to zoom into specific locations.
+
+The Application Frame will let you organize your documents via cascading,
+stacking, etc... in case you have multiple documents open.
+
+Use 'Cmd-R' to toggle the document rulers.  You can configure which units to use
+in the Units & Rules preferences.  Click on the horizontal/vertical ruler to
+create a guide and use the Move tool (V) to move them.  Use 'View -> Snap to ->
+Guides' so objects will snap to guides while you're moving them.  To hide the
+guides use 'Cmd-;', delete a guide by dragging it back to its ruler, and delete
+all guides with the menu option 'View -> Clear Guides'.
+
+'View -> Show -> Grid' to see the document grid.  To configure it, go to
+'Photoshop -> Preferences -> Guides, Grids, and Slices'.
+
+Photoshop has a Ruler tool to measure the distance between two objects.  It's
+grouped with the eyedropper (Shift-I).
+
+# Layers & Nondestructive Editing
+{{ Destructive }} editing means you're changing your original image.
+{{ Non-destructive }} editing means you're not changing the original image and
+can go back at anytime.  To do non-destructive editing, you use {{ layers }} -
+a set of transparencies stacked on top of each other to form a whole image.
+
+* Image layers - pixel based
+* Type layers - used for text
+* Shape layers - creates vector-based shapes
+* Fill layers - changes or adds color to an image
+* Adjustment layers - adjusts the layers below it
+* Smart Objects - a container which imports an external source
+* 3D/Video layers - for importing video or other special sources
+
+Right-click on a portion of your image to get a list of layers in the area
+that you clicked.  When you do actions in Photoshop, it only affects the
+currently selected layer.  The highlighted layer in your Layer panel is
+the current active layer.
+
+Hit 'Shift-Cmd-N' to create a new layer.  Use 'Option-[' to select the layer
+below the current one and 'Option-]' to select the layer above.  Hold down
+'Shift' while doing layer movements to select multiple layers.  Use 'Option-.'
+and 'Option-,' to select the first/last layers.  Use 'Cmd-Option-A' to select
+all layers except the locked background.  To move the selected layer, use 
+'Cmd-[' and 'Cmd-]'.  To move the selected layer all the way to the top/bottom
+use 'Shift-Cmd-[' and 'Shift-Cmd-]'.
+
+To duplicate a layer, use 'Cmd-J' or option drag a layer.  To delete it, press
+the 'delete' key or use the trash icon in the Layers panel. 'Cmd-C' and 'Cmd-V'
+will only copy/paste from the current selected layer.
+
+You can do {{ transformations }} on a layer such as resize, rotating, etc...
+Just select the layer and hit 'Cmd-T'.  While dragging handles, hold 'Option'
+to expand in multiple directions.  Hit 'Return' when you're done.
+
+To move a layer perfectly vertical/horizontal, hold down the 'Shift' key while
+you're moving it.  Holding 'Shift' while using the arrow keys will move it
+10 pixels either way.
+
+Photoshop attempts to align layers by snapping them to boundaries of other
+layers of guides that you set.  To see these boundaries, use to Move tool
+(V) and turn on the 'Show Transform Controls' checkbox in the Options bar.
+
+You can link two or more layers so that they don't separate.  For better
+protection from accidental edits, you can also lock down layers by clicking
+on the lock icon in the Layers panel.  There are 4 types of locks:
+* Lock transparent pixels
+* Lock image pixels
+* Lock position
+* Lock all
+
+You can organize your layers into groups.  Click the folder icon in the layers
+panel to create a new group.  Or select your layers first and hit 'Cmd-G'.
+
+Layer comps are snapshots of your work, they can be used to create different
+versions to show to other people.  Choose 'Window -> Layer Comps' to edit your
+layer comps.
+
+Sometimes you'll need to {{ rasterize }} a layer, which changes it from vector
+base to pixels based.  To do this, just choose 'Layer -> Rasterize'.
+
+You can merge layers if you know you'll never want to change them.  Use 'Layer 
+-> Merge Down' or press 'Cmd-E'.  You can also hide the ones you don't want to 
+merge and use 'Layer -> Merge Visible' or 'Shift-Cmd-E'.
+
+Stamping is a safer version of merging because the resulting operation produces
+a new layer.  The keyboard shortcuts are 'Cmd-Option-E' and 
+'Shift-Cmd-Option-E'.
+
+{{ Blending }} refers to how one layer interacts with the colors on another
+layer for the areas they intersect.  There's more about it in Chapter 7.
+
+{{ Masks }} are like masking tape used for painting.  They cover areas that
+you don't want to effect (or vice-versa).  Some layers come with them
+automatically.  To add it, click on the circle icon in the Layers panel.
+
+Painting with black will conceal and white will reveal.  Use 'B' to choose the
+brush tool and use the 'X' shortcut to toggle quickly between two color chips.
+Use the left bracket '[' or right bracket ']' to change your brush size.
+'Ctrl-Option-drag' will change your brush hardness.
+
+# Selections
+# Control Colors with Channels
+# Cropping, Resizing, and Rotating
+# Combining Images
+# Draining, Changing, Adding Color
+# Correcting Color/Lighting
+# Photoshopping People
+# Art of Sharpening
+# Painting in Photoshop
+# Drawing with Vector Tools
+# Artistic Text
+# Filters
+# Photoshop and the Web

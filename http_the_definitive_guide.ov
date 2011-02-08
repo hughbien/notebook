@@ -1709,7 +1709,7 @@ An example of client-driven is sending back an HTML document with links to each
 variant of the document.  Or responding with a 300 Multiple Choices response. 
 
 We've seen examples of Server-Driven negotiation using the Accept,
-Accept-Language, ACcept-Charset, and Accept-Encoding request headers.  Servers
+Accept-Language, Accept-Charset, and Accept-Encoding request headers.  Servers
 can also match up responses with other client request headers, such as
 User-Agent (knowing what technology the client's browser supports).
 
@@ -1850,7 +1850,7 @@ can them determine which server to send the request to.
 
 ## Logging and Usage Tracking
 Logging is useful for tracking errors and/or to generate statistics.  Most
-commonly lgoged fields of requests/responses are: HTTP method, version, URL,
+commonly logged fields of requests/responses are: HTTP method, version, URL,
 status code of response, size of request/response, timestamp,
 referrer and user-agent header values.
 
