@@ -337,6 +337,42 @@ Select a channel, make a copy of it, then choose 'Image -> Apply'.  Choose
 either 'Screen' to lighten or 'Multiply' to darken.
 
 # Cropping, Resizing, and Rotating
+{{ Cropping }} means eliminating distracting elements in an image by cutting
+away unwanted bits around the edges.  Press 'C' to get the crop tool and drag
+it across the screen to crop your image.  CS5 includes a grid so you can crop
+your image according to the golden ratio.  The darkened portion is called the
+shield.  Use the square handles to resize the box.  Hit 'Enter' to crop.
+
+In the options bar, set the 'Hide' option to hide the shield area instead of
+deleting it when doing a crop.  Just grab the layer with the Move Tool (V) to
+move the cropped area back into view.  You can also set a specific size.
+
+While you're adjusting the crop handles, you can hold the 'Option' key to expand
+equally in all 4 directions.
+
+Cropping can be done with selections by choosing 'Image -> Crop' after making
+a selection.  'Image -> Trim' is handy if you don't know the exact dimensions of
+the crop, it can base its dimensions on transparent/color pixels.
+
+'File -> Automate -> Crop' will automatically crop and straighten photos based
+on its edges (useful when scanning photos).
+
+{{ Pixels }} are the smallest unit in a {{ raster }} image.  They have no
+pre-determined size.  {{ Resolution }} determines how small/large a pixel is.
+It's helpful to think of resolution as pixel density - it's measured in terms
+of pixels per inch or {{ PPI }}.  More PPI means smaller pixels, which results
+in a smoother image.  Printers can modify its output, so a high resolution image
+will look much better than a lower resolution one.  Monitors have a cap on its
+resolution, that's why an 85 ppi image looks identical to an 850 ppi image.
+
+To resize an image, choose 'Image -> Image Size' or hit 'Cmd-Opt-I':
+* Scale Styles determines if Photoshop should scale any layer styles like
+  drop shadows
+* Constrain Proportions locks the aspect ratio
+* Resample Image is key to changing resolution without changing image quality.
+  {{ Resampling }} is the process Photoshop uses to resize your image by adding
+  or subtracting pixels.
+
 # Combining Images
 # Draining, Changing, Adding Color
 # Correcting Color/Lighting
