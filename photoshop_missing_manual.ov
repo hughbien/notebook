@@ -278,6 +278,64 @@ To add a {{ Stroke }} to an image, make a selection and then choose 'Edit ->
 Stroke'.
 
 # Control Colors with Channels
+{{ Channels }} are storage containers for all of your image's color information.
+Eyes are sensitive to different wavelengths which produces different colors.
+
+{{ Additive color system }} works by adding light to create colors - all it
+takes is red + green + blue.  The absence of light is black.  Monitors use
+this system to display colors.  When all 3 lights overlap, you see white.
+
+{{ Subtractive color system }} uses a combination of light that's reflected (
+which you see) and light that's absorbed (which you don't see).  This is how
+printed color works using cyan + magenta + yellow + black, all of which
+absorb light.  The paper the ink is printed on is a reflective surface.
+
+Cyan ink absorbs red light and reflects green/blue light back to you, creating
+the cyan color.  A mix of all cyan/magenta/yellow absorbs most of the primary
+colors - reflecting back dark brown.
+
+To find out whether you're in RGB or CYMK mode, choose 'Image -> Mode'.  In
+RGB mode, your image stores its color information in red/green/blue channels.
+You can actually see the grayscale representation in the {{ Channels panel }}.
+The lighter areas represent a large amount of that particular color, whereas
+black areas represent the absence of that color.
+
+There are 3 types of channels: composite, color, and alpha.  Composite is all
+colors mixed together.  {{ Alpha channels }} are for saved selections.  They
+get their name from alpha compositing - combining a partially transparent
+image with another image for special effects.  The same technology lets you
+save your selections for later use.  They're sometimes referred to as 
+{{ channel masks }}.
+
+Photoshop stores alpha channels are a grayscale representation of your
+selection.  Black is the unselected portion, lighter areas are the selected
+portions.  Click on 'Create new channel' button to create one and paint with
+a white brush to select an area.  Or make a selection and choose 'Select ->
+Save Selection'.
+
+To reload your alpha channel as a selection, 'Cmd-click' on the thumbnail
+or click the 'Load as selection' button.
+
+You can also use channels to help you make your selections, here we'll
+remove the blue background from an image:
+1. Make sure your image is in RGB mode, choose 'Image -> Mode'
+2. Find the channel where your channel is the darkest (absent of this
+   particular color), use 'Cmd-3,4,5' to quickly cycle through channels
+3. Duplicate the channel so your original won't be destroyed
+4. Adjust the channel's Levels to make what you want to keep black
+   and what you want to remove white (the background) by choosing
+   'Image -> Adjustments -> Levels' or 'Cmd-L'
+5. Using the white eyedropper, click the gray background to make it white
+6. If necessary, touch up with black/white paint
+7. Load the channel as a selection
+8. Invert the selection by choosing 'Select -> Inverse' or 'Cmd-Shift-I'
+9. Hide your new channel and turn on the composite channel
+10. Add a layer mask, which will use the current selection as a mask
+
+You can lighten/darken a channel temporarily to make a difficult selection.
+Select a channel, make a copy of it, then choose 'Image -> Apply'.  Choose
+either 'Screen' to lighten or 'Multiply' to darken.
+
 # Cropping, Resizing, and Rotating
 # Combining Images
 # Draining, Changing, Adding Color
