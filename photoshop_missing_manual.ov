@@ -163,7 +163,80 @@ brush tool and use the 'X' shortcut to toggle quickly between two color chips.
 Use the left bracket '[' or right bracket ']' to change your brush size.
 'Ctrl-Option-drag' will change your brush hardness.
 
+For more options, use the Masks panel to edit a mask's opacity/density,
+feathering, or edge.  You can also add/subtract to a mask using color
+ranges from this panel.
+
+{{ Styles }} can be added to layers to add pre-made effects.  Some styles
+include:
+* outer/inner shadows
+* inner/outer glows
+* inner bevel
+* pillow emboss
+* satin
+* color/gradient overlay
+* pattern overlay
+* stroke (borders)
+
+Just select a layer and click on the 'Add a layer style' button at the bottom
+of the Layers panel to add one.  Option drag a style to move it from one layer
+to another.  Ctrl-click a style to see other options (disable, copy, delete...)
+
 # Selections
+Selections let you perform an action on a certain portion of your image or layer,
+including:
+* filling in with a solid color or gradient
+* adding an outline
+* moving it around
+* resize or transforming
+* creating a mask
+
+When a selection is made, the view on your screen is called {{ marching ants }}.
+You'll see these marching ants surrounding the area you selected.
+
+Some shortcuts for selections are:
+* Select all with 'Cmd-A'
+* Deselect with 'Cmd-D'
+* Reselect with 'Cmd-Shift-D' or just use undo
+* Inverse selection with 'Cmd-Shift-I'
+* Load layer as selection by Cmd-clicking the layer's thumbnail image
+* Select all layers with 'Cmd-Option-A'
+* Deselect layers with 'Select -> Deselect Layers'
+* Similar layers will select all of the same layer types 'Select -> Similar'
+
+Hit 'M' to get the Marquee tool and 'Shift-M' to cycle between them.  You can
+use the options bar to add/subtract from a selection or you can use keyboard
+shortcuts:
+* Hold 'Shift' to add to a selection
+* Hold 'Option' to subtract from a selection
+* Hold 'Shift-Option' to intersect with a selection
+
+{{ Feathering }} means making the border of your selection more transparent so it
+blends it better.  {{ Anti-alias }} smooths the color transition at the border.
+Use the {{ Style }} options to restrain to a fixed size or aspect ratio.
+
+You can use the shape tool to make a selection (or mask).  Just create a shape and
+'Ctrl-click' on the add mask icon.  This will create a vector mask, which you're free
+to resize without losing any quality.
+
+Photoshop also includes tools to select by colors.  Use the {{ Quick Selection }} tool
+(W) by dragging it across your picture.  You can change the brush size to get better
+results.
+
+The {{ Magic Wand }} (Shift-M) is great for pulling an image out of its solid color
+background, whereas the Quick Selection tool is more suited at selecting objects.
+Just click once to use the Magic Wand.  A tolerance value of '0' will select pixels
+with exactly the same color.  Tolerance can go up to 255.
+
+You can expand on your selection by choosing 'Select -> Grow' or 'Select -> Similar'
+in the menu.  Grow will only select the pixels adjacent to your current selection,
+whereas similar will select all similar pixels in the image.
+
+'Select -> Color Range' is more fine tuned and can select partial pixels (using
+opacity).  If you're trying to select adjacent pixels, use the Localized Color Clusters
+setting.  You can use the 'Cmd' key to switch temporarily between the image and its
+selection preview.
+
 # Control Colors with Channels
 # Cropping, Resizing, and Rotating
 # Combining Images
