@@ -183,7 +183,7 @@ of the Layers panel to add one.  Option drag a style to move it from one layer
 to another.  Ctrl-click a style to see other options (disable, copy, delete...)
 
 # Selections
-Selections let you perform an action on a certain portion of your image or layer,
+Selections let you perform actions on a certain portion of your image or layer,
 including:
 * filling in with a solid color or gradient
 * adding an outline
@@ -211,31 +211,71 @@ shortcuts:
 * Hold 'Option' to subtract from a selection
 * Hold 'Shift-Option' to intersect with a selection
 
-{{ Feathering }} means making the border of your selection more transparent so it
-blends it better.  {{ Anti-alias }} smooths the color transition at the border.
-Use the {{ Style }} options to restrain to a fixed size or aspect ratio.
+{{ Feathering }} means making the border of your selection more transparent so 
+it blends it better.  {{ Anti-alias }} smooths the color transition at the 
+border.  Use the {{ Style }} option to restrain to a fixed size or aspect ratio.
 
-You can use the shape tool to make a selection (or mask).  Just create a shape and
-'Ctrl-click' on the add mask icon.  This will create a vector mask, which you're free
-to resize without losing any quality.
+You can use the shape tool to make a selection (or mask).  Just create a shape 
+and 'Ctrl-click' on the add mask icon.  This will create a vector mask, which 
+you're free to resize without losing any quality.
 
-Photoshop also includes tools to select by colors.  Use the {{ Quick Selection }} tool
-(W) by dragging it across your picture.  You can change the brush size to get better
-results.
+Photoshop also includes tools to select by colors.  Use the 
+{{ Quick Selection }} tool (W) by dragging it across your picture.  You can 
+change the brush size to get better results.
 
-The {{ Magic Wand }} (Shift-M) is great for pulling an image out of its solid color
-background, whereas the Quick Selection tool is more suited at selecting objects.
-Just click once to use the Magic Wand.  A tolerance value of '0' will select pixels
-with exactly the same color.  Tolerance can go up to 255.
+The {{ Magic Wand }} (Shift-M) is great for pulling an image out of its solid 
+color background, whereas the Quick Selection tool is more suited at selecting 
+objects.  Just click once to use the Magic Wand.  A tolerance value of '0' will
+select pixels with exactly the same color.  Tolerance can go up to 255.
 
-You can expand on your selection by choosing 'Select -> Grow' or 'Select -> Similar'
-in the menu.  Grow will only select the pixels adjacent to your current selection,
-whereas similar will select all similar pixels in the image.
+You can expand on your selection by choosing 'Select -> Grow' or 
+'Select -> Similar' in the menu.  Grow will only select the pixels adjacent to 
+your current selection, whereas similar will select all similar pixels in the 
+image.
 
 'Select -> Color Range' is more fine tuned and can select partial pixels (using
-opacity).  If you're trying to select adjacent pixels, use the Localized Color Clusters
-setting.  You can use the 'Cmd' key to switch temporarily between the image and its
-selection preview.
+opacity).  If you're trying to select adjacent pixels, use the Localized Color 
+Clusters setting.  You can use the 'Cmd' key to switch temporarily between the 
+image and its selection preview.
+
+The {{ Background Eraser }} and {{ Magic Erasers }} are useful to erase using
+colors.  Use 'Shift-E' as a keyboard shortcut.  The Background Eraser has a
+brush size which will only affect that area, but only colors similar to the
+pixel under your crosshair.  The Magic Eraser doesn't have a brush size, instead
+it uses a wand similar to the magic wand.  For these tools, it's best to
+duplicate your layers before you start destructive work.
+
+To select irregular shapes, use the {{ Lasso }} tools (L).  The regular lasso
+lets you draw a selection freeform, the polygonal lasso is useful for selecting
+polygon shapes where you can identify points.  The Magnetic Lasso will attempt
+to guess the curves of your selection using the color of pixels.
+
+When you're finished making a selection, you can refine it further using 
+'Cmd-Option-R' or 'Select -> Refine Edge'.  You can tweak options, Adobe
+recommends doing it in this order:
+* Smart Radius to automatically determine soft/hard edges
+* Radius is the size of the selection
+* Refine Radius to fine-tune your selection even more
+* Erase Refinements if too much background is included
+* Smooth to make your edges look less jagged
+* Feather to blur the edges
+* Contract to sharpen the edges
+* Shift Edge to make your selection smaller (tighten it)
+* Decontaminate Color to prevent {{ edge halos }}, which will attempt to
+  replace the edge colors with other colors nearby
+* Output To to determine what to do with the result
+
+To create a border selection, use 'Select -> Modify'.  Transform a selection
+by choosing 'Select -> Transform Selection'.
+
+You can also paint selections with brushes using {{ Quick Mask Mode }}.  After
+making a selection, press 'Q' to toggle Quick Mask Mode.
+
+Choose 'Select -> Save Selection' to save it for another time.  Choose
+'Select -> Load Selection' to reload it.
+
+To add a {{ Stroke }} to an image, make a selection and then choose 'Edit ->
+Stroke'.
 
 # Control Colors with Channels
 # Cropping, Resizing, and Rotating
