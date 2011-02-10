@@ -416,6 +416,41 @@ you do all available transformations (or hit 'Cmd-T').
 Apply a transformation again by choosing 'Edit -> Transform -> Again'.
 
 # Combining Images
+The easiest way to combine images is to copy the area you want and paste it into
+another image.  You can do this with 'Cmd-C' and 'Cmd-V'.  To copy from all
+available layers use 'Shift-Cmd-C'.  To paste it in the exact location it was
+in the old document, use 'Shift-Cmd-V'.  Paste into a selection with 'Opt-Shift-
+Cmd-V'.  You can use the 'Paste Outside' option to get an automatic layer mask
+from your selection.
+
+Fade two layers together by placing one above the other and using the Eraser
+tool with a soft brush.  A better, non-destructive approach would be to use a
+layer mask with the soft brush.  The smoothest transition can be made with a
+gradient mask.
+
+{{ Blend modes }} define how one layer interacts with another layer.  Photoshop
+has a few different methods for you to use.  You can set a layer's blend mode
+from the Layers panel.  It's helpful to think of colors on a layer being made up
+of 3 parts:
+* Base color that you start out with that's already on the image
+* Blend color of another layer you're putting on top or brushing with
+* Result after mixing the base/blend colors
+
+Photoshop categorizes its blend mode based on the mode's neutral color - the
+color that causes no particular change.
+
+The blend modes are (use Shift-Opt prefix):
+* Normal - shows the pixels on top which blocks bottom pixels (N)
+* Dissolve - turns semi-transparent pixels into spray of dots (I)
+* Darken Modes will darken or {{ burn }} your image, white is neutral 
+  * Darken - combines the darks base/blend colors to create the result (K)
+  * Multiply - increases the base color by the blend color (M)
+  * Color Burn - darkens by increasing contrast, useful for intensifying dull
+    backgrounds in photos (B)
+  * Linear Burn - combo of Multiply/Color Burn, darkens by decreasing brightness
+    which produces the darkest colors.  Great for grungy, textured collages (A)
+* Lighten Modes will lighten or {{ dodge }} your image, black is neutral
+
 # Draining, Changing, Adding Color
 # Correcting Color/Lighting
 # Photoshopping People
