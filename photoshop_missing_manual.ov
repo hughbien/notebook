@@ -373,6 +373,48 @@ To resize an image, choose 'Image -> Image Size' or hit 'Cmd-Opt-I':
   {{ Resampling }} is the process Photoshop uses to resize your image by adding
   or subtracting pixels.
 
+Resampling is useful for images meant for monitors, you can lower the resolution
+without harming image quality.  The methods available are:
+* Nearest neighbor looks at the closest neighboring pixel and copies it, it's
+  useful to small file size (but has lowest image quality)
+* Bilinear averages the colors directly above/below and to the sides, its only
+  advantage over the next 3 methods is that it's fast
+* Bicubic is similar to bilinear, but it uses 2 pixels to each side
+* Bicubic Smoother will blur the new and old neighboring pixels to create a
+  smoother effect.  Adobe recommends this for making images larger
+* Bicubic Sharper is similar to Bicubic but will soften the pixel's edges,
+  Adobe recommends it for making images smaller
+
+If your image will be displayed on the web, you can compress it by choosing
+'File -> Save for Web & Devices'.
+
+To resize the canvas, choose 'Image -> Canvas Size' or 'Cmd-Opt-C'.
+
+Photoshop added a neat feature called {{ Content Aware Scale }} which allows you
+to scale selected areas of your images while keeping other areas intact.  This
+is useful for scaling backgrounds without effecting people in photos:
+1. Hit 'Q' to go into Quick Mask mode
+2. Press 'B' for brush and 'D' to set to black/white
+3. Paint with the area you want to protect with the black brush
+4. Press 'Q' to exit quick mask and 'Cmd-Shift-I' to invert selection
+5. Save as alpha channel and deselect
+6. Choose 'Edit -> Content Aware Scale' or 'Cmd-Opt-Shift-C'
+7. From the option's bar Protect menu, choose 'Alpha 1'
+8. Grab the handle and resize it
+
+{{ Transformers }} let you resize, rotate, flip, skew, and distort images.
+They're available in the menu, but just 'Edit -> Free Transform' will let
+you do all available transformations (or hit 'Cmd-T').
+* Scale by dragging a handle, hold 'Option' to resize in all directions
+* Rotate by hovering over a handle until it turns into a curved cursor and drag
+* Skew/slant by holding 'Cmd-Shift' while dragging one of the sides
+* Distort by holding 'Cmd' while dragging a corner
+* Alter Perspective by holding 'Opt-Cmd-Shift' and dragging a corner
+* Warp by using the option bar 'Switch between free transform/warp'
+* Flip/rotate can be done via the menu with preset numbers
+
+Apply a transformation again by choosing 'Edit -> Transform -> Again'.
+
 # Combining Images
 # Draining, Changing, Adding Color
 # Correcting Color/Lighting
