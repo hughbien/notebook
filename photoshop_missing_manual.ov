@@ -443,13 +443,43 @@ The blend modes are (use Shift-Opt prefix):
 * Normal - shows the pixels on top which blocks bottom pixels (N)
 * Dissolve - turns semi-transparent pixels into spray of dots (I)
 * Darken Modes will darken or {{ burn }} your image, white is neutral 
-  * Darken - combines the darks base/blend colors to create the result (K)
+  * Darken - keeps the darkest of the base/blend colors and combines (K)
   * Multiply - increases the base color by the blend color (M)
   * Color Burn - darkens by increasing contrast, useful for intensifying dull
     backgrounds in photos (B)
   * Linear Burn - combo of Multiply/Color Burn, darkens by decreasing brightness
     which produces the darkest colors.  Great for grungy, textured collages (A)
 * Lighten Modes will lighten or {{ dodge }} your image, black is neutral
+  * Lighten - keeps the lightest of the base/blend colors and combines (G)
+  * Screen - multiplies the opposite of the blend and base colors like bleach,
+    useful for when images are too dark or underexposed (S)
+  * Color Dodge - decreases contrast, tends to turn light pixels solid white and
+    dark pixels on your image stay the same (D)
+  * Linear Dodge - increases brightness, combination of screen/color dodge (W)
+  * Lighter Color - compares base/blend and keeps lightest pixels
+* Lighting Modes do darkening and lightening to increase contrast, and have a
+  neutral of 50% gray
+  * Overlay - color > 50% gray ? color * base : color * 1/base (O)
+  * Soft Light - equivalent of shining a soft light, making bright areas
+    brighter and dark areas darker (F)
+  * Hard Light - similar to Overlay but uses Multiply/Screen for dark/light
+    pixels respectively (H)
+  * Vivid Light - applies Color Burn/Dodge to dark/light pixels respectively (V)
+  * Linear Light - applies Linear Burn/Dodge to dark/light pixels (J)
+  * Pin Light - applies Lighten/Darken (Z)
+  * Hard Mix - reduces range of colors to look flat like a cartoon (L)
+* Hue Modes relate to color and luminance (brightness) values, they're extremely
+  practical to intensify, change, or add to colors
+  * Hue - keeps lightness/saturation of base colors and adds the hue of the
+    blend color.  Useful for changing object's color without changing how
+    light/dark it is (U)
+  * Saturation - keeps luminance and hue of base color and picks up the
+    saturation of the blend color.  Useful to increase an image's color
+    intensity (T)
+  * Color - keeps luminance of base color and picks up hue/saturation of blend,
+    useful for colorizing a grayscale image (C)
+  * Luminosity - keeps base color's hue/saturation and uses blend's luminance,
+    useful for sharpening an image or when using curves/levels adjustments (Y)
 
 # Draining, Changing, Adding Color
 # Correcting Color/Lighting
