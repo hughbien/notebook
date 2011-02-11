@@ -481,6 +481,44 @@ The blend modes are (use Shift-Opt prefix):
   * Luminosity - keeps base color's hue/saturation and uses blend's luminance,
     useful for sharpening an image or when using curves/levels adjustments (Y)
 
+There are also blending options in the Layer Style dialog box that are useful 
+for editing backgrounds.  Double-click a layer's thumbnail in the Layers panel
+to access it.
+
+The "Blend if" section has two gradients with sliders.  Each slider lets you 
+make pixels transparent based on its brightness - the left slider being the 
+shadows and right slider represents the highlights.
+
+You can auto-align layers with 'Edit -> Auto-Align Layers', which lets you align
+multiple photos into a panorama or make collages.  'Edit -> Auto-Blend' will
+blend those images together to make the panorama more realistic.
+
+Clone an image with the Clone Stamp tool:
+1. Open both images, source and target
+2. Press 'S' for Clone Stamp tool then open Clone Source panel
+3. 'Opt-click' the area you want to copy
+4. Create a new layer in the target
+5. Paint to clone the item
+
+{{ Displacement maps }} is a grayscale image that Photoshop will warp onto the
+curvature of another image.  This is useful for placing textures onto skin
+or other objects:
+1. Find the channel with the greatest contrast on your subject
+2. Duplicate and send to new document named 'Map'
+3. Use 'Filter -> Blur -> Gaussian Blur' on the displacement map just a bit
+   so the map is smooth
+4. Save map and close file
+5. Go back to original document and turn composite channel on
+6. Select the subject's are you want the map on
+7. Invert with 'Cmd-Shift-I'
+8. Feather the edges slightly
+9. Save selection with 'Select -> Save Selection'
+10. Place the map onto the face
+11. Choose 'Filter -> Distort -> Displace', use the Map document from step 2
+12. Load the face selection with 'Select -> Load Selection'
+13. Add a layer mask to areas you don't want to show
+14. Change the map's blend mode to 'Multiply'
+
 # Draining, Changing, Adding Color
 # Correcting Color/Lighting
 # Photoshopping People
