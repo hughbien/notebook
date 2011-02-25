@@ -520,6 +520,20 @@ or other objects:
 14. Change the map's blend mode to 'Multiply'
 
 # Draining, Changing, Adding Color
+{{ Desaturating }} means draining the color for your image.  In Photoshop, use
+'Image -> Adjustments -> Desaturate' to turn your image black/white.
+
+The get a less flat black/white image, use the Black/White Adjustment layer
+which lets you set different types of contrast:
+1. Open your image
+2. Open the Adjustments panel, click the Black/White Adjustment layer icon
+3. Move the various sliders until you have a nice image
+4. Optionally add a tint (like a fake Sepia)
+
+All Adjustment Layers come with a mask, if you want to have an area with color
+cover that area with black paint in the mask.  Fading a color to black/white is
+as simple as using a gradient on that mask.
+
 # Correcting Color/Lighting
 # Photoshopping People
 # Art of Sharpening
