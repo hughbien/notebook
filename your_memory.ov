@@ -118,11 +118,44 @@ after they acquire knowledge.  They remember worse in the reverse order, if
 they wake up and then acquire knowledge.
 
 # Remember anything, basic principles
-## Meaningfulness
-## Organization
-## Association
-## Visualization
-## Attention
+The basic principles for better memory are:
+* Meaningfulness
+* Organization
+* Association
+* Visualization
+* Attention
+
+It's much easier to remember something simple/meaningful than something that is
+complex/meaningless.  Remembering meaningless things is called rote memory,
+and techniques such as repetition is used for it (remembering many digits like
+Pi, or remembering random strings of characters).  For example, it's much easier
+to remember words with meaning than random syllables.
+
+Organization plays an important role.  A dictionary provides alphabetical
+organization so it's easy to look up the definition of a word.  When you're
+recalling the states, it's usually easier to do it in order of geography or
+alphabet.  When you remember new facts, you usually organize it so you can
+recall it later on.  Higbee notes that not all data structures provide equal
+look-up time, for instance an alphabetically organized dictionary is not
+optimized to find all words that rhyme with "stealthy".
+
+Association is a technique used when you encode a memory.  For example, a golfer
+always remembers his wife's birthday because it is exactly one week after his
+first hole-in-one.  
+
+"Think around it" is similar to association, where you think around what you
+want to remember to trigger a memory.  For example, in police investigations
+it's useful to ask any witnesses to recall everything about a crime-scene to
+trigger the memory of a once forgotten license-plate.  Whereas association
+occurs during the encoding step, "think around it" occurs during retrieval.
+
+Visual memory is often better than semantic memory.  It's much easier to
+visualize your house to remember how many windows there are instead of just
+remembering the fact.
+
+Attention is required to actually record the memory in the first place.  Higbee
+asks us if we remember if Lincoln had a tie on the penny.  Not many people
+can recall it because it's unimportant - we never pay attention.
 
 # Remember almost anything, more principles
 ## Repetition
