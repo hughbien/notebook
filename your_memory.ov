@@ -399,6 +399,33 @@ a hand (with 5 fingers) and a 10 dollar bill.  So for example, my bed could
 have a 10 dollar bill on it and the 12th location is just 2 locis after.
 
 # Peg Mnemonic
+The Peg system is similar to the Loci system, but instead of using locations
+as keys we use real concrete words.
+
+The words must represent numbers by looking like one, symbolic, or rhyme:
+1. bun
+2. shoe
+3. tree
+4. door
+5. hive
+6. sticks
+7. heaven
+8. gate
+9. wine
+10. hen
+
+Then for any list, associate each pair of words with visual imagery.  Whereas
+the loci system is sequential, the peg system allows you to retrieve items
+out of order.
+
+It's called the peg system because your concrete words act like pegs, on which
+you hang your items to be memorized.
+
+The Loci system is said to be much easier/more natural to learn.  Another
+limitation is it's difficult to come up with concrete words beyond the number
+ten.  Interference may also be a problem if you're trying to remember multiple
+lists and re-using the same pegs.
+
 # Phonetic Mnemonic
 # Remember people's name/faces
 # Using Mnemonics, absentmindedness and education
