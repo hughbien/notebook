@@ -427,6 +427,77 @@ ten.  Interference may also be a problem if you're trying to remember multiple
 lists and re-using the same pegs.
 
 # Phonetic Mnemonic
+The Phoentic system is the most complicated mnemonic system introduced in this
+book, but is very powerful.  It's similar to the peg system, you'll have words
+which act as your pegs.  But it solves the weakness of the peg system - you
+can easily create up over 1000+ pegs with a bit of practice.
+
+Every number will have consonant sounds associated with it:
++---+----------------------+-----------------------------+
+| # | Sound(s)             | Memory Aid                  |
++---+----------------------+-----------------------------+
+| 1 | t, th, d             | "t" has one downstroke      |
++---+----------------------+-----------------------------+
+| 2 | n                    | two downstrokes             |
++---+----------------------+-----------------------------+
+| 3 | m                    | three downstrokes           |
++---+----------------------+-----------------------------+
+| 4 | r                    | last sound for "four"       |
++---+----------------------+-----------------------------+
+| 5 | l                    | roman numeral for 50 is "L" |
++---+----------------------+-----------------------------+
+| 6 | j, sh, ch, soft g    | reverse "j" looks like      |
++---+----------------------+-----------------------------+
+| 7 | k, q, hard c, hard g | "k" makes two 7s            |
++---+----------------------+-----------------------------+
+| 8 | f, v                 | script "f" resembles 8      |
++---+----------------------+-----------------------------+
+| 9 | p, b                 | p is mirror image of 9      |
++---+----------------------+-----------------------------+
+| 0 | z, s, soft c         | "z" for zero                |
++---+----------------------+-----------------------------+
+
+The table above works well because all consonant sounds are used except for
+"w", "h", "y" (why) - so most words can be used.  The sounds are also
+mutually exclusive to prevent interference.
+
+Higbee suggests using the consonant sounds as the first sound in your
+keywords.  Sample keywords:
+1. tie
+2. Noah
+3. ma
+4. ray
+5. law
+6. jay
+7. key
+8. fee
+9. pie
+10. toes
+11. tot
+12. tin
+13. tomb
+14. tire
+15. towel
+
+The appendix has sample keywords for up to 100.  Using adjectives, you can
+multiply your 100-word list into a 1000 phrase list:
+1. wet (wet tie = 0101 or 101)
+2. new
+3. my
+4. hairy
+5. oily
+6. huge
+7. weak
+8. heavy
+9. happy
+10. dizzy
+
+The phonetic system allows you to pick a word in your list without going in
+order.  It has the added benefit of encoding numbers in a more meaningful
+way with low interference.  For example, you can use it to remember PI where
+each digit is translated to your keyword.  Chunking it provides a lower
+amount of interference also.
+
 # Remember people's name/faces
 # Using Mnemonics, absentmindedness and education
 
