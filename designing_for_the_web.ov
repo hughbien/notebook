@@ -1,0 +1,109 @@
+Designing for the Web http://designingfortheweb.co.uk/book/index.php
+================================================================================
+
+# Overview
+Mark Boulton teaches us techniques for designing websites that adhere to the
+principles of web design.
+
+# Getting Started
+Boulton explains the current state of web design and our roles within it.
+
+The web browser used to be the only application to access the web.  Now,
+we've got RSS readers, mobile devices, email clients, and other desktop apps.
+
+10 years ago, the web was only being used by technically savvy users.  Now,
+a more diverse group is using it for Facebook, email, or blogging.
+
+The web moves fast - and the designer needs to keep up.  Boulton tells us how
+web services became the norm: Twitter, Vimeo, Flickr, YouTube.  These services
+surprised were quickly accepted and integrated into various websites.
+
+Boulton will show us the general rules for making typeface choices, knowing what
+tertiary colour to use or how to design a five column grid system.
+
+Showing multiple mockups to clients and letting them decide on one is a waste
+of time.  Instead, it's better to come up with one design approach for a project
+and iterate quickly on it.
+
+Designers have a lot of tools to work with: paper/pen, IEs, Firefox/Firebug,
+Safari, Opera, Photoshop, Illustrator, and text editors.
+
+Web designers need to be T-shaped - a specialist in one area but generalist in
+many other areas.  You'll need to learn a large amount of technologies just
+to get started: HTML, CSS, JavaScript, server-side scripting.  But you shouldn't
+forget your area of speciality.  In Boulton's case, it's applying graphic design
+to the modern web.
+
+# Research
+Design is problem solving.  The first step of problem solving is research.  You
+must define the actual problem and discover possible solutions.
+
+The traditional design process is:
+1. Brief - the initial outline from the client, either a RFP or short email.
+2. Research - designers need insight into the real world.  They need data to
+   get a good sense of how a product is being used.
+3. Design - the creation step where designers will create a product.
+4. Amends - the designer needs to make changes based on client feedback.
+5. Production - the final product is made.
+
+The web design process is similar:
+1. Brief - comprised of a few documents: client, technical, creative, idea.
+2. Research and insight - for a web project this might include: page impressions,
+   unique visitors, user flows, persona, use cases, user interviews, focus
+   groups, SWOT analysis (Strengths, Weakness, Opportunities, Threats), 
+   questionnaires, and market segments.
+3. Design ideas - the idea generation step, where designers create a product.
+4. Solution - start with a Lo Fi solution like sketches, then test and iterate
+   until you've got the final design comp.
+5. Production - now implement your design comp for the final product.
+
+Boulton notes that this is just one of many ways that work.  Use the best
+process that fits with your team and project.
+
+Ask questions, you need to understand the company you're working for and their
+product.  Some questions you may ask:
+* Describe your product/service.
+* What are your 3 most important business goals?
+* Who is your target market?
+* What makes you better than your competition?
+* How do you market your product/service?
+* What are trends that might affect your product/service?
+* If you could communicate any single thing about your company, what would it be?
+
+Do market research about the product or service.  Learn their vocabulary.  Keep
+up about their current events.
+
+Ideas can come from anywhere: other products, unrelated fields, culture.  Start
+with a single problem and generate your ideas from there:
+
+  "We need to redesign our News service to appeal to a more global audience."
+  or
+  "How do we engage in an older audience for our social networking product?"
+
+Use the 4 Rs:
+* Revolution
+  Take assumptions and reverse/remove them.  Like a pub has 4 walls and a roof,
+  but what if it didn't have a roof?
+* Re-Expression
+  Use a different point of view.  Eg, what if you were 5 years old and your
+  parents were buying you a booster seat - what would make it cooler?
+* Related Worlds
+  Use ideas from a related world.  Eg, what elements of gardening could be used
+  to sell more recipe books?
+* Random Links
+  Force connections between random worlds.  Eg, a social networking website and
+  a cactus...
+
+Refine your idea with AN. A.B.C.:
+* AN - Audience Need
+  Who is the idea for?  Will they want to use it?  Better, will they need to?
+* A - Approach
+  How are you going to implement it?
+* B - Benefit
+  What's the benefit you're providing?  Is there a competitive advantage?
+* C - Competition
+  What's your place in the market?
+
+# Typography
+# Color
+# Layout
