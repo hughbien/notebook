@@ -302,3 +302,69 @@ Boulton suggests we start with a grayscale project.  After we figure out the
 layout, typography, and tone - we can start adding color.
 
 # Layout
+The {{ Golden Section }}, Golden Ratio, and Divine Proportion are all the same
+thing.  A ratio of 1.618.  It occurs everywhere in nature and is often re-used
+by artists.
+
+Divide your workspace into thirds horizontally and vertically.  Align key
+elements onto where those lines intersect.
+
+Since we can't be sure of how much vertical space our web page will have on a
+user's monitor, Boulton suggests we use the same size as our horizontal width.
+So a 960px layout will be split into nine 320x320 pixel squares (or a grid).
+
+The {{ Looking Room }} is the negative space between the edge of a workspace
+and a subject.  Sometimes called the Lead Room, it's often used in movies and
+TV shows.  An actor will look to the right and there will be plenty of space
+between his face and the right-edge of the screen (he'll be placed on the left).
+
+{{ Art Direction }} is the process of managing visual presentation of content.
+The Last Supper by Da Vinci does this using triangles of empty space
+surrounding the center.
+
+Boulton used a large triangle to manage the reader's eyes for his own 
+web page.  The natural reading order is left to right, top to bottom in
+the Western world.  In the top-left corner he placed a logo.  In the
+top-right corner, he placed an orange starburst.  Finally, at the
+bottom-left corner he placed a yellow cover image to draw attention.
+
+There are three types of shapes in classical design: geometric, natural, and
+abstract.  Geometric shapes are what you'd expect: triangles, circles, squares,
+rectangles, etc...  Natural shapes are derived from what's around us.  Abstract
+shapes can be representative - impressionistic - or expressionistic (conveying
+meaning or emotion).
+
+Shapes have meanings, especially when combined with color.  A yellow triangle
+means warning, proceed with caution.  A green circle means everything is okay.
+
+{{ Typographic color }} refers to the density of type on a page.  Too much or
+too little will make it difficult to read.  You can change the density by
+adjusting the leading and kerning.
+
+The white space between major elements is called {{ Macro White Space }}.  The
+white space between minor elements like list items or words is called
+{{ Minor White Space }}.
+
+{{ Passive White Space }} is used to create breathing room and balance.
+{{ Active White Space }} is intentional to navigate the user's eyes from one
+key element to the next.
+
+{{ Grid systems }} are used to order graphical elements like text or images
+on a layout.  Optimize your pages for 1024x768, which will accommodate 95%
+of your users (960px width seems to be common now).
+
+A grid is made up of unit sizes (the width of each box) and gutters.  For
+example, a 50px unit size width and 10px gutter.  16 columns would be a
+total width of 940px - there are no gutters on absolute left and right edges.
+
+Ratios are at the core of grids.  Use the golden ratio or rule of thirds to
+determine your horizontal lines or how many units to use for a single element.
+
+It's common practice to determine your unit size from your base font size.  If
+your font size is 12pt, it's good to have a unit size that's a multiple of 12pt.
+By doing this, there will be a direct relationship between your typography and
+layout - making it smoother to read.
+
+Boulton mentions the use of CSS frameworks.  He warns us to be careful about
+HTML bloat.  Some of the frameworks he recommends are: Blueprint, 960gs, and
+Yahoo's UI grid.
