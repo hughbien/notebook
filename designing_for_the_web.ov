@@ -244,4 +244,61 @@ A few rules for printing:
 6. Always set type smaller than you think.
 
 # Color
+There are two different types of primary colors: additive and subtractive.
+
+The additive primaries are: red, green, blue.  These are obtained via lights,
+combined they form white.  This system is used for computer and TV screens.
+
+The subtractive primaries are: cyan, magenta, yellow.  These are obtained by
+the subtraction of light.  For example, light will be reflected off a piece
+of white paper - but is absorbed by any colored ink on that paper.  CYMK (K
+stands for black) is the ink system used for printing.
+
+The color wheel helps classify the colors and helps understand the relationship
+between each color.  Secondary colors are created by combining primary colors.
+Tertiary colors are created by combining a primary/secondary.
+
+{{ Monochrome }} color schemes use only one color from the color wheel.
+{{ Complementary }} uses two contrasting colors from opposite sides of the wheel.
+{{ Triads }} provide tension because each color's strength is equal.  Triad
+colors use three colors, each equal distance from one another on the wheel.
+
+A color is made up of three things: hue, saturation, and brightness.  Hue refers
+to the tone of the color.  Saturation is the purity or intensity of the color.
+Think of it as a scale between grey and the pure color.  Brightness refers to
+how much white or black is contained within a color.  Think of this as two
+scales: white to the pure color and black to the pure color.
+
+Color combinations can have three types of colors: subordinate or base, dominant
+or main, and accent or highlight.  The base color is the visually weak one,
+it should contrast or complement.  The main color defines the communicative
+values you want.  The highlight color can provide tension within a combination.
+
+Designers should be sensitive to cultural aspects of colors.  For example,
+red is associated with anger in the West but good luck in the East.
+
+Non-Colors:
+* Black - death/mourning in West, authority, official.  Should be used
+  sparingly because of perceived weight.  Users think black pages load faster
+  than white ones.
+* White - simplicity, calming mood.  Provides a base color which all other
+  colors can work on.
+Primaries:
+* Red - hot, passion, demanding attention in West.  Good fortune, wealth,
+  purity in East.  Tricky to use due to strength and vibrant.  Often used as
+  the accent color.  Darken to burgundy to get a classier feel.
+* Blue - calm, soothing.  Dark navy is official.  With grey to elicit trust.  
+  Paler blue suggests youthfulness.
+* Yellow - cheerful, happiness.  With red it's autumn.  With green it's disease
+  and illness.  Has highest contrast with black (good for warnings).
+* Green - nature, calmness, well-being.  Vibrant when combined with red or black.
+Secondaries and Tertiaries:
+* Orange - hot but playful.  Natural combo with green/brown.
+* Brown - nature.  It's easy to replace black with brown.
+* Purple - royal color.  Used with yellow/green for royalty/wealth.  With red
+  or orange to provide depth.  Associated with mystery and imagination.
+
+Boulton suggests we start with a grayscale project.  After we figure out the
+layout, typography, and tone - we can start adding color.
+
 # Layout
