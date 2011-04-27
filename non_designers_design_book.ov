@@ -8,7 +8,51 @@ for when you don't like a design.  Robin Williams guides us through the basic
 principles of design.
 
 # Principles
+Good design is as easy as:
+1. Learn the principles
+2. Recognize when you're not using them
+3. Apply the principles
+
+The four basic principles are CRAP:
+* Contrast - avoid elements that are similar but not the same.  Make them very
+  different.  Contrast draws your readers to a design in the first place.
+* Repetition - repeating visual elements creates organization and unity.
+* Alignment - every element should have a connection to at least one other.
+  This creates a clean and sophisticated look.
+* Proximity - items related to each other should be grouped close together.
+  This helps organize, reduce clutter, and gives structure.
+
 # Proximity
+Group related items together to form a cohesive group  Items that are not related
+should not be close together.
+
+Grouping also clears communication to your readers.  It's much easier to digest
+information at a glance when all related info is grouped.
+
+Which list is better?
+  *Motifs*                     *Motifs*
+  Snakes                        Snakes
+  Mornings                      Mornings
+  *Collections*
+  Small printings              *Collections*
+  Dingbats                      Small printings
+  *Thematic*                    Dingbats
+  Villains and saints
+  Music                        *Thematic*
+                                Villains and saints
+                                Music
+
+Headlines should not be equal distance from both copy above and below.  It should
+be further from the copy above and closer to the copy it represents.
+
+Which copy is better?
+  *Headline*                   *Headline*
+  Lorem ipsum dolor             Lorem ipsum dolor
+  *Headline 2*
+  Lorem ipsum dolor            *Headline2*
+  *Headline 3*                  Lorem ipsum dolor
+  Lorem ipsum dolor
+
 # Alignment
 # Repetition
 # Contrast
