@@ -368,3 +368,14 @@ layout - making it smoother to read.
 Boulton mentions the use of CSS frameworks.  He warns us to be careful about
 HTML bloat.  Some of the frameworks he recommends are: Blueprint, 960gs, and
 Yahoo's UI grid.
+
+It's okay to break from the grid once in a while - Boulton even recommends it.
+The trick is knowing when to do it.  If a grid isn't working, go back and
+change its unit size or gutters.
+
+Design for the worse case.  What if the font size increases by 200%?  What if
+the editor uploads the wrong image size?  Also take advantage of new
+technologies.  Use progressive enhancements and graceful degradation.
+
+Almost 80% of your content will be: headings, paragraphs, lists, and tables.
+Start off your design with these elements.
