@@ -106,13 +106,42 @@ It's possible to break free of alignment, if it's done consciously:
         nulla pariatur.  Excepteur sint occaecat cupidatat non.
 
 Similar to contrast, avoid similar alignments.  If it's not completely the
-same, break the alignemnt consciously.
+same, break the alignment consciously.
 
 Unity is an important element of design.  To make a layout appear unified,
 there needs to be a connection between every element on the page.  Nothing
 should look out of place.
 
 # Repetition
+Repeat some aspect of the design throughout the entire piece.
+
+You already use repetition: bullet lists, font style headings, borders.
+Beginners need to push this further.  Once again, Williams tells us to be
+conscious.  Turn the unconscious act of repetition into a visual key.
+
+Williams uses the example of the card again.  This time, she bolds the last item
+on the card as well as the center.  When your eye travels to the last item, it
+tends to drift back towards the center where the other bold item was:
+
+                  +----------------------------------+
+                  |                  *Mermaid Tavern*|
+                  |                    Ralph Doister |
+                  |                                  |
+                  |                1027 Beard Street |
+                  |                       London, NM |
+                  |                    *555-123-4567*|
+                  +----------------------------------+
+
+Repeated items don't always have to be the same.  They can just have the same
+theme.  For example, showing multiple character designs which overlap borders.
+Or repeating triangles - even if they're different colors.
+
+Think of repetition as being consistent - then push it a bit further.  Use it
+to unify your design and add visual interest.  Think about adding an element
+whose sole purpose is for repetition.
+
+Avoid overwhelming your viewer with repetition.
+
 # Contrast
 # Using Color
 # Type & Life
