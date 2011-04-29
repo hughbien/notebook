@@ -179,6 +179,56 @@ Our eyes like contrast, it will draw us to the page.  Almost only counts in
 horseshoes and hand grenades.  Avoid being a wimp.  Experiment.
 
 # Using Color
+This chapter includes a brief explanation of the color wheel, color
+relationships, shades/tints, tones, warm vs cold colors, and CMYK vs RGB.
+
+Since most of her readers are interested in design for print, Williams uses the
+CMYK model to explain the color wheel.
+
+The primary colors are: Yellow, Red, and Blue.  The secondary colors are:
+Green, Purple, and Orange.  Secondary colors are retrieved by combining two
+primary colors.  Tertiary colors are made by combining a primary and secondary
+color.  The most common way to display these colors is on a wheel, where the
+primaries all start out equal distance from one another.
+
+Some interesting themes occur with the color wheel.  These color combinations
+are guaranteed to work well together:
+* Complementary - 2 colors on opposite sides of one another.  Because they're
+  opposite, it's best if one is used as the main and the other is an accent.
+* Triad - set of 3 colors all equal distance from one another on the wheel.  The
+  primary triad (RYB) is common in children's products.
+* Split Complement - choose one color, then choose the two neighbors of its
+  complement.
+* Analogous - color combo where each color is next to each other on the wheel.
+  Combined with shades/tints, this makes a very harmonious and interesting combo.
+* Monochromatic - one color whose brightness is adjusted to create various
+  tints and shades.
+
+The pure color itself is called a {{ Hue }}.  You can adjust it's {{ Brightness }}
+by adding black or white.  Adding black creates a {{ Shade }} and adding white
+creates a {{ Tint }}.  Using shades and tints with the color combinations
+described above will create attractive themes.
+
+{{ Tone }} or {{ Saturation }} refers to the particular quality, vibrant, or
+deepness of a hue.  I've also heard it's similar to adding more gray to your
+color (as opposed to white/black for brightness).
+
+Colors tend to be on the warm side or cool side.  Warmer colors have red or
+yellow in them.  Cooler colors have blue in them.  Cool colors work well for
+backgrounds.  Warmer colors work well to make things stand out in the foreground.
+Williams warns us about using too much warm colors - it may overwhelm your
+readers.  Stick with cooler colors for large amounts.
+
+CYMK stands for Cyan (blue), Yellow, Magenta (red/pink), and Black.  It's a
+subtractive system which is used for print.  With these 4 inks, you can make
+thousands of colors.  Light hits the ink, which is reflected into your eyes.
+
+RGB stands for Red, Green, and Blue.  It's an additive system where light will
+directly enter your eyes.  Combined, they make white.  The absence of light
+makes black.  This is the system used for computer monitors and TVs.
+
+Williams suggests we select our colors before the project begins.
+
 # Type & Life
 # Categories of Type
 # Type Contrasts
