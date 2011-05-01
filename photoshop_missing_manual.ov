@@ -534,6 +534,16 @@ All Adjustment Layers come with a mask, if you want to have an area with color
 cover that area with black paint in the mask.  Fading a color to black/white is
 as simple as using a gradient on that mask.
 
+A high contrast black/white image has no gray in it.  To create one:
+1. Open the Adjustments panel, click the Threshold icon (rectangle with diagonal
+   black stripes)
+2. Drag slider to right to make shadows more black.  Drag slier to left to
+   make highlights more white.
+3. Press 'O' for the Burn/Dodge tool to edit your image's darkness/brightness
+4. Merge the layer/adjustment.  Use Filter->Blur->Gaussian blur for softer edges
+5. Optionally, create a new color layer - bright red - move it to top
+6. Set that layer's blend mode to Darken
+
 # Correcting Color/Lighting
 # Photoshopping People
 # Art of Sharpening
