@@ -544,6 +544,34 @@ A high contrast black/white image has no gray in it.  To create one:
 5. Optionally, create a new color layer - bright red - move it to top
 6. Set that layer's blend mode to Darken
 
+To change colors in Photoshop, use the Hue/Saturation adjustment mask:
+1. Select the area you want to change - skip if you want to change everything
+2. Create a Hue/Saturation adjustment mask
+3. To change color, change the hue slider left or right
+4. To adjust intensity, change the saturation slider left or right
+5. To adjust brightness, change the lightness slider left or right
+
+You can target specific colors instead of replacing the entire image or
+selection:
+1. Add the Hue/Saturation adjustment layer
+2. Use the Target Adjustment tool - it's a hand with two arrows
+3. Use the eye droppers at the bottom to edit your thresholds
+4. You can edit with eye droppers or via sliders.  The dark gray on the slider
+   represents hues which will completely change.  The light gray represents
+   hues which will partially change
+
+A single dialog way to change color is 'Image -> Adjustments -> Replace Color'.
+Select your threshold with eye droppers then adjust with sliders.
+
+Snider recommends the Selective Color Adjustments layers as an easy and
+powerful way to replace colors:
+1. Add a Selective Color adjustment layer - square divided by 4 triangles
+2. In the adjustment dialog, choose a color to adjust
+3. Use the sliders to adjust their RGB or CYMK values
+
+The destructive Match Colors command will attempt to match the colors of one
+image with another.
+
 # Correcting Color/Lighting
 # Photoshopping People
 # Art of Sharpening
