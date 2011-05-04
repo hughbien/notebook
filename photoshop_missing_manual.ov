@@ -570,7 +570,42 @@ powerful way to replace colors:
 3. Use the sliders to adjust their RGB or CYMK values
 
 The destructive Match Colors command will attempt to match the colors of one
-image with another.
+image with another:
+1. Open your source and target images in RGB mode
+2. In the target, choose Image -> Adjustments -> Match Color
+3. Select the source document
+4. Adjust image options
+
+The Photo Adjustment Layer is handy to do slight changes to colors like warming
+a photo:
+1. Click the Photo Filter icon - it looks like a camera with a circle above it
+2. Select from a list of 20 presets or turn on the color option
+3. Use the Density slider to adjust - it's just intensity
+
+The Posterize Adjustment Layer removes most of the colors.  It's not that
+useful, but it's fun to play with to make photos look like cartoons.
+
+The Invert Adjustment Layer will invert colors for you.
+
+Variations will add a quick tint to black/white photos:
+1. Choose Image -> Adjustments -> Variations
+2. Choose one of the colored previews
+3. Re-click previews to add more intensity, adjust with right panel
+
+The Color Balance Adjustment Layer is just like Variations, except it's 
+non-destructive and uses sliders instead of previews.
+
+To paint color onto a black/white image:
+1. Add a new layer for paint
+2. Set the paint layer's blend mode to Color
+3. Grab the brush tool and paint
+
+The Gradient Map Adjustment Layer adds a gradient to your image.  It uses the
+highlights and shadows to determine where to place the gradient:
+1. Set color chips to black/white (D) and add the Gradient Map Adjustment layer
+2. Click the gradient preview to open the Gradient Editor
+3. Edit the gradient's color stops
+4. Change the layer's blend mode to Color to only affect hue
 
 # Correcting Color/Lighting
 # Photoshopping People
