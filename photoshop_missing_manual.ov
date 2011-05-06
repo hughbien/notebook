@@ -608,6 +608,76 @@ highlights and shadows to determine where to place the gradient:
 4. Change the layer's blend mode to Color to only affect hue
 
 # Correcting Color/Lighting
+{{ Shadows }} are created when light is blocked.  {{ Highlights }} represents
+the lightest or brightest parts of your image.  {{ Midtones }} are what fall
+between the two extremes.
+
+To use Photoshop's auto-correction tools, you'll need to do some setup:
+1. Choose Window -> Adjustments, then the Levels icon (fire with 3 triangles)
+2. Option-Click Auto button to open the Auto Color Correction Options
+3. Choose Find Dark & Light Color algorithm
+4. Turn on Snap Neutral Midtones checkbox
+5. Set target shadow color by entering 10 in each RGB field
+6. Set Clip field to 0.10 percent
+7. Set target midtone by entering 133 in each RGB field
+8. Set target highlights by entering 245 in each RGB field
+9. Turn on "Save as Defaults" and click OK
+
+{{ Color cast }} means your photo is flat with a single color - like everything
+looks green.  If your photo is flat or has color cast, try the Auto Color tool.
+Photoshop hunts down shadows, highlights, and midtones and changes them to the
+targets you set.  It works well for oversaturated images.  Choose Image ->
+Auto Color or "Shift-Cmd-B".
+
+The Variations adjustment is also handy to fix color casts.  Just choose
+Image -> Adjustments -> Variations and pick a preview.
+
+The Color Balance tool will shift colors to be on opposites sides of the color
+wheel.  It's available as a layer: choose Color Balance from Adjustment panel.
+Or choose Image -> Adjustments -> Color Balance or 'Cmd-B' for the destructive
+version.
+
+Photo Filter will add tints to your photo.  Use the opposite tint to remove
+color casts.  Image -> Adjustments -> Photo Filter or use the Adjustment layer.
+
+Photoshop has some tools to automagically fix lighting issues also:
+* Auto Tone adds more contrast to brighten your image.  Use 'Shift-Cmd-L' or
+  click the Levels/Curves button on the Adjustments panel then Option-Click
+  the Auto button.  Choose Enhance Per Channel Contrast and click OK.
+* Auto Contrast will adjust your contrast without affecting colors.  It's
+  useful for a little boost in contrast - but will keep flat images flat.
+  Use 'Opt-Shift-Cmd-L' or use the Adjustment panel's Levels button,
+  Opt-Click Auto, and choose Enhance Monochromatic Contrast algorithm.
+* Shadows/Highlights will quickly darken shadows and lighten highlights.
+  It's referenced later.
+* Equalize will turn your highlights white and shadows black.  Choose Image ->
+  Adjustments -> Equalize.
+* Dodge/Burn tools will let you darken/lighten using a brush
+* Brightness/Contrast adjustment tools will adjust the brightness/contrast.
+  Leave the legacy checkbox off, the new algorithm will detect which areas
+  to brighten.  Access it from your Adjustment panel (looks like the sun)
+  and adjust the settings.
+
+Shadows/Highlights is the most useful and is for when your camera doesn't
+have flash or it failed to go off.  Choose Image -> Adjustments ->
+Shadows/Highlights.  Use the advanced options:
+* Set amount slider to 20 to 35% to avoid noise
+* Leave tonal width to 50%, which tells Photoshop which shadows to adjust.
+  A low number means Photoshop will only adjust the darker shadows.
+* Increase Shadows section's Radius slider to 250 to 300 px.  This algorithm
+  works by analyzing the surrounding pixels of shadows.  This setting tells
+  Photoshop how big the neighborhood is.
+* Set Color Correction to 0 to prevent messing with colors
+* Leave Midtone Contrast at 0
+* Leave the black clip and white clip set to 0.01%
+* Click 'Save as Default'
+
+To get better results, Snider recommends running the Shadows/Highlights
+adjustment in Lab mode.  Switch to it temporarily with Image -> Mode ->
+Lab Color.  Don't flatten or rasterize.  Choose Window -> Channels and select
+the lightness channel.  Now run the Shadows/Highlights adjustments.  Switch
+back to RGB with Image -> Mode -> RGB.
+
 # Photoshopping People
 # Art of Sharpening
 # Painting in Photoshop
