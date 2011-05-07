@@ -759,6 +759,64 @@ Adjust by lower opacity.
 Use the {{ Red Eye }} tool (part of the healing brush set) to remove red eyes.
 
 # Art of Sharpening
+If your image came from a digital camera or scanner, it needs sharpening.
+Sharpening improves your photo's focus.
+
+You can sharpen with the Sharpen, Sharpen Edges, Sharpen More filters.  Snider
+advises that these give no control and you shouldn't use them.
+
+Smart Sharpen lets you pick the settings.  This one is recommended.  Unsharp
+Mask used to be the gold standard but Smart Sharpen has mostly replaced it.
+
+Sharpening is a destructive process, so be sure to:
+* resize your image first
+* reduce any noise first (Filter -> Noise -> Reduce Noise), the settings are:
+  Strength - increase if you have a lot of color or grayscale noise
+  Preserve Details - to protect details in your image at the expense of noise
+  Reduce Color Noise - increase to reduce color noise even more
+  Sharpen Details - combines sharpening, resist using it (use Smart Sharpen)
+  Remove JPEG Artifacts - if you're dealing with a compressed JPEG
+* sharpen your image on a duplicate layer
+* change the sharpened layer's blend mode to Luminosity
+* sharpen your image a little bit, multiple times
+
+The unsharp mask is easy to use:
+1. Either duplicate a layer or create a smart object: Filter -> Convert for Smart
+2. Choose Filter -> Sharpen -> Unsharp Mask
+3. Change layer's blend mode to Luminosity
+
+Some options in sharpening:
+* Amount determines how much lighter/darker to turn light/dark pixels
+* Radius determines how many pixels Photoshop will look at
+* Threshold controls how different neighbor pixels have to be for edges
+
+Some general guidelines:
+* Soft stuff like flowers or babies don't need much sharpening.  Amount should
+  be around 150%, Radius to 1, and Threshold to 10.
+* Portraits need little sharpening, to make eyes stand out you can set Amount to
+  75%, Radius to 2, and Threshold to 3.
+* Objects, landscapes, and animals are tough to sharpen because there aren't any
+  real edges.  Try Amount 120%, Radius 1, and Threshold 3.
+* Max sharpening for buildings, cars, or anything with edges: Amount 65%,
+  Radius 4, Threshold 3.
+* Everyday sharpening: Amount 85%, Radius 1, Threshold 3
+* Sharpening for Web (or downsized image): Amount 200%, Radius 3, Threshold 0
+
+The smart sharpen filter is a bit more difficult to use:
+1. Create a duplicate layer
+2. Choose Filter -> Sharpen -> Smart Sharpen
+3. You'll have tons of options including:
+   * Remove what kind of blurs to reduce.  Gaussian is basic and what Unsharp
+     Mask uses.  Lens should be picked in image has a lot of noise.  Motion if
+     your subject in the photo was moving and blurry.
+   * Angle - if you used Motion Blur, set the angle the blur is occurring at
+   * More Accurate - more precise sharpening at a time cost
+   * Fade Amount - reduce amount of sharpening on shadows/highlights
+   * Tonal Width - control which highlights/shadows to sharpen
+
+Use a mask to sharpen only a portion of a layer.
+
+
 # Painting in Photoshop
 # Drawing with Vector Tools
 # Artistic Text
