@@ -715,6 +715,49 @@ You can also make colors pop using Lab/blend mode:
 7. Switch back to RGB, choose Image -> Mode -> RGB
 
 # Photoshopping People
+The {{ Spot Healing Brush }} (J) will look at the pixels outside the cursor's
+edge and blend them with the pixels inside.  It's useful to get rid of moles or
+pimples.  Press the [ or ] keys to resize your brush.  The Mode option determines
+which blend mode to use.  Type tells Photoshop which pixels to use.  Content
+Aware Fill is an amazing tool which can remove unwanted power lines or people
+from photos.
+
+The {{ Healing Brush }} is similar, but instead of looking for pixels directly
+outside of the cursor you need to give it a sample point.  Option click with
+the brush to set a sample point.  Then mouse over the bad skin and brush away.
+
+The {{ Patch }} tool works like the Healing Brush but is better for removing
+piercings, tattoos, or highlights/shadows.  You draw an outline over a large
+area, click inside the area, and drag it to a sample point to use.
+
+The {{ Clone Stamp }} can get rid of sweat shines.  Press 'S' to activate,
+choose a soft edge brush and Darken blend mode in the options bar.  Lower the
+opacity to 20-30 percent.  Set sample popup to all layers.  Option click to
+get a sample point.  Now brush away the sweat shine.
+
+Fix flabby chins by selecting it with the lasso tool, Filter -> Distort ->
+Pinch it.  Enter 100 in the amount field.  You can follow the same steps with
+the Liquify filter to pull in bulges.
+
+Any parts of your image can be selected and used with the Free Transform tool.
+This is useful for slimming or expanding.
+
+Use the {{ Gaussian Blur }} filter to smooth out freckles.  Create a new layer
+with a mask to just get the face.  Lower the layer's opacity and apply the
+Gaussian Blur filter (Filter -> Blur -> Gaussian Blur).  Use these same steps
+with the Easy Glamour Glow filter for a face glow effect.
+
+You can imitate the dodge/burn tools by creating a new layer, setting its blend
+mode to Soft Light and painting with 50% gray.  It's a non-destructive way to
+lighten images (and reduce wrinkles).
+
+A quick way to enhance eyes is to lighten them and change their blend mode to
+Screen.  Add an empty Adjustment layer with mask around your subject's eyes.
+Set the blend mode.  You can intensify the effect by duplicating the layer.
+Adjust by lower opacity.
+
+Use the {{ Red Eye }} tool (part of the healing brush set) to remove red eyes.
+
 # Art of Sharpening
 # Painting in Photoshop
 # Drawing with Vector Tools
