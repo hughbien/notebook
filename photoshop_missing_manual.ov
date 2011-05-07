@@ -678,6 +678,42 @@ Lab Color.  Don't flatten or rasterize.  Choose Window -> Channels and select
 the lightness channel.  Now run the Shadows/Highlights adjustments.  Switch
 back to RGB with Image -> Mode -> RGB.
 
+{{ Level }} adjustments change intensity levels of your shadows, midtones,
+and highlights to fix lighting problems, increase contrast, or even balance
+color in your image.
+
+A {{ histogram }} is a visual representation of information about your image.
+Look at one with Window -> Histogram.  It looks like a mountain range.  The width
+represents tonal range (range between lightest and darkest pixels).  The height
+represents how many pixels are at that particular brightness.
+
+Create a Level Adjustment layer by clicking the histogram icon in the Adjustments
+panel.  Adjust the shadows, midtones, and highlight sliders to their min/mid/max
+positions to adjust contrast.  The sliders at the bottom are for pure white/black
+pixels.  You can also use the Levels eyedroppers to determine shadows/highlights.
+
+Use Window -> Info to see data about your image.  Mouse over any part of your
+image to see the exact color value.
+
+By curving a diagonal line on a grid, you change the brightness of all pixels
+in your image.  To create a Curves Adjustment layer, click on the Curves button
+(looks like an S) on the Adjustments panel.  The diagonal line represents your
+curve.  You can place 14 points on it which you can then drag upwards or
+downwards to change the brightness of your image.
+
+Use the Vibrance Adjustment layer to intensify your image's colors.  It usually
+doesn't completely destroy skin tone.  The Vibrance slider works well but the
+Saturation slider tends to be over-kill.
+
+You can also make colors pop using Lab/blend mode:
+1. Choose Image -> Mode -> Lab Color
+2. Duplicate your layer with 'Cmd-J'
+3. Choose Image -> Apply Image
+4. Change Blending popup menu to Soft Light
+5. In Channel popup, select the one that looks best
+6. If necessary, lower the channel's opacity
+7. Switch back to RGB, choose Image -> Mode -> RGB
+
 # Photoshopping People
 # Art of Sharpening
 # Painting in Photoshop
