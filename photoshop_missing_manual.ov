@@ -942,6 +942,61 @@ You can create a new brush by:
 7. Customize and save your brush
 
 # Drawing with Vector Tools
+Photoshop lets you set down points to make a path, which can be used to create
+vector objects (lines, circles, squares, other shapes).  These objects are then
+infinitely tweak-able.  You can use vector tools to add new elements to your
+image, create precise selections, or create precise masks.
+
+Photoshop has three drawing modes:
+1. Shape Layers - Any click will create a new Shape Layer, when you finish
+   laying out your shape its foreground will be filled.  It works with the Pen
+   and Shape tools.  It's useful for adding shapes to images.
+2. Paths - In this mode, Photoshop turns whatever you draw into an empty
+   outline.  You can use it to create selections or new shapes, but Photoshop
+   won't automatically create a new layer and fill it for you.  New paths
+   will exist on the Paths panel.
+3. Fill Pixels - Only works with shape tools.  It's like the Shape Layer tool,
+   but it automatically rasterizes the new layer.
+
+With the Pen tool you create {{ anchor points }} and {{ control handles }}.
+Two anchor points make up a line.  Control handles are used to create curves.
+There are two types of anchor points: Smooth and Corner.  A smooth curve is
+round whereas a corner is a square corner without control handles.  Click and
+immediately let go to create a corner anchor point, drag for smoothness.
+
+Once you're done setting anchor points, hit Esc or Cmd-Click to exit.  Use the
+Direct Selection tool (Shift-A) to drag any of the anchor points.  Use the
+Convert Anchor Point tool (Shift-P) and drag on any anchor point to convert it.
+
+Some tips:
+* Exaggerate curves by dragging one side of the control handle in the opposite
+  direction of the path.
+* The length of the control handle determines the depth of the curve.
+* To create an open path, just hit Esc.  To create a close path, hover your
+  mouse above the first anchor point and click.
+* You can add a control handle to anchor points by Opt-Clicking.
+
+You can only have one working path at a time.  Save your path using the Paths
+panel.  Hit Return to hide the gray line so you don't accidentally edit it.
+
+All shape tools work the same, here are the steps to draw a line:
+1. Select the Line tool (Shift-U)
+2. The options bar (and disclosure menu) should have options specifically for
+   the shape.  For a line, that includes arrowheads and width/weight.
+3. Pick a line color
+4. Click where you want the line to start, drag to where it ends
+5. You can double-click on the Shape Layer's thumbnail in the Layers panel to
+   edit its color
+
+Once you've created a shape, you can edit it like any other paths.  Use the
+Direct Selection tool to move anchor points.  Use the Pen tool to add or subtract
+points.  Use Free Transform or layer styles or special effects.  For other shapes
+you'll need to drag diagonally.  Hold Shift while dragging for perfect
+proportions.
+
+Every new shape creates a new layer.  If you want to use the existing layer,
+use the Option bar's Add, Subtract, Intersect, and Exclude buttons.
+
 # Artistic Text
 # Filters
 # Photoshop and the Web
