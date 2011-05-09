@@ -816,8 +816,131 @@ The smart sharpen filter is a bit more difficult to use:
 
 Use a mask to sharpen only a portion of a layer.
 
-
 # Painting in Photoshop
+Snider starts by teaching us the basics of color theory, the foundation of
+painting in Photoshop.
+
+A color scheme refers to any group of colors.  A color wheel is a tool that helps
+you pick a good scheme.  There are primary colors (RGB or CYM), secondary colors,
+and tertiary colors.  Secondary colors are made by combining primary colors.  
+Tertiary colors are made by combining a primary and secondary.
+
+A color is actually made up of three things: Hue, Saturation, and Brightness.
+Hue just means the "color" itself, like red or green.  Saturation is the
+intensity of the color.  A highly saturated hue is vivid, whereas the less
+saturated is dull and gray.  Brightness is how light or dark a color is.  100%
+brightness is white, 0% brightness is the absence of light (or black).
+
+You usually select a base color first when selecting a color scheme.  For more
+tips on color combinations, see notes on Non Designer's Design Book.
+
+The Eyedropper tool (I) can be used to grab the exact color on an image.  CS5
+introduced an even more accurate Sample Ring.  Click once to set your foreground
+chip to that color.  Option-Click to set your background chip.
+
+Snider recommends the Kuler and Panetone Matching System extensions.
+
+You can store your frequently used colors in the Swatches panel, choose Window
+-> Swatches to activate.  Hover over an empty panel and click on it to set
+the panel to your foreground chip.  Click a swatch to set your foreground chip.
+Cmd-Click to set your background chip.  Finally, delete it by Opt-Clicking.
+
+The Color panel is a more concise way to pick your colors.  Choose Window ->
+Color to activate it.
+
+The Brush (B) tool has tons of options:
+* Tool presets let you save settings to re-use them
+* Brush Preset picker has built-in brushes
+* Brush Panel lets you customize your brushes in CS5
+* Mode is the blend mode similar to layers.  It contains two extra ones:
+  Behind mode lets you brush behind the current layer and Transparent mode
+* Opacity controls transparency of your strokes
+* Flow controls how much paint to place onto your layer per stroke
+* Airbursh option makes your brush behave like a spray can
+
+CS5 saw the introduction of the Mixer Brush - it lets you brush over a previous
+stroke to mix colors just like real life.
+
+Snider walks us through a quick tutorial for painting:
+1. Create an empty document and new layer
+2. Select a small, hard-edge brush and set the foreground chip to dark gray
+3. Sketch your drawing, don't worry about details which will be added later
+4. Lower the sketch's opacity to 40%
+5. Create a new layer for your refined drawing
+6. Clean up your drawing until you're happy with it
+7. Create a new layer and fill it with the color you'll use most
+8. Grab a large, round, textured brush at 25% and start painting to add dimension
+   to your background color (think different brightness of blues)
+9. Create a new layer with a large 25% opacity brush and paint your subject
+10. Keep creating new layers and painting more, refining at each step
+11. Finalize your painting by adding texture - use funky-edged brushes or even
+    add a background photo and set the painting's blend mode to Overlay
+
+You can load more brushes by opening the Brush menu in the Options bar with the
+Brush tool selected.  Choose "Faux Finish Brushes" or any other types from the
+popup menu.
+
+The Brush panel gives you amazing customization abilities.  Choose Window ->
+Brush.  The categories are:
+* Brush Tip Shape - lets you edit the Size, Flip X, Flip Y, Angle, Roundness,
+  Hardness, or Spacing (amount of space between brush marks when you stroke)
+* Shape Dynamics - natural/realistic vs solid/perfect brush marks.  Size Jitter
+  and Control controls how much the size of brush marks vary.  Angle Jitter and
+  Control controls angle variation and Roundness Jitter/Control is roundness
+  variation.
+* Scattering - create random marks around your brush as you stroke.  Scatter
+  and Control is how much to distribute your marks.  Count and Count Jitter/
+  Control are used to color the numbers of marks.
+* Texture - apply a repeating pattern to your brushstroke which makes it look
+  textured.  You'll have to load most of them (explained below).  Invert will
+  invert light/dark points so a repeating stroke will act differently.  Scale
+  controls the size of the pattern.  Texture Each Tip to apply the texture to
+  each brush mark within the stroke rather than replacing.  Mode for blend mode.
+  Depth controls how much paint seeps into the texture.
+* Dual Brush - combine two brush tips.  Mode for blend mode.  Diameter controls
+  the size of the tip.  You can also control Spacing, Scatter, and Count.
+* Color Dynamics - controls variety of color within your strokes.  There's
+  Foreground/Background Jitter Control, Hue Jitter, Saturation Jitter, Brightness
+  Jitter, and Purity.
+* Transfer - these are the extra customizations you can make.  There's Opacity,
+  Flow, Wetness, and Mix.
+* Some other options are Noise for random textures onto tips, Wet Edges,
+  Airbrush, Smoothing, and Protect Texture.
+
+Load textures by clicking the down array inside the Texture preview in your
+Brush panel.
+
+Some suggested customizations by Snider are:
+* Round, hard-edged: 25% opacity, 0% spacing, Size Jitter = Pen Pressure for
+  shading, blocking in color, and sketching
+* Rough-edged: 25% opacity, 0% spacing, Maybe Flow Jitter = Pen Pressure for
+  shading, adding texture, making hair
+* Rough brush: 30% opacity, 0% spacing, Angle Jitter = 20%, Control = off for
+  adding texture and shading
+* Small dot brush: 30% opacity, 0% spacing, Size Jitter = Pen Pressure,
+  Opacity = Pen Pressure for making hair, shading
+* Round rough-edged brush: 100% opacity, 20-25% spacing, Size Jitter = Pen
+  Pressure, Opacity Jitter and Flow Jitter = Pen Pressure for shading/block
+  coloring
+* Textured round brush: 30% opacity, 0% spacing, Flow Jitter = Pen Pressure for
+  adding texture and shading
+* Textured round brush: 100% opacity, 0% spacing, Size Jitter = Pen Pressure,
+  Flow Jitter = Pen Pressure for sketching, creating line art, and adding
+  fine details
+* Scattered spot brush: 70% opacity, 25% spacing, Scatter = 20%, Size Jitter =
+  Pen Pressure, Opacity/Flow Jitter = Pen Pressure for adding texture
+
+You can create a new brush by:
+1. Creating a 300x300 document
+2. Making a paint dab with 100% black and gray paint.  The black paint will be
+   completely opaque and the gray paint will be semi-transparent
+3. Use a Rectangular Marquee to select the dab
+4. Choose Edit -> Define Brush Preset
+5. Create a new document and grab the Brush tool (B)
+6. In the options bar, select your new brush from the Brush menu and open the
+   Brush panel
+7. Customize and save your brush
+
 # Drawing with Vector Tools
 # Artistic Text
 # Filters
