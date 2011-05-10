@@ -1028,5 +1028,77 @@ mode.  Then Cmd-click the layer you want to add a mask to and select "Add a
 layer mask".  The mask is now infinitely resizable.
 
 # Artistic Text
+Snider warns us about some typography offenses:
+* Overusing decorative fonts
+* Using too many fonts per design
+* Setting whole sentences in capital letters
+* Underlining text that's not a hyperlink
+* Centering large bodies of text
+* Misusing straight vs smart (curly) quotation marks
+* Misusing hyphens, en dashes, and em dashes.  Hyphens combine words, en dashes
+  are a substitute for to as in 10AM-11AM (Option-hyphen on Mac), em dashes are
+  for abrupt changes in a sentence (Shift-Option-hyphen)
+* Creating ellipses with periods.  Three periods have too much space in between,
+  instead use Option-; on a Mac
+
+A {{ Glyph }} is a unique graphical representation of a character.  A collection
+of glyphs is called a {{ typeface }}.  A {{ font }} is a specific typeface, size,
+style, and weight.  Times New Roman is a typeface, Times 14-pt bold is a font.
+
+There are three font formats: PostScript, TrueType, OpenType.  PostScript is the
+oldest and will work with almost any printer.  TrueType was developed by
+Microsoft/Apple and is the most common format today.  TrueType fonts on Windows
+can be used on Macs, but not vice-versa.  OpenType was developed by Microsoft
+and Adobe, it's the most compatible on all systems and a single file can contain
+more than 65,000 glyphs.  It's not supported by older printers though.
+
+There are too many font categories to list out, but Snider introduces us to
+these four:
+* Serif - these have little lines (serifs) extending from the main stroke that
+  looks like feet to help lead the eye from one character to the next.  They're
+  great for large bodies of text due to high legibility.  Glyphs tend to have
+  a thick/thin stroke with transitions.
+* Sans serif - these are missing serifs and usually have a uniform stroke.
+  They display well at small sizes and are ideal for headlines or web copy.
+* Slab serif - these have serifs, are usually thick, and have a uniform stroke.
+  Use them to attract attention like headlines.
+* Decorative - this category is for distinctive, eye-catching fonts.
+* Scripts - designed to look like they were hand written.
+
+There are several font {{ styles }} like bold, semi-bold, italic, or condensed.
+When they're included in the font it's known as native.  Photoshop can fake
+a style for you, just set the style in the Character panel.  It usually looks
+fine on screen but is horrible for printing.
+
+Choose Photoshop -> Preferences -> Type -> Edit to preview your fonts in the
+font selection drop down.
+
+All font lives on a {{ Type Layer }}.  Select the Horizontal Type Tool (or
+Vertical) by hitting 'T'.  Click anywhere to start typing.  Clicking creates an
+initial point and the text is called Point Text.  To create a newline hit
+return, to end your typing hit enter.  You can also create Paragraph Text,
+just drag a box or Option-Click with the type tool.  You set a boundary and
+Photoshop will automatically fit your text.
+
+Move your text by placing your cursor outside the type layer, wait for it to
+turn into a move cursor, then drag it.  Or hold Cmd while dragging inside the
+Type layer.
+
+If you keep the Type tool activated, you can select text by double clicking or
+click and dragging.  To load your text as a selection, Cmd-click on the
+thumbnail in the Layers panel.  Loading as a selection lets you apply styles,
+effects, and other common layer edits.
+
+While you're editing, hold Cmd to get resize handles.  This lets you dynamically
+resize your type layer.  With the Type layer activated, use Cmd-T to begin a
+Free Transform.
+
+Photoshop includes a Type Mask tool which lets you type characters to create a
+mask.  When you're done typing, just hit Enter to create a selection.  You're
+not limited to horizontal or vertical.  Create a path with the Pen tool, then
+select the Type tool and click along the path to type with it.  You can type
+within a Shape by doing the same (wait until your cursor turns to an I-beam with
+surrounding dots).
+
 # Filters
 # Photoshop and the Web
