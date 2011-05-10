@@ -997,6 +997,36 @@ proportions.
 Every new shape creates a new layer.  If you want to use the existing layer,
 use the Option bar's Add, Subtract, Intersect, and Exclude buttons.
 
+To add a point, hover over an existing path with your Pen tool and click where
+there are none.  Or you can use the Add Anchor Point tool.  To delete a point,
+hover over it with the Pen tool until a minus sign appears.  Or use the Delete
+Anchor Point tool.
+
+The Direct Selection tool turns your cursor into a white arrow and lets you 
+select a single point.  The Path Selection tool turns your cursor black and lets
+you select entire paths.  Once selected: Option drag to copy it, hit Delete to
+delete it, align it with alignment toolset, combine it using Options toolbar,
+or resize it with Free Transform.
+
+Once you have a path, you can add a stroke to it.  Just create a new layer then
+choose Stroke Path from the Paths panel's menu.  Or activate the tool you want
+to use for stroking (Brush usually) and then click the Stroke Path button.
+
+You can also fill in a path.  Create a new layer then choose Fill Path from
+the Paths panel's menu.  The higher the number in the Feather Radius field,
+the softer/more transparent the edge.  Anti-alias will make the edge harder.
+
+You can also make a selection from a Path.  Just choose Make Selection from
+the Path panel's menu.  Or click Load path as selection button - which skips
+the dialog.  Or Cmd-Click the path's thumbnail in the Paths panel.
+
+If you drag an image layer over a shape layer with a vector shape on it, you
+can create a {{ clipping mask }}.  Just choose Layer -> Create Clipping Mask.
+
+For a regular vector mask, create your vector shape first.  Use the Paths drawing
+mode.  Then Cmd-click the layer you want to add a mask to and select "Add a
+layer mask".  The mask is now infinitely resizable.
+
 # Artistic Text
 # Filters
 # Photoshop and the Web
