@@ -1100,5 +1100,69 @@ select the Type tool and click along the path to type with it.  You can type
 within a Shape by doing the same (wait until your cursor turns to an I-beam with
 surrounding dots).
 
+The options bar lets you format:
+* Type Tool Preset Picker - presets of saved font preferences.  You can make
+  a new preset by selecting your options then clicking the disclosure triangle
+  on this tool.
+* Text Orientation
+* Font Family
+* Font Style - native styles for the font family you selected
+* Font Size - use Photoshop -> Preferences -> Units & Rulers to switch units
+* Anti Aliasing - use none on small text to make it clean/sharp and strong
+  or smooth on larger text
+* Alignment
+* Text Color
+* Create Warped Text
+* Character Panel - advanced formatting options
+
+{{ Leading }} (rhymes with "bedding") controls the amount of blank space
+between two lines of text.  {{ Kerning }} refers to the amount of space
+between a pair of letters.  {{ Tracking }} is the space between all letters
+in a word.  Adjusting tracking is useful to fit words into a space.  Text's
+{{ baseline }} is the invisible line where letters sit.  Changing it via
+a {{ baseline shift }} will make some characters appear higher or lower.
+
+Photoshop includes two auto-kerning methods in the Character Panel: Metrics
+and Optical.  Metrics kerning uses the letter pairs to determine kern
+amount.  Optical adjusts kern based on the characters' shape.
+
+Horizontal/Vertical Scale can be used to scale your characters.  All/Small
+Caps lets you capitalize all letters.  Super and Subscript will shift the
+baseline and point size of selected characters.  Language will adjust your
+text with a spell check and hyphenation.
+
+Fractional Widths is turned on by default, which rounds characters widths.
+Adobe recommends you turn this option off for smaller text (under 20pt) to
+give it more breathing room.
+
+System Layout turns off Fractional Widths and anti-aliasing to render text
+the same way your OS renders it.  No Break will force Photoshop to reflow words
+so a particular word won't break with a hyphen.  Reset Character will reset
+your formatting options (just in case).
+
+The paragraph panel has fewer options:
+* Justification
+* Indentation
+* Margin after paragraphs
+* Hyphenate
+
+Snider mentions how headers should have more spacing above it than below.  This
+follows the rule of proximity to relate headers to its paragraphs.
+
+A really neat trick is adding multiple strokes to text:
+1. Type your text in a new Type layer
+2. Make it a selection and open Layer Styles
+3. Check the Stroke section, and open the Gradient editor
+4. Give it 2 or more colors in the gradients as solid chunks
+
+You can use a photo or filter to add texture to text:
+1. Add the text in a new Type layer (make sure you have a white background on
+   the layer below)
+2. Load the text as a selection and create a mask
+3. Choose Filter -> Distort -> Ocean Ripple or Filter -> Sketch -> Torn Edges
+
+It's useful to convert your type into a vector shape for further editing.  To
+do this, select Layer -> Type -> Create Work Path or "Convert to Shape".
+
 # Filters
 # Photoshop and the Web
