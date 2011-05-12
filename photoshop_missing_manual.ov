@@ -1165,4 +1165,61 @@ It's useful to convert your type into a vector shape for further editing.  To
 do this, select Layer -> Type -> Create Work Path or "Convert to Shape".
 
 # Filters
+If you convert a layer into a Smart Object, you can make filters run on their own
+layer - sometimes known as a {{ Smart Filter }}.  Not all filters run on Smart
+Objects (like Extract and Liquify).  For these, you'll need to duplicate your
+layer before running to avoid destructiveness.  To use a Smart Filter just
+choose Filter -> Convert for Smart Filters with your layer selected.
+
+Copy a filter by Option-dragging them from one layer to another.
+
+The categories of filters are:
+* Artistic - make your image resemble paintings or cartoons
+* Blur
+* Brush Strokes - to create traditional fine art effects
+* Distort
+* Noise - add or remove grains
+* Pixelate
+* Render - deals with lighting
+* Sketch - adds a bit of texture to your image
+* Stylize - high contrast artistic filters (like making a sketch from an image)
+* Texture
+
+Make a Lens Blur:
+1. Open image and locate Channels panel
+2. Create a new alpha channel
+3. Use Brush tool to paint with 50% opacity on area you want focused
+4. Turn off alpha visibility and select RGB channel
+5. Open Layers panel and duplicate original layer
+6. Choose Filter -> Blur -> Lens Blur
+7. Change Depth Map source to Alpha 1
+8. Turn on Invert
+9. Adjust Radius slider
+
+Add a jagged frame:
+1. Select where you want the frame to surround
+2. Add a layer mask, select it
+3. Choose Filter -> Brush Strokes -> Spatter
+
+Add snowflakes in the foreground:
+1. Create a new layer filled with black
+2. With black layer selected, choose Filter -> Convert for Smart Filters
+3. Change blend mode to Screen (ignores black)
+4. Choose Filter -> Sketch -> Graphic Pen
+5. Set Stroke Direction to Vertical, Length of 5, Light/Dark Balance of 90
+6. Choose Filter -> Gaussian Blur with radius of 1.5
+
+Convert a photo into a pencil sketch:
+1. Add a black/white adjustment layer
+2. Choose Filter -> Convert for Smart Filters
+3. Chose Filter -> Stylize -> Find Edges
+4. Open the filter's blending options, change to Hard Mix with opacity 85%
+5. Choose Filter -> Blur -> Gaussian Blur with radius of 2
+6. Change Gaussian layer's blend mode to Lighten
+
+One of the fast filters is to create a darkened edge effect:
+1. Filter -> Convert for Smart Filters
+2. Filter -> Lens Correction
+3. On Custom tab, adjust Amount and Midpoint
+
 # Photoshop and the Web
