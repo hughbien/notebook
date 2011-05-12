@@ -1223,3 +1223,57 @@ One of the fast filters is to create a darkened edge effect:
 3. On Custom tab, adjust Amount and Midpoint
 
 # Photoshop and the Web
+This chapter is all about keeping your file sizes down and image quality up.
+You can do this by:
+* Adjusting the image's dimensions properly
+* Deciding on which file format to use
+* Compressing the file
+
+Snider recommends these dimensions:
+* 800x600 for design or photo sample that won't be printed
+* 640x480 for emailing a photo
+* 320x240 for sending a gallery of photos
+* 100x133 for thumbnails or headshots
+
+Sometimes it's easier to resize images visually instead of with dimensions:
+1. Open image and zoom in/out until it looks right on the screen
+2. Make a note of the zoom percentage
+3. Open Image Size dialog (Cmd-Option-I) or choose Image -> Image Size
+4. Change width/height to zoom percentage values
+5. Choose Bicubic Sharpener from Resample Image popup for best quality
+6. Click OK
+
+Snider recommends these formats:
+* JPEG for photos
+* GIF for images with solid blocks of colors or animations
+* PNG for images with transparent backgrounds or high quality images
+
+The Save for Web & Devices dialog is for saving and compressing images at the
+same time.  It also gives you previews so you can monitor file size and quality.
+1. Choose File -> Save for Web & Devices
+2. Click the 4-Up tab
+3. Click the preview window and choose a file format
+4. Adjust quality and color settings
+   "Dither method and amount" if your image contains colors that old monitors
+   cannot display, this will fake the colors with dithering.  A high dither
+   amount produces more accurate color; the tradeoff is larger file size.
+   Usually Diffusion is the best method which simulates with a random pattern.
+5. Make sure convert to sRGB is turned on (for Windows monitors)
+6. Edit the Copyright and Contact Info
+7. You can edit (remove) colors using the Color Table
+8. Click Save
+
+You can create an animating GIF:
+1. Add a layer for each frame
+2. Choose Window -> Animation
+3. Keep adding new frames by clicking the "Add Frame" icon at the bottom
+4. Select each frame, then set it to only show the layer you want
+5. Press play to preview, save when done
+
+Creating a favicon:
+1. Create a 64x64 image with 72 resolution
+2. Place your artwork into the document
+3. Use Free Transform if needed
+4. Resize document to 16x16
+5. Sharpen image if needed
+6. File -> Save As and select ICO
