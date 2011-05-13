@@ -8,6 +8,38 @@ book is full of tutorials made up of screenshots - these notes will be much more
 valuable paired alongside those images.
 
 # Selection
+Caplin walks us through using Elliptical Marquee to select the hubcap of a tire
+and make duplicates:
+1. Use the Elliptical Marquee tool, Opt-drag to expand from center outwards.
+   Make sure you hold down Opt after you click.
+2. Holding down Opt before dragging for subtracting from selection
+3. Holding down Shift adds to the selection
+4. Opt-Shift dragging will intersect with your previous selection
+5. Space bar modifier lets you move just the selection as you draw it
+6. To actually move the contents Cmd-drag
+7. Cmd-Opt-drag make a copy and move it
+8. Hold down shift to constrain movement horizontally or vertically
+9. You can continue making copies with each mouse release while holding Cmd-Opt
+
+The Lasso and Magic Wands:
+1. Straightforward scenes with a solid background are easy for the Magic Wand
+2. Start by clicking the white area background
+3. Hold shift and click additional areas to add to your selection
+4. Once you have all the background selected, invert with Cmd-Shift-I
+5. Switch to the Lasso Tool and hold Shift to add anymore areas
+6. Hold Opt to turn the Lasso Tool into the Polygonal Lasso Tool
+
+QuickMask is the most powerful tool for selections in Photoshop:
+1. When your selection subject and background colors are too similar, it's too
+   hard to use the Magic Wand.  It's also too difficult for irregular shapes for
+   the Lasso.  Press 'Q' to enter QuickMask mode.
+2. Paint the inside of your subject with a hard edged brush, use 'X' to toggle
+   between your black/white chips.
+3. Once you have the basic outline, work on the details.  Lower your brush size
+   with '['.
+4. Enter 'Q' to get your marching ants and perform your action.
+5. You can make a soft edged selection with a soft-edged brush, use 'Shift-['.
+
 # Transformation and Distortion
 # Hiding and Showing
 # Image Adjustment
