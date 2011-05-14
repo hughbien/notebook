@@ -34,11 +34,85 @@ QuickMask is the most powerful tool for selections in Photoshop:
    hard to use the Magic Wand.  It's also too difficult for irregular shapes for
    the Lasso.  Press 'Q' to enter QuickMask mode.
 2. Paint the inside of your subject with a hard edged brush, use 'X' to toggle
-   between your black/white chips.
+   between your black/white chips.  You can also use the Magic Wand tool to
+   select the middle portion and fill the foreground (expand if necessary).
 3. Once you have the basic outline, work on the details.  Lower your brush size
    with '['.
-4. Enter 'Q' to get your marching ants and perform your action.
-5. You can make a soft edged selection with a soft-edged brush, use 'Shift-['.
+4. Enter 'Q' to get your marching ants and perform your action
+5. You can make a soft edged selection with a soft-edged brush, use 'Shift-['
+6. You can make semi-transparent selections by using a gray color
+
+QuickMask lets you use transformation tools to augment selections.  We'll use
+the hubcap example again, this time the tire is at an angle:
+1. Make an elliptical selection and switch to QuickMask mode
+2. Enter free transform with 'Cmd-T' and move your selection to an angle
+3. When you're done moving your selection over the tire, hit 'Enter' to finish
+
+The Quick Selection tool lets you drag to create a selection:
+1. Hit 'W' or 'Shift-W' until the tool is selected
+2. Drag over the portion of the image you want to select.  Keep dragging to
+   add more areas, Opt-Drag to remove areas.
+3. Use the Refine Edge dialog to see how your selection fares, hit 'Cmd-Opt-R'.
+   Auto-Enhance to provide a smoother selection.
+4. Switch between different background colors to see your selection in detail
+5. Adjust sliders to enhance your selection
+
+Refine Edge dialog can be used to make softer selections:
+1. Start by creating a new text layer 'Hard Text' and load it as a selection
+2. Bring up the Refine Edge dialog 'Cmd-Opt-R' and preview its Alpha Channel
+   which is the last preview icon
+3. Fix blurriness by increasing contrast (80% works well)
+4. Make it round by feathering the selection, more feathering = more round
+5. Hit OK when you're done to get a selection, then fill it with color
+
+The Pen tool can be used to draw paths, shapes, or make selections:
+1. To draw a straight line just click for two points, constrain by horizontal
+   or vertical or 45 degrees by holding shift before clicking
+2. Click then drag to create a curve point, don't drag for a corner
+3. The curve points have tangents called handles which can be used to edit their
+   curvature
+4. 'Opt-click' on an existing point to turn it into a corner.  'Opt-click' and
+   drag to turn an existing point into a curve.
+5. Click on the starting point to complete a shape
+6. Hold 'Cmd' to move points with the Pen tool active.  'Opt-click' to edit
+   points or add new ones to an existing path.
+7. When your path is complete, hit 'Cmd-Enter' to turn it into a selection
+
+Removing a subject from the background tends to leave a fringe - color residue
+from the background due to anti-aliasing.  Here's how to remove it:
+1. Layer -> Matting -> Defringe works by pushing the colors of a pixels outwards
+   but tends to be a bit clumsy and leaves unwanted blocks.
+2. Layer -> Matting -> Remove White Matte tends to remove an unnatural dark
+   edge on your selection.
+3. Load your subject as a selection, inverse it to select the background with
+   'Cmd-Shift-I' and expand that selection by 1px to remove the fringe pixels
+   all together.
+
+Locking transparency lets you paint on a layer without affecting the already
+transparent pixels.  You can do this on the Layers panel by clicking the
+checkerboard icon or hitting '/' with your Layer selected.
+
+'Cmd-click' on a layer's thumbnail to load it as a selection.  'Shift-Cmd-click'
+on another layer's thumbnail to add it to the existing selection.  
+'Opt-Cmd-click' to remove a layer from the existing selection.  Use 'Cmd-H' to
+toggle your selection to view the underlying image.
+
+The Replace Color dialog lets you replace auto-magically replace colors in an
+image (Hue, Saturation, or Brightness):
+1. Choose Image -> Adjust -> Replace Color
+2. The preview shows selected areas in white and non-effected areas in black
+3. Use the eyedroppers to add or subtract areas on your image.  Adjust the
+   sliders to get a wider or more restrictive area.  You can also Shift-Click
+   or Opt-Click to add/subtract areas.
+
+An alternative to this is using the Color Replacement Brush which lets you
+selectively paint on new color (Hue, Saturation, or Brightness).
+
+You can also select by color:
+1. Select -> Color Range
+2. Add/subtract areas just like how you would with the Replace Color tool
+3. You can swap out large selection areas by using the Paste Inside Selected
+   Area action, hit 'Shift-Opt-Cmd-V'.
 
 # Transformation and Distortion
 # Hiding and Showing
