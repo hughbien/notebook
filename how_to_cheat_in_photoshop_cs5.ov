@@ -115,6 +115,33 @@ You can also select by color:
    Area action, hit 'Shift-Opt-Cmd-V'.
 
 # Transformation and Distortion
+You'll get the greatest flexibility and power with Free Transform mode:
+1. Hit 'Cmd-T' to enter Free Transform
+2. Drag a corner to scale the image, the opposite corner will be pinned.
+   'Opt-Drag' to scale in all directions.
+3. 'Shift-Drag' to constrain the proportion
+4. Position the cursor outside the bounding box and drag to rotate
+5. 'Cmd-Drag' to shear the image, hold Shift while dragging to constrain to
+   horizontal or vertical shearing.  Dragging a corner will be a free-form
+   shearing
+6. 'Cmd-Opt-Shift-Drag' to create a perspective effect
+7. 'Cmd-Shift-T' to repeat the last transformation
+8. 'Cmd-Alt-Shift-T' to repeat the last transformation as a duplicate
+9. At anytime you can grab the center marker and move it to manipulate future
+   transformations
+
+Image Warp is a special mode of Free Transform.  Enter it by going into Free
+Transform and clicking the Warp icon in the options bar:
+1. Each corner point has two Bezier handles, drag them to create curves
+2. There are control points on each side of your bounding box.  Drag these to
+   distort your image.
+3. There are even more control points inside your bounding box, totaling 24.
+4. You can use the control points to create a page curl effect.  Add a shadow
+   for the best effect.
+5. In the options bar, you'll find a drop down with preset warps.  These are
+   handy to get you down the right path before you customize.  Select the one
+   you want then select Custom again to improve it.
+
 # Hiding and Showing
 # Image Adjustment
 # Composing the Scene
