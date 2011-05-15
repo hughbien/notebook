@@ -142,6 +142,39 @@ Transform and clicking the Warp icon in the options bar:
    handy to get you down the right path before you customize.  Select the one
    you want then select Custom again to improve it.
 
+Photoshop's Clone tool (aka Rubber Stamp tool) can be used to clonse portions
+of images:
+1. Open the Clone Source panel and click Show Overlay, make sure the Clone
+   tool is set to Sample All Layers in the options bar
+2. Opt-Click to set the source of the clone
+3. Click to mark the point where cloning begins.  Undo it quickly and in the
+   panel set the correct scale, angle, and offset
+4. Choose a brush and start painting the cloned target
+
+Puppet Warp uses a grid system that lets you bend, warp, and manipulate images:
+1. Choose Edit -> Puppet Warp or hit 'Cmd-Opt-P'
+2. Click with the Puppet Warp tool to set pins as yellow dots
+3. Toggle grid visibility in the Option bar's Show Mesh box
+4. Hold Option for a ring to appear around it which lets you rotate
+5. Set Pin Depth for z-index of your pins
+6. Hold Shift to select multiple pins and edit
+7. There's also Rigid and Distort mode
+
+Content Aware Scaling lets you resize images without distorting key elements
+in the image:
+1. Edit -> Content Aware Scale or 'Cmd-Shift-Opt-C'
+2. To protect areas, make a selection and choose Select -> Save Selection.
+   Later when you do the actual scale, click the Protect pop-up in the Options
+   bar and choose your selection.
+
+Content Aware Fill uses information in the image to make an automatic patch:
+1. Make a selection around the object to remove - the selection doesn't need
+   to be accurate
+2. Press Shift-Backspace to bring up the Fill dialog and choose Content-Aware
+3. Perfect the fill with the Clone tool and Healing tool
+4. You can also do Content Aware Filling from the Healing Brush.  Hit 'J',
+   brush, and choose Content-Aware in the options bar.
+
 # Hiding and Showing
 # Image Adjustment
 # Composing the Scene
