@@ -277,6 +277,39 @@ outside of the brush and replaces the area inside of it:
 4. Use a selection to tell the healing brush what area to blend
 
 # Composing the Scene
+Caplin gives us some quick tips on positioning layers to compose a scene.
+In this case it's a climber, mountain, and sky:
+* Putting the climber in the middle doesn't tell a story
+* Putting him at the top shows us how much he has accomplished
+* At the top with less mountain and more sky amplifies this effect
+* At the bottom, it shows us how much work he has in front of him
+* At the bottom with more mountain amplifies the effect
+
+Now he's using an example of a farmer and background with a fence and
+highway junction:
+* Just placing the farmer above the background makes him look like he doesn't
+  belong there
+* Place him behind the fence and cut a portion of his pitchfork to show in
+  front of the fence makes it look better
+* Add shadows for the farmer and masks so blades of grass appear in front of
+  his feet
+* Finally use a Gaussian blur to blur the background to keep focus on the
+  farmer himself
+
+The background of an image is important.  In the Last Supper, Da Vinci makes
+sure to keep Jesus in the middle.  The ceiling and doorway of the backgrounds
+are all composed to keep focus in the middle.  Caplin places a poster at a busy
+street intersection:
+1. Placing the poster dead center is a giveaway that the photo is fake
+2. Add a little tilted perspective for more realism
+3. Remove any objects in the background which try to take focus away
+4. Brighten the background if necessary or make it darker
+5. Make the background recede further with a Gaussian Blur.  Remember, hot
+   colors do well in the foreground while cooler colors are best for backgrounds
+6. Cartoonists like to add people to look at signs.  Add a person to your photo
+   and position him to look at your sign
+7. Overlap the person with the sign for more realism (but just a little bit)
+
 # Getting into Perspective
 # Light and Shade
 # Heads and Bodies
