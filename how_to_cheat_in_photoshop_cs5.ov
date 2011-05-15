@@ -176,6 +176,45 @@ Content Aware Fill uses information in the image to make an automatic patch:
    brush, and choose Content-Aware in the options bar.
 
 # Hiding and Showing
+Clipping Masks lets you constrain the visibility of one layer with the layer
+below it.  It won't cover any transparent pixels.  You can even do more
+interesting things using blend modes:
+1. With a texture layer above your background, create a Clipping Mask by
+   hitting 'Opt-Cmd-G'
+2. Experiment with the blend mode of your Clipping Mask
+3. Overlay lets you keep the texture while retaining the brightness/darkness
+   values of the layer below.  See "Photoshop Missing Manual" for an
+   explanation on all blend modes.
+
+Any painting tool can be used in conjunction with Layer Masks.  Caplin shows
+us how to use the Smudge tool to make blades of grass appear above a layer:
+1. Load your subject as a selection and inverse it with 'Cmd-Shift-I'
+2. Use the Smudge tool to gradually streak up some grass
+
+Smoothing is necessary for cutouts because they look too crisp against their
+backgrounds:
+1. Load your selection and choose Layer -> Layer Mask -> Reveal Selection
+2. Open the Masks panel and increase the Feather radius
+3. You can add a soft shadow with the same technique.  Opt-drag to duplicate
+   the selected layer, offset it, and turn it black with an adjustment.
+4. Lower the opacity of your shadow
+
+Photoshop recently added a color based masking feature:
+1. Create a Layer Mask, open the Masks panel, and click the Color Range button
+2. Click on colors in your layer and Invert if necessary
+3. As usual, Shift-click to add and Opt-click to remove
+4. Press the Mask Edge button to refine your mask
+
+Blending is powerful in Photoshop.  It lets you show/hide portions of your layers
+without any brushing or selecting:
+1. Double click a layer's name and choose Layer -> Layer Style -> Blending
+   Options.
+2. The bottom "Blend If" section lets you blend pixels which are in a certain
+   color range
+3. Hold down "Option" and drag to create multiple triangles on the "Blend If"
+   configuration
+4. You can use these blending options on both the top and bottom layers
+
 # Image Adjustment
 # Composing the Scene
 # Getting into Perspective
