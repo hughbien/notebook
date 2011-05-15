@@ -216,6 +216,66 @@ without any brushing or selecting:
 4. You can use these blending options on both the top and bottom layers
 
 # Image Adjustment
+The Shadows/Highlights dialog is useful as a quick way to fix dark areas in your
+image:
+1. Choose Image -> Adjustments -> Shadows/Highlights
+2. Increase the amount setting in shadows to produce better details without
+   affecting bright areas
+3. Raise the Tonal Width setting slightly for dramatic effect.  Tonal Width
+   affects the radius to which your changes are made
+4. If your image is too bright, lower the amount setting in shadows
+
+Curves lets you make granular and coarse changes to color, shadows/highlights,
+and more with the same dialog:
+1. Choose Image -> Adjustments -> Curves or hit 'Cmd-M'.  You'll see a single
+   diagonal line indicating no changes have been made.
+2. Click and drag upwards at the center to create a curve and raise brightness
+3. Click and drag downwards for a darker image
+4. Click and drag the top right point and drag it downwards to limit the
+   brightest parts of the image and reduce contrast
+5. You can do the same with either ends in either direction
+6. Choose any color in the RGB menu to affect only that channel
+7. Click once on the line to pin that point
+8. The trick is you'll need to think in inverse sometimes.  If you need more
+   yellow, remove blue (you only have access to RGB)
+
+An often overlooked feature is using selective colors in the Hue/Saturation
+adjustment dialog:
+1. Choose Image -> Adjustments -> Hue/Saturation or hit 'Cmd-U'
+2. Click on the "scrubber" icon at the bottom of the dialog.  Adjust the
+   triangles on the color sliders to only affect the colors you want
+3. Cmd-drag to change the Hue without adjusting Saturation
+
+Caplin shows us how to use multiple adjustment tools to go from a dull image
+to a great one with high contrast without affecting colors:
+1. Duplicate the layer and desaturate using 'Cmd-Shift-U'.  The grayscale
+   layer will show us just how dull an image is
+2. Change the blend mode of the grayscale layer to Soft Light
+3. Duplicate the layer again and sharpen the new layer (Unsharp mask, 300%
+   at 3px radius).  Use a layer mask to only show focus in specific areas.
+4. You might want to try Hard Light instead of Soft Light which has higher
+   contrast.  Try both and see which works for you.
+
+Sharpening brings back definition for soft or out-of-focus images.  Caplin
+recommends we use the Unsharp Mask filter for more control:
+1. Start by choosing Filter -> Sharpen -> Unsharp Mask...
+2. Opt-click the Cancel button to revert changes
+3. Start with Amount 100%, increase up until 300% for a dull image
+4. Start with a Radius of 1.0px and increase as necessary
+5. Increase the threshold if you need to as the last step
+
+Caplin walks us through using the Unsharp Mask filter on a face.  With the
+300% amount and 2.0px radius, the filter is too strong affecting the skin and
+showing us freckles.  The Threshold feature comes into play, by raising it
+to 30 it will ignore the low-contrast skin and only affect the eyes/mouth.
+
+The Healing Brush is useful to quickly fix blemishes.  It uses the area just
+outside of the brush and replaces the area inside of it:
+1. Select it with 'J' or 'Shift-J'
+2. Opt-Click an area to get the source point
+3. Paint over any blemishes to replace it
+4. Use a selection to tell the healing brush what area to blend
+
 # Composing the Scene
 # Getting into Perspective
 # Light and Shade
