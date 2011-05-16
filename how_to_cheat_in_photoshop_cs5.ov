@@ -395,6 +395,86 @@ if it's coming from a nine-grid window:
 6. Load up the light sources (those white rectangles) as selections and use the
    Curves tool to add some red to imitate light
 
+Adding shadow adds depth to the image.  In this case, we'll take a single card,
+duplicate it, and create a deck of cards:
+1. Load the selection, hit 'Opt-Up' to nudge it up a few pixels, inverse the
+   selection and darken the edge a bit to give it some depth
+2. Select the card pixels again, hit 'Opt-Cmd-D' to feather the selection, move
+   it down a few pixels and fill it with black - opacity to 50% for a shadow
+3. Select all, make a duplicate and move it down a few pixels for a 2nd card
+4. Keep the Opt key down and continually make duplicates for a stack of cards,
+   make sure to randomize their positions so it's not entirely straight
+5. Tighten up the shadows in QuickMask mode with the Levels dialog.  Drag the
+   white arrow to the right of the slider, exit QuickMask and invert selection.
+   Now hit Delete.
+
+Now let's add a light source to a lamp:
+1. Start by adding a shadow to the screen using a large soft-edged brush at
+   a low opacity
+2. Use the pen tool to create a rough outline of light
+3. In QuickMask, use the Lasso tool to trace around the edges of the light
+   area.  Then use Gaussian Blur to soften the edge.
+4. Exit QuickMask, on a new layer pick a pale yellow color and use the gradient
+   tool to set Foreground to Transparent.  The area closest to the light source
+   should be the Foreground.
+5. Use a soft-edged brush to paint an extra glow directly at the light source
+6. Select an ellipse on any surface the light source is shining on and delete
+   any shadows there so it will remain lit
+
+The Dodge/Burn tools are useful to add light and shade to highlights, midtones,
+and shadows:
+* The Burn tool darkens an image when set to Highlights
+* The Dodge tool brightens an image when set to Highlights
+* When set to Midtones, the Burn tool no longer loses color but still darkens
+* The same holds true for Midtones Dodge - except it brightens
+* When set to Shadows, both tools have an unfortunate side effect on skin tone
+* The best effect is to use Midtones tools at a low opacity, then use the
+  Dodge/Burn tools at an even lower opacity on Highlights
+
+Curves Adjustments can be used to reverse shadows:
+1. Make a new Curves Adjustments Layer, raise the midtone of the curve until
+   your shadow area is as light as it should be.  Don't worry about affecting
+   the good highlights.
+2. Every Adjustment Layer comes with a built-in mask.  Use it to cover the good
+   portions of the image you don't want to change.
+3. If you want to adjust the masked region, just load the mask itself as a
+   selection and add another Adjustment Layer.
+
+Painting smoke:
+1. On a new layer, use a soft-edged white brush with low opacity.  Use many
+   small strokes to build up smoke.
+2. Lock the transparency of the layer, hit 'D' to reset your chips, choose
+   Filter -> Render -> Clouds to add texture to your white smoke.
+3. Change the smoke layer's blend mode to Multiply for a dirty look
+4. Change to "Screen" for a bright smoke effect
+
+Making fire:
+1. Paint a random shape with a soft-edged white with slight variation in density
+2. Use the Smudge tool to have white streaks coming from the middle
+3. Lock transparency with '/' and choose Filter -> Render -> Clouds with orange
+   and yellow chips
+4. Now apply the same Clouds filter with black/white chips
+5. Hit 'Shift-Cmd-F' and fade this new black/white layer and choose Linear Light
+
+Create neon lights:
+1. Create a new type layer and use a font with little thick/thin variation
+2. Use Refine Edge dialog to round off corners
+3. Select pixels and choose Edit -> Stroke to add a stroke
+4. Now hide the original text, erase portions of the stroke for stencil effect
+5. Create an inner glow by contracting your selection by a few pixels, using
+   a Gaussian Blur, and filling in the selected area with white
+6. Add your background, use the Burn tool (set to Midtones) on the corner areas
+   for a tube effect
+7. Create a new layer with the same selection, move it below, feather it and
+   set the foreground color to the same as your neon lights for a glow effect
+
+Turn day into night:
+1. Remove the existing sky, the Background Erase tool is useful for this
+2. Use a clipping mask and Curves Adjustment to lower brightness of foreground
+3. Paste a night sky into your image
+4. Use masks and Curves Adjustments to add yellow to windows for light sources
+5. Brighten bottoms of buildings to give the street some glow
+
 # Heads and Bodies
 # Shiny Surfaces
 # Metal, Wood, and Stone
