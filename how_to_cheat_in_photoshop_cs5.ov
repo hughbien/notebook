@@ -311,6 +311,45 @@ street intersection:
 7. Overlap the person with the sign for more realism (but just a little bit)
 
 # Getting into Perspective
+The horizon is always the same height as the eye-line of the viewer.  If there
+are multiple adults in your photomontage, their eye-lines should be leveled with
+the horizon and each other (unless deliberately skewed).
+
+Caplin shows us an outdoor image with many horizontal lines.  The background
+gets smaller and smaller because of our perspective.  The point at which the
+lines meet is the Vanishing Point.  You can draw lines on those horizontal
+points.  When you paste subjects into your image, make sure their eye-lines
+are level (so it looks like one subject is further back than another).
+
+Keep in mind that the Vanishing Point may be off the image.  You can still use
+the line tool to find it and then any additions should line up.
+
+Use any available horizontal lines on an image to create your own perspective
+lines.  It's useful when adding new layers.  Caplin cuts an existing door and
+transforms it to fit along the perspective of a bookshelf.
+
+Caplin walks us through duplicating a box and stacking it.  The original box
+is below the horizon level - we can see the top.  When we stack a copy above it,
+the copy's top shouldn't be visible.
+1. First make a copy of the box
+2. Use the lasso tool to split each side of the box (top, front, and right)
+3. Select the front and use Free Transform to shear it and drag it straight
+   down to align with the bottom box
+4. Repeat this process with the right side
+5. Shear the lid and move it down, make sure it's behind the other two layers
+
+The Vanishing Point filter lets you perform selections and other operations
+at a pre-determined perspective:
+1. Enter the Vanishing Point filter with 'Cmd-Opt-V'
+2. Hold 'X' to zoom in, set 4 points which determine your perspective
+3. A grid should show up, make sure it's aligned perfectly
+4. Now use the Marquee tool to make a selection which should show at an angle now
+5. Switch back to the Arrow tool and Cmd-drag the center handle to create another
+   dimension, adjust it to match your picture
+6. You can move items from one dimension to the next and the moved copy will
+   adjust itself accordingly
+7. You can also paste new items into the Vanishing Point filter automagically
+
 # Light and Shade
 # Heads and Bodies
 # Shiny Surfaces
