@@ -351,6 +351,50 @@ at a pre-determined perspective:
 7. You can also paste new items into the Vanishing Point filter automagically
 
 # Light and Shade
+Basic shadows on the wall and ground are easy to create.  In this example, Caplin
+has a layer of a boy in front of a wall/ground background:
+1. Duplicate the boy layer, press 'D' to set chips black/white, then press
+   'Opt-Shift-Backspace' to fill the new layer black
+2. Move the new layer below the actual boy layer and position it accordingly
+3. Lower the opacity of the shadow layer (50% is a good start) and use the
+   Gaussian blur filter to soften it (3px is a good start)
+4. To move the shadow to the floor use Free Transform and position it
+5. To make a shadow fade into the distance, use a layer mask with a gradient
+6. Combine both techniques to make a shadow run on the ground and wall for
+   more realism.  Just make both shadows and combine them with masks
+
+Ground shadows are sometimes trickier:
+1. Select a portion of the bottom piece of your subject, 'Cmd-J' to make a new
+   layer from it
+2. Fill the new layer with black and edit if necessary
+3. Reduce the opacity, use a Gaussian blur to soften it, and move it into place
+4. Sometimes, you'll need to draw your shadow by hand.  Use a soft-edged brush
+   with low opacity (around 40%) and start brushing where the shadow is darkest
+5. Using a larger brush, start drawing in short brush-strokes the rest
+
+Caplin shows us how to create complex shadows using a pair of glasses as an
+example:
+1. Check the light direction of your subject, are some areas darker than others?
+2. Start with the lens selected, create a new layer and fill it with black.  Hit
+   'Cmd-Shift-F' for the fade dialog and set it to around 50% opacity.
+3. Inverse the lens selection to select the frames.  Hold 'Cmd-Opt-Shift' and
+   click on the layer's thumbnail to get an intersection
+4. Split the shadow layers into three sections: front, left arm, right arm
+5. Use the Free Transform to distort the front shadow and place it
+6. Do the same with the two arms, but make sure you scale and rotate it as
+   necessary so it looks correct coming from the light source
+
+An indoor room can be more interesting when a light source is added - especially
+if it's coming from a nine-grid window:
+1. On a new layer, make a grid of white rectangles
+2. Use the Free Transform to scale and distort to an angle
+3. Select the pixels in this layer by Cmd-clicking the layer's thumbnail.
+4. Inverse the selection and feather it by 8 pixels, make a new layer, and fill
+   it with black.  Lower its opacity to 50% and hide the white rectangles.
+5. Use the Smudge tool or Liquify filter to adjust shadows around objects
+6. Load up the light sources (those white rectangles) as selections and use the
+   Curves tool to add some red to imitate light
+
 # Heads and Bodies
 # Shiny Surfaces
 # Metal, Wood, and Stone
