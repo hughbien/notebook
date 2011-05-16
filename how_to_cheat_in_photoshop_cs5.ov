@@ -476,6 +476,48 @@ Turn day into night:
 5. Brighten bottoms of buildings to give the street some glow
 
 # Heads and Bodies
+Making the head fit another body:
+1. Cut the head off, the tricky part is the hair which the Magic Erase tool is
+   useful for
+2. Paste the new head on the image, use Free Transform to scale as necessary
+3. Make a new Layer Mask and with a soft-edge brush blend the neck/head together
+4. If necessary, use Curves to make sure skintone matches
+
+The Puppet Warp tool can be used to adjust a body.  In this case, Caplin shows
+us how to edit a teenager to stand up straight:
+1. Enter Puppet Warp mode with 'Cmd-Opt-P'
+2. Click to place markers at key joints: shoulders, hands, midriff
+3. Place a pin on the neck and pull it upwards, pull the shoulders down a bit
+4. Every Puppet Warp will be a bit different
+
+In the next example, Caplin removes Matt Damon from ahoto with Brad Pitt and
+George Clooney:
+1. First make a selection of Clooney and mvoe him to the left
+2. Enter Free Transform mode and scale him as necessary so his eyeline matches
+3. If his bottom edge doesn't reach the bottom edge of the photo, select a
+   portion of his lower body and enter Free Transform.  Scale it downwards.
+4. Crop the image
+5. Clooney's edge may still look too hard/scrisp.  You can make a selection
+   and contract it by 1px to fix this or feather it.
+
+Cutting out hair is tricky - but it's gotten easier with the Background Eraser:
+1. It's often easier to make a new background layer with a solid color that
+   complements the hair color.  Then cut out the image loosely leaving plenty
+   of margin for the hair.
+2. Access the Background Erase tool and set it to Discontiguous mode.  Set the
+   sampling to Once since the background is a solid color.
+3. Start erasing around the head.  The crosshair picks up the sample color to
+   erase and everything in the radius of the circle matching is erased.
+4. Protect Foreground is useful in case you erase something by mistake.  Just
+   'Opt-Click' the foreground color before erasing.
+5. If necessary, use the Burn tool set to Highlights to remove any white fringe
+   leftover on the hair.
+6. For even more realism, lock the transparent pixels and use the Clone tool.
+
+Cutting hair with Refine Edge:
+1. Start with the Quick Selection tool and make a selection
+2. Enter the Refine Edge dialog with 'Cmd-Opt-R'
+
 # Shiny Surfaces
 # Metal, Wood, and Stone
 # Paper and Fabric
