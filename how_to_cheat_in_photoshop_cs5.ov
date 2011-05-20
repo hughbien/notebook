@@ -492,12 +492,12 @@ us how to edit a teenager to stand up straight:
 
 In the next example, Caplin removes Matt Damon from ahoto with Brad Pitt and
 George Clooney:
-1. First make a selection of Clooney and mvoe him to the left
+1. First make a selection of Clooney and move him to the left
 2. Enter Free Transform mode and scale him as necessary so his eyeline matches
 3. If his bottom edge doesn't reach the bottom edge of the photo, select a
    portion of his lower body and enter Free Transform.  Scale it downwards.
 4. Crop the image
-5. Clooney's edge may still look too hard/scrisp.  You can make a selection
+5. Clooney's edge may still look too hard/crisp.  You can make a selection
    and contract it by 1px to fix this or feather it.
 
 Cutting out hair is tricky - but it's gotten easier with the Background Eraser:
@@ -517,6 +517,33 @@ Cutting out hair is tricky - but it's gotten easier with the Background Eraser:
 Cutting hair with Refine Edge:
 1. Start with the Quick Selection tool and make a selection
 2. Enter the Refine Edge dialog with 'Cmd-Opt-R'
+3. Adjust the Radius to improve your selection.  Toggle view with 'J'
+4. The Decontaminate Colors checkbox blends colors of cutout with border
+5. Deal with any loose strands of hair with the Edge Detection brush
+6. Hold Option while brushing to remove any unwanted soft edges
+
+Caplin walks us through ageing a person:
+1. Start with the Liquify filter. Sag the jaw line, thicken the nose, and make
+   the eyes more doleful
+2. Make a new layer and set the mode to Color.  Use a soft-edge brush either
+   black or white
+3. Make another layer and set to Hard Light mode.  Sample colors from darker
+   areas of the skin and brush with a low opacity under eyes, around cheeks,
+   and around the mouth for shadows.
+4. Remove some healthy glow of the skin with a Hue/Saturation Adjustment layer.
+   Lower the saturation and mask any areas you want to keep.
+
+Now let's reverse the ageing process:
+1. Start with a Median filter (under Noise) to smooth out wrinkles.  Use a mask
+   to prevent smoothing on all areas.
+2. Use the Healing brush to further smooth out wrinkles
+3. Find a light color skin tone and set a brush to it in Color mode.  Now paint
+   over any shadows and redness of cheeks
+4. Select the hair with a QuickMask and do a Curves adjustment to make it darker
+5. Use the Liquify filter to tighten the chin and cheeks
+
+The Liquify filter is a powerful tool for changing expressions.  When you use it,
+be sure to make change subtle.  You can also use it to turn heads.
 
 # Shiny Surfaces
 # Metal, Wood, and Stone
