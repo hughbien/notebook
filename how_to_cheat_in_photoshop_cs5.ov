@@ -662,6 +662,82 @@ Turning objects into wood:
 3. Change the blend mode to Multiply.  If it's too dark use Overlay.
 
 # Paper and Fabric
+Adding dimension to money:
+1. Start with a flat dollar bill
+2. Use Free Transform 'Cmd-T' and press the Image Warp with the Flag preset
+3. The preset is too strong, modify it to be less noticeable
+4. Change the preset to Custom.  Grab the corners and handles to give it a more
+   natural distortion
+5. Add shading with the Burn tool set to Highlights.  Add shading to the valleys
+6. Use the Free Transform to move the bill to any perspective
+7. Duplicate to add a pile of bills
+
+Add a cover to a book:
+1. Take a photograph of your book with the cover inside out
+2. Paste your new cover as a Smart Object and use Free Transform to place it
+   directly onto the cover
+3. Make a duplicate, set it to Hard Light mode, and Desaturate with 'Cmd-Shift-
+   U'.  Use Curves to add some brightness
+
+Folding and crumpling paper:
+1. Use the Image Warp or Shear filter with the anchor at the midpoint
+2. Leave the top half selected, use the Burn tool with a large soft brush to
+   add gentle shading above the crease line.  Add shading to the top to make
+   the paper look as if it's bending away.
+3. Do the same with the bottom half
+4. Use the Wave filter for the crumple effect.  Number of Generators determines
+   number of waves.  Adjust other sliders as necessary.
+5. Use Lasso tool and make irregular vertical selections.  Use a large soft
+   Burn brush to add shading on your selections to make crumples
+6. Do the same, but with horizontal selections
+
+Adding folds and wrinkles to fabric:
+1. Curve the banner slightly with the Shear filter or Image Warp
+2. Add texture with Texturize filter with Canvas setting.  Use the Fade command
+   to reduce texture 'Cmd-Shift-F'
+3. Use the Burn tool to create a fold.  A medium, soft brush at 20-40% opacity
+   is enough
+4. Hold 'Option' to get the Dodge tool and draw it right above your shading
+   in a parallel manner
+5. Repeat to make multiple folds/wrinkles
+
+Ripping and tearing paper:
+1. Create tears by making ragged selections with the Lasso tool and a mask
+2. Make a new layer and paint the tears with a small hard brush.  Just trace it
+   to simulate a paper tear
+3. Fold a corner down, fill it with a neutral color and use the dodge/burn tools
+   for shading.  Use the Plastic Warp filter to make a glue effect
+4. Add folds/creases with the dodge/burn tools like the previous tutorial
+
+Simulate an old photo with texture:
+1. Get a photo of the inside cover of an old paperback
+2. Set your image to Hard Light mode with the texture layer below it
+3. Duplicate the texture layer and set it above in Hard Light mode also
+4. Desaturate your image and add folds/wrinkles
+5. Select the image and contrast selection a bit to create a border
+
+Red curtains with custom fibers:
+1. Start with a black outline, run the Fibers filter.  You can do the same to
+   make a wood effect.
+2. You can apply the same effect to a sign for some texture.  If it's too strong,
+   use the Fade dialog
+
+Make a ribbon:
+1. Draw a path with the Pen tool.  Keep curves smooth and avoid tight curves.
+2. Select the original, hold Option and drag to make a duplicate.  Join the
+   two paths into one to make the outline of your ribbon.
+3. Fill it with a color and use Dodge/Burn tools for shading and highlights.
+4. Make the selection again and nudge it down.  Hollows should be selected and
+   ready for more shade.
+5. Use the Hue/Saturation adjustment to add color
+
+Making tape:
+1. Select a rough outline with the Lasso tool using Shift for straight lines
+2. Fill the selected area with 50% transparency gray
+3. Add random shading with Dodge/Burn
+4. Apply the Plastic Wrap filter and change it to Hard Light mode
+5. Color can be added with Color Balance
+
 # The Third Dimension
 # Hyper Realism
 # Advanced Techniques
