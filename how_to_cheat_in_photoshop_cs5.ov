@@ -546,6 +546,73 @@ The Liquify filter is a powerful tool for changing expressions.  When you use it
 be sure to make change subtle.  You can also use it to turn heads.
 
 # Shiny Surfaces
+Let's use the Plastic Warp filter to create spilled syrup out of a jar:
+1. On a new layer, paint the spill in mid gray with a hard-edged brush
+2. Use Dodge/Burn tools to add random shading
+3. Choose Filters -> Artistic -> Plastic Warp and adjust sliders
+4. Keep undoing and repeating until you get the Dodge/Burn correct
+5. Changing the mode from Normal to Hard Light will make the liquid clear
+6. Use a Hue/Saturation Adjustment layer to adjust the color
+7. Apply a Wave Filter with a mask to get a refraction effect
+
+Caplin walks us through making bubbles:
+1. Draw a circle on a new layer in a mid-tone gray.  Use the Dodge/Burn tools,
+   the Plastic Warp filter, and maybe even a reflection of a window.
+2. Change the layer mode to Hard Light, duplicate and scale as necessary for
+   multiple bubbles.  Merge each bubble with its background..
+3. Apply the Spherize filter at 100%
+4. Add some color with the Hue/Saturation Adjustment
+
+Adding a water moat and dealing with reflection:
+1. Draw the shape of the water on a new layer, use the Lasso at first then a
+   hard brush to wave the edges
+2. Duplicate the background, flip it vertically, shear as necessary
+3. Make sure reflections line up with the same vanishing point
+4. Lower the opacity of the reflections, around 80% works well
+5. Merge the reflection and water and apply the Wave filter
+6. Make elliptical selections and apply the ZigZag filter for ripples
+7. Use a soft brush in Dissolve mode and paint green in low opacity for algae
+8. Use a Gaussian blur to soften the algae
+9. Reduce the opacity, add a new layer with green/blue paint and set the blend
+   mode to Hard Light for additional color
+
+Drawing snow and icicles:
+1. Draw snow shape with a hard brush where snow sits on the ground or windowsill,
+   use a soft brush to paint it alongside walls and sides
+2. Add shading using Dodge/Burn tools then add texture.  Start with Gaussian
+   Noise filter, lock the transparency, then use a Gaussian blur to soften.
+3. Use Color Balance to add a slight touch of blue
+4. Paint icicles with a midtone gray and hard brush, shade with Dodge/Burn and
+   apply the Plastic Warp filter.  Change to Hard Light mode, duplicate and
+   overlay it with itself for shadows.
+
+Make it rain in the street:
+1. Select the buildings, make a copy and flip it vertically.  Shear it as
+   necessary to make a convincing reflection.
+2. Lower the transparency and add a layer mask to make puddles in the street.
+3. Use the Ocean Ripple filter for the puddles, then make elliptical selection
+   with the ZigZag filter for ripples.
+4. Make a new layer, fill it with mid gray and set it to Hard Light.  Use
+   Gaussian Noise for texture.  Add a Motion Blur to make it look like rain.
+5. Run the Clouds filter on a new layer, set mode to Screen.  Use the Curves
+   adjustment to tweak the contrast
+
+Adding a block of ice to a glass of water:
+1. Draw a rough outline with a hard mid-tone gray brush and fill it
+2. Use the Dodge/Burn tools for some light and shades
+3. Apply the Plastic Wrap filter
+4. Select the cube and contract the selection to remove the unwanted edge
+5. Change the layer to hard light to make it shiny and transparent
+
+Imitating glass refraction:
+1. Load up the clear area, hide it, and select the background that will show
+2. Use the Spherize filter to refract it
+3. Show the glass layer again, use a soft edge brush with a layer mask to make
+   it partially transparent
+4. Duplicate the glass layer, delete the layer mask, choose Layer -> Layer Style
+   -> Blending Options and adjust the blend if color
+5. As a final touch, use a Color Balance adjustment for a blue/green tint
+
 # Metal, Wood, and Stone
 # Paper and Fabric
 # The Third Dimension
