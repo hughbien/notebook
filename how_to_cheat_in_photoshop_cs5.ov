@@ -614,6 +614,53 @@ Imitating glass refraction:
 5. As a final touch, use a Color Balance adjustment for a blue/green tint
 
 # Metal, Wood, and Stone
+Create a metallic effect using the curve dialog:
+1. Open Curves with 'Cmd-M', drag vertically upwards on the left hand side
+   to make a steep curve
+2. Further along, drag downwards.  Further along more, drag upwards.
+3. Continue this pattern of an oscillating graph that slowly trends upwards.
+   Your image will begin looking metallic.
+
+Using adjustment layers gives you more control:
+1. Add a Curves Adjustment Layer
+2. Change the blend mode to Luminosity to only effect brightness/contrast
+3. Lock the transparently with '/' and apply a small Gaussian Blur to fix any
+   pixellation
+4. Paint out the mask areas that you don't want
+5. Use the Dodge/Burn tool to do any touch ups
+
+Use layer styles to make metallic text:
+1. Open up the Layer Style dialog and add Inner Bevel.  Optionally add a drop
+   shadow for a 3d effect.
+2. In the shading section, click Gloss Contour and change it to a bumpy map
+3. Click Contour and select a curve upward shape to add reflection
+4. Click Satin and add a bowl like contour for sheen.  Adjust sliders
+5. Use the Gradient style to turn it into gold (or copper)
+
+The Light Effects filter is useful to add light/shade to a layer.  It's
+especially handy with alpha channels to simulate 3d images:
+1. First make a new Alpha channel in the Channels panel.  Add a faint Clouds
+   filter to your background.
+2. Add a slight blur to your channel.  Then go back to the RGB channel and
+   create a new layer over your background.  Fill it with white.
+3. Open the Lighting Effects filter and specify your Alpha channel.  Uncheck
+   White is High and adjust the slider.
+4. Apply the curves technique for metallic look.
+
+Adding rust, grime and decay:
+1. Blur the artwork after it's been made to a new channel
+2. Apply the lighting effects and curves from previous steps
+3. Use the Hue/Saturation adjustment layer to fix color
+4. Return to the Alpha channel and add some noise to it
+5. Apply the Hue/Saturation adjustment again on the new layer, but use a brown
+   color for rust
+6. Now just make a mask to let the rust show through
+
+Turning objects into wood:
+1. Add a wood texture on top of your image using a clipping mask
+2. Group them together with 'Cmd-G'
+3. Change the blend mode to Multiply.  If it's too dark use Overlay.
+
 # Paper and Fabric
 # The Third Dimension
 # Hyper Realism
