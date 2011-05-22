@@ -739,6 +739,50 @@ Making tape:
 5. Color can be added with Color Balance
 
 # The Third Dimension
+Adding depth to a flat image of a coin:
+1. Use Free Transform to lay it on its back
+2. Select it and 'Opt-drag' it up, continually making duplicates
+3. Select the edge, hit '/' to lock transparency, and fill it with a color
+4. Use the Dodge/Burn tools to add some depth and lower its opacity
+
+Caplin walks us through placing a sign on a jagged edged garage door viewed
+at an angle:
+1. Select all your sign elements and Convert to Smart Object
+2. Use Free Transform to match the perspective and place it onto the garage door
+3. Change the blend mode to Multiply
+
+Building a cereal box:
+1. First prepare your flat artwork
+2. Create a merged copy and distort the front of the box with Free Transform
+3. Repeat with the side layer and place them together
+4. Darken the side of the box and add shading with the Burn tool
+5. Select a few pixels and brighten it to form an edge between sides
+
+Displacement maps lets you move a layer and have it take the shape of its new
+surface:
+1. Place your layer above the background
+2. Set the layer's mode to Hard Light and reduce opacity
+3. Duplicate your background and desaturate with 'Cmd-Shift-U'
+4. Select the foreground and run the Displace filter
+5. Try combining it with a Gaussian Blur to smooth out realism
+
+Drawing a 3d cable:
+1. Start with drawing a curve with the Pen tool and add a stroke to it
+2. Select the curve and feather it
+3. Nudge it vertically and inverse selection to get the bottom edge.  Use
+   Brightness and Contrast to darken it
+4. Now do the same, except brighten the top half
+5. Add shadow if necessary
+
+Drawing a 3d pipe:
+1. Start with a midtone gray rectangle
+2. Use Dodge/Burn tools for highlights/shades and the Shift modifier
+3. Make an elliptical selection and duplicate to create the pipe ends
+4. Fill one end with a solid color gray and brighten it
+5. Draw a new selection for the inside of the end and darken it to create the
+   inner pipe effect
+6. Make the pipe look more metallic with the steps from the Metal chapter
+
 # Hyper Realism
 # Advanced Techniques
 # Working for Print and the Web
