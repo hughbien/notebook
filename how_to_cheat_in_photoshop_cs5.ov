@@ -842,3 +842,26 @@ the previous color on bottom.  Hold 'Ctrl-Opt-Cmd' with the Color Picker to get
 a color sampler.
 
 # Working for Print and the Web
+Resolution is the number of dots an image uses.  Image resolution is usually
+measured by dots per inch or dpi.  For paper a higher dpi means better quality.
+Screens have a cap to dpi, computer screens typically use 72dpi.
+
+Caplin recommends these values for different media:
+* 300dpi for high quality magazines
+* 200dpi for newspapers or coarse paper
+* 72dpi for publishing on the internet (not for print)
+
+Most of the time you'll work in RGB mode, even if your end result is CMYK.
+CMYK is the color mode for printed media.  It stands for Cyan, Magenta, Yellow,
+and Black.  It's a subtractive system where colors are formed by reflecting
+light.  Caplin recommends always working in RGB and even sending your files off
+as RGB mode to printers.  Printing services go through great lengths to make
+sure their RGB to CMYK conversion works well.
+
+Save for Web removes unnecessary elements like paths to reduce file size.  You
+can compare images side by side to see if the size/quality trade off is worth it.
+JPEGs settings range up to 12 being the highest quality.  The Save for Web
+dialog uses a x10 scale.
+
+Photoshop lets you make animated GIFs using the Animation panel.  Create multiple
+layers and add them as frames.
