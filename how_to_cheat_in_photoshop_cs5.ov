@@ -783,6 +783,62 @@ Drawing a 3d pipe:
    inner pipe effect
 6. Make the pipe look more metallic with the steps from the Metal chapter
 
-# Hyper Realism
 # Advanced Techniques
+Caplin reminds us how to get rid of the white fringe around a selection again.
+After your selection is made, contract it by 1 pixel before doing anything else.
+
+Working with Smart Objects:
+1. Start with two layers: a background, photo and some texture.  The texture
+   overlay is set to Hard Light mode.
+2. Convert all layers into a Smart Object with Layer -> Smart Objects -> Convert
+   to Smart Object.  This groups them into a single layer.
+3. Any Free Transforms, Image Warps, or Filters will be applied to all 3 layers
+4. Applied filters will be Smart Filters.  They're non-destructive and on their
+   own layers.
+
+Use Layer Groups and Layer Comps to add organization to your layers.  Comps let
+you create different versions of your document.
+
+The Filter Gallery gives a quick preview of special effects.  You can preview
+multiple stacked filters.
+
+Caplin walks us through mix and matching skies.  Get the sky you want and paste
+it into the original image.  Use a Layer Mask for foreground elements.
+
+Use Masks and the Curves adjustments to quickly make multiple adjustments at
+once with your image.
+
+The Background Erase tool is useful to sample a point as a background and remove
+it from your image.  Here are some tips:
+* Before starting, double click the Background layer and turn it into a regular
+  layer.  Open the History panel and click next to the Make Layer step to pin
+  that point in history.
+* Caplin recommends we set the tool to Sample Once so we don't accidentally
+  sample foreground colors.  Set the mode to Discontiguous so it will erase
+  inside bounded areas.
+* Add a new background with a strong color to check that it's fully erased.  The
+  checkered transparent background sometimes hides missed spots.
+* Once you place your wanted background, you may notice you erased some
+  foreground accidentally.  Switch to the History Brush 'Y' and paint those areas
+  with a hard edge brush to bring them back.
+* Remove any fringes by painting them over with locked transparency.
+
+Actions can be used to create keyboard shortcuts for frequent actions.  Caplin
+walks us through creating one:
+1. Make a selection
+2. Select New Action in the Actions panel.  Give it a name, keyboard shortcut,
+   then hit the Record button
+3. Now we'll start our action, which is to contract the selection by 1px, inverse
+   the selection, and delete the background.
+4. Press the Stop button in the Actions panel.  Your new Action can be replayed
+   at anytime.
+
+CS5 had some useful shortcut introductions.  Dragging left/right while holding
+'Ctrl-Option' with the brush tool will resize it.  Dragging it up/down will
+change its hardness.
+
+The eye dropper has a sample ring now which shows the current color on top and
+the previous color on bottom.  Hold 'Ctrl-Opt-Cmd' with the Color Picker to get
+a color sampler.
+
 # Working for Print and the Web
