@@ -1,0 +1,53 @@
+Art and Design in Photoshop
+================================================================================
+
+# Overview
+Steve Caplin teaches us art and design concepts with Photoshop walkthroughs.
+He starts with a goal in mind, puts together pieces, and gives us the guidelines
+for which they fit.
+
+# Typography
+Serif fonts have fine lines at the end points of all their strokes.  They were
+originally done by Greek/Roman stove carvers.  Long strokes tend to crack in the
+middle - the serifs prevented cracking.  Serifs add a horizontal rhythm which
+makes it ideal for long blocks of text.
+
+Sans Serif literally means without serif ("sans" is Latin for without).  It was
+designed for posters and headlines.  Overtime, designers began giving it weight
+variation which made it much more readable for larger bodies of text.  They take
+up less vertical space than serif fonts, so they're also ideal when you need to
+fit a lot of text in one area.
+
+Some tips offered:
+* You don't need to use all the space on a page, whitespace is your friend
+* Make headlines more appealing with sans serifs and different font families
+* Make sure text columns aren't too wide
+* Try drop capitals to let the reader know where paragraphs start
+* Add contrast, try white on black for a single element
+* Pull quotes which break apart text add contrast
+
+Intertwining monogram letters:
+1. Start with two letters as separate text objects overlapped
+2. Use Layer Styles to add an outer stroke
+3. Load up the top letter as a selection, expand to include most of the stroke -
+   leave off 1px to exclude a white fringe, add a layer mask and paint
+   selectively to hide areas
+4. In Layer Effects make sure the Layer Mask Hides Effects option is checked
+5. Once intertwined, you can set the colors you want for the fill and stroke
+
+Font smoothing:
+1. Make a type layer and load it as a selection
+2. Open the Refine Edge dialog
+3. Increase the Feather amount
+4. To get rid of blurring, increase the Contrast amount
+
+Caplin recommends using www.dafont.com or www.myfonts.com as a font resource.
+
+# Principles of Design
+# Contemporary Design
+# Poster Design
+# Works on Paper
+# Books and Magazines
+# Great Works of Art
+# Packaging
+# Any Other Business
