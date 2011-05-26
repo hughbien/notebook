@@ -66,6 +66,60 @@ There are always clues for perspectives.  Use the shape tool to add horizontal
 and vertical lines in your image and look for the vanishing point.
 
 # Contemporary Design
+Making ASCII art out of a photo:
+1. Go to Preferences -> Guides, Grids & Slices.  Setup gridlines with approx 12px
+2. Choose View -> Show -> Grid to make it viewable.  Create a new type layer and
+   type in random 1 and 0 characters.  Adjust the size and leading until the
+   characters fit exactly into the grid
+3. Use Layer -> Rasterize to turn them into pixels, then duplicate to fill the
+   entire canvas.  Merge them all together to form one layer
+4. Inverse the colors to be white on black text.  Use Hue/Saturation to colorize
+   the digits.
+5. Choose an image with strong light and shade, increase the contrast if needed.
+   Erase any background elements so only the foreground stands out.
+6. Choose Filter -> Pixelate -> Mosaic to fit the grid, use same cell size as
+   earlier
+7. Optionally, use Image -> Adjustments -> Posterize to reduce gray shades
+8. Change the layer mode to Multiply to show the numbers through
+9. Make any perfecting tweaks using Levels or Curves for the background
+
+Making graffiti art from a photo:
+1. Turn the photo into a graphic element by turning it pure black and white
+   using a Threshold Adjustment Layer
+2. Use the Dodge/Burn tool to highlight/shade any areas you want
+3. Use Filters -> Noise -> Median to smooth out jagged edges
+4. Merge the Threshold Adjustment Layer and add a wall layer as a background
+5. Use a soft edge brush set to Dissolve and the lasso tool for splatter spray
+6. Use Hue/Saturation dialog with Colorize to add color
+7. Optionally, use a Gaussian Blur to soften the edges
+
+Crosshatching a photo:
+1. First turn your photo grayscale, then boost the contrast to make it crisper
+2. Run it through Image -> Adjustments -> Threshold
+3. Draw a layer of diagonal lines (this may take a while) in QuickMask mode, the
+   intersection of lines and black areas should make a crosshatch theme
+4. Now do the same but flip the diagonal lines to go the other way
+5. Change the top layer to Multiply mode
+
+Creating iPod advertisements:
+1. Make a selection around your subject on a white background and fill it with
+   black
+2. Draw an iPod with the shapes tool, Free Transform it and paste it into the
+   subject's pocket
+3. Make a cable with the Pen tool.  Stroke it with a hard edged brush
+4. Add a background and shadow
+
+Making pixel art:
+1. Zoom in to around 500%, draw the basic skewed rectangle for the outline of
+   two buildings (2px right, 1px down)
+2. Draw windows and duplicate them.  It's easier to draw two pixels and
+   continually copy/paste it
+3. Flip the wall and connect it to make the adjacent wall.  Color each sides a
+   different shade of gray to take into account shading
+4. To make a corner, start with an ellipse with anti-aliasing off.  Add a stroke
+   with the Stroke menu.  Then erase all but the bottom corner
+5. Add shadows at ~50% opacity
+
 # Poster Design
 # Works on Paper
 # Books and Magazines
