@@ -44,6 +44,27 @@ Font smoothing:
 Caplin recommends using www.dafont.com or www.myfonts.com as a font resource.
 
 # Principles of Design
+A good rule of thumb is to always place your characters facing into an image
+rather than facing out.  There are exceptions to the rule though.
+
+Adding focus to an image is a great way to draw the viewer's eyes.  This can
+be done by surrounding everything else in a shadow, using a Gaussian Blur, or
+adding a blue tint to the background.
+
+Add diagonal elements to your images to make them more lifelike.  It adds
+dynamism, movement, and a sense of realism if everything isn't lined up.  If
+you want your image to convey calmness or stillness, then remove diagonals.
+
+The rules of thirds dictates where your subject should be in an image.  Split
+your image into a 3x3 grid.  Your subject/focus should be where the lines meet.
+
+If you've got a horizon in your photo, it's important to always be at the same
+level as your subject's eyes.  Otherwise, it'll look awkward.  This is important
+for any horizons - including horizontal lines leading to vanishing points.
+
+There are always clues for perspectives.  Use the shape tool to add horizontal
+and vertical lines in your image and look for the vanishing point.
+
 # Contemporary Design
 # Poster Design
 # Works on Paper
