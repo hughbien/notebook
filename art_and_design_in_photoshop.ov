@@ -202,6 +202,88 @@ Making a movie poster for a Western:
 9. Use a soft edge brush with black to paint inside of the jagged edges to give
    it an inner shadow/depth
 
+Making a science fiction poster:
+1. First add the layers: a space satellite, planet earth, starry background.
+   Make sure the satellite overlaps the planet
+2. Caplin uses the Vipnagorgialla font to add "SPACE" with a large amount of
+   kerning onto the poster
+3. Add an Outer Glow that's white from the Layer Styles.  Set text color to
+   black to give it a hollow feel
+4. Adding a solid blue layer below the letters and turning the title's blend
+   mode to Multiply will give it a better glow effect
+
+Turning an image of Regan into a horror movie poster:
+1. Darken the photo using Curves adjustments and take out a little green
+2. Paint a black mask around the face using a large soft edged brush
+3. Duplicate the photo layer and use the Dodge tool to shine the cheek/head
+4. Use the Burn tool at midtone to set strategic darkness to the photo
+5. Now add the movie title and other text
+
+Comedy posters have to look funny, usually through the expression on the main
+character's face:
+1. Add your character's image as a layer, zoom in to just a head/body shot,
+   and place him in a comical pose
+2. Use a casual font to add the movie title
+3. It's common to change the text direction to match any comical puns, so if your
+   movie is called "Back to Front" feel free to reverse the font direction
+4. Adding contrast to part of the movie title helps
+5. The remainder text should be lightweight
+
+Making a French art movie poster:
+1. Caplin starts with an image of a woman in a halter top, he uses the clone
+   tool to remove the strap from her neck
+2. Desaturate the image to turn it grayscale, then increase the contrast to make
+   it look stark
+3. Color the image using Color Balance to add blue/cyan.  Use the gradient tool
+   to make the top darker.  Set the girl's layer to Screen so her hair fades
+   into the background
+4. Add an image of a man standing up.  Use a large, white soft-edged brush to
+   paint a glow behind him (using him as a mask).  Now remove his image.
+5. Now add your movie title, cast credits, etc...
+
+Making a Film Noir poster:
+1. The poster starts with two layers, an image of a woman standing and a zoomed
+   in body/headshot of a man smoking a cigarette
+2. Filter -> Artistic -> Poster Edges to both layers make them look hand painted
+3. Boost the colors with Hue/Saturation and use Curves to darken if necessary
+4. To make his shadow stronger, duplicate his layer and desaturate with 'Cmd-
+   Shift-U'.  Change the layer mode to Multiply so only the darks are visible,
+   and Image -> Adjustments -> Threshold to turn it black/white.
+5. Add a cloudy background and text
+
+Romantic comedy poster:
+1. We start with an image of an actress. Use Filter -> Blur -> Median to soften
+   remove the actress' pores/wrinkles.  It works like Gaussian Blur, but still
+   keeps hard edges intact
+2. Use Curves to give the image a bleached out effect, add some red/green to
+   the image for a summery effect
+3. Either paint out the background or cut it out
+4. Now add movie title and credits
+
+Thriller movie poster:
+1. Start by making the photo look more stark.  Duplicate the photo, desaturate
+   it to grayscale, then set the new layer to Hard Light
+2. Choose dark blue/black for your color chips and run Filter -> Render -> Clouds
+   for a dark cloudy background
+3. Create a hole in the glass effect with the Lasso tool.  Choose white/pale blue
+   for your color chips and run the cloud filter again
+4. Lower the opacity of your glass to see through it and use the Dodge/Burn
+   tools to add highlight
+5. Use the Lasso tool to draw some cracks.  Add some depth to the edge of the
+   glass by nudging the shape of the hole and intersecting the edge
+6. Add the movie headline and credits.  Caplin uses the Wunderback Mix font which
+   has a degraded stencil design
+
+Making a motivational poster:
+1. Start with a black background.  Add a 1 pixel frame (selection, Edit ->
+   Stroke).  Add an image of clouds
+2. Make the clouds more impressive by reducing brightness to 0 and increasing
+   contrast to 100%.  Add the photo of a cat and litter tray
+3. Duplicate the layers and flip it vertically to create a reflection, lower
+   the opacity of the reflection
+4. Now add motivational text.  Caplin uses the Optimus font family which is
+   inspiring and elegant
+
 # Works on Paper
 # Books and Magazines
 # Great Works of Art
