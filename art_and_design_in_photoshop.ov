@@ -285,6 +285,69 @@ Making a motivational poster:
    inspiring and elegant
 
 # Works on Paper
+Making a ransom note:
+1. Start with a crumpled piece of paper, desaturate and brighten it.  Then write
+   each word on its own layer.  Change the font as you go.  Merge them all
+   together when you're done.
+2. Make a selection around each word with the Lasso tool, use 'Shift-Backspace'
+   for the Fill Dialog.  Choose "Behind" as the method.
+3. Mose words should have a white background.  Rotate some of them.
+4. To change the font color within a selection use 'Opt-Shift-Backspace'
+5. Add a drop shadow to each background with Layer Styles
+6. Duplicate each word/background, make a clipping layer with scraps of paper,
+   set the duplicated layer to Hard Light.  Paint some glue with a hard edged
+   gray brush
+7. Use the Color Balance to add red/yellow to the glue and add a Bevel to it
+
+Creating a medieval manuscript:
+1. Choose dark/light tan colors for your color chips and run Filter -> Render ->
+   Clouds.  Keep repeating until you get a background you like
+2. Use the Lasso tool to make selections around the top/bottom edges.  Delete
+   them to create a torn edge effect
+3. Use the Burn tool on Midtones to add shading to the torn edges
+4. Add a little more texture with Filter -> Texture -> Texturize and optionally
+   a small drop shadow
+5. Now add text. Be sure to use a medieval style font and a drop capital
+
+Making a bank check:
+1. Create a text layer of three long lines of bank text.  Text warp it,
+   rasterize, shrink it, and duplicate it many times to make very long lines of
+   text.  Make the background light blue
+2. Add the text elements of the check: bank name, account numbers, customer's
+   name, USD $, lines, etc...
+3. Add a darker blue background for the main portion of the check and a white
+   box for the amount
+4. Caplin recommends writing your own text instead of using a handwriting font.
+   Either use a tablet, mouse, or scan it in
+5. Use the Flag option with the Image Warp tool to add perspective
+
+Changing perspective of a flat check to a laid out wavy check:
+1. Enter Free Transform, use Image Warp's Flag default
+2. Use the control handles to customize the warp to be less drastic
+3. Switch back to the standard Free Transform with 'Cmd-T'.  Grab a corner and
+   hit 'Cmd-Opt-Shift' and drag it to the center for some perspective
+5. Use the Dodge/Burn tools to add highlights on the peaks and shadows in dips
+6. Add shadow by using the Polygonal Lasso with a feather and fill
+
+Making a postage stamp:
+1. Make a gray rectangle on a new layer
+2. Create a custom brush.  Make it small, hard-edged with a lot of spacing in
+   between strokes.  This will be used for the stamp border
+3. Press Q to enter Quick Mask mode and paint the dots along the borders holding
+   Shift to keep straight.  Scale with Free Transform
+4. Copy the border and paste it across all sides
+5. Paste an image of an important figure onto the stamp.  Add the price/country
+   code with a shadow and stroke.  Use the Hue/Saturation Adjustment to make
+   the stamp more monochrome
+6. To make the wavy pattern, create a single wave with the Pen tool and
+   duplicate it to make multiple waves.
+7. Make a circle with the Elliptical Marquee tool, use Edit -> Stroke.  Duplicate
+   and shrink for an inner circle.  Use the Type tool to type along a path
+8. Add a drop shadow to the image, rotate it a bit, and add a Gaussian Blur
+   to make it look like its been smudged a bit
+9. Finally add the postmark with a mask.  Paint out a little bit to give it a
+   poorly inked appearance
+
 # Books and Magazines
 # Great Works of Art
 # Packaging
