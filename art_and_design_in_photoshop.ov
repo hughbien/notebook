@@ -349,6 +349,65 @@ Making a postage stamp:
    poorly inked appearance
 
 # Books and Magazines
+Making a book cover for a horror comic (Tales from the Crypt):
+1. Add a yellow title on top of a red background.  Caplin uses the Ray Larabie
+   and True Crimes fonts
+2. Add a stroke with Layer Styles -> Stroke.  Also add a drop shadow
+3. Now past in the image of a skull and office background.  Use Curves to
+   lower the brightness
+4. Turn the photo into drawings with the Poster Edges filter
+
+Creating a Victorian Periodical:
+1. We'll start with a scanned image of an actual Victorian Periodical.  The
+   paper it's on is yellowed from age.  You can remove the background by
+   desaturating the image and increasing the brightness.
+2. Add columns of text, a headline, and a subtitle
+3. The drop capital Caplin uses is set in Medieval Victorian
+4. Finally add your own yellow textured paper.  Place it on top and set its mode
+   to Multiply
+
+Creating a news magazine cover like Times and Newsweek:
+1. Start with a large red border and red title
+2. Caplin uses a photo of Bill Clinton in the oval office for the cover.  He
+   uses the oval office as a background, but places Bill Clinton in front of
+   the magazine title
+3. Add the main headline text above everything else in red with a drop shadow
+
+Creating a crime novel cover:
+1. Start with a black background.  Add yellow text set in True Crime font and
+   use the Text Warp with the Lower Arc preset.  Use a negative bend
+2. Skew and rotate the title to top align it.  Add a drop shadow in Normal
+   mode so we can see it along the black background.  Use a hard edged shadow
+3. Add a background photo, use Curves to lower the brightness and add some blue.
+   Use a black, soft-edged brush to add a dark cloud behind the title
+4. Use the Lasso tool to select the doorway, add an outer glow, and fill it
+   with yellow.  Add a photo of a person in front of the door and paint him
+   black leaving his right side intact
+5. For light on the ground, use the Lasso tool to make a cone selection.  Feather
+   it by about 20 pixels, then fill it with yellow
+6. Duplicate the man, fill it with black, then use Free Transform to move it
+   as the shadow.  Use a Gaussian Blur to distort it
+7. Add crumpled paper as texture with the Unsharp Mask for a stronger effect
+
+Making a cover for a thriller:
+1. Start with a yellow title - "Hard Just" - in Georgia Bold
+2. For more impact, make both words the same large size to take up the entire
+   width of the cover.  Use 'Cmd-Shift->' and 'Cmd-Shift-<'
+3. Style with Bevel and Emboss.  Add finishing touches with Satin
+4. Add a wood background with a black gradient below the title
+5. Add the murder weapon layer on top of the wood.  Use a hard edged brush to
+   paint some blood below the gun.
+6. Use the Burn tool set to Highlights to darken the edges of the pool of blood.
+   Change the blood's mode to Hard Light to see through it.
+
+Making a cover for a science textbook:
+1. Add vertical text on the side on top of a blue background.  This acts like
+   a band around the textbook.
+2. Make an eclipse with a circular selection filled black.  Add an Outer Glow
+3. Make a new layer in screen mode filled black.  Use Filter -> Render ->
+   Lens Flare to make the Sun.
+4. Move the Sun layer above the eclipse for the full effect
+
 # Great Works of Art
 # Packaging
 # Any Other Business
