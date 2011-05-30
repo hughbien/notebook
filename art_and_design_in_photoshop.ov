@@ -515,5 +515,49 @@ Create abstract 3D art from dots:
 6. Cut and reorder the layer so it looks curved into a dip in the middle
 7. Now show the original layer.  Use a gradient mask for a fading effect
 
-# Packaging
 # Any Other Business
+Creating a credit card:
+1. Start by typing the credit card numbers.  Apply an Inner Bevel at a small size
+2. Add Contour (from Bevel and Emboss) to make it more metallic
+3. Now create the hologram.  Make a gray, rounded rectangle with an image inside
+   it.  Merge the layers, desaturate, then darken the corners.  Open the Curves
+   dialog and draw a wave to make it more metallic.
+4. Place the numbers and hologram above another larger round rectangle
+5. Add the name of the bank and any other text in white.  Either add another
+   background on the card or draw your own
+
+Carving in stone:
+1. Start with a photograph of a stone
+2. Write on it with the Type tool.  Optimus Princeps is an effective font
+3. Change the text color to 50% gray and set it to Hard Light
+4. Choose Bevel and Emboss from Layer Styles.  Set the technique to Chisel Hard.
+   Set the direction to Down and increase the size
+5. Make a new layer above the type, select both, hit 'Cmd-Opt-G' for a clipping
+   mask.  Make crack selections along the edges with the Lasso tool and fill it
+   with a solid gray
+6. Change the mode to Hard Light and copy the layer styles from the text.
+7. Chip away by making shorter V-shaped selections and deleting
+
+Making stained glass window from a photo:
+1. Start with a photo of subjects on a white background.  Make it seem more
+   painted by running the Poster Edges filter.  Make any dull colors brighter.
+2. Draw a basic frame outline using the Marquee tools.  Then add embossing
+   with Layer Styles and a sandstone texture with the Texture filter
+3. Add solid colors for the background - a green pasture, blue sky, yellow sun
+   with the Dodge tool for highlights
+4. Use Edit -> Stroke on each layer to add a thick black stroke
+5. Keep adding strokes to your image to look like glass borders
+
+Making a button badge:
+1. Start with a circle shape with the fill color of your choosing
+2. Use the Shapes tool set to Path, draw a smaller circle, switch to the Type
+   tool and write text along your button
+3. Hold 'Cmd' and drag the I-beam to where you want the text to start.  You
+   can duplicate this layer to write text at the top and bottom of the button
+   along the same path
+4. You can flip the text along the path by holding 'Cmd' and moving the I-beam
+   to the other side
+5. Select all the text, hit 'Opt-Shift-Down' to shift the baseline down to align
+   it with the button edge
+6. Add an Inner Bevel to the circle layer to make it more 3D.  Add the max amount
+   of Softness for a smooth edge.  Add a drop shadow and rotate it a bit
