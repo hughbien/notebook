@@ -409,5 +409,111 @@ Making a cover for a science textbook:
 4. Move the Sun layer above the eclipse for the full effect
 
 # Great Works of Art
+Make a photo portrait look like an oil painting:
+1. Select all and copy.  Make a new channel and paste
+2. Return to the RGB composites and choose Filters -> Render -> Lighting Effects.
+   Use a low Intensity and somewhat high Ambient setting.  Choose the channel
+   you made earlier to give a bump map - or oil texture
+3. Choose Filters -> Texture -> Texturizer for the canvas texture
+4. Finally boost the contrast
+
+Make a landscape painting from a ship and clouds:
+1. Add the clouds background behind the ship.  Make sure the bottom of the ship
+   is a little bit below the clouds
+2. Duplicate the ship and flip it vertically for the reflection
+3. Make the sky more colorful.  Add a new layer in Color mode above the sky and
+   paint with tons of blue, yellow, red, and orange
+4. Flip the sky vertically to create the water reflection.  Add a short black
+   gradient to distinguish between sky and water
+5. Choose Layer -> Layer Mask -> Reveal All and slowly fade away the ship and
+   clouds as it nears the bottom
+6. Make a merged copy and run Filter -> Artistic -> Watercolor.  Now run Filter
+   -> Brush -> Strokes -> Splatter
+7. Use the Dodge/Burn tools to highlight the sun and darken the area of the
+   ship with no sun
+
+Make a still painting from a still photo of fruit:
+1. Start with the photo of fruit.  Duplicate the layer and run Filters ->
+   Artistic -> Dry Brush
+2. Use the Burn tool on Midtones to darken the fruit a bit
+3. Switch to the copy layer and run Filter -> Stylize -> Glowing Edges, then
+   Images -> Adjustments -> Invert, now open the Hue/Saturation dialog and hit
+   Colorize to change all colors to blue
+4. Change the second layer's mode to Multiply
+5. Duplicate the layer, set it to Color Mode, and paint blue with a soft edged
+   brush for a shadow effect
+
+Imitate Henry Matisse from a head shot:
+1. Add a background of four squares.  Add a shadow with black paint around your
+   subject's head
+2. Merge the layers and run Filter -> Artistic -> Fresco to make it seem more
+   like an oil painting
+3. Next, apply Filter -> Artistic -> Paint Daubs with a small, medium sharpness
+   brush to get a 3D paint texture
+4. Use a small Gaussian Blur to reduce the crispness
+5. Make a new layer set to Hard Light.  Paint with multiple translucent colors
+
+Create a Dutch-like abstract painting:
+1. Create a single vertical line first, then duplicate and rotate to create more
+   lines all across the canvas
+2. Make a new layer and choose a pale brown and white colors for your chips.
+   Run Filter -> Render -> Clouds.  Then run the Noise filter.  Use Gaussian
+   for a more natural noise filter
+3. If the noise is too rough, use a Gaussian Blur to smooth it out
+4. Move the texture layer behind the lines.  Now fill in each square of the
+   lines layer with different colors
+5. Change the lines layer to Multiply so the colors darken with the texture below
+
+Melt a pocket watch like Salvador Dali:
+1. Start with two layers: a pocket watch and a table
+2. Use Photoshop's Liquify filter for the melting effect.  Start with the Forward
+   Warp tool and a large brush to smear the watch downwards
+3. Smear the top of the watch towards the table to make it look like it was laid
+   on top of it
+4. Use '[' and ']' to change brush size.  Hold 'Shift' to make larger jumps.
+   Make the perimeter of the watch more lumpy
+5. Select the bottom portion of the watch that's hung over the table.  Feather
+   it by about 8 pixels and use the Curves to make it darker
+6. Make a new layer above the table, hit 'Cmd-Opt-G' for a clipping mask.  Now
+   paint black with a soft edged brush to make a shadow
+
+Add a horror/nightmarish theme to a portrait:
+1. Use the Liquify filter and a large brush to widen the mouth like the subject
+   is screaming
+2. Use a combo of the Dry Brush and Poster Edges filter to give the painting
+   a harder edge
+3. Use the Smudge tool with downward strokes set at 80% and varying opacity
+4. Continue to streak over the subject to create folds with fabric
+5. Create a new layer with the Fiber filter to create a strong vertical texture.
+   Place it above the portrait with Screen mode (or experiment with other modes)
+6. Experiment with the Hue/Saturation and Brightness/Contrast
+
+Make a comic scene from a plane:
+1. Start with a plane on a layer
+2. Make a new layer, hit Edit -> Stroke with a 5 pixel stroke, then add more
+   strokes along contours with the Pen tool
+3. Make a new layer between both and paint it white for highlights, green for
+   the shadows, blue for the windows, and red for the propeller
+4. Click the eye icon next to the Texture layer and drag it above the new shading
+   layer.  Change the mode to Multiply then press 'Cmd-Opt-G' to make it a
+   clipping mask
+5. Add the sky with some texture
+6. Paint in fire using the Pen tool.  Black is fine.  Draw another flame inside
+   the shape.  This time fill it with red (giving it a black outline).  Keep
+   adding more flames with white and yellow.
+
+Create abstract 3D art from dots:
+1. Draw a circular ellipse and fill it with black.  Hold 'Opt-Shift' and drag
+   it 45 degrees from the original to make a duplicate.  Select both with the
+   Rectangular Marquee and choose Edit -> Define Pattern
+2. Make a new layer, fill with white, then from the Layers palette choose Layer
+   Styles -> Pattern Overlay
+3. Turn it into a regular layer by Merging it with 'Cmd-Opt-Shift-E'
+4. Duplicate the layer and hide the original.  Run the Spherize filter with
+   Horizontal Only checked
+5. Scale it with Free Transform
+6. Cut and reorder the layer so it looks curved into a dip in the middle
+7. Now show the original layer.  Use a gradient mask for a fading effect
+
 # Packaging
 # Any Other Business
