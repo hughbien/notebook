@@ -6,6 +6,74 @@ Steve Caplin walks us through creating full scenes using only Photoshop and
 no photographs.  Along the way, he teaches us very cool tips and tricks.
 
 # Essential Techniques
+The book starts with a review of all the essential tools used in everyday
+Photoshop work.  Here's a quick summary, for a more complete intro, see notes
+on "Photoshop Missing Manual" or "How to Cheat with Photoshop".
+
+The {{ Move tool }} is used to moving layers and selections around.  The shortcut
+to activate it while any other tool is currently active is holding 'Cmd'.  The
+Auto-Select option lets you automatically select a layer when you click on it,
+or just hold 'Cmd' and click with the Move tool.  There are Alignment and
+Distribute controls in the option bar to automatically layout layers.
+
+The {{ Rectangular Marquee }} and {{ Elliptical Marquee }} are used to make
+selections of different shapes.  Opt-drag to expand from the center instead of
+from a corner.  Shift-drag for equal proportion square/circle.  Hold 'Opt' to
+subtract from an existing selection.  Hold 'Opt-Shift' to intersect.  Hold
+'Spacebar' to move your selection while you're drawing it.  Use Select -> Modify
+-> Feather to feather out the edges.
+
+The {{ Brush tool }} handles painting.  Use the Brush panel to set the diameter
+and hardness - or use '[', ']', 'Shift-[', and 'Shift-]'.
+
+{{ QuickMask }} mode is used to make selections by painting.  Enter QuickMask
+with 'Q' and exit by pressing 'Q' again.  Paint with a soft edged brush to make
+a feathered selection.  Hit 'X' to quickly toggle between black/white chips.
+
+The Layers panel includes many {{ Locks }} which can be used so you won't
+accidentally paint over transparent pixels, move a layer, or resize one.  Cmd-
+Click a layer's thumbnail to load it as a selection.  Cmd-Shift-Click to add
+it to an existing selection.  Cmd-Opt-Click and Cmd-Opt-Shift-Click  works as
+expected.
+
+{{ Layer Masks }} are used for non-destructive editing.  They mask areas of the
+layer and hide them.  Choose Layer -> Layer Mask -> Reveal All to add one.  Now
+paint with black to hide and white to show through.  Gray for transparency.  You
+can disable a mask temporarily by Shift-Clicking on its thumbnail.
+
+{{ Adjustment Layers }} let you non-destructively adjust a layer's contrast,
+brightness, hue, and more.  All Adjustment Layers come with a mask.
+
+{{ Clipping Masks }} clip the visibility of the layer above so it's only visible
+where the two layers overlap.  Choose Layer -> Create Clipping Mask or hit
+'Cmd-Opt-G' or hold 'Opt' and click on both layers.
+
+{{ Curves Adjustments }} is a quick way to adjust a layer's brightness, contrast,
+and hue.  Choose Image -> Adjustments -> Curves or hit 'Cmd-M'.
+
+{{ Layer Modes }} determine how a layer is visible related to the layer beneath
+it.  Use the Layers panel to set it.  See 'Photoshop Missing Manual' for an
+in depth description of each mode.  Here are the basics:
+* Multiply - darkens with the layer beneath it, darker than both layers
+* Screen - brighter than both layers
+* Hard Light - retains highlights and shadows and hide mid tones
+
+The {{ Doge and Burn }} tools are used to add shadows and highlights.  Caplin
+walks us through making a realistic 3d sphere.
+
+The {{ Cloud Filter }} is horrible at making clouds, but it's great at making
+random textures.  Set your background/foreground chips and run Filter -> Render
+-> Clouds.  Each time you run it, it'll produce random texture - so feel free
+to run it multiple times until you get something you like.  Holding 'Opt' while
+running it will produce a tighter effect.
+
+The {{ Noise Filter }} produces random dots for texture.  You can set the amount
+and distribution.  It's great when combined with the {{ Gaussian Blur Filter }}
+which is used to soften images.  The Gaussian Blur filter is handy to prevent
+layers from looking too crisp and unrealistic.
+
+Using our new knowledge of filters, let's create a wood texture:
+
 # Setting the Scene
 # Deep Space
 # The Desk Drawer
