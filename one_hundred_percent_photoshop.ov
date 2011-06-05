@@ -73,6 +73,38 @@ which is used to soften images.  The Gaussian Blur filter is handy to prevent
 layers from looking too crisp and unrealistic.
 
 Using our new knowledge of filters, let's create a wood texture:
+1. Start with a solid brown layer
+2. Choose Filter -> Noise -> Gaussian Noise with Monochromatic Noise
+3. Set your chips to the same brown color as the background and white for the
+   foreground.  Run Filter -> Render -> Clouds then Edit -> Fade -> Clouds to
+   reduce opacity to 25%
+4. Run Filter -> Blur -> Motion Blur with a vertical blur of about 12 pixels
+5. Use Filter -> Distort -> Wave for a grain effect with these settings: ~514
+   number of generators, 10-102 wavelength (experiment), > 181 amplitude, 1%
+   horizontal scale, and 28% vertical scale
+6. That's enough for a pine-like texture.  For a mahogany effect, use Filter ->
+   Liquify.  Use the Forward Warp, Twirl, and Bloat tools to make knots/whorls.
+7. Strengthen by duplicating, desaturating with 'Cmd-Shift-U', changing to
+   Hard Light, and lowering the opacity to ~10%.
+
+Making a brick texture:
+1. Start with a single black rectangle as a brick
+2. Opt-drag the single brick to make copies, holding Shift to go straight.  Make
+   two rows first, then copy to make the entire wall
+3. Filter -> Distort -> Glass to roughen the edges.  Duplicate and hide for
+   later use.  Run Filter -> Blur -> Gaussian Blur at ~1 pixel radius
+4. Filter -> Render -> Clouds and Cmd-Shift-F to fade to around 50%
+5. Use Filter -> Noise -> Gaussian Noise for some more roughness
+6. Copy and paste the layer into a new Channel.  Return to the RGB image, create
+   a new white layer, run Filter -> Render -> Lighting Effects and choose the
+   Alpha 1 channel
+7. Use Color Balance to add the brick color
+8. On the black/white layer after the Glass filter, select the cement area with
+   the Magic Wand tool.  Run Filter -> Sharpen -> Unsharp Mask with a radius
+   of 300 to sharpen it
+9. On the black/white layer again, select some random bricks and return to the
+   normal layer.  Add the cement to the selection.  Inverse, make a new layer
+   above all others, set to Multiply.  Fill with white.  Now add a Drop Shadow
 
 # Setting the Scene
 # Deep Space
