@@ -107,6 +107,96 @@ Making a brick texture:
    above all others, set to Multiply.  Fill with white.  Now add a Drop Shadow
 
 # Setting the Scene
+This scene is an office door of a private detective.  There's a lot of wood,
+textured wallpaper, a wooden door, glass window, and brass doorknob.
+
+We'll start by making a skirting board, wall crowning, and door
+1. Start with the wood texture
+2. Make a selection on the top section of the wood
+3. Use the Burn tool 'O' and Shift-Drag horizontally to add shading on the
+   bottom of your selection
+4. Use the Dodge tool (or hold Opt) and Shift-Drag on the top portion
+5. Inverse the selection and repeat adding highlights/shade to the bottom
+6. Stretch the wood horizontally and repeat the crowning vertically
+7. Rotate and stretch out to cover all sides of the door
+8. To make the corners, use the Lasso tool to cut out a 45 degree of each board
+   and combine them together
+9. Continue duplicating and mixing pieces together to form the panels of the
+   door and complete it
+
+The embossed wallpaper is a repeated Victorian pattern:
+1. Draw the initial design with a hard-edged brush
+2. Since it's symmetrical, we can make one side and copy/flip with Edit ->
+   Transform -> Flip Horizontal
+3. Keep duplicating and moving the design to make a grid of patterns.  You can
+   define this as a pattern or just copy/paste
+4. Run Filter -> Stylize -> Emboss.  We can add color with a Hue/Saturation
+   adjustment
+
+Now let's stain and age it:
+1. Make a new layer set to Hard Light mode and paint a brown stain on top of it.
+   Hard Light has a darkening effect for dark colors without overwriting hues
+2. To make some tears, make a Layer Mask and paint with a hard-edged black brush
+3. Make a new layer as a clipping mask 'Cmd-Opt-G' and paint a brown edge on
+   any corner tears
+4. Add another clipping mask layer and paint with a darker brown.  Add Gaussian
+   Noise for some texture
+5. Finally use the Clouds filter for the brown area where there is no wallpaper.
+   Follow it with some Gaussian Noise and a Gaussian Blur.  Adjust colors for
+   the plaster effect
+6. Add some wooden beams behind the wallpaper tear and use a Layer Mask to
+   make them look broken or torn apart
+7. Paint with a shadow using a low opacity, soft edged brush on the wall behind
+   the wallpaper
+
+Making the 2nd wallpaper texture:
+1. Select two brown tones on your color chips and run Filter -> Render -> Clouds.
+   Add some Gaussian Noise and Gaussian Blur
+2. Make vertical selections and Burn them to make slits.  Then use the Pen tool
+   to simulate a larger split filled with black
+3. Use the Burn tool to add some shading and darken the interior with Dodge
+
+Creating the door's window:
+1. Start with a circle filled with blue
+2. Make a vertical rectangular shape with the same width through the circle's
+   center.  Fill it with the same color for a window shape
+3. Make thin selections around the window and remove it for its bars
+4. Paint a shadow of a person on another layer and merge it
+5. Make a new background layer with a flat color, merge this with the window
+6. Run Filter -> Blur -> Gaussian Blur to soften
+7. We'll need to add the glass texture.  Run Filter -> Distort -> Glass and
+   experiment with the settings until you get a good rippling effect
+8. Use a Hue/Saturation Adjustment layer to turn it into a glass color
+9. Make a vertical line with a gradient, duplicate it to make many, then move
+   that layer above the window in Multiply mode with opacity ~10%
+
+Making the metallic base for the keyhole:
+1. Start with a gray rectangle, use Dodge/Burn tools to make it metallic
+2. Select the right/bottom border and add shadows.  Select the left/top border
+   and add highlights
+3. Select the inner shadow and add a faint 30% white stroke (Edit -> Stroke)
+4. The keyhole is a filled black circle and rectangle.  Load it as a selection
+   and add an Outer Bevel with Layer Styles.  Use a lot of depth to create a
+   crisp highlight and shadow
+
+Adding screws:
+1. Make a gray circle, use Bevel and Emboss to add shading in a down direction
+2. That was the hole, make the screw with a smaller gray circle and use Bevel
+   and Emboss in an up direction
+3. Duplicate the screw and add them to each corner
+4. Make a vertical selection within the screw and delete it for the slots
+
+Making the doorknob and hinge:
+1. Make a gray circle on a new layer
+2. Use the Burn tool to add shading to the right side, use the Dodge tool to
+   add highlights to the left side
+3. Add another small highlight on the bottom/right edge for a metallic feel
+4. To make the brass effect, raise the Red midtones in curves a bit.  Lower the
+   Blue midtones a bit.  Switch to RGB and lower the midtones more.
+5. Copy/paste a thin slice from the doorknob to start the hinge.  Make a long
+   vertical section from the pastes.  Paste a full doorknob at the top and
+   bottom for the hinge stops.
+
 # Deep Space
 # The Desk Drawer
 # Fantasy Art
