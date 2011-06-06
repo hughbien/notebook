@@ -198,6 +198,37 @@ Making the doorknob and hinge:
    bottom for the hinge stops.
 
 # Deep Space
+This scene is composed of a starry background, the sun, the earth, and a UFO.
+
+Making a star brush and the starry night:
+1. Select a ~12 pixel hard edged brush and choose Window -> Brushes Panel.  Start
+   customizing your brush
+2. Increase the spacing slider
+3. In Shape Dynamics, increase the Size Jitter
+4. In Scattering increase the Scatter value and Count Jitter
+5. Choose New Brush Preset... from the Brushes Panel to save it
+6. Now fill the background and paint with your brush on a new layer
+
+Perfecting the stars by making it smaller and more spread it:
+1. To spread them out, use Free Transform and expand the background
+2. Load the stars as a selection, Select -> Modify -> Contract, inverse the
+   selection and delete
+3. Add a glow with Layer Style dialog, add an Outer Glow
+4. From the Layer Style dialog, lower the fill amount to make them dimmer without
+   effecting the outer glow
+5. To complete the effect, Caplin adds another layer of smaller stars that are
+   closer together
+
+Drawing Mars:
+1. Make a circle selection and fill it with red (Opt-Backspace to fill selection
+   with foreground color)
+2. Set the background chip to black and run Filter -> Render -> Difference Clouds
+3. Use Cmd-F to repeat the filter until you get the effect you want
+4. Use Filter -> Distort -> Spherize to make it less flat
+5. Use the Dodge/Burn tools to highlight the side facing the sun and add shading
+   to the other side
+6. Add an Outer Glow from a sampled red value for a ethereal effect
+
 # The Desk Drawer
 # Fantasy Art
 # In the Attic
