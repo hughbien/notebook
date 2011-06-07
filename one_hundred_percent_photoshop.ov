@@ -229,6 +229,58 @@ Drawing Mars:
    to the other side
 6. Add an Outer Glow from a sampled red value for a ethereal effect
 
+Drawing Earth:
+1. Draw the initial shape, a blue circle.  Most of it will fall outside the
+   canvas.  Hold Opt-Shift to draw from the center out and constrain to a perfect
+   circle.  Hold Spacebar while drawing to move it around
+2. Draw green land mass using a hard edged brush
+3. With the land mass selected and green/brown on color chips run Cloud filter
+4. Feather the selection to soften the edges and brighten the area around the
+   land mass for a glow
+5. Use the Burn tool to add some shading away from the light source
+6. For an added effect, you can paint some tiny lights in the night areas
+
+Adding clouds to Earth:
+1. Make a circle selection then run the Cloud filter and Spherize filter
+2. Move the selection over the earth and reduce its opacity
+3. Change the blending mode to Screen so it brightens the layer beneath
+4. Add a Brightness/Contrast adjustment
+5. Add a faint glow around it using the Layer Styles dialog
+
+Drawing the Sun:
+1. Start with a circle filled with yellow
+2. Have the same yellow on a chip, set white as the background chip, run the
+   Cloud filter again.  Make sure to lock the transparency
+3. To make the sun dazzle, use a large white soft-edged brush with a single dab
+4. For the outer glow, duplicate the layer and run the Radial Blur filter with
+   Zoom as the blur method.  This effect is much softer than what can be done
+   with a brush
+
+Adding rays around the Sun:
+1. Make a vertical document and paint some black/gray blobs of varying sizes
+2. Paint between the blobs at a lower opacity, make sure there's no space
+3. Run Filter -> Stylize -> Wind with the Blast method.  Run it twice for each
+   direction
+4. Rotate the canvas 90 degrees then use Free Transform to increase the height
+   and decrease the width
+5. Run Filter -> Distort -> Polar Coordinates with Rectangle to Polar checked.
+   This will warp the line into a circle
+6. Run the Radial Blur filter with a Zoom effect
+7. Tint this layer yellow and move it to surround the Sun layer
+
+Building the Cosmos texture:
+1. Paint a few blobs of white on a new layer.  We'll stretch it out later
+2. Lock the transparency and run the Clouds filter
+3. Use Free Transform to stretch and rotate to an angle
+
+Making a spiral Milky Way galaxy texture:
+1. Paint with a soft brush on a new layer.  Make the center thicker than the ends
+2. Run the Clouds filter
+3. Make a selection around the center of the layer and run Filter -> Distort ->
+   Twirl to spin it
+
+The flying saucer:
+
 # The Desk Drawer
 # Fantasy Art
 # In the Attic
