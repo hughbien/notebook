@@ -279,7 +279,19 @@ Making a spiral Milky Way galaxy texture:
 3. Make a selection around the center of the layer and run Filter -> Distort ->
    Twirl to spin it
 
-The flying saucer:
+Making the UFO:
+1. Make a circular selection and fill it with gray.  Use the Dodge/Burn tools to
+   add some texture
+2. Duplicate the original, free transform a smaller circle right in the middle
+3. Make two smaller circles which will be on opposite ends of your larger circle.
+   Then duplicate and use Free Transform to rotate it 15 degrees until you have
+   a group of circles on top of your ship
+4. Merge all layers together, use Free Transform again to squeeze the ship
+   vertically.  Hold Cmd-Opt-Shift and drag a handle to add some perspective
+5. Load the saucer as a selection, hold Opt and hit down four times to add an
+   edge to it via duplicates.  Merge the layers
+6. Inverse the selection (this will select the edge only).  Lock transparency
+   with '/' and use the Dodge/Burn tools to add some shadows to the edge
 
 # The Desk Drawer
 # Fantasy Art
