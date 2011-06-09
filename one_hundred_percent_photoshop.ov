@@ -294,6 +294,132 @@ Making the UFO:
    with '/' and use the Dodge/Burn tools to add some shadows to the edge
 
 # The Desk Drawer
+The desk drawer is filled with items: an ipod, pocket watch, magnifying glass,
+pencil, ticket, deck of cards, paper envelope, rubber bands, and a paper clip.
+
+Making the drawer:
+1. The draw edges are just thin pieces of wood with rounded corners.  Make three
+   edges and combine them
+2. Use another piece of wood, darken it, and add it to the edges to create the
+   sides
+3. Use a large chunk of wood texture to make the drawer bottom
+
+Making basic outline of an iPod:
+1. Use the Pen tool to create the subtle curve of an iPod, duplicate it for all
+   four corners.  Use the Marquee tool for a vertical selection with the corners
+   and fill it
+2. Add some Gaussian Noise
+3. Use the Burn tool to add shading to the sides, holding Shift to shade it
+   vertically
+4. Duplicate the original iPod shape, fill it with black, and shorten it
+   vertically to create the screen.  You can curve the top with the Warp tool
+5. Add an Inner Bevel to the black screen for dimension
+6. For the control, make a circle white selection and cut out a smaller circle.
+   Add a Bevel for some dimension to the control
+7. Finish by adding text for the menu
+
+Making a play button:
+1. Draw a square filled with a color
+2. Rotate by 45 degrees to make a diamond
+3. Delete half the diamond for a tall arrow
+4. Use Free Transform to compress to a play button
+
+The progress bar:
+1. Make a long, horizontal white bar and select a portion to fill
+2. Select the bottom half of the fill and add shading with the Burn tool
+3. Select the top half and use the Dodge tool (with Shift)
+
+The battery icon:
+1. Start with a rectangle selection and stroke it with white
+2. Make a smaller rectangle at the mid-right edge
+3. Select a smaller rectangle inside the initial outline and fill it with white
+
+Making a movie ticket:
+1. Start by drawing a rectangle and cut out a semi-circle on both ends
+2. Use the smudge tool to add a bit of smear to both sides
+3. Add basic texture with Gaussian Noise (monochromatic)
+4. Lock the transparency and run a horizontal Motion Blur to give it some
+   paper texture
+5. Use the Hue/Saturation dialog to give it a muted color
+6. Draw the outer rectangle and text "Admit One", some dates and borders
+7. Merge all the borders/text, lock transparency, change to Multiply, and run
+   the Cloud filter.  The white areas will be faded away
+
+Make a pencil:
+1. Draw a long rectangle that's curved on one end
+2. Duplicate it and use Free Transform to squeeze it to about half its height,
+   then lighten it and place it above the original.  Do the same except darken
+   it and place it below the original
+3. Use Hue/Saturation with Colorize to add color
+4. Use a white brush and paint a white line across where the layers join
+5. Use the same wood texture as earlier, brighten it, and use Free Transform to
+   make the tip of the pencil.  Hold Cmd-Opt-Shift and drag the top left corner
+   to do this
+6. Use Dodge/Burn tools to add highlighting to the tip
+7. Duplicate the tip, shrink it for the lead portion, and use Curves to adjust
+8. Make a thin gray rectangle, add shading with the Burn tool, copy it and
+   stretch to make it taller/narrower.  Duplicate the edge to add dimension.
+9. Curve it with Image Warp and Shear filter
+10. Make a metallic effect using Curves
+11. Make a large rectangle with round corners, use Dodge/Burn tools to add
+    shading to it
+12. Use Hue/Saturation to make it pink, add some Gaussian Noise
+13. Put all the elements together
+14. Add scratches with small, hard-edged brush the same color as the pencil
+15. Add Bevel and Emboss to the scratches for an added effect
+
+The ruler:
+1. Make a slightly rounded rectangle
+2. Place a piece of wood over the top using a Clipping Mask
+3. Select the top/bottom thirds of the ruler, apply a 2 pixel feather, and darken
+4. Tick marks can be made with duplicated vertical lines
+5. Add the numbers
+6. Paint with a small, hard-edged brush for scratch marks and add Bevel/Emboss
+
+Making the pocket watch crown (twisty thing to set time):
+1. Start with a gray circle
+2. Make a pattern of thin vertical black lines with the circle as a clipping mask
+3. Merge and run the Spherize filter
+4. Lower the contrast and use Dodge/Burn tools for shading around the edges
+5. Use Free Transform to squeeze it vertically
+
+Making the pocket watch itself:
+1. Start with a gray circle, use Bevel and Emboss to add dimension
+2. Duplicate with the same style and shrink it slightly to form an edge.  Also
+   draw a stroked circle for the inner part
+3. Add the top and crown of the watch
+4. Make it metallic using the Curves dialog
+5. Use Color Balance to add red/yellow for a gold watch
+6. Make a new white layer for the watch face with some shading
+7. Make two small black ticks on opposite ends, then Free Transform and rotate
+   30 degrees while duplicating for all the ticks
+8. Draw a circle with the Shapes tool and write the time along the path
+9. For the clock hand, draw half the shape with a Pen tool, fill it, and
+   duplicate/flip for the other side.  Add a circle to the bottom and add an
+   Inner Bevel/Drop Shadow for dimension
+10. Tint the watch face a pale yellow and use a soft-edged brush to highlight
+    the glass face
+
+Making a paper clip:
+1. Draw 3 stroked gray circles.  In order of size, the 1st should be top aligned
+   with the 2nd.  The 2nd should be bottom aligned with the 3rd.  The 3rd should
+   be in between the 1st and 2nd
+2. Delete half of each circle
+3. Use the Marquee tool to add strokes and connect the open circles
+4. Add an Inner Bevel ~ depth 220%, size 4 pixels, soften 4 pixels with gloss
+5. Add further shine with Satin in Layer Styles ~ 68% opacity, 25 pixel distance,
+   size of 29 pixels, Hard Light blend mode
+6. Finally add a drop shadow
+
+Rubber bands:
+1. Use the Pen tool to make some shapes
+2. Choose a small, hard-edged brush with mid-gray paint and hit Enter to stroke
+3. Select All, hold Opt and nudge it up a few pixels for an edge
+4. With the topmost layer selected, use Curves or Levels to brighten
+5. Inverse selection and use Dodge/Burn to shade the edges
+6. Inverse again and add a 1 pixel white stroke at 40% opacity
+7. Use Hue/Saturation to change the color
+
 # Fantasy Art
 # In the Attic
 # Future Tech
