@@ -420,6 +420,49 @@ Rubber bands:
 6. Inverse again and add a 1 pixel white stroke at 40% opacity
 7. Use Hue/Saturation to change the color
 
+Deck of cards:
+1. Use the Shapes tool in Pen path mode to draw the basic outline of a card.
+   Use the Rounded Rectangle shape
+2. Draw a vertical blue line, hold Opt-Shift to nudge it down and make duplicates
+   10 pixels apart.  Rotate it 90 degrees to make a grid
+3. Rotate the grid in 45 degrees to make a diamond, delete all but the square
+4. Duplicate to fill out the inner portion of the card.  Select the pattern and
+   choose Edit -> Stroke with a blue stroke
+5. Add a Drop Shadow to your shape
+6. Merge everything, select the card, and Opt-Drag to continually make copies.
+   This will produce a deck of cards.  Rotate a few for realism
+7. Use the Burn tool (on midtones) to add some shading to the top card.  This
+   makes it look more worn out
+8. Merge all the cards together
+
+Create an envelope with a letter in it:
+1. Draw half the envelope with the Pen tool, add a blue tint, use the Texturizer
+   filter to add some texture
+2. Duplicate and flip horizontally for the other half.  The front flap can be
+   made by combining the layers
+3. Use the Burn tool to add some shading below flaps
+4. Duplicate the front flap and extend the texture to make the rear flap
+5. Use the Burn tool to add shading to the rear flap
+6. Paint with brown at a low opacity to add some dirt
+7. You can make a letter by putting some text on a layer and adding texture
+8. Use the Dodge/Burn tools to paint the rear flap's area where the sticky
+   sections is
+9. Rotate the letter and place it into the envelope.  Add some shading with the
+   Burn tool
+
+Drawing a magnifying glass:
+1. Draw a black rectangle with one rounded edge
+2. Lock the transparency, use a soft-edged white brush at a low opacity for
+   highlighting to make it look round
+3. Repeat with a smaller brush size on the bottom
+4. Make the collar by drawing a small, thin round-edged rectangle and duplicating
+5. Add an Inner Bevel and Contour
+6. Reduce the middle four shapes and push them together
+7. Draw a circle on a new layer and use Edit -> Stroke for the lens
+8. Duplicate the ring and add Inner Bevel and Coutour.  Duplicate another time,
+   use Free Transform to make it smaller and give it depth
+9. Use Dodge and Burn tools to add the lens highlight/shading
+
 # Fantasy Art
 # In the Attic
 # Future Tech
