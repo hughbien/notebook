@@ -464,6 +464,65 @@ Drawing a magnifying glass:
 9. Use Dodge and Burn tools to add the lens highlight/shading
 
 # Fantasy Art
+This illustration includes a horned devil, snake-like objects, and lots of shiny
+metallic objects.
+
+Whereas the Clouds filter randomly generates a new texture each time, the
+Difference Clouds filter builds on the previous effect to increase/tighten.
+
+Making the textured background:
+1. Start with black/white chips and run the Difference Clouds filter a few times
+2. Use Radial Blur filter with amount ~ 50 and Zoom method
+3. Run a Plastic Warp
+4. Tint the background with Color Balance and adjust Brightness/Contrast
+
+Creating the face from the background:
+1. Choose Filter -> Liquify to get started.  Use the Forward Warp tool with a
+   large brush size to push a dark region (the eyes)
+2. Repeat the process for the other eye
+3. Click and drag for the nose and mouth
+4. Continue smearing the image to make the beard
+5. When the face is complete, hit the OK button to exit
+
+Adding polish to the eyes/teeth:
+1. Make a circular selection for the pupils, feather it, and fill it red
+2. Make a convincing set of teeth, don't worry about lining them up.  Use a
+   hard-edged gray brush
+3. Use the Dodge tool set to Highlights to add highlights to bottom/right of
+   each tooth
+4. Switch to Burn tool and darken left side of each tooth
+5. Use a Layer Mask with the Pen tool to make the teeth fit the mouth
+6. Use Color Balance and Brightness/Contrast adjustment to add a blue tint and
+   darken it a bit
+
+Making the horns:
+1. Start with a gray ellipse
+2. Use the Dodge/Burn tools to add shading around the bottom edge.  Add a light
+   spot on the left side
+3. Duplicate the layer and use Free Transform to shrink and move the layer
+   upwards a bit.  Rotate it a few degrees
+4. Keep repeating the last step to build up a horn
+5. Use different angles of rotations to make a random horn
+6. Add gloss with the Plastic Warp filter and use Curves to make it metallic
+7. Finalize with Color Balance and Brightness/Contrast
+
+Making a hand:
+1. Draw a hand shape with a mid-gray hard edged brush
+2. Use Dodge/Burn tools to add shading to the fingers and a little darkness to
+   the back of the hand
+3. Add highlights to the upper part of fingers and darkness in between
+4. Use the Plastic Warp filter for a shiny effect
+5. Use the Smudge tool to smear the highlights down
+6. Tint the hand to the color you want
+7. Draw the fingernails with a hard-edged pale blue brush.  Darken underneath
+   the fingernails and add highlights to the top
+
+Making snake shapes:
+1. Start with a small round circle.  Add shading to the bottom/left
+2. Use the Smudge tool with a hard-edged brush and 100% strength.  Drag up then
+   down with different angles
+3. Take another blob and repeat the same process until you have many snakes
+
 # In the Attic
 # Future Tech
 # The Great Outdoors
