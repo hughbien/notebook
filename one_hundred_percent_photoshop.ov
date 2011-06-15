@@ -521,9 +521,141 @@ Making snake shapes:
 1. Start with a small round circle.  Add shading to the bottom/left
 2. Use the Smudge tool with a hard-edged brush and 100% strength.  Drag up then
    down with different angles
-3. Take another blob and repeat the same process until you have many snakes
+3. Take another blob and repeat the same process until you have many snakes.
+   Be sure to use different thicknesses
+4. Apply the Plastic Warp filter for shiny-ness
 
 # In the Attic
+The attic scene has a brick wall background and a lot of junk.  To name a few:
+bowling ball, guitar, records, bike tire, tennis racket, and a broken mirror.
+
+We'll start with forming the brick walls.  Use the same brick wall we made in the
+Essential Techniques chapter:
+1. Copy the wall layer and align it to the existing.  Use Free Transform with
+   'Cmd-Opt-Shift' drag a corner to add a corner
+2. Make sure each corner brick as a white cement line (via copy/paste)
+3. Use Hue/Saturation adjustment to make the wall darker
+4. Add grime with a large brush, at a low opacity, set to Dissolve.  Add random
+   splatters then run a Gaussian Blur
+5. Optionally draw horizontal lines aligned with the skewed wall to figure out
+   where the vanishing point is
+
+Making the rafters:
+1. Draw the initial plan for the rafters using parallel gray rectangles and
+   include 2 vertical rectangles which form a square
+2. Use Free Transform to align the plan to the floor of the brick walls
+3. Duplicate the rafter layers and darken.  Move it down to create depth and
+   use Free Transform to make up the sides
+4. Select the corners between the original and duplicated rafter layers.  Darken
+   it to create corners
+5. We're going to darken the entire set, so increase the contrast of the
+   originals so they're almost white
+6. Open the wood texture and use Free Transform to align it with the rafters.
+   Make a Clipping Mask from the rafters layer and change mode to Multiply
+7. Brighten the corner edges to make it less crisp
+
+Making the wooly substance to place between rafters:
+1. Paint a wiggly band of gray
+2. Run a Gaussian Blur filter
+3. Lock the transparency, set the chips to black/white, run the Clouds filter
+4. Duplicate the layer several times, shrink it, and fit into each row
+5. Merge the layers together, move left/right as necessary
+6. Delete the bottom edge of each row
+
+Making a wooden dresser:
+1. Draw a rounded-corners rectangle with filled gray
+2. Paste in the wood layer, using the rectangle as a clipping mask and merge
+3. Use Layer Style to add a slight Bevel
+4. Make 3 rectangular selections for the drawers.  Make new layers, add a bevel,
+   add a drop shadow, then flip horizontally
+5. For the handles, make 2 gray circles.  Add Bevel with Glass Contour.  Make an
+   upside-down U shape.  Then add a golden Color Overlay
+6. Draw a gray handle with the gray circles and endpoints
+7. Opt-Drag the layer styles from the circles to the handle to make it golden
+8. Duplicate the two circles, make them the top layer and reduce the size
+9. Duplicate and add handles to each drawer
+10. Draw a curved leg for the dresser, use it as a clipping mask with the wood
+    texture.  Add some shading with the Burn tool
+11. Copy the front and use Free Transform to make it a side
+12. Duplicate the legs and move it behind the originals.  Move it up and
+    slightly to the right.  Use the Clone tool to fill gaps
+13. Use the same Hard Light procedure to add scratches and varnish used on the
+    ruler in an earlier chapter
+
+Making a draped piece of sheet:
+1. Draw the outline of the sheet with light gray
+2. Use the Burn tool to add shadows beneath the main folds
+3. Use the Dodge tool for bright streaks above each shadow
+4. Lock transparency and use Smudge tool with a soft edged brush and ~80% opacity
+   to smear the shading
+5. Continue smearing, add folds by smearing from within a dark area
+6. Change the sheet layer opacity to ~90%
+7. Duplicate and set the new layer's mode to Hard Light
+8. Load it up as a selection, feather it by a few pixels, fill with black, change
+   opacity to ~80%, and move it down/left for a shadow effect
+
+Building a cardboard box:
+1. Start with a plain, gray rectangle.  Run the Clouds filter with different
+   shades of gray for a slight mottling effect
+2. Use Hue/Saturation to make it brown
+3. Add vertical stripes, change the layer's mode to Diffuse, and make it brown
+4. Duplicate all lines to make the spacing narrower
+5. Now for the interior texture: duplicate the rectangle from step 2, paint
+   thicker dark brown vertical lines
+6. Merge the lines/rectangle together and run a Noise filter and Gaussian Blur
+7. Back to the exterior texture: distort its perspective, duplicate and flip
+   for the 2nd side.  Add some shading to the front face
+8. Duplicate the front face and place it in back with more shading
+9. Duplicate a portion of the front and distort it to make a front flap,
+   optionally use the Lasso tool to tear off edges.  Add some shading to the
+   corner where the front/top meet
+10. Duplicate the flap, make it darker with more noise, rotate it for the other
+    flap
+
+Making scotch tape for the cardboard box:
+1. Draw the tape on a new layer filled with gray.  Use the Dodge/Burn tools to
+   add shading
+2. Run the Plastic Warp filter to add shine
+3. Change the mode to Hard Light.  Add red/yellow through Color Balance and
+   optionally darken it
+
+Making a mannequin:
+1. Draw an outline with the Pen tool and fill with gray
+2. Use Dodge/Burn to add shading on the left side and highlights on right.
+   Use it for the breasts also
+3. Use your favorite method to add color.  Caplin uses Curves to remove blue
+4. Make a new layer filled with gray, run Texturizer filter, then run Spherize
+   set to Horizontal Only to make fabric
+5. Place the fabric texture over the dummy layer with a clipping mask, set it
+   to Hard Light
+6. On a new layer, draw a path down the middle of the dummy and join it with the
+   left side of the dummy.  Fill it with gray and add an Inner Bevel.  Change
+   this layer's mode to Hard Light and use the dummy layer as a clipping mask
+7. Draw an ellipse on the armholes/neck and paste the wood texture we have.  Use
+   Dodge/Burn tools to add shading
+
+Building a guitar:
+
+Making a bicycle wheel:
+
+Bowling ball:
+
+Tennis racket:
+
+Making a bird cage:
+
+Making a candlestick:
+
+Some records:
+
+The light bulb:
+
+A crystal ball:
+
+A copper pipe:
+
+A smashed mirror:
+
 # Future Tech
 # The Great Outdoors
 # Still Life
