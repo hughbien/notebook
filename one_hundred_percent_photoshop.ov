@@ -568,7 +568,7 @@ Making a wooden dresser:
 3. Use Layer Style to add a slight Bevel
 4. Make 3 rectangular selections for the drawers.  Make new layers, add a bevel,
    add a drop shadow, then flip horizontally
-5. For the handles, make 2 gray circles.  Add Bevel with Glass Contour.  Make an
+5. For the handles, make 2 gray circles.  Add Bevel with Gloss Contour.  Make an
    upside-down U shape.  Then add a golden Color Overlay
 6. Draw a gray handle with the gray circles and endpoints
 7. Opt-Drag the layer styles from the circles to the handle to make it golden
@@ -634,27 +634,132 @@ Making a mannequin:
 7. Draw an ellipse on the armholes/neck and paste the wood texture we have.  Use
    Dodge/Burn tools to add shading
 
-Building a guitar:
+Building a guitar, starting with the body:
+1. Draw half of the body using the Pen tool and fill with gray.  Duplicate and
+   flip for the other half
+2. Add some wood texture using the layer as a clipping mask
+3. Add inner shadow with a ~40% choke and size of ~200 pixels.  Choose a dark
+   brown color and set the mode to Multiply
+
+The neck/bridge of a guitar:
+1. Draw half the neck/bridge with the pen tool, duplicate and flip, then paste
+   some wood texture with the layer as a clipping mask
+2. Add a slight drop shadow to the bridge
+3. Draw half the head, duplicate/flip, and paste wood texture again
+
+Building the fretboard and enhancing the head:
+1. Draw a horizontal thin rectangle in brown and add a small Inner Bevel
+2. Duplicate the line several times, place them vertically apart with space
+   decreasing a little each time
+3. Place the lines onto the guitar neck, use Free Transform to make it line up
+4. Draw a gray circle on the head, make it metallic, and paste six copies
+5. Duplicate those pieces, shrink them, and place them directly above the
+   originals for depth.  These will hold the strings
+6. Add gray circles to the neck, lock transparency, and run the Cloud filter
+
+The center hole and rings:
+1. The center hole is just a black circle
+2. Make a circular selection around the hole that's wider, add a stroke
+3. Repeat the process for decorative rings
+
+The pegs on the bridge:
+1. Make a gray circle
+2. Add some shading with Dodge/Burn tools
+3. Use Color Balance to change to an ivory color
+4. Draw a black circle in the center
+5. Work at a large size, but shrink them and duplicate to add to the bridge
+6. Add a drop shadow to all the pegs
+7. Add a thin rounded rectangle for the saddle of the guitar
+
+Making the wounded brass string texture:
+1. Draw two gray circles on a new layer
+2. Use the Rectangular Marquee to make a horizontal line with rounded ends
+3. Add some shading to the bottom/left and highlights to top/right
+4. Shrink the piece and duplicate multiple times to form a vertical pattern
+5. Use Free Transform to make it narrower and change the color to brown with
+   Color Balance
+
+Adding the strings:
+1. Add the string to the guitar
+2. Rotate it so the top hits the neck and the bottom hits a peg on the bridge
+3. Duplicate and make it slightly narrower.  Shearing might be easier than
+   rotating for the middle strings.  To shear, use Free Transform and hold Cmd
+   while dragging the bottom center handle
+4. The last two strings are thinner, not from wounded brass.  Just use a line
+5. Add drop shadows to the thicker strings to make it look more realistic
+6. Duplicate the top portion of the strings.  Free Transform to connect them
+   to the pegs on the head
+
+Moving the guitar into perspective:
+1. Duplicate the guitar body, move it a few pixels left and fill it gray
+2. Use a hard-edged brush to fill in gaps at the top/bottom
+3. Paste a copy of the wood texture, run the Shear filter to add perspective
+4. Darken with the Burn tool
+5. Select the side and add a white stroke
+6. Repeat these steps for the head/neck
 
 Making a bicycle wheel:
+1. Start with a gray circle
+2. Remove two small circles at the top/bottom of the wheel and remove
+3. Use Free Transform to duplicate the holes, rotated about 20 degrees, all
+   around the wheel
+4. Add an Inner Bevel to the hole with Gloss Contour, do this on alternating
+   holes
+5. Draw an inner circle and copy the layer style.  Repeat for inner circles
+6. Reduce the size of the hub and draw the tire circle around it, copy the
+   layer style
+7. Draw a straight line from the hub to the outer rim, copy layer style
+8. Repeat at different angles to form the tire
+9. To make the tire, start with a thick black circle
+10. Make a tire bump on a new layer, and duplicate with Free Transform to
+    add them all over the tire
+11. Add an Inner Bevel for shine and a 3D effect
 
 Bowling ball:
+1. Make a square selection.  Set chips to light/dark gray and run Cloud filter
+2. Run Difference Clouds a few more times
+3. Paint on a new layer with a hard edged gray brush.  Set the layer to Hard
+   Light.  Add Inner Bevel to make the lines look like scratches
+4. Add some more dabs of hard-edged brush for pits and scratches
+5. Make a circular selection within the square and run Spherize filter.  Inverse
+   the selection and delete the outside
+6. Use Dodge/Burn for shading and highlights
+7. Make a hole and add Inner Bevel.  The shadow/highlights should be in Screen
+8. Duplicate and free transform to make all holes
+9. Select the holes, contract, fill with gray, contract again and delete
+10. Use Hue/Saturation to change to a color of your choice
 
-Tennis racket:
-
-Making a bird cage:
-
-Making a candlestick:
-
-Some records:
+The records:
+1. Start with a black circle.  Make a small hole in the middle by entering 
+   QuickMask and using Free Transform to scale it down
+2. Apply an Inner Bevel with an N-shaped curve in Gloss Contour
+3. Make a selection smaller than the record and add Gaussian Noise
+4. Run Radial Blur set to Spin
+5. Paint vertical white stripes with a soft edged brush and run Polar Coordinates
+   filter set to Rectangular to Polar.  Duplicate and rotate
+6. Apply circular strokes of black rings.  Select an inner portion and fill it
+   with black
+7. You can fill the inner section with a color and text
+8. Use Free Transform to lay it flat and add a drop shadow
+9. Duplicate to make a small stack
 
 The light bulb:
-
-A crystal ball:
-
-A copper pipe:
-
-A smashed mirror:
+1. Draw half the bulb and fill with gray.  Duplicate and flip.  Add some shading
+   around the edge
+2. Run the Plastic Warp filter
+3. Lock transparency and use the Smudge tool to smear the highlights
+4. Add more highlights in the center
+5. Use Color Balance to add blue and green
+6. On a new layer, draw the torso shape with some shading
+7. Run Plastic Warp and set to Hard Light
+8. Draw the filament holders on a new layer and the filament itself
+9. Draw the arc beneath the bulb and add shading.  The top-left and bottom-right
+   should be shaded.  Invert for highlights
+10. Duplicate the arc to make a screw and skew it with Free Transform
+11. Draw the bottom rounded portion and color it
+12. Make a Curves adjustment set to Luminosity
+13. The Glass layer should be Hard Light, feel free to brighten it
+14. Add an outer glow
 
 # Future Tech
 # The Great Outdoors
