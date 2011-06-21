@@ -762,5 +762,74 @@ The light bulb:
 14. Add an outer glow
 
 # Future Tech
+We're making a futuristic scanning machine with a grip, light source, screen,
+fancy UI, and speaker.
+
+First, sketch out the overall shape using Shapes tool and vector paths.  Fill
+it with a light gray and dark gray.  Add a large Inner Bevel to give them a
+three dimensional feel.
+
+The side grip:
+1. Draw a series of horizontal rectangles
+2. Draw a single rectangle which unites them all
+3. Load as a selection, refine edge and raise smooth/feather
+4. Add Inner Bevel
+5. Add a Layer Mask and paint horizontal stripes to hide the bevel and layer,
+   creating grooves
+6. Disable the Layer Mask by Shift-Clicking on its thumbnail
+7. Paint a vertical stripe on the right to fade it
+8. Copy a section on the left, flip it to the right
+
+Control ring that's shiny:
+1. Start with a circular selection and add a thick gray stroke
+2. Make a layer mask and remove two thin vertical stripes from the ring
+3. Duplicate and rotate 45 degrees, repeat so until the stripes are all around
+4. Load it as a selection, feather and contract it, then add a Pillow Emboss to
+   the smaller selection
+5. Add a dark blue color and maybe some texture using the Cloud filter
+6. Select one ring segment and add an Inner Glow
+7. Draw the inner circle, fill with gray and add highlights/shadows
+8. Run Plastic Warp and color the inner ball with Hue/Saturation
+9. Draw an ellipse at the top, feather it, paint the bottom half with a soft
+   edged white brush
+
+Microphone:
+1. Draw one dot, select it, hold Opt-Shift and drag to duplicate to make an
+   array of dots
+2. Make a circular selection and run the Spherize filter.  Inverse selection and
+   delete the outer dots
+3. Separate the dots into two halves and duplicate the edges to fill in between
+4. Fill the dots with white and place them on a black background
+5. Add an Inner Shadow to the dots layer.  Optionally, use an Inner Bevel
+
+Outer ring and lens:
+1. Start with a thick gray ring on the outer layer
+2. Add Inner Bevel and a U-shaped Gloss Contour to give it shine
+3. Duplicate the ring, make it smaller, this time use a sawtooth (M-shaped)
+   Gloss Contour
+4. Make a gray circle behind the rings, add shadows/highlights
+5. Duplicate and make it slightly smaller, rotate 180 degrees to make an inset
+   section of lens
+6. Repeat this process 3 more times
+7. Make an elliptical selection on the lens but behind the ring.  Make it near
+   the top, then use a soft edged white brush and paint the bottom of the lens
+8. Repeat for the bottom but with a green color in Hard Light mode
+9. Duplicate the green layer, reduce it in size, change to magenta, and rotate it
+
+The stereo and holes pattern:
+1. Make a grid of dots, duplicate, make a selection and run Spherize filter with
+   Horizontal only
+2. Use Free Transform and squish it vertically
+3. Only take the spherized dots used on your stereo.  If the bottom of the 
+   stereo is round - only use the bottom portion of the spherized dots
+4. Fill the dots with a mid-gray and add an Inner Shadow.  Paste onto background
+
+Light bar:
+1. Draw a horizontal lozenge
+2. Add highlights to the top and shading to the bottom.  Hold Shift to constrain
+3. Use Curves to make it shiny, using an up/down stepped curve
+4. Merge layers and add a Hue/Saturation adjustment to color it green
+5. A glow can be added with an Outer Glow layer style
+
 # The Great Outdoors
 # Still Life
