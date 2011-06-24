@@ -1,15 +1,18 @@
 How to Cheat in Photoshop CS5
-================================================================================
+=============================
 
-# Overview
 Steve Caplin shows us how to create realistic photomontages with Photoshop CS5.
 Along the way, he teaches us a lot of time saving shortcuts and tricks.  This
 book is full of tutorials made up of screenshots - these notes will be much more
 valuable paired alongside those images.
 
-# Selection
+
+Selection
+=========
+
 Caplin walks us through using Elliptical Marquee to select the hubcap of a tire
 and make duplicates:
+
 1. Use the Elliptical Marquee tool, Opt-drag to expand from center outwards.
    Make sure you hold down Opt after you click.
 2. Holding down Opt before dragging for subtracting from selection
@@ -22,6 +25,7 @@ and make duplicates:
 9. You can continue making copies with each mouse release while holding Cmd-Opt
 
 The Lasso and Magic Wands:
+
 1. Straightforward scenes with a solid background are easy for the Magic Wand
 2. Start by clicking the white area background
 3. Hold shift and click additional areas to add to your selection
@@ -30,6 +34,7 @@ The Lasso and Magic Wands:
 6. Hold Opt to turn the Lasso Tool into the Polygonal Lasso Tool
 
 QuickMask is the most powerful tool for selections in Photoshop:
+
 1. When your selection subject and background colors are too similar, it's too
    hard to use the Magic Wand.  It's also too difficult for irregular shapes for
    the Lasso.  Press 'Q' to enter QuickMask mode.
@@ -44,11 +49,13 @@ QuickMask is the most powerful tool for selections in Photoshop:
 
 QuickMask lets you use transformation tools to augment selections.  We'll use
 the hubcap example again, this time the tire is at an angle:
+
 1. Make an elliptical selection and switch to QuickMask mode
 2. Enter free transform with 'Cmd-T' and move your selection to an angle
 3. When you're done moving your selection over the tire, hit 'Enter' to finish
 
 The Quick Selection tool lets you drag to create a selection:
+
 1. Hit 'W' or 'Shift-W' until the tool is selected
 2. Drag over the portion of the image you want to select.  Keep dragging to
    add more areas, Opt-Drag to remove areas.
@@ -58,6 +65,7 @@ The Quick Selection tool lets you drag to create a selection:
 5. Adjust sliders to enhance your selection
 
 Refine Edge dialog can be used to make softer selections:
+
 1. Start by creating a new text layer 'Hard Text' and load it as a selection
 2. Bring up the Refine Edge dialog 'Cmd-Opt-R' and preview its Alpha Channel
    which is the last preview icon
@@ -66,6 +74,7 @@ Refine Edge dialog can be used to make softer selections:
 5. Hit OK when you're done to get a selection, then fill it with color
 
 The Pen tool can be used to draw paths, shapes, or make selections:
+
 1. To draw a straight line just click for two points, constrain by horizontal
    or vertical or 45 degrees by holding shift before clicking
 2. Click then drag to create a curve point, don't drag for a corner
@@ -80,6 +89,7 @@ The Pen tool can be used to draw paths, shapes, or make selections:
 
 Removing a subject from the background tends to leave a fringe - color residue
 from the background due to anti-aliasing.  Here's how to remove it:
+
 1. Layer -> Matting -> Defringe works by pushing the colors of a pixels outwards
    but tends to be a bit clumsy and leaves unwanted blocks.
 2. Layer -> Matting -> Remove White Matte tends to remove an unnatural dark
@@ -99,6 +109,7 @@ toggle your selection to view the underlying image.
 
 The Replace Color dialog lets you replace auto-magically replace colors in an
 image (Hue, Saturation, or Brightness):
+
 1. Choose Image -> Adjust -> Replace Color
 2. The preview shows selected areas in white and non-effected areas in black
 3. Use the eyedroppers to add or subtract areas on your image.  Adjust the
@@ -109,13 +120,18 @@ An alternative to this is using the Color Replacement Brush which lets you
 selectively paint on new color (Hue, Saturation, or Brightness).
 
 You can also select by color:
+
 1. Select -> Color Range
 2. Add/subtract areas just like how you would with the Replace Color tool
 3. You can swap out large selection areas by using the Paste Inside Selected
    Area action, hit 'Shift-Opt-Cmd-V'.
 
-# Transformation and Distortion
+
+Transformation and Distortion
+=============================
+
 You'll get the greatest flexibility and power with Free Transform mode:
+
 1. Hit 'Cmd-T' to enter Free Transform
 2. Drag a corner to scale the image, the opposite corner will be pinned.
    'Opt-Drag' to scale in all directions.
@@ -132,6 +148,7 @@ You'll get the greatest flexibility and power with Free Transform mode:
 
 Image Warp is a special mode of Free Transform.  Enter it by going into Free
 Transform and clicking the Warp icon in the options bar:
+
 1. Each corner point has two Bezier handles, drag them to create curves
 2. There are control points on each side of your bounding box.  Drag these to
    distort your image.
@@ -144,6 +161,7 @@ Transform and clicking the Warp icon in the options bar:
 
 Photoshop's Clone tool (aka Rubber Stamp tool) can be used to clonse portions
 of images:
+
 1. Open the Clone Source panel and click Show Overlay, make sure the Clone
    tool is set to Sample All Layers in the options bar
 2. Opt-Click to set the source of the clone
@@ -152,6 +170,7 @@ of images:
 4. Choose a brush and start painting the cloned target
 
 Puppet Warp uses a grid system that lets you bend, warp, and manipulate images:
+
 1. Choose Edit -> Puppet Warp or hit 'Cmd-Opt-P'
 2. Click with the Puppet Warp tool to set pins as yellow dots
 3. Toggle grid visibility in the Option bar's Show Mesh box
@@ -162,12 +181,14 @@ Puppet Warp uses a grid system that lets you bend, warp, and manipulate images:
 
 Content Aware Scaling lets you resize images without distorting key elements
 in the image:
+
 1. Edit -> Content Aware Scale or 'Cmd-Shift-Opt-C'
 2. To protect areas, make a selection and choose Select -> Save Selection.
    Later when you do the actual scale, click the Protect pop-up in the Options
    bar and choose your selection.
 
 Content Aware Fill uses information in the image to make an automatic patch:
+
 1. Make a selection around the object to remove - the selection doesn't need
    to be accurate
 2. Press Shift-Backspace to bring up the Fill dialog and choose Content-Aware
@@ -175,10 +196,14 @@ Content Aware Fill uses information in the image to make an automatic patch:
 4. You can also do Content Aware Filling from the Healing Brush.  Hit 'J',
    brush, and choose Content-Aware in the options bar.
 
-# Hiding and Showing
+
+Hiding and Showing
+==================
+
 Clipping Masks lets you constrain the visibility of one layer with the layer
 below it.  It won't cover any transparent pixels.  You can even do more
 interesting things using blend modes:
+
 1. With a texture layer above your background, create a Clipping Mask by
    hitting 'Opt-Cmd-G'
 2. Experiment with the blend mode of your Clipping Mask
@@ -188,11 +213,13 @@ interesting things using blend modes:
 
 Any painting tool can be used in conjunction with Layer Masks.  Caplin shows
 us how to use the Smudge tool to make blades of grass appear above a layer:
+
 1. Load your subject as a selection and inverse it with 'Cmd-Shift-I'
 2. Use the Smudge tool to gradually streak up some grass
 
 Smoothing is necessary for cutouts because they look too crisp against their
 backgrounds:
+
 1. Load your selection and choose Layer -> Layer Mask -> Reveal Selection
 2. Open the Masks panel and increase the Feather radius
 3. You can add a soft shadow with the same technique.  Opt-drag to duplicate
@@ -200,6 +227,7 @@ backgrounds:
 4. Lower the opacity of your shadow
 
 Photoshop recently added a color based masking feature:
+
 1. Create a Layer Mask, open the Masks panel, and click the Color Range button
 2. Click on colors in your layer and Invert if necessary
 3. As usual, Shift-click to add and Opt-click to remove
@@ -207,6 +235,7 @@ Photoshop recently added a color based masking feature:
 
 Blending is powerful in Photoshop.  It lets you show/hide portions of your layers
 without any brushing or selecting:
+
 1. Double click a layer's name and choose Layer -> Layer Style -> Blending
    Options.
 2. The bottom "Blend If" section lets you blend pixels which are in a certain
@@ -215,9 +244,13 @@ without any brushing or selecting:
    configuration
 4. You can use these blending options on both the top and bottom layers
 
-# Image Adjustment
+
+Image Adjustment
+================
+
 The Shadows/Highlights dialog is useful as a quick way to fix dark areas in your
 image:
+
 1. Choose Image -> Adjustments -> Shadows/Highlights
 2. Increase the amount setting in shadows to produce better details without
    affecting bright areas
@@ -227,6 +260,7 @@ image:
 
 Curves lets you make granular and coarse changes to color, shadows/highlights,
 and more with the same dialog:
+
 1. Choose Image -> Adjustments -> Curves or hit 'Cmd-M'.  You'll see a single
    diagonal line indicating no changes have been made.
 2. Click and drag upwards at the center to create a curve and raise brightness
@@ -241,6 +275,7 @@ and more with the same dialog:
 
 An often overlooked feature is using selective colors in the Hue/Saturation
 adjustment dialog:
+
 1. Choose Image -> Adjustments -> Hue/Saturation or hit 'Cmd-U'
 2. Click on the "scrubber" icon at the bottom of the dialog.  Adjust the
    triangles on the color sliders to only affect the colors you want
@@ -248,6 +283,7 @@ adjustment dialog:
 
 Caplin shows us how to use multiple adjustment tools to go from a dull image
 to a great one with high contrast without affecting colors:
+
 1. Duplicate the layer and desaturate using 'Cmd-Shift-U'.  The grayscale
    layer will show us just how dull an image is
 2. Change the blend mode of the grayscale layer to Soft Light
@@ -258,6 +294,7 @@ to a great one with high contrast without affecting colors:
 
 Sharpening brings back definition for soft or out-of-focus images.  Caplin
 recommends we use the Unsharp Mask filter for more control:
+
 1. Start by choosing Filter -> Sharpen -> Unsharp Mask...
 2. Opt-click the Cancel button to revert changes
 3. Start with Amount 100%, increase up until 300% for a dull image
@@ -271,14 +308,19 @@ to 30 it will ignore the low-contrast skin and only affect the eyes/mouth.
 
 The Healing Brush is useful to quickly fix blemishes.  It uses the area just
 outside of the brush and replaces the area inside of it:
+
 1. Select it with 'J' or 'Shift-J'
 2. Opt-Click an area to get the source point
 3. Paint over any blemishes to replace it
 4. Use a selection to tell the healing brush what area to blend
 
-# Composing the Scene
+
+Composing the Scene
+===================
+
 Caplin gives us some quick tips on positioning layers to compose a scene.
 In this case it's a climber, mountain, and sky:
+
 * Putting the climber in the middle doesn't tell a story
 * Putting him at the top shows us how much he has accomplished
 * At the top with less mountain and more sky amplifies this effect
@@ -287,6 +329,7 @@ In this case it's a climber, mountain, and sky:
 
 Now he's using an example of a farmer and background with a fence and
 highway junction:
+
 * Just placing the farmer above the background makes him look like he doesn't
   belong there
 * Place him behind the fence and cut a portion of his pitchfork to show in
@@ -300,6 +343,7 @@ The background of an image is important.  In the Last Supper, Da Vinci makes
 sure to keep Jesus in the middle.  The ceiling and doorway of the backgrounds
 are all composed to keep focus in the middle.  Caplin places a poster at a busy
 street intersection:
+
 1. Placing the poster dead center is a giveaway that the photo is fake
 2. Add a little tilted perspective for more realism
 3. Remove any objects in the background which try to take focus away
@@ -310,7 +354,10 @@ street intersection:
    and position him to look at your sign
 7. Overlap the person with the sign for more realism (but just a little bit)
 
-# Getting into Perspective
+
+Getting into Perspective
+========================
+
 The horizon is always the same height as the eye-line of the viewer.  If there
 are multiple adults in your photomontage, their eye-lines should be leveled with
 the horizon and each other (unless deliberately skewed).
@@ -331,6 +378,7 @@ transforms it to fit along the perspective of a bookshelf.
 Caplin walks us through duplicating a box and stacking it.  The original box
 is below the horizon level - we can see the top.  When we stack a copy above it,
 the copy's top shouldn't be visible.
+
 1. First make a copy of the box
 2. Use the lasso tool to split each side of the box (top, front, and right)
 3. Select the front and use Free Transform to shear it and drag it straight
@@ -340,6 +388,7 @@ the copy's top shouldn't be visible.
 
 The Vanishing Point filter lets you perform selections and other operations
 at a pre-determined perspective:
+
 1. Enter the Vanishing Point filter with 'Cmd-Opt-V'
 2. Hold 'X' to zoom in, set 4 points which determine your perspective
 3. A grid should show up, make sure it's aligned perfectly
@@ -350,9 +399,13 @@ at a pre-determined perspective:
    adjust itself accordingly
 7. You can also paste new items into the Vanishing Point filter automagically
 
-# Light and Shade
+
+Light and Shade
+===============
+
 Basic shadows on the wall and ground are easy to create.  In this example, Caplin
 has a layer of a boy in front of a wall/ground background:
+
 1. Duplicate the boy layer, press 'D' to set chips black/white, then press
    'Opt-Shift-Backspace' to fill the new layer black
 2. Move the new layer below the actual boy layer and position it accordingly
@@ -364,6 +417,7 @@ has a layer of a boy in front of a wall/ground background:
    more realism.  Just make both shadows and combine them with masks
 
 Ground shadows are sometimes trickier:
+
 1. Select a portion of the bottom piece of your subject, 'Cmd-J' to make a new
    layer from it
 2. Fill the new layer with black and edit if necessary
@@ -374,6 +428,7 @@ Ground shadows are sometimes trickier:
 
 Caplin shows us how to create complex shadows using a pair of glasses as an
 example:
+
 1. Check the light direction of your subject, are some areas darker than others?
 2. Start with the lens selected, create a new layer and fill it with black.  Hit
    'Cmd-Shift-F' for the fade dialog and set it to around 50% opacity.
@@ -386,6 +441,7 @@ example:
 
 An indoor room can be more interesting when a light source is added - especially
 if it's coming from a nine-grid window:
+
 1. On a new layer, make a grid of white rectangles
 2. Use the Free Transform to scale and distort to an angle
 3. Select the pixels in this layer by Cmd-clicking the layer's thumbnail.
@@ -397,6 +453,7 @@ if it's coming from a nine-grid window:
 
 Adding shadow adds depth to the image.  In this case, we'll take a single card,
 duplicate it, and create a deck of cards:
+
 1. Load the selection, hit 'Opt-Up' to nudge it up a few pixels, inverse the
    selection and darken the edge a bit to give it some depth
 2. Select the card pixels again, hit 'Opt-Cmd-D' to feather the selection, move
@@ -409,6 +466,7 @@ duplicate it, and create a deck of cards:
    Now hit Delete.
 
 Now let's add a light source to a lamp:
+
 1. Start by adding a shadow to the screen using a large soft-edged brush at
    a low opacity
 2. Use the pen tool to create a rough outline of light
@@ -423,6 +481,7 @@ Now let's add a light source to a lamp:
 
 The Dodge/Burn tools are useful to add light and shade to highlights, midtones,
 and shadows:
+
 * The Burn tool darkens an image when set to Highlights
 * The Dodge tool brightens an image when set to Highlights
 * When set to Midtones, the Burn tool no longer loses color but still darkens
@@ -432,6 +491,7 @@ and shadows:
   Dodge/Burn tools at an even lower opacity on Highlights
 
 Curves Adjustments can be used to reverse shadows:
+
 1. Make a new Curves Adjustments Layer, raise the midtone of the curve until
    your shadow area is as light as it should be.  Don't worry about affecting
    the good highlights.
@@ -441,6 +501,7 @@ Curves Adjustments can be used to reverse shadows:
    selection and add another Adjustment Layer.
 
 Painting smoke:
+
 1. On a new layer, use a soft-edged white brush with low opacity.  Use many
    small strokes to build up smoke.
 2. Lock the transparency of the layer, hit 'D' to reset your chips, choose
@@ -449,6 +510,7 @@ Painting smoke:
 4. Change to "Screen" for a bright smoke effect
 
 Making fire:
+
 1. Paint a random shape with a soft-edged white with slight variation in density
 2. Use the Smudge tool to have white streaks coming from the middle
 3. Lock transparency with '/' and choose Filter -> Render -> Clouds with orange
@@ -457,6 +519,7 @@ Making fire:
 5. Hit 'Shift-Cmd-F' and fade this new black/white layer and choose Linear Light
 
 Create neon lights:
+
 1. Create a new type layer and use a font with little thick/thin variation
 2. Use Refine Edge dialog to round off corners
 3. Select pixels and choose Edit -> Stroke to add a stroke
@@ -469,14 +532,19 @@ Create neon lights:
    set the foreground color to the same as your neon lights for a glow effect
 
 Turn day into night:
+
 1. Remove the existing sky, the Background Erase tool is useful for this
 2. Use a clipping mask and Curves Adjustment to lower brightness of foreground
 3. Paste a night sky into your image
 4. Use masks and Curves Adjustments to add yellow to windows for light sources
 5. Brighten bottoms of buildings to give the street some glow
 
-# Heads and Bodies
+
+Heads and Bodies
+================
+
 Making the head fit another body:
+
 1. Cut the head off, the tricky part is the hair which the Magic Erase tool is
    useful for
 2. Paste the new head on the image, use Free Transform to scale as necessary
@@ -485,6 +553,7 @@ Making the head fit another body:
 
 The Puppet Warp tool can be used to adjust a body.  In this case, Caplin shows
 us how to edit a teenager to stand up straight:
+
 1. Enter Puppet Warp mode with 'Cmd-Opt-P'
 2. Click to place markers at key joints: shoulders, hands, midriff
 3. Place a pin on the neck and pull it upwards, pull the shoulders down a bit
@@ -492,6 +561,7 @@ us how to edit a teenager to stand up straight:
 
 In the next example, Caplin removes Matt Damon from ahoto with Brad Pitt and
 George Clooney:
+
 1. First make a selection of Clooney and move him to the left
 2. Enter Free Transform mode and scale him as necessary so his eyeline matches
 3. If his bottom edge doesn't reach the bottom edge of the photo, select a
@@ -501,6 +571,7 @@ George Clooney:
    and contract it by 1px to fix this or feather it.
 
 Cutting out hair is tricky - but it's gotten easier with the Background Eraser:
+
 1. It's often easier to make a new background layer with a solid color that
    complements the hair color.  Then cut out the image loosely leaving plenty
    of margin for the hair.
@@ -515,6 +586,7 @@ Cutting out hair is tricky - but it's gotten easier with the Background Eraser:
 6. For even more realism, lock the transparent pixels and use the Clone tool.
 
 Cutting hair with Refine Edge:
+
 1. Start with the Quick Selection tool and make a selection
 2. Enter the Refine Edge dialog with 'Cmd-Opt-R'
 3. Adjust the Radius to improve your selection.  Toggle view with 'J'
@@ -523,6 +595,7 @@ Cutting hair with Refine Edge:
 6. Hold Option while brushing to remove any unwanted soft edges
 
 Caplin walks us through ageing a person:
+
 1. Start with the Liquify filter. Sag the jaw line, thicken the nose, and make
    the eyes more doleful
 2. Make a new layer and set the mode to Color.  Use a soft-edge brush either
@@ -534,6 +607,7 @@ Caplin walks us through ageing a person:
    Lower the saturation and mask any areas you want to keep.
 
 Now let's reverse the ageing process:
+
 1. Start with a Median filter (under Noise) to smooth out wrinkles.  Use a mask
    to prevent smoothing on all areas.
 2. Use the Healing brush to further smooth out wrinkles
@@ -545,8 +619,12 @@ Now let's reverse the ageing process:
 The Liquify filter is a powerful tool for changing expressions.  When you use it,
 be sure to make change subtle.  You can also use it to turn heads.
 
-# Shiny Surfaces
+
+Shiny Surfaces
+==============
+
 Let's use the Plastic Warp filter to create spilled syrup out of a jar:
+
 1. On a new layer, paint the spill in mid gray with a hard-edged brush
 2. Use Dodge/Burn tools to add random shading
 3. Choose Filters -> Artistic -> Plastic Warp and adjust sliders
@@ -556,6 +634,7 @@ Let's use the Plastic Warp filter to create spilled syrup out of a jar:
 7. Apply a Wave Filter with a mask to get a refraction effect
 
 Caplin walks us through making bubbles:
+
 1. Draw a circle on a new layer in a mid-tone gray.  Use the Dodge/Burn tools,
    the Plastic Warp filter, and maybe even a reflection of a window.
 2. Change the layer mode to Hard Light, duplicate and scale as necessary for
@@ -564,6 +643,7 @@ Caplin walks us through making bubbles:
 4. Add some color with the Hue/Saturation Adjustment
 
 Adding a water moat and dealing with reflection:
+
 1. Draw the shape of the water on a new layer, use the Lasso at first then a
    hard brush to wave the edges
 2. Duplicate the background, flip it vertically, shear as necessary
@@ -577,6 +657,7 @@ Adding a water moat and dealing with reflection:
    mode to Hard Light for additional color
 
 Drawing snow and icicles:
+
 1. Draw snow shape with a hard brush where snow sits on the ground or windowsill,
    use a soft brush to paint it alongside walls and sides
 2. Add shading using Dodge/Burn tools then add texture.  Start with Gaussian
@@ -587,6 +668,7 @@ Drawing snow and icicles:
    overlay it with itself for shadows.
 
 Make it rain in the street:
+
 1. Select the buildings, make a copy and flip it vertically.  Shear it as
    necessary to make a convincing reflection.
 2. Lower the transparency and add a layer mask to make puddles in the street.
@@ -598,6 +680,7 @@ Make it rain in the street:
    adjustment to tweak the contrast
 
 Adding a block of ice to a glass of water:
+
 1. Draw a rough outline with a hard mid-tone gray brush and fill it
 2. Use the Dodge/Burn tools for some light and shades
 3. Apply the Plastic Wrap filter
@@ -605,6 +688,7 @@ Adding a block of ice to a glass of water:
 5. Change the layer to hard light to make it shiny and transparent
 
 Imitating glass refraction:
+
 1. Load up the clear area, hide it, and select the background that will show
 2. Use the Spherize filter to refract it
 3. Show the glass layer again, use a soft edge brush with a layer mask to make
@@ -613,8 +697,12 @@ Imitating glass refraction:
    -> Blending Options and adjust the blend if color
 5. As a final touch, use a Color Balance adjustment for a blue/green tint
 
-# Metal, Wood, and Stone
+
+Metal, Wood, and Stone
+======================
+
 Create a metallic effect using the curve dialog:
+
 1. Open Curves with 'Cmd-M', drag vertically upwards on the left hand side
    to make a steep curve
 2. Further along, drag downwards.  Further along more, drag upwards.
@@ -622,6 +710,7 @@ Create a metallic effect using the curve dialog:
    Your image will begin looking metallic.
 
 Using adjustment layers gives you more control:
+
 1. Add a Curves Adjustment Layer
 2. Change the blend mode to Luminosity to only effect brightness/contrast
 3. Lock the transparently with '/' and apply a small Gaussian Blur to fix any
@@ -630,6 +719,7 @@ Using adjustment layers gives you more control:
 5. Use the Dodge/Burn tool to do any touch ups
 
 Use layer styles to make metallic text:
+
 1. Open up the Layer Style dialog and add Inner Bevel.  Optionally add a drop
    shadow for a 3d effect.
 2. In the shading section, click Gloss Contour and change it to a bumpy map
@@ -639,6 +729,7 @@ Use layer styles to make metallic text:
 
 The Light Effects filter is useful to add light/shade to a layer.  It's
 especially handy with alpha channels to simulate 3d images:
+
 1. First make a new Alpha channel in the Channels panel.  Add a faint Clouds
    filter to your background.
 2. Add a slight blur to your channel.  Then go back to the RGB channel and
@@ -648,6 +739,7 @@ especially handy with alpha channels to simulate 3d images:
 4. Apply the curves technique for metallic look.
 
 Adding rust, grime and decay:
+
 1. Blur the artwork after it's been made to a new channel
 2. Apply the lighting effects and curves from previous steps
 3. Use the Hue/Saturation adjustment layer to fix color
@@ -657,12 +749,17 @@ Adding rust, grime and decay:
 6. Now just make a mask to let the rust show through
 
 Turning objects into wood:
+
 1. Add a wood texture on top of your image using a clipping mask
 2. Group them together with 'Cmd-G'
 3. Change the blend mode to Multiply.  If it's too dark use Overlay.
 
-# Paper and Fabric
+
+Paper and Fabric
+================
+
 Adding dimension to money:
+
 1. Start with a flat dollar bill
 2. Use Free Transform 'Cmd-T' and press the Image Warp with the Flag preset
 3. The preset is too strong, modify it to be less noticeable
@@ -673,6 +770,7 @@ Adding dimension to money:
 7. Duplicate to add a pile of bills
 
 Add a cover to a book:
+
 1. Take a photograph of your book with the cover inside out
 2. Paste your new cover as a Smart Object and use Free Transform to place it
    directly onto the cover
@@ -680,6 +778,7 @@ Add a cover to a book:
    U'.  Use Curves to add some brightness
 
 Folding and crumpling paper:
+
 1. Use the Image Warp or Shear filter with the anchor at the midpoint
 2. Leave the top half selected, use the Burn tool with a large soft brush to
    add gentle shading above the crease line.  Add shading to the top to make
@@ -692,6 +791,7 @@ Folding and crumpling paper:
 6. Do the same, but with horizontal selections
 
 Adding folds and wrinkles to fabric:
+
 1. Curve the banner slightly with the Shear filter or Image Warp
 2. Add texture with Texturize filter with Canvas setting.  Use the Fade command
    to reduce texture 'Cmd-Shift-F'
@@ -702,6 +802,7 @@ Adding folds and wrinkles to fabric:
 5. Repeat to make multiple folds/wrinkles
 
 Ripping and tearing paper:
+
 1. Create tears by making ragged selections with the Lasso tool and a mask
 2. Make a new layer and paint the tears with a small hard brush.  Just trace it
    to simulate a paper tear
@@ -710,6 +811,7 @@ Ripping and tearing paper:
 4. Add folds/creases with the dodge/burn tools like the previous tutorial
 
 Simulate an old photo with texture:
+
 1. Get a photo of the inside cover of an old paperback
 2. Set your image to Hard Light mode with the texture layer below it
 3. Duplicate the texture layer and set it above in Hard Light mode also
@@ -717,12 +819,14 @@ Simulate an old photo with texture:
 5. Select the image and contrast selection a bit to create a border
 
 Red curtains with custom fibers:
+
 1. Start with a black outline, run the Fibers filter.  You can do the same to
    make a wood effect.
 2. You can apply the same effect to a sign for some texture.  If it's too strong,
    use the Fade dialog
 
 Make a ribbon:
+
 1. Draw a path with the Pen tool.  Keep curves smooth and avoid tight curves.
 2. Select the original, hold Option and drag to make a duplicate.  Join the
    two paths into one to make the outline of your ribbon.
@@ -732,14 +836,19 @@ Make a ribbon:
 5. Use the Hue/Saturation adjustment to add color
 
 Making tape:
+
 1. Select a rough outline with the Lasso tool using Shift for straight lines
 2. Fill the selected area with 50% transparency gray
 3. Add random shading with Dodge/Burn
 4. Apply the Plastic Wrap filter and change it to Hard Light mode
 5. Color can be added with Color Balance
 
-# The Third Dimension
+
+The Third Dimension
+===================
+
 Adding depth to a flat image of a coin:
+
 1. Use Free Transform to lay it on its back
 2. Select it and 'Opt-drag' it up, continually making duplicates
 3. Select the edge, hit '/' to lock transparency, and fill it with a color
@@ -747,11 +856,13 @@ Adding depth to a flat image of a coin:
 
 Caplin walks us through placing a sign on a jagged edged garage door viewed
 at an angle:
+
 1. Select all your sign elements and Convert to Smart Object
 2. Use Free Transform to match the perspective and place it onto the garage door
 3. Change the blend mode to Multiply
 
 Building a cereal box:
+
 1. First prepare your flat artwork
 2. Create a merged copy and distort the front of the box with Free Transform
 3. Repeat with the side layer and place them together
@@ -760,6 +871,7 @@ Building a cereal box:
 
 Displacement maps lets you move a layer and have it take the shape of its new
 surface:
+
 1. Place your layer above the background
 2. Set the layer's mode to Hard Light and reduce opacity
 3. Duplicate your background and desaturate with 'Cmd-Shift-U'
@@ -767,6 +879,7 @@ surface:
 5. Try combining it with a Gaussian Blur to smooth out realism
 
 Drawing a 3d cable:
+
 1. Start with drawing a curve with the Pen tool and add a stroke to it
 2. Select the curve and feather it
 3. Nudge it vertically and inverse selection to get the bottom edge.  Use
@@ -775,6 +888,7 @@ Drawing a 3d cable:
 5. Add shadow if necessary
 
 Drawing a 3d pipe:
+
 1. Start with a midtone gray rectangle
 2. Use Dodge/Burn tools for highlights/shades and the Shift modifier
 3. Make an elliptical selection and duplicate to create the pipe ends
@@ -783,11 +897,15 @@ Drawing a 3d pipe:
    inner pipe effect
 6. Make the pipe look more metallic with the steps from the Metal chapter
 
-# Advanced Techniques
+
+Advanced Techniques
+===================
+
 Caplin reminds us how to get rid of the white fringe around a selection again.
 After your selection is made, contract it by 1 pixel before doing anything else.
 
 Working with Smart Objects:
+
 1. Start with two layers: a background, photo and some texture.  The texture
    overlay is set to Hard Light mode.
 2. Convert all layers into a Smart Object with Layer -> Smart Objects -> Convert
@@ -810,6 +928,7 @@ once with your image.
 
 The Background Erase tool is useful to sample a point as a background and remove
 it from your image.  Here are some tips:
+
 * Before starting, double click the Background layer and turn it into a regular
   layer.  Open the History panel and click next to the Make Layer step to pin
   that point in history.
@@ -825,6 +944,7 @@ it from your image.  Here are some tips:
 
 Actions can be used to create keyboard shortcuts for frequent actions.  Caplin
 walks us through creating one:
+
 1. Make a selection
 2. Select New Action in the Actions panel.  Give it a name, keyboard shortcut,
    then hit the Record button
@@ -841,12 +961,16 @@ The eye dropper has a sample ring now which shows the current color on top and
 the previous color on bottom.  Hold 'Ctrl-Opt-Cmd' with the Color Picker to get
 a color sampler.
 
-# Working for Print and the Web
+
+Working for Print and the Web
+=============================
+
 Resolution is the number of dots an image uses.  Image resolution is usually
 measured by dots per inch or dpi.  For paper a higher dpi means better quality.
 Screens have a cap to dpi, computer screens typically use 72dpi.
 
 Caplin recommends these values for different media:
+
 * 300dpi for high quality magazines
 * 200dpi for newspapers or coarse paper
 * 72dpi for publishing on the internet (not for print)

@@ -1,14 +1,16 @@
 Four Hour Body
-================================================================================
+==============
 
-# Overview
 Tim Ferris wrote an unconventional guide to lifestyle design with the Four Hour
 Workweek.  In this book, he'll show us the shortcuts to a fit and healthy life.
 The notes here cover rapid fat loss, rapid strength gain, perfecting sleep,
 and life extension.
 
-# Fundamentals
-The {{ minimum effective dose (MED) }} is the smallest dose that will produced
+
+Fundamentals
+============
+
+The **minimum effective dose (MED)** is the smallest dose that will produced
 a desired outcome.  Anything beyond the MED is wasteful.
 
 To reach your desired outcome, you'll work in three areas: diet, drugs, and
@@ -28,8 +30,12 @@ to lose 5% of my body fat".
 In body redesign, our destination should be a better ratio of body composition
 instead of just weight.  Make sure you keep track of your body fat percentage.
 
-# Ground Zero
+
+Ground Zero
+===========
+
 People suck at following advice to become fit:
+
 1. The pain isn't enough to facilitate a change in lifestyle
 2. No consistent tracking == no awareness
 
@@ -41,8 +47,12 @@ health?
 Ferris highlights the importance of tracking.  Fowler didn't follow the advice
 from this book, but he did keep track of calories and exercising. 
 
-# Slow Carb Diet Basics
+
+Slow Carb Diet Basics
+=====================
+
 The Slow Carb Diet is better fat loss through simplicity.  There are 5 rules:
+
 1. Avoid carbs that are or can be white.  This includes: all bread, rice, cereal,
    potatoes, pasta, tortilla, and fried food with breading.
 2. Eat the same meals over and over again.  Successful dieters do this.  Mix
@@ -53,40 +63,44 @@ The Slow Carb Diet is better fat loss through simplicity.  There are 5 rules:
 
 My favorite parts about this diet is that it's simple to cook and cheap.
 
-# Slow Carb Diet Finer Points and FAQs
-- Should I take any supplements?
+
+Slow Carb Diet Finer Points and FAQs
+====================================
+
+### Should I take any supplements?
 Ferris recommends potassium, magnesium, and calcium.  You might lose excess water
 along with electrolytes.  Potassium can be obtained through potassium enriched
 salts or avacadoes.  Calcium via tofu or tempeh.  Magnesium via almonds, spinach,
 or soybeans.
 
-- Does cheat day undo all of my progress?
+### Does cheat day undo all of my progress?
 No.  Expect massive fluctuations after cheat day and relax.  It'll disappear
 within the next 48 hours.
 
-- Can I use spices, salts, or sauces?
+### Can I use spices, salts, or sauces?
 Spices and herbs are your friends, but no cream based sauces.  Butter is fine
 as long as the only ingredient is butter and salt.
 
-- What should I eat for snacks?
+### What should I eat for snacks?
 You shouldn't.  If you're hungry, eat more protein and legumes during your meals.
 If you're eating enough - it's a psychological addiction you should get over.
 
-- Do I have to binge once a week?
+### Do I have to binge once a week?
 It's important to spike caloric intake once a week.  Everyone binges eventually,
 it's better to do it at an interval than randomly.
 
-- Can I eat whole grains or steel-cut oats?
+### Can I eat whole grains or steel-cut oats?
 No.
 
-- Can I eat fried foods?
+### Can I eat fried foods?
 Yes, it's encouraged.  Just avoid deep fried foods.
 
-- What if I'm traveling and don't have access to my diet foods?
+### What if I'm traveling and don't have access to my diet foods?
 Grab a bag of almonds or raw nuts.  It's better to choose mild hunger than to
 deviate from your diet.
 
-Common mistakes are:
+### Common mistakes are:
+
 1. Skipping breakfast.  It's closely associated with over eating in the evening.
    Eat a protein rich breakfast within one hour of waking up, or you will fail.
 2. Not eating enough protein or legumes.  You don't want your metabolism to drop.
@@ -96,14 +110,19 @@ Common mistakes are:
 6. Overconsuming artificial sweeteners.
 7. Hitting the gym too often and rewarding yourself.
 
-# Binge Damage Control
+
+Binge Damage Control
+====================
+
 The three principles are:
+
 1. Minimize the release of insulin
 2. Increase the speed of gastric emptying
 3. Engage in brief muscular contraction throughout the binge
 
 Insulin release is minimized by blunting sharp jumps in blood sugar.  This can
 be done by:
+
 1. Ensure the first meal is not a binge meal, but a smallish one that's high in
    fiber and protein.
 2. Consume a small quantity of fructose fruit sugar (grapefruit juice) before
@@ -119,12 +138,16 @@ Do these about 60-90 minutes before and after you eat.  Do these exercises for
 60-120 seconds.  It brings GLUT-4 to the surface of muscle cells instead of fat
 cells for calories to flow into.
 
-# Building Posterior
+
+Building Posterior
+==================
+
 The posterior chain includes all muscles from the base of your skull down to
 your Achilles tendons.  The secret is Russian kettlebell swinging twice a week
 for an average of 15-20 minutes each.
 
 Here are the guidelines:
+
 1. Stand with your feet 6 to 12 inches outside of shoulder width on either side,
    each foot pointed outward about 30 degrees. If toes pointed straight ahead
    were 12:00 on a clock face, your left foot would point at 10:00 or 11:00,
@@ -139,17 +162,22 @@ Here are the guidelines:
 
 You can take it further by adding two other routines.  Every Mon, Wed, and Fri
 prior to breakfast you can:
+
 1. Do one set of 20 two-legged glute activation raises
 2. Do one set of 15 flying dogs on each side
 3. Do one set of 50 kettlebell swings
 
-# Six Minute Abs
+
+Six Minute Abs
+==============
+
 The prerequisite for visible abs is to follow a diet that allows a sustained
 12% body fat or less.
 
 There are two exercises which work well: the Myotatic Crunch and the Cat Vomit.
 
 To do the Myotatic Crunch:
+
 1. Sit with your back on BOSU, Swiss ball, or pile of firm cushions.  Ensure
    your butt is close to the floor.
 2. Stretch your arms overhead as high as possible, keep them behind or next
@@ -162,6 +190,7 @@ To do the Myotatic Crunch:
 6. Repeat for 10 reps.  Once you can do so, add weights.  
 
 It turns out laughing works out your abs very well.  To do the Cat Vomit:
+
 1. Get on all fours and keep your gaze focused either directly under your head
    or slightly in front of you.  Don't arch your back or strain your neck.
 2. Forcefully exhale from your mouth until ALL air is fully expelled.
@@ -170,13 +199,17 @@ It turns out laughing works out your abs very well.  To do the Cat Vomit:
 4. Inhale fully through the nose after the 8 to 12 seconds.
 5. Take one breath cycle of rest then repeat for 10 reps.
 
-# Injury Proofing
+
+Injury Proofing
+===============
+
 The most likely cause of injury isn't weakness or tightness, it's imbalance.
 The core works fine as long as the hips aren't moving.  Once they're moving,
 the core starts trying to compensate and balance.
 
 Gary Cook came up with a Functional Movement Screening to determine if you have
 an imbalance or not.  He does this through a pass/fail evaluation of:
+
 * Deep squat
 * Hurdle step
 * In-line lunge
@@ -184,19 +217,25 @@ an imbalance or not.  He does this through a pass/fail evaluation of:
 * Seated rotation
 
 If you do have the imbalance, the core four protective exercises to fix it are:
+
 * Chop and lift
 * Turkish get up
 * Two-arm single-leg deadlift
 * Cross-body one-arm single-leg deadlift
 
 Use the videos found here to learn more:
+
 * http://www.fourhourbody.com/fms-self
 * http://www.fourhourbody.com/cl
 * http://www.fourhourbody.com/tgu
 * http://www.fourhourbody.com/1SDL
 
-# Effortless Superhuman
+
+Effortless Superhuman
+=====================
+
 Strength is a skill - that can be learned quickly.  The workouts are:
+
 1. Dynamic stretching before each session with "over-unders" see
    http://www.fourhourbody.com/over-under
 2. One of the following with 5 minutes rest between sets:
@@ -210,9 +249,13 @@ Strength is a skill - that can be learned quickly.  The workouts are:
    side and hold for 3 seconds on each.
 5. Static stretching
 
-# Perfecting Sleep
+
+Perfecting Sleep
+================
+
 Ferris used multiple devices to keep track of his sleep like WakeMate, Zeo,
 and FitBit.  Using these, he found that:
+
 1. Good sleep (8-10) was dependent on the ratio of REM to total sleep instead
    of total REM duration
 2. Increase REM percentage by extending total sleep time past nine hours or
@@ -228,6 +271,7 @@ and FitBit.  Using these, he found that:
    add to this effect
 
 Some other sleeping tips:
+
 * Experiment with different room temperatures to fall asleep faster.  Most people
   prefer 67F to 70F degrees.  Usually a colder temperature helps you fall asleep.
 * Eating a large fat and protein dominated meal within hours of bedtime will also
@@ -240,7 +284,10 @@ Some other sleeping tips:
 * Resort to the self-imposed half military crawl position which forces you to
   stay still and fall asleep
 
-# Living Forever
+
+Living Forever
+==============
+
 The hard part about extending your lifetime is how to do it without living a
 complete boring life.
 

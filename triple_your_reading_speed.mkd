@@ -1,7 +1,5 @@
 Triple Your Reading Speed
-================================================================================
-
-# Overview
+=========================
 Wade E. Cutler teaches techniques to read faster with the same comprehension.
 This book includes eye exercises to control/expand vision, various drills to
 improve techniques, tactics/strategies for overall better comprehension.
@@ -12,7 +10,10 @@ worthless without practicing the drills in this book.
 He references the "10% of your brain" usage (incorrect) to try to convince the
 non-believers.  Let's try this book out anyway.
 
-# Part 1: Learn About Reading Yourself
+
+Part 1: Learn About Reading Yourself
+====================================
+
 ## Current Reading Rate/Comprehension
 Cutler has the reader determine his reading rate and comprehension with
 two short narratives followed by multiple choice tests.  My rate is 
@@ -29,7 +30,7 @@ minds.  By doing this, we lift the restriction of our reading rate being
 maxed out by our speech.
 
 ## Visual "Bite"
-{{ Fixations }} occur when we read - our eyes are fixated along certain
+**Fixations** occur when we read - our eyes are fixated along certain
 points.  Our vision then reads the words around those fixations.  The
 less fixations we have, the faster we can read.
 
@@ -49,8 +50,12 @@ The same happens with books - we can't devote enough time for a single
 sitting throughout a novel.  With "Accelerated Reading", we'll be able
 to read an entire text at once.
 
-# Part 2: Identify and Overcome Your Blocks to Better Reading
+
+Part 2: Identify and Overcome Your Blocks to Better Reading
+===========================================================
+
 The five "blocks" which slows down reading speed is:
+
 1. Failure to Preview
 2. Wasted Eye Movement
 3. Poor Vision Span
@@ -59,6 +64,7 @@ The five "blocks" which slows down reading speed is:
 
 ## Failure to Preview
 Previewing has many benefits:
+
 * avoid wasted reading time on something you don't need
 * estimating how long it will take by knowing length of text
 * knowing the conclusion before reading
@@ -67,6 +73,7 @@ Previewing has many benefits:
 * knowing whether the material is new knowledge or a review
 
 To preview a nonfiction book:
+
 1. Examine the cover (title, blurbs, summaries, reviews)
 2. Note the author's name and read any short bios for him/her
 3. Check the publisher's name and copyright date
@@ -78,6 +85,7 @@ To preview a nonfiction book:
 9. From the preview, evaluate the book's value for your purpose
 
 To preview a chapter:
+
 1. Study the title
 2. Question the title:
    a. What do I already know?
@@ -97,9 +105,9 @@ To preview a chapter:
 ## Wasted Eye Movement
 Wasted eye movement occurs through regressions, progressions, and distractions.
 
-{{ Regressions }} happen when you re-read a section or previous lines.  
-{{ Progressions }} occur when you get bored and begin to pre-read the lines in
-front of your cursor.  {{ Distractions }} occur when reading gets tiresome and
+**Regressions** happen when you re-read a section or previous lines.  
+**Progressions** occur when you get bored and begin to pre-read the lines in
+front of your cursor.  **Distractions** occur when reading gets tiresome and
 you look away.
 
 Cutler suggests that previewing will help with regressions, since you know
@@ -138,7 +146,10 @@ Page turning might seem minor, but can add up to 13 minutes to a novel.
 It's best to read the book flat on a table and feel out the corner of the right
 page while reading the left page.
 
-# Part 3: Become an Accelerated Reader
+
+Part 3: Become an Accelerated Reader
+====================================
+
 ## Develop Eye Control and Expand Vision
 This chapter includes various drills to develop your eye control and expand
 vision.  The drills involve columns of letters, we're supposed to focus
@@ -176,7 +187,9 @@ Cutler recommends that the two-stop method should become natural when reading
 any text.  After mastering it, you should practice with one fixation per two
 lines.
 
-# Part 4: Develop Your Skills Further
+Part 4: Develop Your Skills Further
+===================================
+
 ## Estimating Number of Words
 Estimating the number of words is important so you can determine how long it
 should take you to read it and set your pace.
@@ -190,9 +203,9 @@ Now see how many pages there are and calculate the total number of words.
 Before you begin reading, use this estimation to determine your pace.  So
 if a document is ~5000 words in 5 pages and you wish to read it in 10 minutes:
 
-  5000 / 10 = 500 WPM
-  5000 / 5 = ~1000 words per page
-  ~2 minutes per page allotted
+    5000 / 10 = 500 WPM
+    5000 / 5 = ~1000 words per page
+    ~2 minutes per page allotted
 
 ## Quarter and Mark
 Cutler recommends dividing a book into quarters and setting your pace accordingly

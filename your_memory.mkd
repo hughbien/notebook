@@ -1,13 +1,14 @@
 Your Memory: How It Works and How to Improve It
-================================================================================
-
-# Overview
+===============================================
 Your Memory by Kenneth L Higbee has a balance between layman techniques and
 scientific research.  Higbee himself is fascinated with the area of memory
 and follows many of the newly developed techniques to improve it.  He's also
 a psychologist whose area of study is in memory.
 
-# Ten Myths
+
+Ten Myths
+=========
+
 * Memory is a thing
 * There's a secret to good memory
 * There's an easy way to memorize
@@ -19,17 +20,22 @@ a psychologist whose area of study is in memory.
 * Remembering too much can clutter your mind
 * People only use 10% of their mental potential
 
-# What is memory?
+
+What is memory?
+===============
+
 Memory isn't a physical structure, most scientists can't even define where
 we store our memory.  Memory can actually be thought of in stages and
 processes.
 
 The 3 stages are:
+
 1. Acquisition or encoding, when you first learn the material
 2. Storage is keeping the material as needed
 3. Retrieval is getting the material when needed
 
 The 2 processes are:
+
 1. Short-term memory (aka primary or working memory)
 2. Long-term memory (aka secondary memory)
 
@@ -41,6 +47,7 @@ are easy to forget when presented in one chunk (4501235678).  But when
 presented in multiple chunks like a phone number, it becomes easier.
 
 Short-term memory is desirable because:
+
 1. Imagine how cluttered our minds would be if we remembered everything.
 2. It helps us maintain the current state of the world around us.
 3. It keeps our intentions in active memory, guiding our behavior.
@@ -51,6 +58,7 @@ Short-term memory is desirable because:
 Higbee compares short-term memory to the registers in a CPU.
 
 Long-term memory is composed of 3 types:
+
 1. Procedural - how to do something (ie Math)
 2. Semantic - remembering factual information (ie word meanings)
 3. Episodic - personal events
@@ -72,12 +80,17 @@ files in.  If the filing cabinet is organized, it's much easier to retrieve it.
 If it's a mess, retrieval becomes hard or even impossible.
 
 Measuring memory can be done via:
+
 1. Recall
 2. Recognition
 3. Relearning
 
-# How does it work?
+
+How does it work?
+=================
+
 The most common explanations for forgetting are:
+
 1. Decay, like a physical trace of your memory in your brain is slowly
    decaying over time
 2. Repression was suggested by Sigmund Freud that we don't want to remember
@@ -97,6 +110,7 @@ able to recall/recognize pictures better than words as time passes.
 
 Eidetic memory is what most people call "photographic memory".  It has a few
 misconceptions:
+
 1. The "photo" fades soon after viewing the scene, it's not kept forever
 2. The "photo" is heavily influenced by the subjective view or the viewer
 3. The person requires more than a split-second, studying is required
@@ -107,6 +121,7 @@ limitations.  A woman could remember a poem in a foreign language and repeat
 it forwards/backwards one year later.
 
 Higbee touches a little bit about sleep-learning.  Some conditions of it are:
+
 1. You cannot learn anything during deep sleep, the subject must be at the
    correct stage of drowsiness or light sleep
 2. No complex materials that require reasoning may be learned
@@ -117,8 +132,12 @@ Some research shows that people remember better when they go to sleep right
 after they acquire knowledge.  They remember worse in the reverse order, if
 they wake up and then acquire knowledge.
 
-# Remember anything, basic principles
+
+Remember anything, basic principles
+===================================
+
 The basic principles for better memory are:
+
 * Meaningfulness
 * Organization
 * Association
@@ -157,8 +176,12 @@ Attention is required to actually record the memory in the first place.  Higbee
 asks us if we remember if Lincoln had a tie on the penny.  Not many people
 can recall it because it's unimportant - we never pay attention.
 
-# Remember almost anything, more principles
+
+Remember almost anything, more principles
+=========================================
+
 More principles that can be applied towards a better memory are:
+
 * Repetition
 * Relaxation
 * Context
@@ -189,12 +212,16 @@ something when you can measure your progress towards a goal.  It helps sustain
 your interest in the subject and will help you make adjustments to improve
 your techniques.
 
-# Effective learning
+
+Effective learning
+==================
+
 Higbee gives readers tips to improve their learning abilities.  This chapter was
 written specifically for students but is general enough to apply to most
 learning situations.
 
 To learn more effectively, you should:
+
 * reduce interference
 * space out learning sessions
 * decide to either break up the learning material or learn it as a whole
@@ -235,7 +262,10 @@ Higbee recommends the SQ3R study system: survey, question, read, recite, review.
   the outline again and re-answer your questions.  This conclusion helps
   reinforce what you just learned for remembering later on.
 
-# Intro to Mnemonics
+
+Intro to Mnemonics
+==================
+
 Mnemonics refer to general techniques that improve memory, but most people only
 consider narrow/unusual methods that aid memory as mnemonics.
 
@@ -244,6 +274,7 @@ word in a sentence represents something).  Rhymes and other sentences with
 rhythms may also be used (when did Columbus sail the ocean blue?)
 
 An example mnemonic to remember the lakes in North-East US:
+
 Hudson
 Ontario
 Michigan
@@ -251,6 +282,7 @@ Eerie
 Superior
 
 Mnemonics help with basic principles:
+
 * Meaningfulness by adding meaning to your learning material, which may otherwise
   be dry or meaningless
 * Organization by having a system to easily retrieve memories
@@ -266,8 +298,12 @@ easier to remember when you've named something yourself, as is the case with
 memory strategies.  This "generation effect" has been found true for product
 names, computer commands, etc...
 
-# Mnemonics limitations
+
+Mnemonics limitations
+=====================
+
 Some of the limitations listed by Higbee are:
+
 * Time:
   The encoding/retrieval processes usually take longer with mnemonics.  Not only
   are you learning the material, you're organizing it for easy access later on.
@@ -303,6 +339,7 @@ Some of the limitations listed by Higbee are:
 
 Pseudo-limitations are critiques that are not as valid/serious as the previously
 listed limitations.  Some of them aren't valid at all:
+
 * Not practical:
   Mnemonics can be applied to everyday life like remembering errands, names,
   or learning foreign languages.  They're not just for parlor tricks.
@@ -323,7 +360,10 @@ listed limitations.  Some of them aren't valid at all:
   are not born with "good or bad" memory, they can work at it and use these
   techniques to improve their learning/retrieval.
 
-# Mental filing systems
+
+Mental filing systems
+=====================
+
 Our filing system is disorganized as if our memories were written on 3x5 cards
 and thrown across the floor.
 
@@ -332,6 +372,7 @@ describes two basic systems: the Link and Story systems.  These two work
 ideally for concrete word lists.
 
 If you had to remember a list of words:
+
 * paper
 * tire
 * doctor
@@ -339,12 +380,14 @@ If you had to remember a list of words:
 
 The Link system works by linking two words at a time to form visual imagery.
 So in this case:
+
 1. A car driving on paper tires
 2. A tire running over a doctor
 3. A doctor operating on a rose
 
 The Story system works by integrating all the words sequentially in a
 single overarching story:
+
   A paper tire ran over the doctor who happened to be operating on a rose.
 
 Psychologists have done research on these systems by giving subjects lists
@@ -358,7 +401,10 @@ should be translated to a concrete word before filing.
 These systems rely heavily on memory cues to retrieve information.  They're
 also weak in that if you forget one item, you forget the rest of the list.
 
-# Loci Mnemonic
+
+Loci Mnemonic
+=============
+
 The Loci system uses locations to form associative pairs.
 
 It was originated sometime in 500BC, "Loci" is the plural of "Locus" which
@@ -367,6 +413,7 @@ system.
 
 First, memorize a set of locations by over-learning it and keep these locations
 in a sequence.  For example:
+
 1. Driveway: I pull into my driveway
 2. Car door: I open the car door
 3. Font door: I open my front door
@@ -376,6 +423,7 @@ in a sequence.  For example:
 7. Couch: I sit on the couch in the living room
 
 Now for any list of items/words, picture each word at each location:
+
 1. Driveway => large amounts of paper liter
 2. Car door => swung open and hit a huge tire
 3. Front door => doctor sitting and crying
@@ -398,11 +446,15 @@ index our 5th multiple and 10th multiple locations by associating them with
 a hand (with 5 fingers) and a 10 dollar bill.  So for example, my bed could
 have a 10 dollar bill on it and the 12th location is just 2 locis after.
 
-# Peg Mnemonic
+
+Peg Mnemonic
+============
+
 The Peg system is similar to the Loci system, but instead of using locations
 as keys we use real concrete words.
 
 The words must represent numbers by looking like one, symbolic, or rhyme:
+
 1. bun
 2. shoe
 3. tree
@@ -426,36 +478,40 @@ limitation is it's difficult to come up with concrete words beyond the number
 ten.  Interference may also be a problem if you're trying to remember multiple
 lists and re-using the same pegs.
 
-# Phonetic Mnemonic
+
+Phonetic Mnemonic
+=================
+
 The Phoentic system is the most complicated mnemonic system introduced in this
 book, but is very powerful.  It's similar to the peg system, you'll have words
 which act as your pegs.  But it solves the weakness of the peg system - you
 can easily create up over 1000+ pegs with a bit of practice.
 
 Every number will have consonant sounds associated with it:
-+---+----------------------+-----------------------------+
-| # | Sound(s)             | Memory Aid                  |
-+---+----------------------+-----------------------------+
-| 1 | t, th, d             | "t" has one downstroke      |
-+---+----------------------+-----------------------------+
-| 2 | n                    | two downstrokes             |
-+---+----------------------+-----------------------------+
-| 3 | m                    | three downstrokes           |
-+---+----------------------+-----------------------------+
-| 4 | r                    | last sound for "four"       |
-+---+----------------------+-----------------------------+
-| 5 | l                    | roman numeral for 50 is "L" |
-+---+----------------------+-----------------------------+
-| 6 | j, sh, ch, soft g    | reverse "j" looks like      |
-+---+----------------------+-----------------------------+
-| 7 | k, q, hard c, hard g | "k" makes two 7s            |
-+---+----------------------+-----------------------------+
-| 8 | f, v                 | script "f" resembles 8      |
-+---+----------------------+-----------------------------+
-| 9 | p, b                 | p is mirror image of 9      |
-+---+----------------------+-----------------------------+
-| 0 | z, s, soft c         | "z" for zero                |
-+---+----------------------+-----------------------------+
+
+    +---+----------------------+-----------------------------+
+    | # | Sound(s)             | Memory Aid                  |
+    +---+----------------------+-----------------------------+
+    | 1 | t, th, d             | "t" has one downstroke      |
+    +---+----------------------+-----------------------------+
+    | 2 | n                    | two downstrokes             |
+    +---+----------------------+-----------------------------+
+    | 3 | m                    | three downstrokes           |
+    +---+----------------------+-----------------------------+
+    | 4 | r                    | last sound for "four"       |
+    +---+----------------------+-----------------------------+
+    | 5 | l                    | roman numeral for 50 is "L" |
+    +---+----------------------+-----------------------------+
+    | 6 | j, sh, ch, soft g    | reverse "j" looks like      |
+    +---+----------------------+-----------------------------+
+    | 7 | k, q, hard c, hard g | "k" makes two 7s            |
+    +---+----------------------+-----------------------------+
+    | 8 | f, v                 | script "f" resembles 8      |
+    +---+----------------------+-----------------------------+
+    | 9 | p, b                 | p is mirror image of 9      |
+    +---+----------------------+-----------------------------+
+    | 0 | z, s, soft c         | "z" for zero                |
+    +---+----------------------+-----------------------------+
 
 The table above works well because all consonant sounds are used except for
 "w", "h", "y" (why) - so most words can be used.  The sounds are also
@@ -463,6 +519,7 @@ mutually exclusive to prevent interference.
 
 Higbee suggests using the consonant sounds as the first sound in your
 keywords.  Sample keywords:
+
 1. tie
 2. Noah
 3. ma
@@ -481,6 +538,7 @@ keywords.  Sample keywords:
 
 The appendix has sample keywords for up to 100.  Using adjectives, you can
 multiply your 100-word list into a 1000 phrase list:
+
 1. wet (wet tie = 0101 or 101)
 2. new
 3. my
@@ -498,7 +556,10 @@ way with low interference.  For example, you can use it to remember PI where
 each digit is translated to your keyword.  Chunking it provides a lower
 amount of interference also.
 
-# Absentmindedness and Education
+
+Absentmindedness and Education
+==============================
+
 The major problem with absentmindedness is with attention.  We don't pay
 attention to what we're doing either because it requires very little
 conciousness or we get distracted.
@@ -517,4 +578,3 @@ An example of retrospective memory is forgetting where you last placed
 your keys.  Higbee suggests announcing actions you commonly forget as
 you do them.  By hearing them out-loud, you're paying attention and are more
 likely to remember later on.
-

@@ -1,19 +1,20 @@
 On Writing Well
-================================================================================
-
-# Overview
+===============
 On Writing Well by William Zinsser is a craft book that teaches us how to write
 clearly and succinctly.  Zinsser mentions how important writing is now, we send
 emails everyday and communicate messages freely.  The word processor made good
 writers better and bad writers worse.  Good writers would rewrite their sentences,
 whereas bad writers just kept typing without editing.
 
-# Principles
+
+Principles
+==========
+
 ## The Transaction
 Good writing has an aliveness that keeps the reader reading.  The writer's
 enthusiasm of his field would be evident in his writing.
 
-Zinsser calls this the {{ Personal Transaction }} that's the heart of nonfiction
+Zinsser calls this the **Personal Transaction** that's the heart of nonfiction
 writing.  It keeps the material interesting by using language to achieve clarity
 and strength.
 
@@ -25,13 +26,16 @@ Don't use large words or complicated phrases to sound more important.  Use
 shorter words and eliminate any element that's not useful.
 
 Zinsser gives us an example of an airline pilot:
-  "We're presently anticipating experiencing considerable precipitation."
+
+> We're presently anticipating experiencing considerable precipitation.
 
 Which could be much more simple:
-  "We're expecting rain."
+
+> We're expecting rain.
 
 ## Clutter
 Zinsser dedicates another chapter on simplifying.  Examples:
+
 * useless prepositions like "free up time" => "free time"
 * long words like "facilitate" => "ease" or "implement" => "do
 * phrases which add no meaning like "It is interesting to note..."
@@ -72,9 +76,10 @@ Only write what you'd be comfortable saying in person.  If you don't normally
 say "indeed" or "moreover", don't write it.
 
 From Zinsser:
-  "Who am I writing for?" The question that begins this chapter has irked some
-  readers. They want me to say "Whom am I writing for?" But I can't bring myself
-  to say it. Its just not me.
+
+> "Who am I writing for?" The question that begins this chapter has irked some
+> readers. They want me to say "Whom am I writing for?" But I can't bring myself
+> to say it. Its just not me.
 
 ## Words
 Choose your words wisely.  Get a dictionary and thesaurus.  Avoid cliches,
@@ -97,14 +102,19 @@ and phrases but conservative in grammar.
 
 It's best to use transparent words instead of being opaque to your readers.
 
-# Methods
+
+Methods
+=======
+
 ## Unity
 Unity is the anchor of good writing.  Choose and be consistent for:
+
 * pronouns - first/second/third person
 * tense - past/present/future, be consistent and only change when necessary
 * mood - casual or formal?
 
 Some questions to ask yourself:
+
 * In what capacity am I going to address the reader? 
   Reporter? Provider of information? Average man or woman?
 * What pronoun and tense am I going to use?
@@ -129,18 +139,19 @@ Your lead must capture the reader immediately and force him to keep reading.
 Next, details must gradually build up - keep the reader inquisitive.  An example
 lead:
 
-  I've often wondered what goes into a hot dog. Now I know and I wish I didn't.
+> I've often wondered what goes into a hot dog. Now I know and I wish I didn't.
 
 Look for your lead material everywhere.  You may find a great quotation or
 unexpected fact that works well to capture the reader's attention.  Another
 approach is to just tell a story, a simple narrative.
 
 Some other leads:
-  In the beginning God created heaven and earth. - the Bible
-  Put this puzzle together and you will find milk, cheese and eggs, meat, fish,
-    beans and cereals, greens, fruits and root vegetables - foods that contain
-    our essential daily needs. - Joy of Cooking
-  You know more than you think you do. - Baby and Child Care
+
+*  In the beginning God created heaven and earth. - the Bible
+*  Put this puzzle together and you will find milk, cheese and eggs, meat, fish,
+   beans and cereals, greens, fruits and root vegetables - foods that contain
+   our essential daily needs. - Joy of Cooking
+*  You know more than you think you do. - Baby and Child Care
 
 The second sentence/paragraph most important is the last one.
 
@@ -152,29 +163,31 @@ outrageous or funny and the lights go out.
 A few short sentences is usually enough to end nonfiction writing.  Zinsser
 recommends ending abruptly and/or with humour.  His example:
 
-  "If people come away relating to me as a person," Allen says...
-  Judging by the returns, he is. Woody Allen is Mr. Related-To, and he seems a
-  good bet to hold the franchise for many years.
+> "If people come away relating to me as a person," Allen says...
+> Judging by the returns, he is. Woody Allen is Mr. Related-To, and he seems a
+> good bet to hold the franchise for many years.
 
-  Yet he does have a problem all his own, unshared by, unrelated to, the rest of
-  America. "I'm obsessed," he says, "by the fact that my mother genuinely
-  resembles Groucho Marx."
+> Yet he does have a problem all his own, unshared by, unrelated to, the rest of
+> America. "I'm obsessed," he says, "by the fact that my mother genuinely
+> resembles Groucho Marx."
+
 
 ## Bits & Pieces
+
 ### Verbs
 Use active verbs.  Only use passive verbs if there's no comfortable way to use
 an active verb.  Active verbs are stronger and connote more meaning in less
 words.
 
-  "Joe saw him" vs "He was seen by Joe"
+    "Joe saw him" vs "He was seen by Joe"
 
 ### Adverbs
 Most adverbs are unnecessary.  Most verbs have specific meanings, adding an
 adverb is just repetition.
 
-  "The radio blared loudly" - blared already implies loud
-  "... effortlessly easy" - is repetition
-  "... clenched his teeth tightly" - you can't clench loosely
+    "The radio blared loudly" - blared already implies loud
+    "... effortlessly easy" - is repetition
+    "... clenched his teeth tightly" - you can't clench loosely
 
 ### Adjectives
 Most adjectives are also unnecessary.  Nouns already convey what the writer
@@ -185,12 +198,13 @@ okay to describe.
 
 Make your adjectives do work that needs to be done.  Use adjectives sparsely:
 
-  "He looked at the gray sky and the black clouds..." - dark mood
-  "The house was drab..." - not all houses are drab
-  "The girl was beautiful..." - not all girls are beautiful
+    "He looked at the gray sky and the black clouds..." - dark mood
+    "The house was drab..." - not all houses are drab
+    "The girl was beautiful..." - not all girls are beautiful
 
 ### Little Qualifiers
 Good writing is lean and confident.  Prune out little qualifiers:
+
 * a bit
 * a little
 * sort of
@@ -204,9 +218,9 @@ Good writing is lean and confident.  Prune out little qualifiers:
 
 These phrases add clutter to your sentences while taking away your authority.
 
-  "It was rather spectacular" => "It was spectacular"
-  "It was very awesome" => "It was awesome"
-  "I was quite fortunate" => "I was fortunate"
+    "It was rather spectacular" => "It was spectacular"
+    "It was very awesome" => "It was awesome"
+    "I was quite fortunate" => "I was fortunate"
 
 Don't be kind of bold, be bold.
 
@@ -221,9 +235,11 @@ Don't be kind of bold, be bold.
   a related thought in the middle of a sentence.
 * Colon should be used to transition a sentence into a list.
 
+
 ### Mood Changers
 Alert the reader as soon as possible when the mood or time changes.  Use
 these words at the beginning of your sentence:
+
 * But
 * Yet
 * However
@@ -238,13 +254,13 @@ these words at the beginning of your sentence:
 * Today
 * Subsequently
 
-  "But he decided to go." works well as a short/clear version of  "Despite the
-  fact that all these dangers were presented to him, he decided to go"
+>  "But he decided to go." works well as a short/clear version of  "Despite the
+>  fact that all these dangers were presented to him, he decided to go"
 
 Some words alert readers of time changes:
 
-  "Later I found out why."
-  "Now I know better."
+    "Later I found out why."
+    "Now I know better."
 
 ### Contractions
 Write like you speak.  If you normally use a contraction in speech, you should
@@ -257,33 +273,33 @@ Zinsser suggests avoiding one form: "I'd", "he'd", "we'd" because they can mean
 Always use "that" unless it makes your meaning ambiguous.  "Which" servers
 for identification:
 
-  Take the shoes that are in the closet.
-  Take the shoes, which are in the closet.
+    Take the shoes that are in the closet.
+    Take the shoes, which are in the closet.
 
 It's common to follow a comma with "which" to denote further meaning.
 
 ### Concept Nouns
 Zinsser recommends using active verbs instead of concept nouns.  Examples:
 
-  The common reaction is incredulous laughter.
-  Bemused cynicism isn't the only response to the old system.
+    The common reaction is incredulous laughter.
+    Bemused cynicism isn't the only response to the old system.
 
 There are no people in these sentences.  The only verb is "is".  The reader
 can't visualize any action taking place.  Use action verbs instead:
 
-  Most people just laugh with disbelief.
-  Some people response to the old system by turning cynical.
+    Most people just laugh with disbelief.
+    Some people response to the old system by turning cynical.
 
 ### Creeping Nounism
 Again, Zinsser recommends using active verbs instead of chaining nouns:
 
-  "We have money problem areas" vs "We went broke"
-  "We have precipitation activity" vs "It's raining"
+    "We have money problem areas" vs "We went broke"
+    "We have precipitation activity" vs "It's raining"
 
 ### Overstatement
 Don't overstate, let the humor sneak up to the reader.
 
-  "The living room looks like an atomic bomb went off."
+    "The living room looks like an atomic bomb went off."
 
 Obviously an atomic bomb did not go off, don't annoy your reader.
 
@@ -321,7 +337,7 @@ One of the problems of writing today is the usage of "he-she" pronouns.  Don't
 construct sentences which suggest a certain occupation or class can only be
 male:
 
-  "Early settlers pushed west with their wives and children."
+> "Early settlers pushed west with their wives and children."
 
 Usages of "he" can be replaced with "he or she".  "Him" can be replaced with
 "him or her".
@@ -357,7 +373,7 @@ There's nothing more interesting than the truth.
 Journalists have a phrase: "Color vs fact".  Color dresses their writing to
 make it seem more interesting:
 
-  "Whoosh!  It was incredible..."
+>  "Whoosh!  It was incredible..."
 
 Zinsser suggests we avoid the separation of color and fact.  Your job is to
 present the colorful facts.  Lead with interesting facts, don't mix fiction
@@ -370,7 +386,10 @@ value on facts before readers encounter them.
 No subject is too specialized or too quirky if you can make an honest connection
 to it.  You'll write better if you're interested in your subject.
 
-# Forms
+
+Forms
+=====
+
 ## Nonfiction as Literature
 Follow your own path, whether it leads you to write nonfiction about the world
 you live in or fiction.
@@ -397,8 +416,8 @@ Record good quotes.
 
 When writing your article, don't lead up to a quote with a vapid phrase:
 
-  Mr. Smith said that he liked to "go downtown ..."
-  "I usually like to go downtown." Mr Smith said, "and have lunch."
+    Mr. Smith said that he liked to "go downtown ..."
+    "I usually like to go downtown." Mr Smith said, "and have lunch."
 
 Be careful about how you break quotations.  Do it as soon as you naturally can
 so you don't confuse the reader.
@@ -423,8 +442,8 @@ Zinsser recommends we try to write from a different angle rather than just
 describing the place.  For example, he went to Mount Rushmore and got quotes
 from the people working there instead of trying to describe it himself.
 
-  "...you feel like the 4 men are looking at you, no matter where you move.
-   ...making you feel guilty: `Are you doing your part?`"
+    "...you feel like the 4 men are looking at you, no matter where you move.
+     ...making you feel guilty: `Are you doing your part?`"
 
 It's easier to let other people overstate with quotes.  Avoid cliches.  If
 you're describing a beach don't mention how sandy it is or how seagulls
@@ -469,11 +488,12 @@ Whatever your job, be yourself when you write (maybe not Lawyers?)
 Working at an institution, people write with clutter and long words to
 sound more important.  For example:
 
-  "We have established a special phone communication system"
-  vs
-  "We setup an 800 number, please call 1-800-..."
+    "We have established a special phone communication system"
+    vs
+    "We setup an 800 number, please call 1-800-..."
 
 Be short, warm, and personal.  Be yourself.
+
 
 ## Humor
 Humor is the secret weapon for nonfiction writers.  Make people laugh about
@@ -482,14 +502,16 @@ society in serious ways: Jules Feiffer, Art Buchwald, and Walt Kelly.
 
 Most humor is based on fundamental truths - so readers can relate.
 
-  "All humor must be about something - it must touch concretely on life."
+    "All humor must be about something - it must touch concretely on life."
 
 Don't work too hard to get laughs.  The best humor is built on surprise.  
 Don't strive for humor and hope to get some truths along the way.
 Don't strive for truth and hope to get some humor along the way.
 Truth and humor should be intertwined.
 
-# Attitudes
+Attitudes
+=========
+
 ## The Sound of Your Voice
 Don't alter your voice to fit the subject.  Develop a single voice for your
 readers that's enjoyable but avoids: breeziness, condescension, and cliches.
@@ -520,6 +542,7 @@ learning, wisdom, growth, confidence, and dealing with failure.
 
 Give yourself time to find the correct story to write about and from which
 angle to use.  Zinsser gave us a few examples of students from his class:
+
 1. A student wanted to write about her old house.  She was going to interview
    her siblings.  Zinsser asked her if the story would be from her brother's
    or sister's point of view.  She said it was from her own, so Zinsser told
@@ -547,6 +570,6 @@ Always write as well as you can.  Zinsser admired Joe DiMaggio, he always
 played the best game he could.  Someone asked him how he did it and Joe
 replied.
 
-  "I always thought that there was at least one person in the stands who
-  had never seen me play, and I didn't want to let him down."
+    "I always thought that there was at least one person in the stands who
+     had never seen me play, and I didn't want to let him down."
 
