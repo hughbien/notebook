@@ -11,6 +11,7 @@ History
 
 Every element, attribute, feature of HTML was created by someone who decided how
 it should work and wrote it all down.  For example the `<img>` element:
+
 1. Before there was a W3C, Marc Andreesen emailed his proposal for
    an `<img>` element with a "src" attribute to a mailing list.
 2. People debated on it, came up with alternatives, and various implementations
