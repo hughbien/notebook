@@ -973,20 +973,94 @@ Adding leaves to the tree:
 Still Life
 ==========
 
-This scene includes a skull, candle, wine glass, books, and red cloth on a table.
+This scene includes a skull, candle, books, and red cloth on a table.
 
 Drawing the table:
 
+1. Start with a piece of wood texture
+2. Use Free Transform to move it into perspective
+3. Use Curves to darken and add some red
+4. Duplicate and darken to create the side
+5. Paint the edge white on a new layer and reduce to 10% opacity
+
 Make the background:
+
+1. Use Clouds with two shades of brown
+2. Since the filter creates intricate details, Caplin just uses a portion and
+   enlarges it to cover the whole background
+3. Darken the texture
+4. Use a very large, soft brush to add a radial shading - bright at the center
 
 Adding the red cloth:
 
+1. Draw the basic shape of the cloth
+2. Use the Burn tool to paint shadows around the edges
+3. Use Dodge/Burn to approximate the folds in the middle.  Paint shadows directly
+   below the highlights
+4. Lock transparency and use the Smudge tool to smear the highlights/shadows.
+   Use a soft edged brush around 80%
+5. Smear the dark edge into the cloth to create larger folds
+6. Use the Burn tool to add deeper shadows beneath the folds
+7. Build up with small/short smears
+8. Use Hue/Saturation adjustment to make the cloth red
+
 The skull:
+
+1. Draw the outline of the skull and fill with gray
+2. Draw eyes, teeth, and bone shapes on same layer with darker gray
+3. Paint highlights on top of main bones, shadows on bottom using dodge/burn
+4. Add a dab of highlights on each tooth with dodge
+5. Use the Smudge tool to smear cracks onto the teeth
+6. Smudge with a soft edged tip to smear shadows into the skull
+7. Make small holes on a new layer with a soft edged brush set to Dissolve
+   and 10% opacity
+8. Choose Edit -> Stroke and add a 1px stroke to make the holes larger
+9. Run Gaussian Blur to soften it
+10. Use a small, hard-edged brush to paint tiny cracks
+
+The skull texture:
+
+1. Make a circular selection
+2. Run the Clouds filter on two shades of gray
+3. Run Emboss to get a rough, stone-like texture
+4. Run Spherize for a rounded effect
+5. Stretch the texture to cover the skull and use a Clipping Mask
+6. Change the mode of the texture to Hard Light
+7. Change colors with the Hue/Saturation adjustment
 
 Old books:
 
+1. Run the clouds filter on two shades of brown
+2. Crisp the texture with an Unsharp Mask (400% with 6px radius)
+3. Draw an upper cover layer, use Free Transform to move into perspective
+4. Use the Pen tool to draw the right/bottom edge
+5. Draw the spine on a new layer, fill with a darker gray
+6. Place the texture above the cover, use a Clipping Mask and Free Transform
+7. Do the same for the spine, squeeze if necessary
+8. Darken the bottom of the spine with the Burn tool
+9. Draw a curved shape which follows the spine, duplicate and fill with gray
+10. Add Inner Bevel and highlights/shadows with dodge/burn
+11. Change the mode to Hard Light to see through it
+12. Use the polygonal lasso tool to select an area of the cover without the spine
+   or corners.  Make a Curves Adjustment and add red
+13. Draw a single sheet of paper inside, then Opt-drag to duplicate
+
 The candle:
+
+1. Draw the initial shape of the candle in gray
+2. Paint some drips on the sides
+3. Add shadows to the bottom and edges, highlight the inside
+4. Use Dodge/Burn tools to create drips from the front
+5. Lock transparency and use Smudge tool to smear the drips
+6. Use Hue/Saturation to make the candle white
+7. Use Dodge tool set to Highlights for the inner candle - wax is supposed to
+   be translucent.  Use Burn tool for more shadows around the bottom
 
 The flame:
 
-The glass of wine:
+1. Draw the basic outline in orange and fill
+2. Use Dodge to add highlights to the center
+3. Paint with a soft-edged white brush in the middle
+4. Paint with a blue, soft-edged brush on the bottom
+5. Use the Smudge tool to smear the top of the flame
+6. Draw a wick with a thin brush set to Dissolve
