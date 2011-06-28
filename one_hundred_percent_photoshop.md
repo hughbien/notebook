@@ -924,39 +924,69 @@ Light bar:
 The Great Outdoors
 ==================
 
-The outdoor scene includes a cloudy sky, grass, pond, stone building, a tree,
-and a fence.
-
 Painting the sky:
 
+1. Start with a black layer
+2. Sketch the cloud shapes with a soft edge brush
+3. Run the Ocean Ripple filter
+4. Run the Glass filter
+5. Select All, enter QuickMask, then paste
+6. Leave QuickMask and fill selected area with gray
+7. Add shading/highlights with dodge/burn tools
+8. Use the Smudge tool to streak out parts horizontally
 
 Making grass:
 
+1. Draw a single streak of grass with a gray brush
+2. Select it and choose Edit -> Define Brush Preset
+3. Open the Brushes Panel and choose the newly created brush
+4. Click Shape Dynamics, set Size Jitter to 100%
+5. Set Angle Jitter to around 4 degrees
+6. Switch to Scatter pane and drag the slider for both axes, increase count
+7. Switch to Color Dyanmics and increase FG/BG jitter to 100%
+8. Now just choose a FG/BG color and paint
+
+Making the bark texture:
+
+1. Make a rectangle selection, set chips to two browns, run Cloud filter
+2. Run Fibers filter to start the bark texture
+3. Duplicate and run Emboss filter for a 3D look
+4. Change Embossed layer to Hard Light mode
 
 Adding the tree trunk:
 
+1. Sketch out the shape of the tree
+2. Copy the bark, paste it onto a part of the tree and feather its selection
+3. Copy and paste the bark over all sections of the tree, rotate as necessary
+4. Merge and run the Liquify filter, warping as necessary
+5. Use a clipping mask with the tree shape
 
 Adding leaves to the tree:
 
-
-Making a stone house:
-
-
-Adding a wooden gate:
-
-
-Adding a broken window:
-
-
-Wooden fence:
-
-
-The pond surrounded by grass:
-
-
-Adding flowers:
-
-
+1. Draw a single leaf's outline with gray and fill
+2. Darken half the leaf to make it look like a fold down the middle
+3. Paint veins with a small brush
+4. Make it a custom brush, add angle/size jitter
+5. Choose appropriate colors and paint the leaves onto the trees
+6. Add shading/highlights with dodge/burn tools
 
 Still Life
 ==========
+
+This scene includes a skull, candle, wine glass, books, and red cloth on a table.
+
+Drawing the table:
+
+Make the background:
+
+Adding the red cloth:
+
+The skull:
+
+Old books:
+
+The candle:
+
+The flame:
+
+The glass of wine:
