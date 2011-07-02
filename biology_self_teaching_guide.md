@@ -210,6 +210,67 @@ they have a nuclear area **nucleoid** that contain a single circular chromosome.
 Cell Division
 =============
 
+When a cell divides, each daughter cell must receive a complete copy of the
+genetic information to survive.  It's usually called cell duplication or cell
+replication.
+
+Prokaryotic cell division happens via a process called **binary fission**.  The
+single chromosome duplicates into two, moves to both ends of the cell, a membrane
+forms in the middle, and the cell splits into two.
+
+Eukaryotic cell division is a bit more complicated.  It involves **karyokinesis**
+and **cytokinesis** - the splitting of the nucleus and then everything else.
+
+The **interphase** stage of a cell's life is when it grows, metabolizes, and 
+maintains itself.  Cell division then occurs by either **mitosis** or **meiosis**
+
+The stages of mitosis are:
+
+1. **Prophase** - unwound chromosomes come together.  Centrioles move to opposite
+   ends of the cell and DNA recoils.  Chromosomes begin to form a 'X' shape that
+   are composed of two identical chromatids.  They move towards the middle of
+   the cell and a spindle is formed.  By the end, the nuclear membrane has
+   broken down.
+2. **Metaphase** - lasts while chromosomes are in the middle.  They begin to form
+   pairs.  Individuals are called homologs and pairs are homologous chromosomes.
+3. **Anaphase** - chromosomes begin moving to opposite ends of the spindle.  The
+   division of the cytoplasm (or cytokinesis) begins.
+4. **Telophase** - cytoplasm separates in two parts of the cell.  The membrane
+   pinches in and creates two cells.  Each set of chromosomes reach its cell and
+   start to uncoil to form the nucleolus.
+
+The exchange of genetic material between cells is a sexual union.  Binary fission
+of prokaryotic cells produce clones.  These daughter cells can exchange/mix their
+genetic material together producing unique cells.  This is better known as
+**conjugation**.  Some bacteria simply absorbs bits of DNA released in the
+surrounding medium from dead bacteria (aka **transformation**).  Genetic material
+carried from one bacteria to another via virus is called **transduction**.
+
+Sex cells possess only one of each pair of chromosome.  Two can unite and form
+a single cell called the **zygote**.  The merging is called **fertilization**.
+Each cell by itself is called **haploid or monoploid** and together are said
+to be **diploid**.  Most multicellular organisms have different types of sex
+cells (aka **gametes**) such as eggs/sperms.
+
+Gametogenesis - the development of gametes - occur through a series of cell
+divisions known as meiosis.  Whereas mitsosis produces 2 daughter cells, meiosis
+takes two sex cells and produces one.  That one cell then develops into its own
+gamete.
+
+The stages of meiosis are like two back-to-back mitotic divisions:
+
+1. Prophase 1 - individual chromosomes coil up, condense, and pair up.  Genetic
+   recombination may occur when chromatids cross over.
+2. Metaphase 1 - align in the middle and attach to spindle fibers
+3. Anaphase 1 - one homolog from each pair moves toward a separate pole
+4. Telophase 1 - parent cell splits into two
+5. Interkinesis - genetic material does not replicate, but period is between
+   meiosis 1 and 2
+6. Prophase 2 - chromosomes condense again
+7. Metaphase 2 - chromosomes line up again along the middle
+8. Anaphase 2 - centromeres split and chromatids move to opposite poles
+9. Telophase 2 - chromosomes unwind, nuclear membranes re-form, cell divides
+
 Reproduction
 ============
 
