@@ -166,6 +166,47 @@ either free floating in the cytoplasm or along the ER membranes.  The RNA found
 in ribosomes are called **ribosomal RNA or rRNA**.  Ribosomes found in clusters
 are called **polyribosomes** or **polysomes**.
 
+The **Golgi apparatus or Golgi body** is an organelle where substances like
+protein pass through or are stored.  It plays a role in processing protein and
+carbohydrates, synthesizing them to more complex molecules.
+
+**Lysosomes** rise from the Golgi body and contain strong digestive enzymes and
+act like the cell's digestive system.  It also breaks down older parts of the
+cell to form the organic molecules - from which cells were constructed - and
+reuse them.
+
+**Mitochondria** supply the cell with chemical energy in the form of the high
+energy molecule adenosine triphosphate (ATP).  They're often the largest
+organelle of the cytoplasm.  They're abundant where organisms require large
+amounts of energy like muscle cells.  When too much sugar is available, fat
+droplets around the mitochondria will produce fat - storing energy for later.
+
+Mitochondria contain DNA, RNA, and ribosomes.  It's thought that they were once
+their own living cells but developed a symbiosis relationship with the cells
+they're in now.
+
+**Plastids** are mitochondria-like organelles found in photosynthetic plant
+cells.  They also contain DNA, RNA, and ribosomes.
+
+**Vacuoles** are membrane-bound spaces in plant/animal cells.  Many poisonous
+plants use vacuoles to store toxic chemicals to harm carnivores without harming
+itself.
+
+Long protein fibers called **microfilaments** maintain the cell's structure and
+movement.  **Microtubules** are larger in diamater and act as tracts for the
+cell's organelles to move around.
+
+**Cilia and Flagella** (cillium and flagellum singular) are thin organelles on
+the surface of cells that act like fins for movement.  At the end of each are
+basal bodies which support them.  Centrioles are similar to basal bodies but
+are only found in animal cells.
+
+Cells can be divided into two groups: **eukaryotic cells** and **prokaryotic**.
+Eukaryotes are plants/animals said to have eukaryotic cells - cells which have
+a distinct nucleus membrane and nucleus.  Prokaryotic cells are more primitive
+like bacteria and blue-green algae.  They don't have a nuclear membrane, instead
+they have a nuclear area **nucleoid** that contain a single circular chromosome.
+
 Cell Division
 =============
 
