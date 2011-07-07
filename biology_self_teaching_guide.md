@@ -76,7 +76,6 @@ absorbing/releasing molecules - this is easier to do with a high ratio of surfac
 area to volume.  If a cell is too large, it cannot maintain a stable internal
 environment.  Scientists also believe the nucleus will have a hard time
 maintaining larger cells.  Small nucleus means small cell.
-
 Everything within the plasma membrane except the nucleus is **cytoplasm**.  The
 **nucleoplasm** holds the contents of the nucleus.  The cell's interior is
 made of a complex **solution** and heterogeneous **colloid**.
@@ -274,11 +273,110 @@ The stages of meiosis are like two back-to-back mitotic divisions:
 Reproduction
 ============
 
+**Asexual reproduction** requires one organism.  Since every individual can
+reproduce, it enables faster population growth.  The downside is offspring are
+usually identical, so evolution/adapting for the environment is difficult.
+
+Types of asexual reproduction are:
+
+1. Via spores - multicellular organisms create reproductive cells that fly in
+   the air and eventually produce genetic replicas
+2. Budding - in vegetative reproduction, a plant may sprout a smaller offspring
+   which eventually falls off and becomes its own plant
+3. Fragmentation - a part of an organism separates and forms its own, like worms
+   or starfish
+4. Cloning - occurs naturally with plants and seeds
+
+**Sexual reproduction** occurs when two cells unite.  These cells first go
+through meiosis, create gametes called germ cells, and then combine.  For males,
+sperm cells are located in the testes.  For females, eggs are located in the
+ovaries.
+
+A human egg is approximately 58 thousand times heavier than a single sperm cell.
+When the sperm cell penetrates the egg, it contributes its haploid creating
+a zygote.
+
+Some species have alternation of generation - they reproduce sexually at some
+stages and asexually at other stages.  They have the benefit of faster
+population growth and genetic recombination.
+
 Cellular Respiration
 ====================
 
+**Cellular respiration** is a series of chemical reactions that frees the energy
+in fat, protein, and carbohydrate food molecules making it available to cells.
+Chemical reactions are catalyzed by an enzyme.  To break down glucose, ATP is
+needed to provide the activation energy.  Organisms need to supply a constant
+flow of ATP, NADH(2), and similar molecules.
+
+**Glycolysis** is the first series of chemical reactions in cellular respiration
+where glucose is converted to pyruvate and then to other critical products.
+
+**Oxidation** is the loss of an electron either via adding oxygen or subtracting
+hydrogen.  The cell regulates its chemical reactions to conserve the energy
+from the oxidation of glucose.
+
+Many cells can obtain energy without oxygen via **fermentation**.  The pyruvate
+will accept hydrogen and be converted into ethanol.
+
+Glycolysis happens in incremental steps to conserve energy.  If it happened
+ll at once, too much energy would be released and could cause a small fire.
+
+The enzymes engaging each glycolytic step are dissolved in the cytoplasm.
+Carbohydrates must first be converted to glucose to enter the glycolytic pathway.
+
+The 3-carbon pyruvate molecules can be further oxidized.  This is called
+**aerobic respiration** which occurs in the mitochondria.
+
 Photosynthesis
 ==============
+
+Every leaf is a solar-powered carbohydrate factory.  Raw materials like carbon
+dioxide and water are transformed into stable, energy-rich, finished products
+that help run nature's entire economy.
+
+The solar-powered process that makes carbohydrates is **photosynthesis**.  It
+occurs in leaves, green plants, and even in algae or some bacteria.
+
+                        green plants
+    carbon dioxide + water -----> organic material + oxygen
+                           light
+
+**Chlorophyll** molecules - molecules which give the plant its green color -
+use the energy in sunlight to convert carbon dioxide and water into carbohydrates.
+Oxygen is produced where red/blue wavelengths are absorbed.  Leaves look green
+because they absorb light's red/blue wavelengths.
+
+**Heterotrophs** are organisms which require other plants/animals to survive.
+**Autotrophs** are organisms that subsist on the inorganic environment.  They
+manufacture organic compounds from small molecules - so small they can pass
+through cell membranes without being digested.
+
+Plants (and a few other organisms) use photosynthesis to release oxygen into the
+atmosphere which animals use to metabolise.  Animals replace it with carbon
+dioxide, which gets used by plants.  It's a cycle between plants and animals.
+
+Plants get their nutrients through inorganic sources like air, water, soil,
+and the sun.  These sources are used for metabolic purposes and can be therefore
+can be categorized as nutrients.
+
+**Chloroplasts** are plastids containing chlorophyll and are enclosed within an
+outer envelope composed of an outer and inner membrane.  In chloroplasts are
+thin, platelike photosynthetic membranes called **lamellae or thylakoids** in
+a protein-rich solution called the **stroma**.  They're arranged in stacks
+called **Grana**.  The thylakoids are arranged to create more surface area in
+relation to total enclosed volume to allow rapid buildup of hydrogen ions.  It
+helps pigments intercept more light energy passing through a leaf.
+
+The enzymes that move carbon dioxide molecules into carbohydrate molecules are
+located in the stroma.  The ribosomes and DNA are also there.
+
+**Redox reactions** are a series of chemical reactions.  Redox is short for
+reduction and oxidation.  Reducing means adding an electron (storing energy) and
+oxidation means removing an electron (releasing energy).
+
+Most of the plant's surface area contributing to the photosynthetic process
+occurs in the leaves.
 
 Homeostasis
 ===========
