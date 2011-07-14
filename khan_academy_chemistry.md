@@ -2,7 +2,7 @@ Khan Academy: Chemistry
 =======================
 
 The Khan Academy has over 2,400 videos covering science, math, and more.  These
-are my notes from Salman Khan's chemistry videos.  For the full videos, see
+are my notes from Salman Khan's Chemistry videos.  For the full videos, see
 <http://www.khanacademy.org>.
 
 Introduction to the Atom
@@ -122,3 +122,7 @@ Use the chart above to fill out configurations in a diagonal matter.  Start with
 
 Or you can just use the periodic table and work backwards.  The periodic table
 may be less error prone.
+
+Valence Electrons
+=================
+
