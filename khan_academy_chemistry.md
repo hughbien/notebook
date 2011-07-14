@@ -126,3 +126,111 @@ may be less error prone.
 Valence Electrons
 =================
 
+There's a shorthand for writing out electron configuration, for Lithium it's:
+
+    [He] 2s^1
+
+That is, it's the same as Helium's electron configuration with an extra electron
+in the 2s shell.  For Iron it's:
+
+    [Ar] 4s^2 3d^6
+
+It takes more energy to cram an electron in 3d than 4s because it's crowded,
+even though the electrons in 4s are further away.
+
+On the periodic table, the **groups** are the columns.  Everything in groups
+3 to 12 will have 2 electrons in its outer-most shell.  This is because the
+new electrons occupy a lower d-shell.  Everything in group 2 will have 2
+electrons in its outer-most shell also.  Listing out electrons in the outer-most
+shell for each group:
+
+* Group #1: 1
+* Group #2: 2
+* Group #3 to #12: 2
+* Group #13: 3
+* Group #14: 4
+* Group #15: 5
+* Group #16: 6
+* Group #17: 7
+* Group #18: 8 (except Helium)
+
+For Selenium:
+
+    [Ar] 4s^2 3d^10 4p^4
+
+In the fourth shell, there are 2 electrons in the S orbital and 4 electrons in
+the P orbital.  That totals for 6 electrons in the outer-most shell - which is
+correct for group #16.
+
+The **valence electrons** or outer-most electrons are all we care about in
+reactions.  There's a shorthand notation which only takes outer electrons into
+account:
+
+     H. for one electron (middle-align the dot!)
+     F: for two valence electrons
+    :C: for four valence electrons
+
+All atoms want to have **8 electrons** in their outer-most shell because it's the
+most stable state.
+
+Potassium (K) has 1 valence electron.  Potassium (Cl) has 7 valence electrons.
+If you put K in the presence of Cl, K's electron will jump to Cl.
+
+Alkali metals really want to get rid of their electrons, especially when close
+to Halogen elements.  Except for Hydrogen, cause its only got one!
+
+Groups of the Periodic Table
+============================
+
+* Group #1 are the Alkali Metals (except Hydrogen)
+* Group #2 are the Alkali Earth Metals and want to give away 2 electrons
+* Groups #3-12 are the Transition Metals
+* Groups #13-16 have a mix of Metals and other
+* Group #17 are Halogens
+* Group #18 are the Noble Gases
+
+Alkali Metals are seldom found in their elemental state.  They're highly reactive
+and usually combine with other elements.
+
+When electrons are added to Transition Metals, they just backfill their previous
+D orbitals.  They just want to lose their 2 outer electrons.  Metals are very
+giving with their electrons.
+
+Metals are great conductors because they have surplus electrons which can move
+around easily.
+
+As we get to group #13 (with 3 outer electrons), atoms are less likely to want
+to get rid of their electrons.  Electrons closer to the nucleus are harder to
+give up, while electrons further away are easier.  That's why metals trend to
+the bottom elements of the periodic table.
+
+Hydrogen used to be used as a gas, but it was very combustible because it always
+reacted with other elements.  Now, Helium is used because it has its outer shell
+full and doesn't like to react with other elements.
+
+Periodic Table Trends: Ionization Energy
+========================================
+
+**Ionization Energy** is the energy required to remove an electron from the 
+neutral version of the item.
+
+An **ion** is an atom with a different number of protons and electrons.  They
+have charges.
+
+    H -> H^+1 + e^-1
+
+`H^+1` is a **cation**, an ion with a positive charge.  An **anion** is an ion
+with a negative charge.
+
+Group #1 (Alkali Metals) require very little energy to remove an electron.  It
+requires very little energy to ionize them.
+
+Electrons which are further away, it gets easier to take them away.  So elements
+near the bottom of the periodic table require lower ionization energy then
+the top elements.
+
+The energy trend for the table is:
+
+    Low -> High
+            |
+           Low
