@@ -212,7 +212,7 @@ Periodic Table Trends: Ionization Energy
 ========================================
 
 **Ionization Energy** is the energy required to remove an electron from the 
-neutral version of the item.
+neutral version of the atom.
 
 An **ion** is an atom with a different number of protons and electrons.  They
 have charges.
@@ -234,3 +234,59 @@ The energy trend for the table is:
     Low -> High
             |
            Low
+
+Other Periodic Table Trends
+===========================
+
+**2nd Ionization Energy** is the energy required to remove the 2nd electron
+from the neutral version of an atom.
+
+A **covalent bond** occurs when atoms share electrons.  If you have an oxygen
+atom and two hydrogen atoms, they'll share electrons.  Hydrogens will fill its
+1s shell and oxygen will its 2p shell.  Both will be in a more stable state.
+
+When drawing it out, a line usually means a covalent bond:
+
+      ..       ..
+    H:O:H    H-O-H
+      ..       ..
+
+**Electronegativity** is the measure of how likely an atom will hog an electron
+in covalent bonds.  Halogen Gases react often and have high electronegativity.
+Alkali Metals have low electronegativity because they want to get rid of their
+electrons.  It's the same trend direction as ionization energy.
+
+**Metallic Nature** is the willingness to give away electrons.  It's sort of
+the opposite of electronegativity.  The bottom left elements have a high
+metallic nature and the top right elements have a low one.
+
+**Atomic Radius** is the length between the nucleus and outer shell.  As you
+go down the periodic table, the atomic radius is increasing.  Moving right, size
+decreases due to an increase in protons/coloumb force (without adding a new
+shell).
+
+Ionic, Covalent, and Metallic Bonds
+===================================
+
+Atoms stick together and form **molecules**.
+
+         .          ..
+    Na. :Cl: -> Na :Cl: (Na^+1 + Cl^-1)
+         ..         ..
+
+Sodium gives away its electron and chlorine gets one. They both become ionized
+and are attracted to each other.  They form an **ionic bond**.
+
+     .. ..    ..   ..
+    :O  O: ->  O = O
+     .. ..    ..   ..
+
+These oxygen atoms are sharing two electrons each and form a **covalent bond**.
+This usually occurs in atoms which are similar with each another.
+
+A **polar covalent bond** is a specific type of covalent bond where one atom
+has higher electronegativity and the other.  Each atom gets a partial charge.
+
+If you put together a lot of iron, they share their electrons.  They all get
+a positive charge and create an excess of electrons.  The atoms become attracted
+to the pool of electrons around them.  This is a **metallic bond**.
