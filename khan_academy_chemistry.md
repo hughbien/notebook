@@ -290,3 +290,63 @@ has higher electronegativity and the other.  Each atom gets a partial charge.
 If you put together a lot of iron, they share their electrons.  They all get
 a positive charge and create an excess of electrons.  The atoms become attracted
 to the pool of electrons around them.  This is a **metallic bond**.
+
+Molecular and Empirical Formulas
+================================
+
+Empirical means achieved through experience or experimentation.
+
+**Empirical Formula** tells you what people observe without precise molecular
+measurements.
+
+The **Molecular Formula** tells us the precise molecular measurements, not just
+ratios.  Examples:
+
+               Molecular      Empirical
+    Benzene:   C(6)H(6)       CH
+    Water:     H(2)O          H(2)O
+    Sulfur:    S(8)           S
+    Glucose:   C(6)H(12)O(6)  CH(2)O
+
+The **Structural Formula** tells us the precise molecular measurements, shows
+each bond, and is a graph of the overall structure.
+
+Carbon is 12 atomic mass units.  Hydrogen's average atomic mass unit is 1 - it
+tends to not have a neutron.  The **molecular mass** of Benzene is:
+
+    C(6)H(6) = (6*12) + (6*1) = 78 AMU
+
+Benzene is 92.3% Carbon by mass (6*12)/78.
+
+The Mole and Avogadro's Number
+==============================
+
+A **Mole** in Chemistry is just a number: 6.02x10^23.  This is also called
+**Avogadro's Number**.
+
+Officially, the mole is the amount of substance of a system that contains as
+many atoms as 12 grams of carbon-12.
+
+    6.02x10^23 Carbon-12 Atoms is 12 grams of Carbon
+    Carbon-12 has an AMU of 12
+    1 gram = 1 mole of AMUs
+
+So 1 mole of Al-27 is 27 grams, since the AMU of aluminum is 26.98.
+
+Formula and Mass Composition
+============================
+
+We can get the mass composition of a molecule and get the empirical formula:
+
+    H(2)O => (2*1 AMU) + (1 * 16 AMU) => 2/18 Hydrogen, 16/18 Oxygen
+
+Let's go the other way around.  We have a bag of stuff that's 75% mercury and
+25% chlorine.  What's the empirical formula?
+
+1. Assume 100g of of molecules
+2. That means 75g of Hg and 25g of Cl
+3. 1 mole of Hg = ~200 AMU = 200g, 1 mole of Cl = ~35 AMU = 35g
+4. Convert from grams to moles: .375 moles of Hg, .714 moles of Cl
+5. 2 moles of Cl per 1 mole of Hg
+6. HgCl(2)
+
