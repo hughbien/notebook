@@ -668,3 +668,102 @@ How much energy is required to change 200g, -10 degrees celsius of ice to
     100 deg water -> 100 deg vapor = 333.55 J/g * 200g = 451,700 joules
     100 deg vapor -> 110 deg vapor = 1.89 J/g*K * 200g * 10K = 3,780 joules
     Total is 609 kJ
+
+Chilling Water Problem
+======================
+
+Given the following:
+
+1. 500g of liquid water @ 60 deg C
+2. -10 deg C of ice
+
+How much of the -10 deg C ice is needed to bring the liquid water down to
+0 deg celsius?
+
+When putting ice into water, the ice will absorb the heat from the water.  The
+ice has to absorb the energy, but if we don't have enough ice than it will melt.
+
+The amount of energy required to bring 60C water to 0C is:
+
+    H(out) = 4.178J/g*K * 500g * 60K = 125,340J
+
+The amount of energy required to go from -10C to 0C is:
+
+    H(absorbed) = 2.05J/g*K * X * 10K = 20.5 * X joules
+
+`H(absorbed)` is just the heat required to go from ice to water times mass.  
+
+    H(absorbed) = 333.55 J/g * X
+    H(total-absorbed) = 333.55 J/g * X + 20.5 * X
+
+The amount of energy the ice absorbs must equal the energy leaving the water:
+
+    125340 = 333.55x + 20.5x
+    x = 354g of ice is required
+
+Phase Diagrams
+==============
+
+A **phase diagram** is a graph that will tell you if you're dealing with a
+solid, liquid or gas.  The y-axis is pressure, the x-axis is temperature,
+and the different areas represent each state.
+
+Horrible ascii diagram:
+
+             |     .  liquid  __--
+        1atm |      .     __--
+    pressure | solid .__--
+             |    __--      gas
+             |__--
+             +--------------------
+                  temperature
+
+At 1atm and 100C, we're at the boundary of solid/liquid.  But if we increase
+the pressure, the temperature required is lower.  It's also easier to boil water
+at a lower pressure.  It's easier to boil at the top of Mt Everest than at the
+bottom of Death Valley.
+
+The more pressure you have, the harder it is for molecules to disconnect their
+bonds.  Less pressure makes it easier (less energy) to go from solid -> liquid
+or solid -> gas.
+
+**Sublimation** is going from solid to gas.  **Deposition** is the reverse.
+The equilibrium point at which all states meet (due to pressure/temperature)
+is the **triple point**.
+
+The **critical point** occurs at very high temperature/pressure.  At that point,
+it becomes a super-critical fluid.  For water, it's a solvent that's used for
+cleaning.
+
+Van Der Waals Forces
+====================
+
+Neon has 8 electrons in its outer shell.  It's in a stable state by itself, so
+it shouldn't want to be bonded with each other.  But if it's cold enough, there
+is a liquid state.  That means there's some force bonding them together.
+
+Electrons are dispersed, they not be evenly distributed all around.  One side
+might have a negative charge and the other might have a positive charge - for
+a very short amount of time.
+
+These imbalanced neons may be attracted to each other.  This is a very weak
+force called the **London dispersion** force.  It's the weakest of the
+**Van Der Waals forces** - the class of all inter-molecular forces that are
+not covalent/ionic bonds.
+
+Because of its stable state and the only attractive force it has with each other
+is weak, it's likely to be in a gas state (and an ideal gas with little
+interference).
+
+ClH have an ionic bond.  The Cl side has a negative charge, the H side has a
+positive charge.  So when another ClH molecule is present, they have an
+attraction.  This is called **Dipole Attraction**.
+
+    (-) Cl-H (+) (-) Cl-H (+)
+
+The **Hydrogen Bond** is a special case of Dipole Attraction.  It's the
+interaction of a hydrogen atom with an electronegative atom.
+
+Covalent Networks, Metallic, and Ionic Crystals
+===============================================
+
