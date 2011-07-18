@@ -350,3 +350,321 @@ Let's go the other way around.  We have a bag of stuff that's 75% mercury and
 5. 2 moles of Cl per 1 mole of Hg
 6. HgCl(2)
 
+Balancing Chemical Equations
+============================
+
+Let's start with an unbalanced equation:
+
+    _Al + _O(2) -> _Al(2)O(3)
+
+Right now, two molecules of aluminum came out of one.  Three molecules from
+oxygen came from two.  Fill in the blanks to balance:
+
+    2Al + 1.5O(2) -> Al(2)O(3)
+
+But you can't have partial molecules, they need to be shown in whole amounts
+of moles:
+
+    4Al + 3O(2) -> 2Al(2)O(3)
+
+Let's react ethylene with oxygen to produce carbon dioxide and water:
+
+    _C(2)H(4) + _O(2) -> _CO(2) + _H(2)O
+
+The general rule is to work with the more complicated molecules first.  It's
+easier to deal with single atom molecules later on.
+
+Start with the carbons.  There are two on the left, one on the right.  Let's
+balance that:
+
+    C(2)H(4) + _O(2) -> 2CO(2) + _H(2)O
+
+Now let's balance the hydrogens.  There's 4 on the left side and 2 on the 
+right side.
+
+    C(2)H(4) + _O(2) -> 2CO(2) + 2H(2)O
+
+Finally, let's balance the oxygen.  There's 2 on the left, 6 on the right.
+
+    C(2)H(4) + 3O(2) -> 2CO(2) + 2H(2)O
+
+If you ever end up with a fraction of a molecule, just multiply by a number
+on both sides of the equation to balance everything out:
+
+    C(2)H(6) + 3.5O(2) -> 2CO(2) + 3H(2)O
+    2C(2)H(6) + 7O(2) -> 4CO(2) + 6H(2)O
+
+This one may look complicated, but the key to solving it is noticing that the
+molecule SO(4) stays intact.  Just treat that as its own atom:
+
+    _Fe(3)O(3) + _H(2)SO(4) -> _Fe(2)(SO(4))(3) + _H(2)O
+
+Balanced is:
+
+    Fe(2)O(3) + 3H(2)SO(4) -> Fe(2)(SO(4))(3) + 3H(2)O
+
+Stoichiometry
+=============
+
+**Stoichiometry** is the calculation of measurable relationships of the reactants
+and products in a balanced chemical equation.  It can be used to calculate the
+percentage yield from given reactants.
+
+Stoichiometry related questions are similar to:
+
+* If I give you X grams of this, how many grams of that would you get?
+* How many grams of this is required to get X grams of that?
+
+You can use the ratios in balanced chemical equation to answer these questions.
+
+    Fe(2)O(3) + 2Al -> Al(2)O(3) + 2Fe
+
+Given 85g of Fe(2)O(3), how many grams of aluminum is required for a reaction?
+
+1. The atomic mass of Fe(2)O(3) is `56*2 + 16*3 = 160`
+2. Fe(2)O(3) is 160g per mole
+3. 85g of iron oxide is (85/160) or .53 moles
+4. We need twice as many aluminimum or 1.06 moles of Al
+5. Al is 27AMU or 27g per mole
+6. We need (1.06*27g) or 28.62g of Al
+
+If we had more than 28.62g of Al, there would be leftover aluminum.  If that were
+the case, the iron oxide would be the **limiting reagent** of the reaction -
+since there was enough aluminium but not enough iron oxide.
+
+Stoichiometry: Limiting Reagent
+===============================
+
+    4NH(3) + 5O(2) -> 4NO + 6H(2)O
+
+Given 34g of NH(3) and 32g of O(2), how much NO and H(2)O are produced?  What's
+the limiting reagent?
+
+1. NH(3) is 17amu or 17g per mole
+2. We have 2 moles of NH(3)
+3. O(2) is 32amu or 32g per mole
+4. We have 1 mole of O(2)
+
+Oxygen is the limiting reagent in this reaction.  We have more than enough
+ammonia, but not enough oxygen.  We can use up all of the oxygen but only .8
+moles of ammonia (using the 4:5 ratio):
+
+    .8NH(3) + O(2) -> .8NO + 1.2H(2)O  // divide everything by 5
+
+With 1.2 moles of NH(3) leftover:
+
+    .8NH(3) + O(2) -> .8NO + 1.2H(2)O + 1.2NH(3)
+
+Ideal Gas Equation: PV=nRT
+==========================
+
+Pressure is just force per area:
+
+    P = F/A
+
+Picture a balloon with many particles inside.  The faster they accelerate, the
+more pressure there is on the surface area.  This can be measured by temperature,
+which tells us the avg energy/particle.  Also, more particles means more
+pressure.
+
+    P = R(nT) // where R = constant, n = # particles, T = temperature
+
+The surface area is important too though, which is determined by volume.  Volume
+is inversely porportional to the pressure.  More volume means more surface area.
+
+    PV = R(nT) // where V = volume
+
+This is usually written as:
+
+    PV=nRT
+
+And is known as the **Ideal Gas Equation**.
+
+Ideal Gas Equation Example 1
+============================
+
+Given these properties:
+
+1. 2 liter balloon containing H(2)
+2. 30 degrees celsius (30 + 273 = 303 degrees kelvin)
+3. 2 atmospheric pressure
+
+How many moles of H(2) do we have?
+
+Substituing for PV=nRT:
+
+    2atm * 2L = n * R * 303K
+
+Determine which constant of R to use with the units in your equation:
+
+1. R = 8.3145 `(m^3 * Pa)/(mol * K)`
+2. R = 8.3145 `(L * KPa)/(mol * K)`
+3. R = .082 `(L * atm)/(mol * K)`
+
+    2atm * 2L = n * (0.82 L*atm/mol*K) * 303K
+    n = .16 moles of H(2) or .32g of Hydrogen
+
+Ideal Gas Equation 2
+====================
+
+Given the properties of a balloon:
+
+1. P = 3atm
+2. V = 9 liters
+
+If we change the volume of the balloon to 3 liters without changing the number
+of molecules or the temperature, what's the new pressure?
+
+    P(1)V(1) = nRT
+    P(2)V(2) = nRT
+    P(1)V(1) = P(2)V(2)
+    3atm * 9L = P(2) * 3L
+    P(2) = 9atm
+
+PV/T will always be a constant, assuming the number of molecules in the system
+never changes.  This is a handy equation because it's what occurs often - at
+least in exams.
+
+    P(1)V(1)     P(2)V(2)
+    --------  =  -------
+      T(1)         T(2)
+
+**Standard temperature and pressure or STP** is a common phrase.  The world
+hasn't really standardized it, but most classes have set it to 0 degrees
+celsius and 1 atm.
+
+Using PV=nRT, one mole of ideal gas will always fill up 22.4L of volume at STP.
+You can use this ratio to your advantage when working with STP:
+
+Partial Pressure
+================
+
+So far, we've only dealt with a single type of molecule filling up a balloon.
+What about multiple types of particles?  **Partial pressure** is the percentage
+of pressure each type of molecule gives.
+
+Given the properties of a balloon:
+
+1. 2.1kg of gas
+2. Gas is made up of 30.48% O(2), 2.86% H(2), 66.67% N(2)
+3. O degrees celsius
+4. 4m^3 volume
+
+First, figure out the number of moles for each element:
+
+1. 30.48% of 2.1kg = 640.08g, O(2) is 32g/mole, we have 20 moles of O(2)
+2. 2.86% of 2.1kg = 60.06g, H(2) is 2g/mole, we have 30 moles of H(2)
+3. 66.67% of 2.1kg = 1.4kg, N(2) is 28g/mole, we have 50 moles of N(2)
+
+There's a total of 100 moles of particles.  We can apply this to find the total
+pressure of the balloon:
+
+    P * 4(m^3) = 100mol * 8.3145(m^3Pa/molK) * 273K
+    P = 25 * 8.3145 * 273 Pa
+    P = 56.746 kPa or 0.56 atm  (total presure!)
+
+The partial pressure can be determined using the ratios of the number of
+particles (NOT the mass!).
+
+1. Pressure of O(2) = 20% of 0.56 atm = 0.112 atm
+2. Pressure of H(2) = 30% of 0.56 atm = 0.168 atm
+3. Pressure of N(2) = 50% of 0.56 atm = 0.28 atm
+
+States of Matter
+================
+
+There are three states of matter on Earth:
+
+1. Solid
+2. Liquid
+3. Gas
+
+The list is ordered from cold to hot.  When molecules are cold, it's solid.
+As it gets hotter it turns to liquid.  At a high temperature it becomes a gas.
+
+When the average kinetic energy of matter is very low (temperature), the
+molecules will be attracted to each other and is solid.  The positive charge in
+oxygen is attracted to the negative charge of hydrogen in multiple H(2)O
+molecules.  This forms ice.
+
+When you add kinetic energy, the atoms start to vibrate and breaks the hydrogen
+bonds that H(2)O have with each other.  They're still attracted to each other,
+but the bonds will start breaking.  The molecules will shift past each other
+and become liquid water.
+
+Adding more kinetic energy, the molecules won't even be able to be attracted
+to each other.  They'll break apart and won't touch, creating gas.
+
+**Enthalpy** is heat content.  The change in enthalpy is the change in heat.
+In graphs, heat is usually denoted by the letter `q`.  Enthalpy, heat, kinetic
+energy are all forms of energy measured in joules.
+
+As you add heat, molecules will vibrate more and the temperature will increase.
+Remember, temperature is just the measure of average kinetic energy.
+
+Below 0 degrees celsius, H(2)O is solid ice.  After 0 degrees celsius, adding
+heat will interestingly have the same temperature of 0 degrees for a while.
+H(2)O will still be ice, until you get to the point above 0 degrees.
+
+At 100 degrees celsius, H(2)O will boil into vapor.  Adding heat will once again
+not increase the temperature for a bit.  After passing a limit, the temperature
+will begin increasing again.
+
+See this horrible ascii diagram:
+
+         |         /
+         |     ___/   <-- 100 degrees
+    temp |    /
+         | __/        <-- 0 degrees
+         |/
+         +---------------
+              q (energy)
+
+In those flat areas at 0/100 degrees, the kinetic energy was being used to break
+the bonds in the molecules.  It increases their potential energy, because they
+want to fall towards each other.  The heat goes into potential energy instead
+of the temperature.
+
+**Fusion** is the phase between solid/liquid.  **Vaporization** is the phase
+between liquid/gas.
+
+States of Matter Follow-Up
+==========================
+
+There's also a 4th state of matter in the universe: **Plasma**.  This occurs when
+gas is ionized and is correlated with a very high temperature.
+
+When a gas gets to a high temperature, the electrons bump off and the molecules
+become ionized - similar to solid metals.  There's almost a sea of electrons
+in the matter.
+
+The best example of plasma on Earth is lightning.  Another example in the
+universe are stars.
+
+Specific Heat, Heat of Fusion and Vaporization
+==============================================
+
+**Specific heat** is the amount of heat used to change the states of matter or
+temperature for a molecule.  Each molecule has its own distinct specific heat.
+
+For H(2)O, the heat of fusion is 333.55 J/g.  The heat of vaporization is
+2757 J/g.  This is the energy applied during those flat areas of state change.
+
+So 1g of liquid water would turn to 1g of liquid vapor with 2757 joules.
+
+What about the amount of energy it takes to increase the temperature?  The
+specific heats for H(2)O are:
+
+1. Solid: 2.05 J/g*K
+2. Liquid: 4.178 J/g*K
+3. Gas: 1.89 J/g*K
+
+How much energy is required to change 200g, -10 degrees celsius of ice to 
+110 degrees celsius of vapor?
+
+    -10 deg ice -> 0 deg ice = 2.05 J/g*K * 200g * 10K = 4100 joules
+    0 deg ice -> 0 deg water = 333.55 J/g * 200g = 67,110 joules
+    0 deg water -> 100 deg water = 4.178 J/g*K * 200g * 100K = 83,560 joules
+    100 deg water -> 100 deg vapor = 333.55 J/g * 200g = 451,700 joules
+    100 deg vapor -> 110 deg vapor = 1.89 J/g*K * 200g * 10K = 3,780 joules
+    Total is 609 kJ
