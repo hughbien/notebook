@@ -767,3 +767,199 @@ interaction of a hydrogen atom with an electronegative atom.
 Covalent Networks, Metallic, and Ionic Crystals
 ===============================================
 
+**Covalent Network** is the strongest molecular structure that forms a crystal.
+A crystal is just a regular structure with a pattern (vs amorphous).
+
+An example of a covalent network are the bonds formed by multiple carbons.  The
+carbons each share electrons with one another.
+
+The next strongest bonds are **ionic crystals** and **metallic crystals**.
+An ionic crystal is NaCl:
+
+    Na^+ Cl^-
+
+One atom is negative, the other is positive and they're attracted to each other.
+It's brittle, if you hit a big block of salt it'll break apart.  When you're
+breaking something at a macro level, you're just breaking the atomic bonds.
+
+When placed in water, ionic crystals form **ionic dipole** or **ionic polar**
+bonds.  The positive Na gets attracted to the negative side of H(2)O and Cl
+gets attracted to the positive side.  It starts to dissolve.
+
+An example of metallic crystals are grouped Fe atoms.  They roam free, which
+form this sea of electrons (makes it a very good conductor).  Since their
+electrons roam, the Fe atoms become slightly positive and become attracted to
+the sea of electrons.  It's not as brittle as ionic crystals, but it's a little
+softer due to the sea of electrons.
+
+Vapor Pressure, Volatility, and Evaporation
+===========================================
+
+Atoms with enough kinetic energy may escape the bonds.  These are usually the
+surface atoms, as they don't bump into other ones.  When molecules get enough
+kinetic energy, it'll escape - normally called **evaporation**.
+
+Some of the vapor that escapes will lose its kinetic energy.  When that happens,
+the atoms fall back into the structure.  This is normally called
+**condensation**.
+
+In a closed system, eventually the rate of evaporation and condensation reach
+an equilibrium.  This means the amount of gas/liquid doesn't change.  The 
+pressure created by the gas in this closed system is called **Vapor Pressure**.
+
+Something that wants to evaporate, more of its molecules will have to enter the
+vapor state to reach equilibrium.  It's said to have high vapor pressure.  These
+substances are more **volatile**.
+
+When the vapor pressure is equal to the atmospheric pressure, it's the boiling
+point of the substance.  For example, at 100C H(2)O boils.  The vapor pressure
+of H(2)O at 100C is 1atm.
+
+If you lower the atmospheric pressure by going high up on a mountain, you can
+boil water at a much lower temperature.
+
+Suspensions, Colloids and Solutions
+===================================
+
+**Homogenous mixtures** are uniform and common throughout.  The most common
+example is homogenous milk.  Normally, milk's fat floats to the top and the
+bottom is all liquid.  Homegenous milk has fat evenly distributed.
+
+If you have particles within a mixture thats greater than 500 nanometers, you're
+dealing with **Suspension**.  Particles usually float to the top or sink to
+the bottom of a mixture - shake it and they are suspended for a bit.  Think
+chocolate milk (sugar/chocolate on bottom).
+
+If particles are between 2 to 500 nanometers, you're dealing with a **Colloid**.
+It's a homogenous mixture where the particles are small enough that they stay
+suspended.  The intermolecular forces outweigh the particle's want to leave the
+solution.  Think Jello, fog, or smoke.
+
+If it's less than 2 nanometers, it's a **Solution**.  99% of mixtures we talk
+about in Chemistry are solutions.  The **solute** is the thing dissolved and the
+**solvent** is the thing surrounding.
+
+    NaCl(aq) // means it's in water
+
+**Mole Fraction** is the number of moles solute divided by total moles in
+the solution:
+
+                              # of moles solute
+    Mole Fraction =  -----------------------------------
+                     # of moles solute + # moles solvent
+                   
+**Molarity** is the moles of solute divided by liters of solution:
+
+               # of moles solute
+    Molarity = ------------------
+               liters of solution
+
+Molarity changes when the pressure/temperature change, since volume is dependent
+on pressure and temperature.  A better measurement is **Molality**:
+
+               # of moles solute
+    Molality = ------------------
+                 kgs of solvent
+
+The mass of the solvent stays constant unlike the volume.
+
+Solubility
+==========
+
+In Chemistry, a **Salt** is a neutral compound made of ions.  NaCl is a salt
+(both chemistry and seasoning).
+
+When placed into water, the positive canion of Na is attracted to the negative
+oxygen.  The negative anion of Cl is attracted to the positive hydrogen.
+
+The warmer the water, the better NaCl can fit in it.  More kinetic energy means
+H(2)O molecules are moving more, giving room for NaCl.
+
+The general rule is as temperature goes up, **solubility** goes up for solids.
+
+After salt is mixed in, you'll have a very good conductor because of the mixed
+cations and anions.
+
+What about for gases?  When temperature goes down, solubility goes up.  Gases
+want to raise up and liquids keep the gas atoms trapped.  By adding kinetic
+energy, you're freeing up the gas atoms to escape.
+
+Pressure is also a factor.  When the atmospheric pressure is high, it pushes
+the gas molecules down into the liquid.  So when pressure goes up, solubility
+also goes up.
+
+Boiling Point Elevation and Freezing Point Supression
+=====================================================
+
+For H(2)O to enter a frozen solid state, the molecules must enter an organized
+crystalline structure.  Any kinetic energy would just move the molecules in
+place.  The hydrogen bonds should be stronger.
+
+If larger molecules were mixed into water, it would take more energy to enter
+the frozen state because you'll have to move the larger molecules out of the
+way first.
+
+Solute particles lowers the freezing point.
+
+Larger molecules tend to block the surface molecules from escaping.  There's a
+lower vapor pressure.  Because of that, it takes more energy for the surface
+molecules to escape.
+
+Solute particles raises the boiling point.
+
+It's good to think of solute particles as making the solution stick in a liquid
+form.  It takes more energy to freeze and it takes more energy to boil.
+
+    T(vaporization-delta) = km  // k = constant, m = molality
+
+Given the properties:
+
+1. 1kg of solvent water
+2. 2 moles of NaCl solute
+
+How much is the temperature elevation for boiling point?
+
+    T = k * (4 / 1)  // 4 moles because NaCl breaks up into Na and Cl
+    T = 0.5 * 4      // k = 0.5 for water
+    T = 2 degrees
+
+The change in freezing point is same formula, but the constant k is negative.
+
+Introduction to Kinetics
+========================
+
+If you put Hydrogen and Iodine together, a reaction will occur and a product
+will be formed.  But it's not magic, something happens for the reaction to occur.
+The rates of reaction is called **Kinetics**.
+
+    H(2)(g) + I(2)g = 2HI
+
+In the gaseous state, Hydrogen/Iodine form covalent bonds.  H-H and I-I.  Iodine
+has 7 electrons in its outer shell and Hydrogen has 1.  If the Iodine pair
+collides into the Hydrogen pair with the right amount of energy, the pairs bond
+because of I's high electronegativity.  This is called an **activated complex**
+and is a higher energy state.
+
+From there, it will go into a lower energy state which is H-I and H-I.
+
+The energy at the activated complex is the **activation energy**.  If we can put
+enough energy into the system, the activated complex is formed before it breaks
+up into 2HI.
+
+A **catalyst** participates in a chemical reaction but is not consumed by the
+reaction itself.  It effects the rate of the reaction.  If it slows it down,
+it's an **inhibitor** (negative catalyst) and if it speeds it up it's a positive
+catalyst.  It could also effect the amount of energy required by lowering the
+activation or potential energy.
+
+When we write equations, things seem so simple - like it just happens naturally.
+In reality, it's all probability of molecules bumping into each other and
+forming reactions.  For instance, if the concentration of molecules goes up so
+does the rate of reaction (more molecules to bump into each other!)
+
+Increasing temperature will also increase the rate of reaction.  Temperature is
+just the average kinetic energy.  Faster moving molecules means more odds of
+them colliding and more energy to get into the activation complex.
+
+If the surface area goes up, so does the reaction rate.  Smaller cubes of salt
+will react faster to H(2)O than one large cube of salt.
