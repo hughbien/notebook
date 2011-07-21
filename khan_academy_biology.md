@@ -57,3 +57,24 @@ A strand of DNA will go through **transcription** and transcribe a pairing
  
 The mRNA leaves the nucleus, goes into the cell's cytoplasm and to ribosomes.
 At the ribosomes, it's **translated** to proteins.
+
+The mRNA bonds with tRNA molecules or **Transfer RNA**.  The tRNA themselves are
+attached to 20 different amino acids.  **Amino Acids** are the building blocks
+of protein and can be coded by 3 different bases (4^3).  The tRNA molecules
+act like trucks for the amino acids.
+
+      UAC CUG   <-- mRNA
+      AUG GAC   <-- tRNA, 3 base pairs is also called a Codon
+      ||| |||
+    AMINO-ACIDS <-- form protein
+
+The amino acids start to bond with each other when they're close.  Once they
+bond the tRNA detaches.  The amino acids form a chain and start folding into
+complex patterns to form proteins.
+
+Proteins range from 150 amino acids (450 base pairs) to 1500 amino acids (4500
+base pairs).
+
+A **Gene** is a portion of our chromosome which codes for a specific function or
+protein.  Each variant of a gene is called an **Allele**.
+

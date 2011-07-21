@@ -963,3 +963,100 @@ them colliding and more energy to get into the activation complex.
 
 If the surface area goes up, so does the reaction rate.  Smaller cubes of salt
 will react faster to H(2)O than one large cube of salt.
+
+Reactions in Equilibrium
+========================
+
+Reactions may go in both directions.  This is represented in an equation with
+a double arrow:
+
+    aA + bB <--> cC dD
+
+When the rate of molecules going each direction is equal, the reaction is in an
+equilibrium.
+
+      Normal Energy  vs  Equilibrium Energy            
+    |left ____           |left ____ right
+    |----     right      |----      ----
+    |         -----      |
+    |______________      |________________
+
+A sample reaction:
+
+    N(2)(g) + 3H(3)(g) <--> 2NH(3)
+
+Equilibrium reactions have an **equilibrium constant** that's the concentration
+of each product to the power of the moles divided by the concentration of the
+concentrations of the reactants:
+
+            [C]^c * [D]^d
+    K(eq) = -------------  // A,B,C,D are molarity or moles per liter
+            [A]^a * [B]^b
+
+For the Haber reaction above:
+
+                [NH(3)]^2
+    K(eq) = -----------------
+            [N(2)] * [H(3)]^3
+
+If K(eq) < 1, the concentration of the reactants are less than the concentration
+of the products.  That means the reaction favors the backwards direction.
+
+Heterogenous Equilibrium
+========================
+
+Let's look at another equilibrium reaction:
+
+    BF(3)(g) + 3H(2)O(l) <--> 3HF(aq) + H(3)BO(3)(aq)
+
+The equilibrium constant is:
+
+            [HF]^3 * [H(3)BO(3)]
+    K(eq) = --------------------
+            [BF(3)] * [H(2)O]^3
+
+Water is the solvent, it's everywhere.  So the probability of 3 moles of water
+being present for 1 mole of BF(3) is practically 100%.
+
+    Rate(forward-reaction) = K(f) * [BF(3)]
+
+Any equilibrium where you have different states of matter is called a
+**Heterogenous Equilibrium**.  Let's try another one:
+
+    H(2)O(g) + C(s) <--> H(2)(g) + CO(g)
+
+What's the forward rate dependent on?  Well, the Carbon is in a solid state.
+It will be surrounded by water vapor.  There will always be Carbon available
+on the surface area of the solid.  It's dependent on the water vapor.
+
+    Rate(forward-reaction) = K(f) * [H(2)O]
+
+When you're trying to figure out the equilibrium constant or rates of reaction,
+for heterogeneous equilibriums, you should ignore:
+
+* the solvent
+* solid state molecules
+
+Le Chatelier's Principle
+========================
+
+    A + B <--> C + D
+
+Sal reminds us just because the rates are the same doesn't mean the
+concentrations are the same.  The reactant/product concentrations could be
+higher, but they're constant since the rate is equal.
+
+What happens if we add more A to the system?
+
+The odds are slightly higher that A and B will collide, so the forward rate will
+increase a bit.  The B's will go down because more will be consumed.  The C's
+and D's will increase in concentration.  More C's and D's will increase the
+backwards rate - creating a new equilibrium.
+
+What if we add more A and B?  It would drive a lot more C's and D's.
+
+What happens if we add more C to the system?  The exact opposite.
+
+This is called **Le Chatelier's Principle**.  When you stress a reaction, it
+will favor whatever relieves the stress.
+
