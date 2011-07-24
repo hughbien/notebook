@@ -1060,3 +1060,138 @@ What happens if we add more C to the system?  The exact opposite.
 This is called **Le Chatelier's Principle**.  When you stress a reaction, it
 will favor whatever relieves the stress.
 
+Introduction to pH, pOH, and pKw
+================================
+
+From Wikipedia: Autoionization is a process by which atoms or molecules
+spontaneously emit one of the shell electrons, thus going from a state with
+charge Z to a state with charge Z + 1, for example from an electrically neutral
+state to a singly ionized state.
+
+When H(2)O molecules are placed next to each other, hydrogen bonds usually form.
+Under some circumstances - if there's enough kinetic energy - one hydrogen atom
+may fall of and attach itself to a different oxygen atom to get:
+
+    2H(2)O <--> H(3)O + OH  // OH = hydroxide
+
+This is called **Autoionization**.  It's in equilibrium, so the molecules may
+bump into each other again and turn back into water.
+
+Another example is:
+
+    H(2)O <--> H + OH // big picture
+
+The formula above is the big picture, but does not actually happen.  Hydrogens
+don't exist on their own in water.
+
+           [H^+] * [OH^-]   [H^+] * [OH^-]
+    K(w) = -------------- = --------------
+              [H(2)O]             1
+
+    K(w) = 10^-7 * 10^-7 = 10^-14
+
+But chemists don't like working with negative powers, so they use negative logs:
+
+    -log(k(w)) = 14
+    pKw = 14
+
+In chemistry, the letter p is used to mean negative log.
+
+    [H^+] = 10^-7 M
+    pH = -log(10^-7) = 7
+
+Remember, concentration is just moles per liter.  In this case, the concentration
+of Hydrogen in water is 10^-7 moles per liter.
+
+    pOH = -log(10^-7) = 7
+
+Next, we'll cover acids/bases.  An **acid** is just something that increases
+the hydrogen concentration.  If the concentration of hydrogen goes up, the
+negative log will go down - so the pH will go down.
+
+Acid Base Introduction
+======================
+
+Quick review, water naturally creates hydroxide in an equilibrium:
+
+    2H(2)O <--> H(3)O + OH
+    H(2)O <--> H + OH
+
+People really care about the concentration of hydrogen ions.  This is labeled
+pH in a lot of products.  At 25C, the pH of water is normally 7.
+
+Remember Le Chatelier's principle.  If we stress one side with more hydrogen,
+it'll effect the equilibrium.  The concentration of hydrogen matters.
+
+**Acids** increase the hydrogen concentration when you place it in water.
+**Bases** increase the hydroxide concentration when you place it in water.
+The full label is actually **Arrhenius Acid** and **Arrhenius Base**.
+
+Let's look at hydrochloric acid being placed into water:
+
+    HCl(aq) -> H^+(aq) + Cl^-(aq)
+    HCl + H(2)O -> H(3)O + Cl
+
+Acids which completely disassociate in water are called **Strong Acids**, it's
+a one way reaction.  Some examples:
+
+* HCl => Hydrochloric Acid
+* HBr => Hydrogen Bromide
+* HI => Hydrogen Iodide
+* HNO(3) => Nitric Acid
+* H(2)SO(4) => Sulfuric Acid
+
+**Strong Bases** are usually anything in group 1 (alkali metals):
+
+    LiOH(aq) -> OH^-(aq) + Li^+(aq)
+    LiOH + 2H(2)O -> H(3)O + 2OH + Li
+    NaOH(aq) -> OH^-(aq) + Na^+(aq)
+
+There are also **Bronsted-Lowry acid/bases** is a superset.  In this definition,
+an acid is a proton donor and a base is a proton acceptor.
+
+Arrhenius is always dealing with aqeous water.  Bronsted-Lowry does not.
+
+There are also **Lewis acid/bases**.  Lewis cares about electrons, an acid is
+an electron acceptor and a base is an electron donor.
+
+pH, pOH of Strong Acids and Bases
+=================================
+
+Remember, the equilibrium constant of water is just the concentration of 
+hydrogen plus the concentration of hydroxide:
+
+     K(w) = [H] * [OH]
+    p(Kw) = -log([H] * [OH])
+    p(Kw) = -log([H]) + -log([OH])
+    p(Kw) = pH + pOH
+
+For water at 25C:
+
+    p(Kw) = pH + pOH
+       14 = 7  + 7
+
+What happens if you throw 1 molar of hydrochloric acid in water?
+
+    HCl(aq) -> H^+(aq) + Cl^-(aq)
+    1 molar = 1 mole/liter of solution
+    [H^+] = 1M
+    pH = -log(1) = 0
+
+So we know:
+
+    pH of water = 7 is neutral
+    pH of HCl(aq) = 0
+    pOH of HCl(aq) = 14 - 0 = 14
+
+Let's figure out the pH of a base:
+
+    KOH(aq) -> K^+(aq) + OH^-(aq)
+    1 molar = 1 mole/liter of solution
+    [OH^-] = 1M
+    pOH = -log(1) = 0
+
+So we know for strong bases:
+
+    pOH of KOH(aq) = 0
+    pH of KOH(aq) = 14
