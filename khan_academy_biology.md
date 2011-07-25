@@ -73,8 +73,13 @@ bond the tRNA detaches.  The amino acids form a chain and start folding into
 complex patterns to form proteins.
 
 Proteins range from 150 amino acids (450 base pairs) to 1500 amino acids (4500
-base pairs).
+base pairs).  Proteins then perform functions in our biological systems like
+helping to transport blood.
 
 A **Gene** is a portion of our chromosome which codes for a specific function or
 protein.  Each variant of a gene is called an **Allele**.
 
+DNA winds around on itself.  When it's all bundled up into a large portion, it's
+called a **chromosome**.  We have 23 pairs of chromosomes.  Each cell in your
+body have copies of your DNA/chromosomes.  The largest chromosome (chromosome 1)
+has 220 million base pairs.
