@@ -83,3 +83,59 @@ DNA winds around on itself.  When it's all bundled up into a large portion, it's
 called a **chromosome**.  We have 23 pairs of chromosomes.  Each cell in your
 body have copies of your DNA/chromosomes.  The largest chromosome (chromosome 1)
 has 220 million base pairs.
+
+Variation in a Species
+======================
+
+Natural selection is dependent on the idea of **variation** - any population
+within a species will have some genetic variation.  What leads to variation?
+
+There's this notion of random mutations within someone's DNA:
+
+    AGTTTAGCG
+
+What could happen is one letter is changed or a strand is missing:
+
+    AG   AGCC
+
+Most of the time, it will either have no effect or kill the organism.  Sometime,
+it'll make the cell run amok like cancer.
+
+Sexual reproduction is key to variation within a species.  Without it, variation
+would occur too slowly because each generation would spawn off a clone.  With
+sexual reproduction, there's a male/female pair.
+
+A child will have 23 chromosomes from its father and 23 from its mother.  The
+combination creates unique variation for each generation.
+
+The **germ cells** are sperm/eggs which contain the genetic information that
+are passed on to children.  Germ cells only contain 23 chromosomes as opposed
+to **somatic cells** which contain 23 pairs.  Somatic cells are your body's
+cells (or everything other than germ cells).
+
+**Homologous** means they're almost the same.  It's used to describe chromosomes,
+as in homologous pairs.  Pairs of chromosomes code for the same gene but may
+be different alleles.
+
+**Genotype** is exactly which allele you have - or what version of the gene you
+have.  The **phenotype** is what physical aspect actually occurs.  For example,
+there may be 5 or more genotypes for curly hair but curly hair is one phenotype.
+
+So when a male's sperm cell is created, how many different combinations are
+there?  There's 2^23, since there are 23 pairs of chromosome and only one is
+chosen from each pair through meiosis (discussed later).  When a female's egg
+cell is created, there are also 2^23 different possible combinations.
+
+Every couple can produce 2^46 possible combinations.  There's also a possibility
+of DNA recombination via **crossover**.  Chromosome pairs can switch strands of
+DNA with one another.  So for a single pair - one for your dad and one for your
+mother - genes may be traded among the individual chromosomes.  This creates
+even more possibilities for variations.
+
+Sexual reproduction is a useful trait, it allows for quicker evolution and
+adaptability for a species.  It may be harder to reproduce, but the offspring
+are more likely to survive.
+
+Chromosomes, Chromatids, Chromatin, etc.
+========================================
+
