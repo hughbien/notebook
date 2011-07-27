@@ -133,3 +133,92 @@ flagella to move about.  Cytoskeletal proteins come in three groups:
 The plasma membrane provides a selective boundary for the cell.  Most cells have
 additional layers outside of it.  The layer around the animal cell is called the
 extracellular matrix.
+
+Dead or Alive: Viruses
+======================
+
+**Viruses** are microscopic particles of nucleic acid (DNA or RNA) and protein
+that attack cells and turn them into virus factories.  They're responsible for
+significant diseases: measles, influenza, polio, and AIDS.
+
+Whereas bacteria are living cells, viruses are not.  They cannot do anything 
+without hijacking a cell.  Scientists don't consider viruses to be alive.
+
+The simplest viruses have two components: a **nucleic acid core** and a
+**protein capsid**.  The DNA or RNA contains instructions for taking over cells
+to produce more virions (viral particles) and the capsid is an outer shell.
+
+Some viruses also have an outer envelope that they steal from the cell's
+membrane.  They might also have proteins that stick out called **spikes**, which
+help attach them to cells.
+
+Viruses come in three shapes:
+
+* helical - form of twisting helix around nucleic acid core
+* polyhedral - regular geometric shape
+* complex - separate patches of protein forming unique structures
+
+Viruses attach to cells if they have the right viral protein that's accepted
+by the cell's receptors.  They then dig a hole through the cell wall, slip in
+by fusing with the cell membrane, or trick the cell into bringing it inside.
+**Host range** is used to denote the type of cells a virus can infect.
+
+**Bacteriophage** (phage = eat, so bacteria eater) are a type of virus which
+attack bacteria.  In the lytic cycle, bacteriophage will use the cell to create
+more phage and destroy it.  In the lysogenic cycle, bacteriophage will
+enter during a dormant stage.  The host cell will reproduce - creating cells
+which are infected.
+
+Example steps of the lytic cycle:
+
+1. Attachment - proteins of virus attach to receptors of bacteria
+2. Penetration - genetic material of virus enters
+3. Biosynthesis - virus uses host cell's nucleotides/amino acids to make more
+   viral parts.  ATP from host cell supplies energy
+4. Maturation - viral particles assemble into new virus
+5. Release - virus leaves host cell, lysing or destroying as they leave
+
+Bacteriophage that enter the lysogenic cycle remain inactive/dormant in the
+bacteria for a while.  During this time, their DNA is integrated with the host
+cell's DNA (now called **prophage**).  The steps are then: attachment,
+penetration, recombination, replication.  Environmental signals will trigger
+the virus to go into lytic cycle.
+
+Viruses that attack eukaryotic cells are the same, but some terms are different:
+
+* Latent instead of lysogenic
+* Provirus instead of prophage
+* Acute disease instead of lytic cycle
+
+After an enveloped virus attaches to its eukaryotic host cell, it enters via
+one of two ways:
+
+* Fusion - envelope of virus  fuses with host cell's membrane, like two soap
+  bubbles merging together
+* Receptor-mediated endocytosis - the host cell is tricked, wraps the virus in
+  a vesicle and brings it in
+
+After entering, the virus removes its capsid (called **uncoating**) and releases
+its genetic material into the host cell.  Viruses have different reproductive
+strategies which are dependent on the class of virus:
+
+* Double-stranded DNA viruses: ie smallpox, inserts its genetic material into
+  the host's nucleus.  It gets copied whenever the host divides
+* Retroviruses: ie HIV, single stranded RNA enters the host cell and reverse
+  transcribes a double stranded DNA to insert into the nucleus
+* Double-stranded RNA viruses: introduces their RNA into the cytoplasm to make
+  viral proteins
+* Single-stranded RNA viruses: negative-sense or positive-sense.  Negative like
+  influenza, insert their RNA into cytoplasm to create new RNA and make proteins.
+  Positive insert their RNA directly, doesn't need to create new RNA.
+
+Viruses may use their own enzymes or host enzymes to copy genetic material.
+Viral enzymes make more mistakes in host enzymes, causing mutations in viruses.
+The variation makes it harder to defeat.
+
+After the genetic material is copied, the viruses leave the host cell.  Sometimes
+they leave via **budding**, pushing up against the membrane and taking a chunk of
+it while leaving.  This helps disguise them as cells.
+
+Putting it all together, the steps are: attachment, penetration, uncoating,
+biosynthesis, maturation, release.
