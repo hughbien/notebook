@@ -325,3 +325,32 @@ inserted into the bond between two monomers to break it apart.
 
 Remember hydro means water and lysis means breaking (as in when a virus lyces
 from the cell - breaks out of).
+
+Carbohydrates: How Sweet They Are
+=================================
+
+Carbohydrates are made of carbons, hydrogen, and oxygen in the ratio of:
+
+    CH(2)O
+
+They're divided into two groups: monosaccharides and polysaccharides.  They're
+also known as simple sugars and complex carbohydrates.
+
+Monosaccharides have a backbone of 3-7 carbons and are called trioses, tetroses,
+pentoses, hexoses, and heptoses.  They have Hydroxyl groups (OH) attached to
+every carbon but one which make up sugars polar (and dissolves in water).
+
+They have one double-bonded oxygen attached to the carbon backbone called a
+carbonyl group.  If it's at the end, the sugar is an aldose.  If it's within
+the backbone, it's a ketose.  It's not just the number of atoms which determine
+what kind of simple sugar it is - the structure is important too.
+
+Polysaccharides are multiple monosaccharides joined together by condensation
+reactions (removal of water).  The bonds between them are glycosidic linkages.
+They're classified by how many monosaccharides there are: disaccharides like
+lactose, oligosaccharides (short chains), or polysaccharides (long chains).
+
+Carbohydrates are an important source of energy for cells.  They provide
+structural molecules for cells like the walls.  Cells are marked with
+glycoproteins (proteins with sugar) to identify them.  They make a sticky matrix
+around cells to help bacteria stick.
