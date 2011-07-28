@@ -222,3 +222,106 @@ it while leaving.  This helps disguise them as cells.
 
 Putting it all together, the steps are: attachment, penetration, uncoating,
 biosynthesis, maturation, release.
+
+# Better Living Through Chemistry
+
+Organisms are made of cells.  Cells are made of molecules.  Molecules are made
+of atoms.  Atoms are made of subatomic particles.
+
+Subatomic particles are protons (positive charge), electrons (negative charge),
+and neutrons (no charge).  The nucleus of an atom is made of protons/neutrons
+and the electrons orbit it.  The number of protons determine what element an
+atom is.  It's called the **atomic number**.
+
+An **isotope** has different numbers of neutrons than protons.  Carbon usually
+has 6 protons/neutrons.  Carbon-5 is an isotope variation that has 5 neutrons.
+
+Periodic tables often include the **atomic mass** of elements, which is the
+average mass in atomic mass units of all atoms on earth for each element.  It's
+the number of protons plus the number of neutrons.
+
+Atoms form larger structures called **molecules** via chemical bonds.  This
+will happen via:
+
+1. Atoms share an electron to form a more stable structure
+2. There is an attraction between opposite electrical charges
+
+Each element has an electron configuration, which is useful in determining how
+stable that element is.  Noble gases have an outer shell full of electrons, so
+they're pretty stable.  **Valence electrons** are the electrons in the outermost
+energy levels.  They're the electrons which are usually given/shared.
+
+The **Periodic Table** will tell you how many valence electrons an element has.
+Most atoms follow the octet rule, most of them want 8 electrons in its outer
+shell.  Elements on the left side tend to want to give away electrons.  Elements
+on the right side really want more electrons.  The tendency for an atom to
+attract electrons is called **electronegativity**.
+
+If one atom takes an electron, an **oxidation reduction reaction** or 
+**redox reaction** has occurred.  The atom giving up an electron was **oxidized**
+and the atom gaining an electron was **reduced** (think in term of charges).
+
+For more information on electron configuration and chemical bonds, see notes on
+Khan Academy's Chemistry lectures.
+
+Whereas an isotope had differing numbers of neutrons, **ions** have different
+number of electrons causing a charge.  **Ionic bonds** form due to electrical
+attractions from opposite charges.  They're strong in solid form, but weak in
+liquid form and in water.
+
+**Covalent bonds** occur when atoms share an electron.  Two oxygen elements are
+equally electronegative and they both benefit by sharing two electrons by
+becoming more stable (rule of eights).
+
+In a **polar covalent bond**, the electron spends more time orbiting the nucleus
+of the more electronegative atom.  After polar covalent bonds form, they setup
+the formation of **hydrogen bonds**.  Hydrogen bonds are weak electrical forces
+between opposite ends of polar bonds.  They're like velcro.  Hydrogen bonds
+hold the two helixes of your DNA together.
+
+**Hydrophobic molecules** don't mix well with water.  Water has many polar and
+hydrogen bonds.  When a molecule with polar bond is mixed in, it dissolves well.
+When a covalent bonded molecule is mixed in, it's rejected - like water/oil.
+
+Your body is 60-75% water.  Water is essential to living things:
+
+* Water is a solvent.  Ions and polar molecules dissolve in water.  Water
+  prevents them from forming solids.  All chemical reactions in cells occur
+  in water.
+* Water helps moves things across membranes.
+* Water causes hydrophobic interactions.
+* Water helps maintain the structure of important molecules.
+
+Water molecules reach a equilibrium where H(2)O splits and forms hydrogen and
+hydroxide ion:
+
+    H(2)O <--> H^+ + OH^-
+
+The concentration of hydrogen ions is measured in pH (-log of the molarity).
+The concentration of hydroxide ions is measured in pOH.  A pH of 7 is neutral
+on the acid/base scale.
+
+Cells can only survive within a narrow range of pH - they prefer neutral.  Some
+chemicals can add hydrogen ions and increase the pH of water.  These are acids.
+Chemicals that remove hydrogen ions are bases.
+
+Cells employ **buffers** to maintain the pH of water.  These buffers can release
+hydrogen ions in a solution or remove them.  Your blood has the acid/base pair
+of carbonic acid and bicarbonate to maintain your blood pH.
+
+Cells often recycle and rebuild structures using existing molecules.  When a
+structure is no longer needed, cells will break it apart to form a new one from
+the pieces (different shape and recombining with different atoms).
+
+There are four groups of macromolecules (big molecules) important to the cell:
+carbohydrates, proteins, nucleic acids, and lipids.  All of them but lipids are
+made up of the same repeating type of building block.  A long repetitive molecule
+is called a **polymer**.  The building block of a polymer is a **monomer**.
+
+Whenever a monomer is added to the polymer, a water molecules formed.  The
+reaction is called **condensation or dehydration synthesis**.  Polymers can be
+broken down into individual monomers via **hydrolysis** - a water molecule is 
+inserted into the bond between two monomers to break it apart.
+
+Remember hydro means water and lysis means breaking (as in when a virus lyces
+from the cell - breaks out of).
