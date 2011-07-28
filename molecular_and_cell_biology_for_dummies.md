@@ -354,3 +354,84 @@ Carbohydrates are an important source of energy for cells.  They provide
 structural molecules for cells like the walls.  Cells are marked with
 glycoproteins (proteins with sugar) to identify them.  They make a sticky matrix
 around cells to help bacteria stick.
+
+Proteins: Workers in the Cellular Factory
+=========================================
+
+Most jobs in the cell are done by proteins.  The shape of a protein is essential
+for its job.  They control metabolism, transport, communication, structure, 
+division, and more.  They can specifically target a particular molecule or
+process.
+
+Proteins start as polymers of **amino acids**, also called a **polypeptide**.
+Once that folds and becomes functional, it's a protein.  Some protein are made
+of multiple polypeptides.
+
+If a protein **denatures** (unfolds), it can no longer function.  Protein
+structure or **conformation** is organized into 4 categories:
+
+* Primary structure - sequence of amino acids
+* Secondary structure - small areas folded into alpha helices and pleated sheets
+* Tertiary structure - final 3D shape of one folded amino acid chain
+* Quarternary structure - found in proteins consisting multiple folded chains
+
+The cell contains 20 variants of amino acids.  The choice and ordering of these
+amino acids makes up the primary structure of a protein.  Each amino acid has 
+the same structure, a central carbon atom is bonded to 4 different chemicals:
+
+* a nitrogen-containing amino group (-NH(2) or NH(3)+)
+* a carboxyl group (-COOH or -COO-)
+* a hydrogen atom (-H)
+* A side chain (-R) that varies between the 20 amino acids
+
+The N-C-C backbone pattern is useful in identifying amino acids.  You can use
+it to distinguish proteins/carbohydrates.  The bonds between amino acids are
+**peptide bonds** and are covalent formed via condensation.
+
+The folded patterns/areas of a protein make up the secondary structure.  There
+are two possible fold patterns:
+
+* Alpha helix - similar to a smooth spiral
+* Pleated sheets - sharp turns/twist in the opposite direction
+
+Some proteins only have the alpha helix, some only have pleated sheets, some
+have both.  They're held together with hydrogen bonds in the nitrogen/hydrogen
+atoms and carbon/oxygen atoms.
+
+The tertiary structure is the final 3D shape of the protein.  There are also
+two categories:
+
+* Globular proteins: have an overall rounded or irregular shape
+* Fibrous proteins: are long and cable-like
+
+The tertiary structure is held together with various bonds in the R groups:
+
+* Covalent bonds: the amino acid cysteine has a sulfhydrl group (-SH) in its
+  R group.  When two are next to each other, they form a disulfide bridge which
+  is covalent and strong.  It doesn't break when protein denatures.
+* Ionic bonds: some R groups ionize in water and form ionic bonds.  They're
+  weak in watery solution and will be lost if the protein denatures.
+* Hydrogen bonds: if a polar covalent bond forms, so do hydrogen bonds which are
+  weak and will be lost if the protein denatures.
+* Hydrophobic interactions: some R groups are hydrophobic.  Water will push
+  them together to form a bond.  These are weak and will also be lost if the
+  protein denatures.
+
+Some proteins will start to function as soon as they form their tertiary
+structure.  Others require a quarternary structure.  These are large and complex.
+They form multiple polypeptide chains.  The bonds that hold the polypeptides
+together are the same bonds holding tertiary structures together, but only
+with the R groups.  The hemogoblin protein in your blood is quarternary.
+
+Proteins carry out many tasks:
+
+* they're enzymes
+* they reinforce structure like the cytoskeleton and extracellular matrix
+* they transport materials in/out of the cell in the plasma membrane
+* they identify cells with glycoproteins on the membrane
+* they help cells move (flagella)
+* they help communicate via receptors or insulin
+* they organize molecules.  Chaperone proteins help other amino acids fold into
+  proteins.
+* they defend the body against bacteria/viruses (antibodies)
+* they regulate which parts of the DNA is used
