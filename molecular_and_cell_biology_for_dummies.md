@@ -495,3 +495,52 @@ DNA for many tasks:
 * Transfer RNA (tRNA): decodes message from mRNA to match amino acids
 * Ribosomal RNA (rRNA): part of the structure of the ribosome
 
+Lipids: Waterproof and Energy Rich
+==================================
+
+**Lipids** are molecules that don't mix well with water.  Some lipids made by
+cells include: fats, phospholipids, waxes, cholesterol, steroids, and sterols.
+
+**Hydrocarbons** are molecules that have long chains of carbon atom bonded to
+hydrogen atoms.  Lipids are hydrophobic because they contain non-polar covalent
+bonds between carbon/hydrogen.
+
+They're more diverse than the other three macromolecules (carbohydrates, 
+proteins, and nucleic acids).  They're not polymers.  Their subcategories:
+
+* Fats and oils: made of fatty acids attached to glycerol backbone
+* Phospholipids: same as above but with unique hydrophilic group
+* Waxes: fatty acids attached to long-chain alcohols
+* Sterols: contain four fused carbon rings
+
+**Fatty acids** are long chains of carbon and hydrogen.  Their 2 categories:
+
+* Saturated fats: carbon atoms bonded with single bonds.  Carbon has 4 available
+  bonds - this leaves 2 for hydrogens.
+* Unsaturated fats: carbon atoms bonded with more double bonds.  These carbons
+  can only bond with 1 hydrogen atom.
+
+When three fatty acids join a glycerol backbone (three-carbon alcohol with
+attached hydroxyl radicals) it's called **triglycerides**.
+
+When you're trying to recognize lipid molecules, just remember that they're
+hydrocarbons - they have chains of hydrogen/carbon molecules.
+
+Triglycerides with high levels of saturated fat are called fats, while those
+with unsaturated bonds are oils.  Fats are solid at room temp because the bonds
+are more organized.  Oils are liquid at room temp due to unsaturated bonds.
+
+**Phospholipids** are similar to triglycerides but only have two fatty acid
+tails.
+
+Lipids pack a lot of energy into a small space due to the carbon/hydrogen bonds.
+They have 9 calories per gram while protein and carbohydrates only have 5
+calories per gram.  Energy storage is the major function of lipids in cells.
+
+Besides energy storage, lipids are also important for:
+
+* insulation
+* structure of plasma membranes
+* water-proofing
+* signaling - ie steroid hormones trigger changes in human development
+
