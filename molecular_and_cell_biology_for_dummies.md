@@ -435,3 +435,63 @@ Proteins carry out many tasks:
   proteins.
 * they defend the body against bacteria/viruses (antibodies)
 * they regulate which parts of the DNA is used
+
+DNA and RNA: Instructions for Life
+==================================
+
+Deoxyribonucleic acid (DNA) and ribonucleic acid (RNA) are both polymers of
+nucleotides.  DNA specifies which proteins and RNA to construct.
+
+Nucleotides have 3 different components and make up nucleic acids.  Nucleic
+acids can be single or double-stranded.  Chained together, they're called
+polynucleotide chains.  The components of nucleotides are:
+
+* A pentose (5-carbon) sugar - deoxyribose or ribose
+* A nitrogenous base
+* A phosphate group - a phosphorous atom surrounded by oxygen atoms
+
+To navigate the nucleotides the carbon atoms are numbered from 1 to 5.  They're
+also marked as prime: 1', 2', 3', 4', 5' to denote the difference between the
+sugar carbons and nitrogenous base carbons.  The first carbon (1') is attached
+to the nitrogenous base.  Numbers increase as we move away.
+
+The pentose is different for DNA and RNA.  DNA has deoxyribose as its sugar
+whereas RNA has ribose - the difference is just one oxygen atom.  Ribose has a
+hydroxyl group (-OH) attached to its 2' carbon while deoxyribose only has a
+hydrogen (-H).  Nucleotides are either ribonucleotide or deoxyribonucleotide.
+DNA is double stranded while RNA is single stranded.
+
+There are five different nitrogenous bases found in nucleotides:
+
+* Adenine (A)
+* Guanine (G)
+* Cytosine (C)
+* Thymine (T) - only in DNA
+* Uracil (U) - only in RNA
+
+These bases fall into two groups.  Pyrimidines with a single ring structure and
+two nitrogen atoms within the ring.  Purines have two fused rings with two
+nitrogen atoms in each ring.  Cytosine, thymine, and uracil are pyrimidines.
+Adenine and guanine are purines.
+
+Polynucleotide chains give DNA its second structure: a double helix.  The sides
+of the ladder are made of the sugar phosphate backbone.  The rungs are made
+of nitrogenous base pairs with hydrogen bonds.  The sides are antiparallel,
+if one side has its 5' carbon pointing up - the other has it pointing down.
+
+Adenine forms hydrogen bonds with thymine.  Cytosine forms hydrogen bonds with
+guanine.  The complementary base pairs are A=T, C=G. 
+
+For RNA, it's A=U.  RNA can also have a 3d secondary structure.  They fold
+upon themselves into complex shapes.
+
+Our genetic code is encoded in those base pairs (A, T, C, and G).  Cells decode
+DNA for many tasks:
+
+* Protein structure: determined via transcription/translation.  Code in DNA is
+  copied and used to specify amino acids sequence
+* RNA structure: through the process of transcription
+* Messenger RNA (mRNA): goes from DNA to ribosomes to produce proteins
+* Transfer RNA (tRNA): decodes message from mRNA to match amino acids
+* Ribosomal RNA (rRNA): part of the structure of the ribosome
+

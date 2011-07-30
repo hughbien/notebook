@@ -70,7 +70,7 @@ Slow Carb Diet Finer Points and FAQs
 ### Should I take any supplements?
 Ferris recommends potassium, magnesium, and calcium.  You might lose excess water
 along with electrolytes.  Potassium can be obtained through potassium enriched
-salts or avacadoes.  Calcium via tofu or tempeh.  Magnesium via almonds, spinach,
+salts or avocadoes.  Calcium via tofu or tempeh.  Magnesium via almonds, spinach,
 or soybeans.
 
 ### Does cheat day undo all of my progress?
