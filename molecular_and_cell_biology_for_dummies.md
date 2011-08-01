@@ -544,3 +544,76 @@ Besides energy storage, lipids are also important for:
 * water-proofing
 * signaling - ie steroid hormones trigger changes in human development
 
+Hello Neighbor, How Cells Communicate
+=====================================
+
+The plasma membrane of the cell is **selectively permeable** - molecules can
+only pass through it the membrane allows it.  The major factors determining if
+a molecule can/cannot pass:
+
+* size: smaller molecules pass through easier
+* attraction to water: hydrophobic molecules cross easier than hydrophilic.
+  There's a hydrophobic interior of the phosopholipid bilayer.  Hydrophilic
+  molecules require help from proteins to pass.
+
+Transport proteins help control what can enter/exit a cell.  Most molecules
+are too large or too attracted to water.  They can't cross without the help
+of the transport proteins.
+
+Molecules will evenly distribute between the interior/exterior of the cell.
+**Diffusion** is the movement of molecules from higher concentration to lower
+concentration to create an equilibrium.  It's called simple diffusion without
+the help of transport proteins.  It's called facilitated diffusion with help.
+
+There are two types of transport proteins that facilitate diffusion:
+
+* Channel proteins: they're like soda straws.  Polypeptide chains build straw
+  walls and create an open tunnel down the middle of the protein.  They form
+  tunnels through the membrane filled with water for molecules to pass through.
+  Some are always open.  Gated channels open/close in response to signals.
+* Carrier proteins: Each carrier protein has a binding site made for a specific
+  molecule type.  When it's binded, it changes shape and moves across.
+
+Water also diffuses - it's called **osmosis**.  It's passive and requires no
+energy from the cell.  Greater concentrations of water mean pure water and
+less solutes.
+
+* Hypertonic - solutions have a greater concentration of solutes
+* Hypotonic - solutions have a lesser concentration of solutes
+* Isotonic - solutions have equal concentration of solutes
+
+Cells need to move molecules from where they're less concentrated to where
+they're more concentrated - going against the flow.  They do this via 
+**active transport**.  It requires energy from the cell, usually ATP.  For
+example, carrier proteins change shapes using ATP from cells to carry molecules
+inside.  These active transport carrier proteins are called **pumps**.
+
+Multicellular organisms are made of a community of cells and it's important for
+them to communicate, act distributed, request/respond.  **Attachment** of cells
+form tissues.  **Communication** allows cells to coordinate signals/responses.
+
+There are many types of attachments:
+
+* tight junctions: so tight that water cannot pass through.  Proteins pass
+  through membranes of both cells.  Important for tissue like skin so foreign
+  molecules cannot pass through.
+* anchoring junctions: hold cells tightly but allow molecules to pass through
+  the space in between.  Important for tissue with structure but requires
+  demanding work like heart tissue.
+
+Anchoring junctions have subtypes:
+
+* desmosomes: use cadherins in the membrane of both cells.  Cadherins proteins
+  also with intermediate filaments in the cytoplasm of cells
+* hemidesmosomes: anchor cells to extracellular matrix using integrins proteins.
+* adherens junctions: anchor cells to each other and extracellular matrix
+
+Between cells in almost all animal tissue are **gap junctions** formed by
+connexins proteins.  They form rings on cell membranes called **pores**.  Two
+cells may align the pores and form tunnels between each cell for ion and small
+molecules to pass through.  Plant cells have similar tunnels called
+**plasmodesmata**.
+
+Signals from one cell will trigger a response in another far away - the signals
+are called **hormones**.  The hormone insulin is produced by pancreas cells to
+tell blood cells to take glucose out of the blood as a food source.
