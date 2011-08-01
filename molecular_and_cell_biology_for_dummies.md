@@ -740,3 +740,81 @@ Metabolism is all about getting what you need:
 * building blocks for growth/repair
 * energy for cellular work
 * reducing power
+
+Cellular Respiration: Every Breath You Take
+===========================================
+
+## Overview
+
+When you eat food, your digestive system breaks it down into small molecules.
+Your cells break it down further for energy.  The metabolic pathway to break
+food or capture stored energy for cells is called **cellular respiration**.
+It breaks down 3 of the important macromolecules: carbohydrates, proteins,
+and fats.
+
+1. During respiration, electrons are removed from food molecules and transferred
+   to an electron carrier NADH, then to oxygen (O2)
+2. At the end, the energy from the food is transferred to ATP
+3. Through chemical reactions, food is rearranged to waste products - carbon
+   dioxide and water
+
+Glucose is the starting point:
+
+    C(6)H(12)O(6) + 6O(2) -> 6CO(2) + 6H(2)O + energy  # ignores intermediaries
+
+Burning a marshmallow or paper shows the stored energy.  You're converting the
+sugars into carbon dioxide and water.  The energy becomes heat and light.
+
+During respiration, glucose is oxidized and oxygen is reduced.  When this
+electron is moved, it's part of a hydrogen atom.  The products are in a more
+stable state - so it's an exergonic reaction.  The energy gets transferred to
+ATP, a storable form.
+
+Cells actually go through many steps for this reaction.  Here's a rough overview:
+
+1. Glycolysis - oxidation of glucose begins, electrons transferred to NAD+.
+   Small amount of energy transferred to ATP.  Occurs in cytoplasm.
+2. Krebs Cycle - continues oxidation of intermediaries resulting in CO(2).
+   Occurs in the mitochondrion of the cell.
+3. Oxidative Phosphorylation (Electron Transport Chain) - transfers electrons
+   from carriers to electron transport chain.  Reduction of oxygen to produce
+   water.  Also occurs in mitochondrion of cell.
+
+## Glycolysis
+
+Glycolysis is a series of chemical reactions resulting in:
+
+* oxidation of glucose
+* transfer of small amount of energy to ATP
+* transfer of electrons to carrier NAD+
+
+The major events are:
+
+1. Bonds in glucose break and reform creating two molecules of pyruvate
+2. Enzymes transfer energy from ATP to intermediaries as the energy investment
+   phase.  Then more energy gets transferred back as the energy payoff phase.
+   For every molecule of glucose, 2 ATPs used and 4 comes back.
+3. Enzymes oxidize glucose and reduce NAD+ -> NADH+H+
+
+Some cells rely on glycolysis without the krebs cycle and electron transport
+chain.  They usually have a 2nd fermentation step to recycle the NADH.
+Lactic acid fermentation occurs if the hydrogen atoms is transferred to pyruvate,
+causing the NADH to become NAD again.  Alcohol fermentation removes a carbon and
+two oxygens from pyruvate and releases CO(2), resulting in acetaldehyde - which
+the NADH gives its hydrogen to.  Reduced acetaldehyde is ethanol (or alcohol).
+
+## Krebs Cycle
+
+The krebs cycle picks up after glycolysis, continues to oxidize the
+intermediates, and transfers energy.
+
+The major events are:
+
+1. Enzymes oxidize intermediates and reduce electron carriers
+
+## Electron Transport Chain
+
+## Breaking Complex Carbs, Proteins, and Fats
+
+## Anabolism (building new molecules) in Respiration
+
