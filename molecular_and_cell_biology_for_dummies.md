@@ -634,3 +634,109 @@ the pathway can activate many secondary messengers at once.
 Deactivating a signal happens when the primary messenger stops sending it.  Some
 molecules in the cell are used to shut the messenger down: phosphatases,
 activated G proteins, Ras proteins, and second messenger molecules.
+
+Metabolism: Transferring Energy and Matter
+==========================================
+
+Cells constantly convert energy/matter into different forms to get what they
+need.  They store energy in food molecules and break it down to get it out.
+
+**Metabolism** is all of a cell's chemical reactions - like breaking down food
+molecules or building muscle proteins.  Your body breaks down food and converts
+it into molecules you need.  **Catabolism** are reactions breaking larger
+molecules into smaller one.  **Anabolism** is the opposite.
+
+Let's review thermodynamics.  **Work** is moving something over a distance.
+**Energy** is something you need to do work.  The first two laws are important
+for molecular biology:
+
+* Energy can't be created or destroyed
+* Chemical reactions that occur spontaneously increase entropy (disorder) of
+  an isolated system
+
+Energy can be organized into **potential** or **kinetic** - from an object's
+position/arrangement or energy from motion of molecules.
+
+In cellular biology, spontaneous reactions are those that occur on their own
+without the need for energy.  An example of this is diffusion, which follows
+the second law.  Particles will flow from a concentrated area to less
+concentrated without energy - because it increases the disorder.
+
+Cells maintain their order by constantly using their stored energy to do
+nonspontaneous reactions.
+
+Kratz gives us a brick wall/pile analogy.  The brick pile is disorder and 
+spontaneous.  A brick wall is organized and requires work and energy.  Over time,
+the brick wall will become a pile of brick unless energy is used to maintain it.
+Reactions that build large, complex molecules require energy.  Reactions that
+break down to smaller molecules outputs energy.
+
+**Exergonic** reactions release energy.  **Endergonic** reactions absorbs it.
+
+You can determine if a chemical reaction is spontaneous or nonspontaneous by
+looking at the changes in **free energy**.  Gibbs free energy (G) is used to
+measure entropy/heat in a reaction.  A negative free energy (nG or deltaG) is a
+spontaneous reaction:
+
+    nG = G products - G reactants
+
+Some of the work cells do:
+
+* synthesis: build large/complex/structured molecules like DNA, proteins,
+  membranes, or ribosomes
+* organization: eukaryotic cells create compartments
+* creation of electrochemical gradients: cells organize ions to cause differences
+  in electrical charge which helps other reactions
+* transport and movement
+
+Cells break down food molecules for energy.  They use adenosine triphosphate,
+better known as **ATP**:
+
+1. Energy from food is transferred to ATP
+2. ATP provides energy for cellular work
+
+ATP is a nucleotide with the same building blocks as DNA/RNA: sugar ribose,
+nitrogenous base, three phosphate groups.  Cells continually build/break down
+ATP in ATP/ADP cycles.  They store energy by building ATP out of adenosine
+diphosphate (ADP) and phosphate groups.  They obtain energy by breaking ATP
+back into those components (breaking it down requires water).
+
+Metabolic changes are broken down into small steps, each a chemical reaction.
+Several reactions in a series make up a **metabolic pathway**.  Enzymes speed
+up chemical reactions by lowering the energy of activation.  Electrons are
+transferred between molecules during metabolic reactions.  Energy is also
+transferred during metabolic reactions.
+
+Chemical reactions usually happen in many small steps instead of one quick
+change so cells can control energy changes:
+
+    A -> B -> C -> D -> E -> F
+
+The starting molecule A is called the **substrate**.  The ending molecule F is
+the **product**.  B, C, D, E are called **intermediates**.
+
+Spontaneous reactions are just waiting to occur.  All they need is the right
+molecules to collide with just enough kinetic energy.  To initialize it, the
+amount of energy needed to trigger is called **energy of activation (Ea)**.
+
+**Enzymes** lower the energy of activation, making it easier/quicker for
+reactions to occur.  Every cell reaction is catalyzed by an enzyme.  Enzymes
+are very specific for substrates.  In the formula above (A->F), five enzymes
+are used - one for each reaction.
+
+**Productive collisions** are those with enough energy of activation for the
+reaction to occur.  Reactants must: collide, be oriented correctly, and have
+enough kinetic energy to overcome energy of activation.
+
+Enzymes will bind substrates in their active sites and move them into the
+correct orientation.  They can alter chemical bonds making reactions more likely.
+
+Electrons are usually transferred during metabolic reactions.  **Oxidation** is
+when a molecule gives up an electron.  **Reduction** is when a molecule gains
+an electron (reduced in charge).
+
+Metabolism is all about getting what you need:
+
+* building blocks for growth/repair
+* energy for cellular work
+* reducing power
