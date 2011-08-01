@@ -617,3 +617,20 @@ molecules to pass through.  Plant cells have similar tunnels called
 Signals from one cell will trigger a response in another far away - the signals
 are called **hormones**.  The hormone insulin is produced by pancreas cells to
 tell blood cells to take glucose out of the blood as a food source.
+
+A cell can recognize signals only if it has a **receptor** for it.  Kind of like
+the observer pattern.  They've got receptors in two locations: inside the cells
+for signaling molecules which can cross the membrane, in the plasma membrane for
+other molecules.
+
+Receptor proteins have binding sites for signals.  When ligands - signaling
+molecules - bind to these proteins, they change shape and set off a series of
+events in the cell.  This process is called **signal transduction**.
+
+A signal may be amplified via a **signal transduction pathway**.  This is similar
+to the series of chain reactions of signal transduction.  They main difference is
+the pathway can activate many secondary messengers at once.
+
+Deactivating a signal happens when the primary messenger stops sending it.  Some
+molecules in the cell are used to shut the messenger down: phosphatases,
+activated G proteins, Ras proteins, and second messenger molecules.
