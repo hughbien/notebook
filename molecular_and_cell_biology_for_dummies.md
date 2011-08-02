@@ -811,10 +811,65 @@ intermediates, and transfers energy.
 The major events are:
 
 1. Enzymes oxidize intermediates and reduce electron carriers
+2. Enzymes break bonds and rearrange atoms in intermediates, removing carbon and
+   oxygen atoms and releasing them as CO(2)
+3. Enzymes transfer energy to ATP
 
-## Electron Transport Chain
+This produces a total of 2 ATPs per glucose.
+
+## Oxidative Phosphorylation (Electron Transport Chain)
+
+Chemiosmotic theory of oxidative phosphorylation - a big name to explain how
+energy and electrons from food help make ATP.  By the end of glycolysis a cell
+hasn't made much ATP but has made many reduced electron carriers: NADH+H+ and
+FADH(2).  These molecules can cash those electrons to make ATP.
+
+**Electron transport chains** are made of large protein complexes embedded in
+a membrane.  They accept electrons and pass them from complex to complex.  They
+have an enzyme called ATP synthase.  During oxidative phosphorylation, protons
+enter a small channel in ATP synthase and exits on the matrix side.  The synthase
+has binding sites for ADP and P.  Every three molecules provides enough energy
+for the synthesis of one ATP from ADP and P.
+
+The most electronegative molecule in the electron transport chain is O(2).  The
+proton ends up there, which is why H(2)O is a waste product of respiration.
 
 ## Breaking Complex Carbs, Proteins, and Fats
 
+Food molecules besides glucose need to change into intermediates in glycolysis
+or the Krebs cycle before being oxidized.
+
+Of all the food molecules, carbohydrates are the easiest to digest because many
+of the intermediates in glycolysis are carbohydrates.  Simple sugars, like
+glucose, don't need an extra step.  Complex carbs are just polymers of simple
+sugars, so it's also easy to break down.
+
+Enzymes called lipases break fats/oils down into glycerol and fatty acids.
+These two are then fed to cellular respiration.  Glycerol is a 3-carbon compound
+that's an intermediate to glycolysis.  Fatty acids are broken into 2-carbon 
+fragments, then acetyl-CoA - an intermediate of the Krebs cycle.
+
+Proteins require the most work.  They're polymers, so they get broken down into
+their building blocks.  Then enzymes make major alterations to the amino acids
+so they become intermediates to glycolysis or the Krebs cycle.
+
 ## Anabolism (building new molecules) in Respiration
 
+Cellular respiration must break down many molecules before building new ones.
+It's a two way street.  Catabolism breaks down food molecules, but anabolism
+builds new molecules from the intermediates.
+
+If a cell needs to build a macromolecule, the intermediates can be used from
+cellular respiration to build it.
+
+## In the Real World
+
+We all know "eat less, exercise more" leads to losing weight.  This is partly
+due to cellular respiration.
+
+Exercising causes cells to use more ATP and increase the amount of ADP.  ADP
+stimulates enzymes in cellular respiration, triggering an increase in the
+breakdown of food molecules.
+
+If you combine this with the decreased food, cells will have to use the currently
+stored food molecules to fuel respiration.  They turn to stored fat.
