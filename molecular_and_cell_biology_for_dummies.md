@@ -873,3 +873,67 @@ breakdown of food molecules.
 
 If you combine this with the decreased food, cells will have to use the currently
 stored food molecules to fuel respiration.  They turn to stored fat.
+
+Photosynthesis: Makin' Food in the Kitchen of Life
+==================================================
+
+## Overview
+
+Plants, algae, and some bacteria do photosynthesis.  Photosynthesis uses energy
+from the sun, matter from CO(2), H(2)O to form carbohydrates.  With these
+carbohydrates and some minerals, living things can build all the molecules needed
+for life: proteins, carbohydrates, lipids, and nucleic acids.
+
+Photosynthesis summarized is this chemical reaction:
+
+    6CO(2) + 6H(2)O + light energy -> C(6)H(12)O(6) + 6O(2)
+
+Carbon, hydrogen, and oxygen atoms rearrange to form glucose and oxygen.  The
+reactants come from the air and soil.  The products end up in the plant body
+(sugars) or waste back into the atmosphere (oxygen).
+
+Light energy from the sun becomes chemical energy stored in the bonds of sugar.
+
+## What Plants Need
+
+Plants are **autotrophs**, meaning self-feeding, they can make their own food.
+Plant structures are specialized to take in materials:
+
+* Roots take water from the soil
+* Xylem, tubes of cells for water transport, moves water from roots throughout
+  the plant
+* Phloem, tubes of cells for sugar transport, moves sugars from green leaves to
+  the rest of the plant
+* Stomates, pores on leaves, let carbon dioxide into leaves
+* Chlorophyll, green pigment on leaves, absorb light
+
+Plants don't need the soil.  It's useful for them to stand in and get water from.
+Also, minerals from the soil sometime help with metabolism - but they're not
+necessary.
+
+They just need the sunlight, water, and carbon dioxide.
+
+Plants capture the electromagnetic radiation within the visible light band from
+the sun for photosynthesis.
+
+## Calvin Cycle and Light Reaction
+
+Photosynthesis is made up of multiple small reactions.
+
+In light reactions, plants capture light energy from the sun and transform it
+into chemical energy in the form of ATP.  They also take electrons from H(2)O
+and transfer them to electron carrier NADPH.
+
+In the Calvin cycle, plants capture CO(2) and convert it into carbohydrates.
+To do this conversion, they need the ATP and NADPH's electrons from the light
+reactions.
+
+## Photosynthesis in the Real World
+
+Carbohydrates made by plants, algae, and bacteria serve as the food for all
+life on Earth.  Plants are on the bottom of every food chain.  Autotrophs
+make their own food, heterotrophs eat autotrophs:
+
+    Sun -> Grass -> Cow -> Human
+
+You can see how the energy from the sun eventually makes its way to you.
