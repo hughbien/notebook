@@ -1015,10 +1015,18 @@ chromatid pairs.  They're made of microtubules which are cytoskeletal proteins.
 
 Mitosis consists of four phases:
 
-* Prophase
-* Metaphse
-* Anaphase
-* Telophase
+* Prophase - chromosomes coil up (condense), nuclear membrane breaks down so the
+  mitotic spindle can reach into the center, mitotic spindle attaches to the
+  chromosomes, nucleoli break down
+* Metaphase - cells organize chromosomes by lining them up in the middle of the
+  mitotic spindle.  There's a metaphase checkpoint to make sure it's attached.
+* Anaphase - replicated chromosomes separate and each sister chromatid goes to
+  opposite sides of the cell
+* Telophase - reverses the events of prophase.  Chromosomes uncoil, nuclear
+  membrane reforms, mitotic spindle brakes down, nucleoli reforms
 
 ## Cytokinesis
 
+After the chromosomes separate and nuclear membrane reforms, the cytoplasm
+separates and forms two distinct cells.  The separation of cytoplasm is called
+**cytokinesis**.
