@@ -930,10 +930,95 @@ reactions.
 
 ## Photosynthesis in the Real World
 
-Carbohydrates made by plants, algae, and bacteria serve as the food for all
-life on Earth.  Plants are on the bottom of every food chain.  Autotrophs
-make their own food, heterotrophs eat autotrophs:
+Carbohydrates made by plants, algae, and bacteria serve as the food for all life
+on Earth.  Plants are on the bottom of every food chain.  Autotrophs make their
+own food, heterotrophs eat autotrophs:
 
     Sun -> Grass -> Cow -> Human
 
 You can see how the energy from the sun eventually makes its way to you.
+
+Splitsville: The Cell Cycle and Cell Division
+=============================================
+
+## Overview
+
+Eukaryote division is a little more complicated than prokaryote division.  This
+chapter goes over the steps of a cell cycle and cell division.
+
+All cells come from pre-existing cells.  They divide for:
+
+* Growth - most living things started as a single cell (embryote).  That single
+  cell kept dividing to grow into you
+* Repair - if a multicellular organism is wounded, cells surrounding the wound
+  will reproduce to repair the tissue
+* Reproduction - single cell organisms reproduce by making clones
+
+## Bacteria & Binary Fission
+
+Bacteria uses a simple process of copying their cells called **binary fission**:
+
+1. Bacterial cell makes a copy of its chromosomes
+2. The cell gets larger as it makes copies of ribosomes and molecules in the
+   cytoplasm
+3. New plasma membrane and a cell wall are built to divide the cell in two
+
+Some bacteria can finish this in two minutes.  That's one to a thousand cells
+in less than 2 hours.
+
+## Cell Cycle
+
+Some cells divide all the time, like cells on the skin and mucous membrane.
+They're constantly being shed from the body and need to be replaced.
+
+Some cells divide when signaled, like liver cells which only divide if the liver
+has been damaged.
+
+Some cells don't usually divide, like cells in nervous tissue.  That's why nerve
+damage cannot be repaired.
+
+The dividing phase of eukaryotic cells is called **mitosis**.  The nondividing
+phase is called **interphase** which is made up of three subphases: G1, S, and
+G2.  The alternating cycle of mitosis/interphase is the **cell cycle**.
+
+Cells spend most of their time in interphase G1 (Gap 1).  They're active and
+functioning.  Mature cells that don't divide stay in G0.  In order to get to
+the next phase for division, cells must pass a checkpoint.  If they fail, they
+commit cell suicide - **apoptosis**.  The checks are:
+
+* Signals that tell cell to divide
+* Must have plenty of nutrients
+* DNA must be in good condition
+* Must be large enough to divide
+
+At S (synthesize) phase, cells copy their DNA via DNA replication.  After the
+DNA is copied, cells proceed to G2 (Gap 2).  At G2, cells check the work they
+did during S as another checkpoint:
+
+* The DNA can't be damaged
+* Cell copied all chromosomes
+* Signals tell cell to proceed into mitosis
+
+If all checks are valid, the cell goes into mitosis.
+
+## Chromosomes & Mitosis
+
+At this stage, cells have duplicated DNAs and are ready to divide into two.
+Each cell needs a complete set with one of every chromosome.
+
+You have 46 chromosomes (23 pairs) in each cell of your body.  During S phase,
+they're duplicated.  Each one has an identical copy (sister chromatid) that
+remains attached at the centromere - forming an X shape.
+
+The **mitotic spindle** is a cell structure responsible for separating the
+chromatid pairs.  They're made of microtubules which are cytoskeletal proteins.
+
+Mitosis consists of four phases:
+
+* Prophase
+* Metaphse
+* Anaphase
+* Telophase
+
+## Cytokinesis
+
