@@ -208,4 +208,97 @@ Expose yourself to the possibility of doing better.  Look for people with a
 list of accomplishments that you want to emulate.  You'll find out it's possible,
 and maybe learn how to do it yourself.
 
+**Learn to listen**
 
+Newport argues that your undergraduate years are should be spent developing an
+ability to synthesize ideas and learn.
+
+**Never pull an all-nighter**
+
+Schedule things in advance!  Don't wait until the day right before a deadline.
+
+**Laugh every day**
+
+**Use high quality notebooks**
+
+**Keep a work progress journal**
+
+**Seek out fun**
+
+If you don't actively seek out fun, it won't actively seek you out.
+
+**Inflate your ambition**
+
+Take the most important projects or commitments you have and pump up the
+criteria for success.
+
+**Get involved with your major department**
+
+**Care about your grades, ignore your GPA**
+
+**Always go to class**
+
+Quizzes/exams are almost always lecture based.  Classes are where most of your
+learning should be - not in reading assignments.
+
+**Set arbitrary deadlines**
+
+Set milestones to prevent procrastination.
+
+**Eat healthy**
+
+**Volunteer quietly**
+
+Keep the experience personal to purify your motivations.
+
+**Write as if going for a Pulitzer**
+
+Approach every paper as if you're trying to win a Pulitzer Prize for explanatory
+reporting.
+
+**Attend political raffles**
+
+**Maximize your summers**
+
+Summer vacations shouldn't be viewed as vacations.  Instead, you should focus
+on your non-academic goals.
+
+**Choose goals, explore routes**
+
+Once you've decided on a destination, explore the different routes that will
+get you there.
+
+**Don't take breaks between classes**
+
+Momentum is a great thing.  Giving yourself downtime will make you less sharp
+for lectures.  Use the time in between classes to get stuff done.
+
+**Don't network**
+
+**Publish op-eds**
+
+**Use a filing cabinet**
+
+**Find a secret study place**
+
+**Study with the quiz-and-recall method**
+
+Build a study system specifically for your major.  The quiz-and-recall method
+can be an amazing part of your study system.  The first step is to gather all
+relevant material and create a quiz.  The next step is to actually quiz yourself.
+Don't just think the solutions, write it out or answer it out loud.  Make sure
+you understand the general concepts.  See How to Become a Straight-A Student
+notes for more details.
+
+**Empty your inbox**
+
+**Relax before sleep**
+
+**Start fast, end slow**
+
+Approach all projects by starting fast and ending slow.  This will make you more
+relaxed and defeat procrastination.
+
+**Spend a semester studying abroad**
+
+**Don't have no regrets**
