@@ -948,7 +948,7 @@ chapter goes over the steps of a cell cycle and cell division.
 
 All cells come from pre-existing cells.  They divide for:
 
-* Growth - most living things started as a single cell (embryote).  That single
+* Growth - most living things started as a single cell (zygote).  That single
   cell kept dividing to grow into you
 * Repair - if a multicellular organism is wounded, cells surrounding the wound
   will reproduce to repair the tissue
@@ -1030,3 +1030,57 @@ Mitosis consists of four phases:
 After the chromosomes separate and nuclear membrane reforms, the cytoplasm
 separates and forms two distinct cells.  The separation of cytoplasm is called
 **cytokinesis**.
+
+Meiosis: Getting Ready for Baby
+===============================
+
+## Overview
+
+Organisms that reproduce sexually produce eggs and sperms that join to make a
+new individual.  Eggs and sperm are sex cells or germ cells.  To produce them,
+cells need to go through a special dividing process called **Meiosis**.
+
+Body cells called **somatic cells** have twice the genetic information of the
+**gamete cells** (eggs/sperm).  Somatic cells produce gametes via meiosis.
+
+The life cycle is:
+
+1. Somatic cells undergo meiosis to produce gamete cells
+2. Sperm and eggs join to create the first cell called a **zygote**
+3. Zygote divides to form a multicellular organism
+
+## Chromosomes
+
+Gametes have half the number of chromosomes as somatic cells.  One complete set
+of chromosomes is called the **haploid number** and is usually represented with
+the letter N.  Two complete sets are 2N or **diploid number**.  Humans have 23
+pairs - so our haploid number is 23.  Gamete cells are haploid, whereas zygotes
+are diploid.
+
+Cells have matching pairs of chromosomes called **homologous chromosomes**.
+Each human gamete contributes one set of 23 chromosomes.
+
+Scientists can differentiate chromosomes based on a few characteristics:
+
+* Chromosome length
+* Position of centromere during DNA synthesis
+* Staining patterns
+
+22 pairs are exactly the same and are called **autosomal chromosomes**.  The
+23rd pair is different between men and women.  It's called the
+**sex chromosomes**.  Men have a large X and small Y, women have two large X's.
+
+## Steps of Meiosis
+
+Meiosis is a special type of cell division which separates homologous pairs of
+chromosomes so that gametes receive one of each type of chromosome.
+
+Meiosis is similar to mitosis in many ways:
+
+* Cells undergoing meiosis will receive a signal causing them to leave G1 of
+  interphase and enter S1
+* At S phase, cells copy all chromosomes creating identical sister chromatids
+  attached at the centromere
+* Cells proceed through G2 and enter into meiosis
+* Chromosomes are moved in a similar way to mitosis and have the four phases
+  just like mitosis
