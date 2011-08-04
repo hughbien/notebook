@@ -1084,3 +1084,41 @@ Meiosis is similar to mitosis in many ways:
 * Cells proceed through G2 and enter into meiosis
 * Chromosomes are moved in a similar way to mitosis and have the four phases
   just like mitosis
+
+The purpose of meiosis I is to separate pairs of homologous chromosomes.
+Meiosis II separates sister chromatids.
+
+Meiosis 1:
+
+1. Prophase 1: nuclear membrane breaks down, nucleoli disappear, homologous
+   chromosomes find each other and pair up.  The chromosomes coil up and spindle
+   attaches to chromosomes
+2. Metaphase 1: chromosome pairs line up in middle of cell
+3. Anaphase 1: chromosome pairs separate, one from each goes to opposite ends
+   of cell
+4. Telophase 1: nuclear membrane forms to make two nuclei, they're haploid
+5. Cytokinesis: formation of two cells
+
+After meiosis 1, both cells skip interphase and go straight to meiosis 2:
+
+1. Prophase 2: spindle forms and attaches to chromosomes, breaks nuclear membrane
+2. Metaphase 2: chromosomes are lined up in the middle of the cell
+3. Anaphase 2: sister chromatids are separated and move to opposite sides of
+   the cell
+4. Telophase 2: chromosomes uncoil, spindle breaks down, nuclear membrane reforms,
+   nucleoli reappear
+5. Cytokinesis: formation of two cells each - total of four cells
+
+## Crossing Over
+
+During prophase 1 of meiosis 1, sometimes bits of DNA are swapped between two
+homologous chromosomes via a process called **crossing-over**.  It actually
+swaps pieces of chromosomes from Mom with Dad and vice versa.
+
+Crossing over helps increase the genetic diversity of gamete cells.  The steps
+are:
+
+1. Homologous chromosomes are attached all long their length
+2. Proteins make small cuts into the DNA backbone of chromosomes
+3. Proteins reseal the breaks in the DNA backbone, attaching pieces of one
+   homologous chromosome to the other
