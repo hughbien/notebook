@@ -1122,3 +1122,69 @@ are:
 2. Proteins make small cuts into the DNA backbone of chromosomes
 3. Proteins reseal the breaks in the DNA backbone, attaching pieces of one
    homologous chromosome to the other
+
+Mendelian Genetics: Talkin' 'Bout the Generations
+=================================================
+
+## Overview
+
+**Genetics** is the study of how parents pass traits on to their children.
+Gregor Mendel began work on genetics and is credited to starting the field.  He
+made a few laws known as Mendel's Laws:
+
+* Law of Dominance: one form of a trait can hide another form.  The hidden form
+  is said to be **recessive** and the other is **dominant**
+* Law of Segregation: gametes (sperm, eggs) only receive one of two messages for
+  each trait from the adult
+* Law of Independent Assortment: each pair of genetic messages sort itself
+  independently from other pairs of genetic messages - roundness and color are
+  segregated independently
+
+## Lingo
+
+Here are some keywords used in genetics:
+
+* Gene: a message for a particular trait
+* Allele: different variations of a gene
+
+For example, pea plants have a gene for flower color.  One allele is purple
+flowers while another is white flowers.
+
+* Genotype: total of all genetic messages in an organism
+* Phenotype: the way an organism appears and functions because of its genes
+* Homozygous: when an organism has two identical alleles for a gene
+* Heterozygous: when an organism has two different alleles for a gene, sometimes
+  called hybrid
+
+When analyzing breeding, scientists have some common notations:
+
+* P1 is the parental generation and always pure-breeds
+* F1 is the first generation resulting from two P1s,
+  stands for first filial generation
+* F2 is the second generation resulting from two members of F1
+
+## Punnett Squares
+
+Punnett squares are grids used to figure out the probability of alleles.
+The edges are symbols representing alleles, the squares are possible combos,
+capital letters for dominant, lower case for recessive:
+
+        r    r           R    r
+      +----+----+      +----+----+
+    R | Rr | Rr |    R | RR | Rr |
+      +----+----+      +----+----+
+    R | Rr | Rr |    r | Rr | rr |
+      +----+----+      +----+----+
+
+The left punnett square represents members of P1.  RR is the round pea, rr is the
+recessive wrinkled pea.  No matter what, offspring will always end up Rr - round.
+
+The right punnett square represents members of F1.  Here you have a 3:1 ratio of
+round peas to wrinkled peas.
+
+## Meiosis
+
+Scientists today have discovered the factors of inheritance that Mendel proposed
+are located on chromosomes made of DNA.  Parents have two copies of each gene,
+they segregate when given to the offspring.  The segregation occurs during
+anaphase 1 of meiosis.
