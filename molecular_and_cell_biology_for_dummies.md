@@ -1188,3 +1188,92 @@ Scientists today have discovered the factors of inheritance that Mendel proposed
 are located on chromosomes made of DNA.  Parents have two copies of each gene,
 they segregate when given to the offspring.  The segregation occurs during
 anaphase 1 of meiosis.
+
+Expect the Unexpected: Non-Mendelian Patterns of Inheritance
+============================================================
+
+## Overview
+
+Traits don't always behave the way Mendel described.  Scientists have discovered
+types of inheritance that are complicated by other factors:
+
+* Incomplete Dominance: phenotype is somewhere between the dominant and recessive
+* Codominance: two different alleles contribute equally to phenotype
+* Pleiotropy: one gene has an effect on many different phenotypes
+* Polygenic Traits: many genes effect one phenotype
+* Linked Genes: close together on chromosome and break law of indie assortment
+* Sex-linked Traits: located on the sex chromosomes, X or Y
+
+## Incomplete Dominance
+
+The dominant allele only partially masks the presence of the recessive allele.
+A good example is the color of snapdragons.  The red (R) allele is incompletely
+dominant to the white (W) allele.  RR is red, WW is white, RW is pink.
+
+## Codominance
+
+Codominance is similar to incomplete dominance, except there's no blending.
+Both traits will show up in the offspring.  For the snapdragon example, both
+red and white colors will appear in the flower.
+
+A real world example is blood type.  There are three alleles: IA, IB, and i.
+They represent the blueprint of enzymes that attach carbohydrates to your blood
+cells.  IA attaches carbohydrate A.  IB attaches carbohydrate B.  Allele i does
+not attach a carbohydrate.
+
+IAIA or IAi offspring have A blood type.  IBIB or IBi offspring have B blood
+type.  IAIB have AB blood type - both carbohydrates will be present.  ii will
+have O blood type.
+
+## Pleiotropy
+
+Genes that affect more than one trait are called pleiotropy.  A good example is
+the gene that causes sickle cell anemia.  The hemogoblin gene controls the
+structure and function of hemogoblin.  When two recessive, defective alleles are
+present they also:
+
+* Cause anemia and extreme fatigue due to destruction of red blood cells
+* Cause sickled cells that plug capillaries
+* Cause the kidney and spleen to fail
+
+## Polygenic Traits
+
+When many genes effect one phenotype, the trait is polygenic.  For example,
+eye color is polygenic.
+
+Eye color is determined by the amount of melanin in your eye.  There are many
+genes which control the melanin deposit in your eye/face/skin.  People with
+dark eyes have a lot of melanin, people with light eyes have fewer melanin.
+The alleles which deposits a lof of melanin are dominant to the alleles which
+deposit fewer.
+
+Since there are many genes for the eye color trait, there's a wide range of
+eye colors.  From dark brown to light blue, there's green and even purple.
+
+## Linked Genes
+
+Some traits are linked together.  A person who is heterozygous for two traits,
+controlled by genes A and B, will make different gametes depending on if the
+genes are unlinked or linked:
+
+* if independent, a heterozygote (AaBb) will make gametes of all possible
+  combinations: AB, Ab, aB, and ab
+* if linked, a heterozygote (AaBb) will only make AB or ab
+
+Traits are linked because the genes are located on the same chromosome.  The
+tendency of linking is correlated with how close they are together.
+
+Genes that are very close together are said to be completely linked - they
+always appear linked.  The only time they aren't is if cross-over occurs.
+
+## Sex-Linked Inheritance
+
+Some traits break Mendel's law because they aren't equally inherited by males
+and females.  These are known as sex-linked traits.  This happens when the gene
+is on the X or Y chromosomes.
+
+X-linked dominant traits affect both males and females.  Y-linked traits affect
+only men.
+
+The human X chromosome contains more than a thousand genes, while the human
+Y chromosome only has about 200 genes.
