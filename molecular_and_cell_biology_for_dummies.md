@@ -1370,3 +1370,84 @@ sequences called **telomeres**.  They act like buffers which can be shortened
 because they don't contain useful information for the cell.  Once it becomes
 too short, though, the cell can no longer divide without losing critical
 information.
+
+Transcription and Translation: What's in a Gene?
+================================================
+
+## Overview
+
+DNA contains the genetic code of the cell which controls the cell's structure
+and function.  This chapter explains how the cell uses those instructions to
+make worker molecules - which actually does the cell's function.
+
+The worker molecules are:
+
+* RNA molecules - information carriers and enzymes (called ribozymes)
+* Proteins - main worker molecules performing wide range of functions
+
+A **gene** is the blueprint for a single worker molecule.  If your genome is a
+file cabinet, chromosomes are drawers, and genes are files.  Humans have 46
+chromosomes and ~22,500 genes.
+
+A high level view of how we go from DNA to proteins:
+
+1. Gene in DNA is copied into a messenger molecule called 
+   **messenger RNA or mRNA** via a process called **transcription**.
+2. mRNA goes to ribosomes where it goes through **translation** to build a
+   protein.  The protein is made from amino acids attached to 
+   **translation RNA or tRNA**.
+
+The flow of information to build a protein (DNA -> RNA -> protein) is called the
+**central dogma of molecular biology**.
+
+## Transcription
+
+During transcription, the double helix of DNA is opened and one strand of DNA
+is used as a template for construction of an RNA molecule.  Transcription can
+make several types of RNA, not just mRNA.
+
+Genes only make up 2% of DNA, we're still trying to figure out what the other
+98% do.
+
+Cells recognize genes for proteins by their **promoters** - unique sequences of
+DNA located at beginning of genes.  Going back to the file cabinet analogy,
+promoters are like those tabs on files that let you quickly find a file.
+
+**RNA polymerase** is the enzyme that reads genes and copies the information
+into RNA.  It also catalyzes the covalent bonds between nucleotides.  The DNA
+strand being read is called the **template strand**.  The other is called
+**nontemplate strand (also called coding strand)**.
+
+RNA polymerase need helpers to recognize promoters.  In bacteria,
+**sigma proteins** attach to the polymerase and form a holoenzyme.  The
+holoenzyme attaches to promoters and the polymerase can begin transcription.
+In eukaryotes, the regulary proteins are **transcription factors**.
+
+**Transcription terminators** are the opposite of promoters, they mark the end
+of genes.  It contains code that makes the RNA to fold back on itself, forming
+a hairpin loop and knocking the RNA polymerase off the DNA.
+
+The transcribed RNA is still not ready to be translated.  Right now it's called
+**pre-mRNA or primary RNA transcript**.  The RNA code contains **introns** - 
+short stretches of nucleotides that don't code for the protein.  These introns
+need to be removed.  The portions which contain code for proteins are called
+**exons**, which remain in the final mRNA.
+
+    Exons are expressed; introns are interrupt
+
+Particles called snRPs ("snurps") made from RNA/proteins remove the introns.
+This method is called splicing.  After splicing, the cell has two more steps:
+
+1. A protective cap - 5' cap - is added to the 5' end.  It identifies finished
+   mRNA for the cell
+2. Enzymes clip off the 3' end of the pre-mRNA and replace it with between
+   100 and 250 adenine nucleotides called the **poly-A tail** which protects
+   the finished mRNA
+
+## Translation
+
+The mRNA is shipped out to the ribosomes in the cell's cytoplasm.  The tRNAs
+use the mRNA to build the protein.
+
+## Mutation
+
