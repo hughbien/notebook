@@ -1277,3 +1277,96 @@ only men.
 
 The human X chromosome contains more than a thousand genes, while the human
 Y chromosome only has about 200 genes.
+
+DNA Synthesis: Doubling Your Genetic Stuff
+==========================================
+
+## Overview
+
+Cells copy their DNA by a process called **DNA Replication**.  Before a cell
+divides, it needs to copy its DNA which contains the blueprints of functioning.
+Any mistake in the DNA code is called a **mutation**, which could mess up the
+cell's functioning.
+
+To make an exact copy of DNA, cells use **semiconservative replication**.  The
+two halves separate and each half serves as a template to synthesize another
+half.  Each old strand gets a new partner.
+
+## Enzymes
+
+The enzymes involved in DNA replication:
+
+* Helicase breaks or melts the hydrogen bonds that hold the two halves of the
+  double helix together
+* Topoisomerase breaks and reseals the backbone to release tension
+* Primase (RNA polymerase) puts down small pieces of RNA called **primers**,
+  serving as starting points for copying the DNA
+* DNA polymerase makes new strands of DNA.  DNA polymerase III builds new strand
+  using complements of the template.  DNA polymerase I replaces RNA nucleotides
+  in the primer with DNA nucleotides
+* DNA ligase seals up breaks in the DNA backbone by forming covalent bonds
+
+The enzymes work together in a crew, called enzyme complex.  They slide along
+the DNA, copying as they go.
+
+## Replication
+
+DNA replication starts at specific locations of chromosomes called
+**origins of replication**.  Proteins recognize the origin, opens the helix
+there, and the enzyme complexes begins copying the DNA.  Two enzyme complexes
+move in opposite directions, copying DNA in both directions.
+
+As replication occurs, a **replication bubble** is formed.  On both sides are
+V-shaped areas where DNA is being opened upcalled **replication forks**.  This
+happens because the enzyme complexes are moving in opposite directions.  The
+forks are where copying is currently occurring.
+
+After DNA has been opened at the origin, the enzyme helicase catalyze the
+breaking of hydrogen bonds.  Helicase is like the metal piece that slides along
+zippers.  Once separated, proteins called single-strand DNA-binding proteins
+will hold the DNA open so the strands don't re-bond.
+
+As the strands get separated, the double helix backbone gets tension.
+Topoisomerase catalyzes the breaking of covalent bonds in the backbone.  This
+untwists DNA and relieves the backbone of tension.
+
+Primase creates short pieces of RNA (primers) that are complementary to the
+DNA.  Once the primers are made, DNA polymerase III starts attaching DNA
+nucleotides to the 3' ends of the primers.  It uses the original strand of DNA
+as a template and continues synthesizing DNA down the line.
+
+DNA polymerase I slides along the new DNA strand and replaces the RNA nucleotides
+with their DNA counterpart.
+
+Some covalent bonds are missing in the backbone now.  There are gaps between the
+primers and the DNA synthesized by DNA polymerase III.  The ligase enzyme goes
+along the strand and seals those gaps in the backbone.
+
+## Leading and Lagging Strands
+
+The two strands of the double helix are antiparallel to each other.  The 5' and
+3' ends are always pointing in opposite directions.
+
+DNA polymerase III always adds nucleotides to the 3' ends.  This presents a
+problem to the enzyme complex, which moves as one unit.
+
+To solve it, DNA polymerase creates short pieces of DNA and then skips to the
+next primer.  These pieces are called **Okasaki fragments**.
+
+The new strand made in fragments is called the **lagging strand**.  This strand
+must be started over and over again.  RNA polymerase keeps putting down primers
+so the DNA polymerase III can keep working.
+
+The opposite strand doesn't have this problem and is called the
+**leading strand**.  Remember, the leading/lagging strand always refer to the
+new strands of DNA.  Also remember, DNA always have nucleotides added to the
+3' ends.
+
+Cells with linear chromosomes (including humans) the lagging strand gets shorter
+every time the DNA is copied.  This happens at the very end of chromosomes.
+Once the primer is removed, there's no room for a new primer and DNA can't copy
+without a primer.  The ends of chromosomes are capped with repetitive DNA
+sequences called **telomeres**.  They act like buffers which can be shortened
+because they don't contain useful information for the cell.  Once it becomes
+too short, though, the cell can no longer divide without losing critical
+information.
