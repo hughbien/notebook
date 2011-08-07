@@ -1447,7 +1447,75 @@ This method is called splicing.  After splicing, the cell has two more steps:
 ## Translation
 
 The mRNA is shipped out to the ribosomes in the cell's cytoplasm.  The tRNAs
-use the mRNA to build the protein.
+use the mRNA to build the protein.  The cell reads mRNA in blocks of three
+nucleotides called **codons**.  Each codon tells the cell which amino acid to
+attach to the polypeptide chain.
+
+Twenty different amino acids exist and there are 64 possible combinations for
+codons (4^3).  The genetic code is redundant, some amino acids are represented
+by more than one codon.
+
+Scientists have made a codon dictionary.  Given a strand of RNA, you can figure
+out which amino acids they represent and in what order.  Follow these steps:
+
+1. Find large row on left of table with first letter of codon
+2. Find column that's the second letter of codon, use the entire area
+3. For the area, find small row on right of table with third letter of codon
+4. The intersection of all three is the amino acid
+
+Each mRNA molecule has a section near the 5' cap that's recognizable by the
+ribosome called the **ribosomal binding site** and isn't part of the code for
+protein.  The protein code starts at the START codon or AUG.  It's decoded in
+the 5' to 3' direction until it hits a STOP codon (UAA, UGA, or UAG).  Then
+just read each nucleotide by groups of three.
+
+**tRNA or Transfer RNA** is the decoder.  tRNA molecules carry in the amino
+acids for the protein and figure out where to place them in the polypeptide
+chain.
+
+tRNA molecules have an **anticodon** structure made up of three nucleotides.
+These three nucleotides will pair with the codon of mRNA, binding with hydrogen
+bonds just like the two strands of DNA.  For example, the tRNA's anticodon may
+be 3'UAC5' and will fit correctly with mRNA's 5'AUG3'.  40 tRNAs exist.
+
+The matching arranges the amino acids in the correct order - which mRNA decides.
+Ribosomes organize the meeting of mRNA and tRNA.  Ribosomes have pockets called
+the A site, P site, and E site.  tRNAs enter through the A site, move through
+the P site, and exit at the E site.  The ribosome also catalyzes peptide bonds
+as they're being brought together.
+
+Translation occurs in three phases:
+
+1. Initiation of translation: subunit of ribosome binds to mRNA, tRNA binds its
+   anticodon to the START codon, large subunit of ribosome binds to small
+   subunit and mRNA.  Second codon of mRNA is at A site.
+2. Elongation of translation: amino acids are brought together and joined to
+   form a polypeptide chain
+3. Termination of translation: stop codon enters A site and is recognized by
+   an enzyme called **release factor**, which catalyzes the break up
 
 ## Mutation
 
+Changes in DNA are called **mutations** and may result in disease or death.
+DNA polymerase doesn't often make mistakes copying DNA and it proofreads its
+own work.  It still makes one uncorrected mistake for approximately every
+billion base pairs of DNA.  Mutations that just happen because of the enzyme
+are called **spontaneous mutations**.
+
+Cells have a lot of DNA.  Every time a cell divides, there will be approximately
+six mutations.
+
+Certain chemicals and types of radiation in the environment will increase the
+mutation rate of DNA polymerase.  Agents that increase the rate are **mutagens**
+and mutations that result from it are **induced mutations**.
+
+Cells can function fine with mutations due to a few reasons.  Not all mutations
+cause changes in proteins - they may change DNA outside of genes.  Even if it
+does occur in the gene, it may not affect the final protein (AAA and AAG code
+for the same amino acid).  These are **silent mutations**.
+
+Other types of mutations are:
+
+* Missense mutations change of amino acids in proteins
+* Nonsense mutations prematurely encode a stop codon for proteins
+* Frameshift mutations causes reading frame of mRNA to be altered
