@@ -1519,3 +1519,149 @@ Other types of mutations are:
 * Missense mutations change of amino acids in proteins
 * Nonsense mutations prematurely encode a stop codon for proteins
 * Frameshift mutations causes reading frame of mRNA to be altered
+
+Control of Gene Expression: It's How You Play Your Cards That Counts
+====================================================================
+
+## Overview
+
+**Gene regulation** is about cells choosing which genes to use and which to not
+use.  Genes are **expressed** when cells are using the gene to make a
+**gene product** (usually protein or RNA).
+
+Gene regulation is important for specialized cells.  Your original cell was a
+**stem cell** with the potential to become any type of cell.  Descendants are
+given signals to become specialists.  Signals turn on/off genes.
+
+Cells that become specialists are **differentiated** for a certain task.  Cell
+differentiation is achieved through **differential gene expression**.
+Differentiated cells have access only to the genes they need to survive and
+perform their function.
+
+Some genes are essential for all cells' survival and are always turned on.  This
+includes genes for metabolism and DNA/RNA synthesis.
+
+Cells have two types of genes based on gene expression:
+
+* Constitutive gene: expressed all the time
+* Regulated gene: turned on and off as needed by cells
+
+## Gene Expression in Bacteria
+
+Bacteria has to regulate its gene to take advantage of the current situation.
+For examples, sometimes there's ample food or a scarcity.  The basic steps
+for regulating genes in bacteria are:
+
+1. Cell receives an environmental signal
+2. Signal activates or de-activates a DNA-binding protein
+3. DNA-binding proteins either bind or let go of regulatory DNA sequences
+4. Transcription is turned on or off by DNA binding proteins
+
+Multiple genes are under the control of a promoter - all together they're called
+an **operon** for bacteria.  The genes in an operon are usually for a single
+process so all proteins for a process are made during transcription/translation
+of the operon.  Some properties of the operon:
+
+* promoter marks the beginning of the operon
+* structural genes are genes for proteins within the operon
+* the operator is a regulatory sequence of DNA between the promoter and the
+  structural genes
+
+**Escherichia coli or E. coli** has a bad rap, but most strands of it are nice.
+It's bacteria that's great for studying and the nice ones even exist in your
+stomach.  E coli is often used for studying gene expression.
+
+Food sources are unpredictable for bacteria, so E coli will turn on or off the
+enzymes to break food particles in certain situations.  We'll take a look at
+how E coli breaks down lactose - a sugar found in milk.
+
+The genes for producing enzymes that breakdown lactose are called the lactose
+operon or lac operon.  The lac operon has three components: promoter, operator
+which is the binding site for DNA-binding protein called lac repressor protein,
+and three structural genes (two proteins and one protective enzyme).  The
+structural genes are for:
+
+* lacZ gene blueprint for beta-galactosidase enzyme that catalyzes the splitting
+  of disaccharide lactose into two monosaccharides, glucose and galactose, and
+  then glycolysis breaks it down
+* lacY gene for membrane protein galactosidase permease which brings lactose
+  into the cell
+* lacA gene blueprint for transacetylase, protective enzyme that allows certain
+  sugars to be removed from the cell when sugars are too plentiful
+
+The **lac repressor** is a DNA-binding protein that regulates the lac operon
+(it controls the transcription).  It has two binding sites critical to its
+function: a **DNA-binding site** that binds to the operator of the lac operon, a
+**allosteric site** that binds to an isomer of lactose.  When lactose is present
+at the allosteric site, the repressor is de-activated.  When it's missing, the
+repressor is activated.  The operator of the lac operon is next to the promoter,
+so when lac repressor is active - it'll get in the way of RNA polymerase.
+
+So the lac repressor guarantees effeciency.  When lactose is present, the cell
+will use transcribe the lac operon gene.  When lactose isn't present, 
+transcription is blocked and the cell won't waste its resources.  It all comes
+down to whether lactose is bound to the allosteric site of the lac repressor.
+
+## Gene Expression in Eukaryotes
+
+Gene expression in eukaryotes is a bit more complicated but has some
+similarities to gene expression in bacteria:
+
+* regulation at the level of transcription called **transcription control** is
+  the same for both
+* DNA-binding proteins regulate the activity of genes by binding to regulatory
+  sequences in the DNA for both
+
+The pathway from genes to proteins is more complicated in eukaryotes, so there
+are more opportunities for regulation:
+
+* access to genes is affected by compaction of DNA into chromosomes
+* transcriptional controls regulate whether RNA polymerase binds to promoters
+* control of RNA processing determines if pre-mRNA is processed to mRNA
+* control of mRNA stability determines how long it is available for translation
+* translational control regulates if mRNA is translated into protein
+* control of protein modification determines if polypeptide can become fully
+  functional protein
+
+If you unpack the DNA from a single cell into a straight line, it'd be about
+6 feet in length.  Eukaryotic cells pack DNA into **chromatin**, a complex of
+DNA wound around protein.  The steps to packaging DNA are:
+
+1. DNA molecules are wounded around positively charged proteins called histones
+   that gather together in groups of eight proteins.  Beads of DNA plus histones
+   are called nucleosomes.
+2. String of nucleosomes and DNA twist until they form coiled fibers that are
+   30 nanometers wide
+3. Continued twisting of the DNA and protein fibers packs the DNA even more
+   tightly until DNA is very condensed
+
+Because the DNA is so tightly coiled up, regulatory proteins and RNA polymerase
+can't get access to the genes.  Before transcription can occur, the chromatin
+of the gene must be decondensed.  Histone acetyl transferases (HATs) proteins
+control the condensation of chromatin (they attach acteyl groups to histone
+proteins which neutralize their positive charge).  When the DNA becomes less
+attracted it will loosen and decondense.
+
+**Regulatory proteins** bind to **regulatory sequences** of DNA located near
+promoters.  Regulatory proteins controls transcription in eukaryotes.  They work
+similar to bacteria's transcription control but are wider in variety:
+
+* Promoter proximal elements: sequences located close to promoters.  When
+  regulatory proteins bind to these, transcription is turned on.  Each exact
+  sequence is unique so cells know which genes they're switching on/off.
+* Enhancers: regulatory sequences located far away from genes they regulate.
+  When regulatory proteins bind to them, transcription is on.
+* Silencers: regulatory sequences located far away, but when regulatory proteins
+  bind to these transcription is off.
+
+Regulatory proteins that bind to regulatory sequences in order to turn on
+transcription are called transcription factors.  There are two types:
+
+* General transcription factors: aka basal transcription factors are required
+  for transcription of any gene in all cell types and work to attract RNA
+  polymerase to bind them to promoters
+* Regulatory transcription factors: more targeted, bind to regulatory sequences
+  of specific genes
+
+Proteins called **coactivators** bind to transcription factors and bring them
+together to form transcription initiation complex.  They initiate transcription.
