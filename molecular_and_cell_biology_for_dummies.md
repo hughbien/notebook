@@ -1681,8 +1681,13 @@ produces human insulin.  Doctors use the insulin to treat human.
 **Restriction endonucleases or restriction enzymes** are made by bacteria and
 cut strands of DNA into smaller pieces.  It's used to fight off viruses, 
 chopping off infected DNA so it can't destroy the entire cell.  Restriction
-enzymes make cutting/combining pieces of DNA easy.  Example of cutting a human
-gene and placing it into bacteria:
+enzymes make cutting/combining pieces of DNA easy.
+
+A **plasmid** is a DNA molecule separate from chromosomal DNA that can replicate
+on its own.  It's usually in a ring shape and found in bacteria (though 
+sometimes can be found in eukaryotes).
+
+Example of cutting a human gene and placing it into bacteria:
 
 1. Choose a restriction enzyme that forms sticky ends when it cuts DNA, sticky
    ends being pieces of single stranded DNA that are complementary
