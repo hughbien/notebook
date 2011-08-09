@@ -1811,12 +1811,110 @@ Genomics: The Big Picture
 =========================
 
 ## Overview
-## Sequencing Genomes
-## Power of Genomics
+
+**Genomics** is the study of the entire DNA sequence of an organism.  The Human
+Genome Project sequenced the entire genome of a human and developed faster
+methods for DNA sequencing.
+
+Genomics research is taking several approaches now:
+
+* Comparative genomics compares genomes from different species to better
+  understand evolution and determine function of genes and noncoding regions
+* Functional genomics tries to figure out functions of genes
+* Pharmacogenomics studies how a person's unique genome affects their response
+  to drugs with a goal of highly effective/individualized drug development
+
 ## Shotgun Sequencing
+
+**Shotgun sequencing** is a fast sequencing method which breaks apart the genome
+into small fragments, sequence the fragments, then re-assemble it.  Here is how
+to do hierarchical shotgun sequencing:
+
+1. Cut genomic DNA into fragments of 150 million base pairs
+2. Place fragments into vector then clone into bacteria to be replicated
+3. Large fragments are mapped and organized
+4. Each large fragments are broken up to set of smaller fragments
+5. Small fragments are sequenced
+6. Computer lines up overlapping sequences to determine order of small fragments
+
+Right now pathogens are being sequenced to help develop new strategies to
+fight diseases.  Extremophiles are being studied for industrial use (organisms
+that can live in extreme conditions).  Crop plants and model organisms are also
+being studied for agriculture and comparison to humans.
+
 ## Looking within the human genome
+
+Some interesting facts about the human genome:
+
+* We only have about 25,000 genes (before HGP, we expected 100,000)
+* Average gene size is about 3,000 base pairs long
+* Number of genes vary from 2,968 genes on chromosome 1 to 231 genes on Y
+* At least 50% of DNA is noncoding
+* Genes are randomly clustered together on chromosomes and separated from other
+  clusters of genes by noncoding DNA
+* Areas of DNA with genes contain lots of G-C base pairs.  Noncoding regions
+  contain lots of A-T base pairs
+* Less than 2% of genome code for proteins and RNA molecules.  The other 98%
+  has other functions or we don't know yet.  The other functions include:
+  regulatory sequences used for promoters or origins of replication,
+  structuring DNA within the cell, junk DNA (50%, we don't know what it's for),
+  pseudogenes are mutated relics of formerly functioning genes
+
 ## Comparative Genomics
+
+Scientists use computers to look for regions of DNA that are similar across
+different organisms.  It will help answer questions about evolution, gene
+function across organisms, genes for unique features, and effects of natural
+selection.
+
+All life on Earth is very similar.  Human genome is 99.9% identical to other
+humans, 96% identical to chimpanzees, and 40% identical to mice.
+
+More genes or bigger genome doesn't mean a more complicated organism.  The size
+of a genome doesn't correlate with how many genes it has.  Mice have 2.5 million
+base pairs in the genome and 30,000 genes.  Humans have 3 million base pairs
+but less genes (25,000).
+
+Some organisms have evolved to have multiple sets of chromosomes.  They're
+**polyploid** organisms and usually have larger genomes.  Some organisms, like
+humans, have a lot of repetition in their DNA.  Humans have an "Alu" sequence
+which is 300 base pairs long and appears more than 1.1 million times.
+
 ## Functional Genomics
-## Comparing gene expression with DNA microarrays
+
+Scientists are trying to answer these questions with functional genomics:
+
+* How much variation is there within a genome?
+* When and where does gene expression occur?
+* How do genes and the products of different genes interact with each other?
+
+Genes are encoded with open reading frames (sections of DNA that begin with
+START codon and end with STOP codon).  Scientists are searching through these
+to discover new proteins.
+
+Gene expression is an important part of functional genomics, especially in
+cancer research.  To determine which genes are expressed at any one time,
+geneticists track the presence of RNA sequences in cells using DNA microarrays.
+
+A DNA microarray is a glass slide with many single-stranded copies of DNA for
+a single gene stuck to it.  To use it:
+
+1. Molecules of mRNA are isolated from the two cells to be compared
+2. Reverse transcription produces labeled cDNA copies of each population of mRNA
+3. The cDNA molecules from each cell are washed over DNA microarray surface.
+   They'll stick to any complementary molecules on the glass slide
+4. Use a laser to activate fluorescent tags on the cDNA molecules and observe
+   color patterns to determine which DNA sequences are being expressed
+
 ## Pharmacogenomics
+
+Pharmacogenomics combines pharmacology and genomics to tailor drug therapies
+to a specific individual.  With it, scientists hope to better associate genes
+and proteins with a disease.  They can figure out the best treatment for a
+person with a particular genotype.  They can do pre-emptive check ups using the
+genome to figure out which disease a person is most likely to get.
+
 ## Systems Biology
+
+A lot of genome information is available on the internet!  Scientists all over
+the world are mining this information to learn and contribute.
