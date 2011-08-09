@@ -1665,3 +1665,158 @@ transcription are called transcription factors.  There are two types:
 
 Proteins called **coactivators** bind to transcription factors and bring them
 together to form transcription initiation complex.  They initiate transcription.
+
+Recombinant DNA Technology: Power Tools at the Cellular Level
+=============================================================
+
+## Overview
+
+Scientists are able to read, copy, cut, sort, and replace DNA.  When DNA comes
+from two different sources it's called **recombinant DNA**.  Scientists have
+combined human genes and DNA from E. coli and placed them into E. coli, so it
+produces human insulin.  Doctors use the insulin to treat human.
+
+## Cutting DNA with restriction enzymes
+
+**Restriction endonucleases or restriction enzymes** are made by bacteria and
+cut strands of DNA into smaller pieces.  It's used to fight off viruses, 
+chopping off infected DNA so it can't destroy the entire cell.  Restriction
+enzymes make cutting/combining pieces of DNA easy.  Example of cutting a human
+gene and placing it into bacteria:
+
+1. Choose a restriction enzyme that forms sticky ends when it cuts DNA, sticky
+   ends being pieces of single stranded DNA that are complementary
+2. Cut the human DNA and bacterial plasmids with restriction enzymes
+3. Combine human DNA and bacterial plasmids
+4. Use DNA ligase to seal the backbone of the DNA
+
+## Sorting molecules using gel electrophoresis
+
+**Gel electrophoresis** separates molecules based on their size and electrical
+charge.  The gel is made of a gelatin-like polysacharrides.  Molecules are
+placed into pockets of the gel (usually DNA or proteins) and will be moved by
+a charge.
+
+       Anode +
+     +---------+
+     | o  O  o |  <-- large, low positive charge
+     | -  O  O |  <-- small, low positive charge
+     | -  -  o |  <-- large, high positive charge
+     | -  -  - |  <-- small, high positive charge
+     +---------+
+      Cathode -
+
+* Molecules are attracted to electrode with opposite charge
+* Small molecules can move more quickly through gel than large molecules,
+  causing molecules to be separated by size.  The long fibers of polysacharrides
+  throughout the gel act as obstacles for the molecules - which smaller
+  molecules can move through quicker.
+
+Gel electrophoresis is often used to separate DNA from other molecules.  DNA has
+a negative charge due to its phosphate groups.  "DNA runs to red" because the
+positive side is red.  The steps to do it:
+
+1. Pour liquid gel and let it solidify.  There's a comb on the gel platform
+   which creates little pockets called wells in the gel.
+2. Place gel into an electrophoresis chamber and fill chamber with buffer.
+   The buffer is a solution that conducts electricity.
+3. Cut DNA samples with restriction enzymes and mix samples with loading buffer.
+   The buffer settles the DNA into the wells and marks them with dye.
+4. Load samples into wells using a micropipettor.  DNA will sink to bottom.
+5. Seal the box and start the current to separate DNA samples.
+6. Stop the current and stain the gel.  Stain will stick to DNA and create
+   stripes called bands.  Each band represents a collection of DNA molecules of
+   the same size.
+
+## Making cDNA with reverse transcriptase
+
+Earlier, Kratz mentioned how we add human DNA into bacteria to create human
+proteins.  Human DNA has introns and bacteria doesn't know how to splice pre
+mRNA.  To get around this issue, scientists create intron-free genes in the form
+of **complementary DNA or cDNA**.
+
+cDNA is made from eukaryotic mRNA that has already been spliced.  The steps to
+make cDNA are:
+
+1. Isolate mRNA from protein you're interested in
+2. Use enzyme reverse transcriptase to make a single-stranded DNA moelcule that
+   is complementary to the mRNA (it's a viral enzyme that uses RNA as a template
+   to make DNA)
+3. Use reverse transcriptase or DNA polymerase to make a partner strand
+
+## Cloning genes into a library
+
+DNA cloning makes many identical copies of the gene.  To clone a gene, you put
+the gene in a **vector** (plasmid or virus DNA) that helps carry DNA into a
+cell.  The steps are:
+
+1. Use restriction enzyme to cut the vector and target DNA containing the gene
+   to have same sticky ends.
+2. Mix the vector and DNA together and add DNA ligase.  Vectors picking up genes
+   are said to be recombinant.
+3. Introduce the vector into a population of cells.  The vector will be
+   reproduced inside the cells and the gene will be cloned
+
+DNA libraries are recombinant vectors that store genes and keep them handy for
+scientists to use.
+
+## Finding a gene with DNA probes
+
+Scientists use DNA probes to find vectors containing specific genes in DNA
+libraries.  Probes are single stranded DNA complementary to the sequence you're
+looking for.  It's like fishing - catching means forming hydrogen bonds.
+
+1. Prepare DNA sample to be probed for the gene of interest.  Treat it with
+   heat or chemicals to make it single-stranded.
+2. Wash DNA probe over the surface of DNA sample
+3. Locate probe to find gene of interest
+
+## Copying a gene with PCR
+
+The **polymerase chain reaction (PCR)** lets you make copies of genes.  It can
+turn a single copy of genes into billions in a few hours.  Doing this is also
+known as gene amplification.  The DNA sample that contains the gene to be
+amplified is combined with thousands of copies of the primers so DNA polymerase
+creates thousands of strands.  The steps are:
+
+1. Heat sample for 1 minute to disrupt hydrogen bonds to make DNA single-stranded
+2. Cool sample for 1 minute so hydrogen bonds can reform.  Primers will stick
+   with hydrogen bonds to single-stranded target DNA
+3. Heat sample to optimum temperature for DNA polymerase
+
+Repeat these three steps 30 times.
+
+## Reading a gene with DNA sequencing
+
+DNA sequencing determines the order of nucleotides in a DNA strand.  It uses
+a special nucleotide called dideoxy-ribonucleotide triphosphate (ddNTP) which
+are like typical nucleotides except instead of the hydroxyl group attached to 3'
+carbon it's just hydrogen.  If ddNTP gets attached to the growing chain of
+nucleotides while DNA polymerase is copying DNA, it'll be the last one added
+to the chain.  The chain interruption determines the order of nucleotides.
+
+**Cycle sequencing** combines original methods of DNA sequencing with PCR.
+
+## Fixing a broken gene with gene therapy
+
+Introducing a gene in order to cure a genetic disease is called
+**gene therapy** and it's still far from perfect:
+
+* scientists must discover safe vectors that can transfer genes into human cells
+* scientists must develop methods for introducing therapeutic genes into
+  population of targeted cells (ie only affected cells)
+* stem cells producing target population of cells must be identified
+
+Genomics: The Big Picture
+=========================
+
+## Overview
+## Sequencing Genomes
+## Power of Genomics
+## Shotgun Sequencing
+## Looking within the human genome
+## Comparative Genomics
+## Functional Genomics
+## Comparing gene expression with DNA microarrays
+## Pharmacogenomics
+## Systems Biology
