@@ -1195,3 +1195,44 @@ So we know for strong bases:
 
     pOH of KOH(aq) = 0
     pH of KOH(aq) = 14
+
+pH of a Weak Acid
+=================
+
+Weak acids don't disassociate completely.
+
+    HF(aq) <--> H^+(aq) + F(aq)
+
+Why is HCl a strong acid and HF a weak acid?  The bond between hydrogen and
+fluorine is must stronger than the HCl bond due to fluorine's electronegativity.
+
+             [H^+][F^-]
+    K(aHF) = ---------- = 7 * 10^-4
+                [HF]
+
+What's the pH of 1.5M of HF?
+
+    1.5M of HF(aq) - x = x moles of H + x moles of F
+    x is the concentration that's disassociated
+    K(aHF) = 7 * 10^-4 = (x*x)/(1.5x)
+    Solve for x, which is the concentration of hydrogen
+    pH = -log(.032) = 1.49
+
+pH of a Weak Base
+=================
+
+Let's look at the weak base NH(3) - ammonia is a weak base because it accepts
+hydrogen protons.
+
+    NH(3)(aq) + H(2)O(aq) <--> NH(4)^+(aq) + OH^-(aq)
+
+What's the pH of .2M of NH(3)?  Given pK(b) = -log(Kb) = 4.75
+
+    K(b) = 10^-4.75 = 1.8*10^-5
+            x * x    // x is the concentration of NH(4) and OH
+    K(b) = -------  
+           .2 - x    // .2 - x is the concentration of NH(3)
+    x = .001883
+    pOH = -log(.001883) = 2.72
+    pk(w) = pOH + pH = 14
+    pH = 14 - 2.72 = 11.28
