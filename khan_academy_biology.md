@@ -139,3 +139,32 @@ are more likely to survive.
 Chromosomes, Chromatids, Chromatin, etc.
 ========================================
 
+Khan starts with DNA replication.  Both strands of DNA separate and a
+complementary strand begins to synthesize for each.  Transcription is similar,
+except the complementary strand is mRNA (uracil and ribosome intead of thymine
+and deoxyribosome).  This mRNA gets translated into tRNA and proteins.
+
+**Replication** is making copies of DNA from DNA.  **Transcription** is making
+mRNA from DNA.  **Translation** is arranging tRNA using the mRNA.
+
+Some other words that are confusing: chromosome, chromatid, and chromatin.
+
+DNA is a double helix that gets wrapped around proteins called **histones**.
+Depending on which stage you are in a cell's life, the DNA forms different
+structures.
+
+**Chromatin** is the DNA + histone in its natural compact state.  This is the
+structure DNA usually has during most of the cell's life.  It's a good state to
+be in for the cell to work with.
+
+The homologous **chromosome** is a chain of DNA that's packed tightly.  DNA only
+takes this shape when the cell is dividing.  It's a well defined shape.
+
+When DNA replicates, initially, it's in the chromosome structure.  Two strands
+are formed that are attached together at a **centrome** point forming an 'X'
+shape.  The entire structure is still called a chromosome, but each duplicate
+is called a sister **chromatid**.  The chromatid eventually separate and each
+becomes its own chromosome.
+
+Mitosis, Meiosis, and Sexual Reproduction
+=========================================
