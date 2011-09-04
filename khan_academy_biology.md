@@ -1,7 +1,7 @@
 Khan Academy: Biology
-=======================
+=====================
 
-These are my notes from Salman Khan's Biology videos.  Full the full videos,
+These are my notes from Salman Khan's Biology videos.  For the full videos,
 see <http://www.khanacademy.org>.
 
 Introduction to Evolution and Natural Selection
