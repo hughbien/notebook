@@ -310,3 +310,167 @@ What's the probability of getting 1 heads and 1 tails?
 
 The reason we can multiply probabilities is because the fair coin's flip is
 independent of any initial flips.
+
+Probability (part 5) - Probability of Getting a Certain Number Roll
+===================================================================
+
+What's the probability of getting a 7 when rolling two die?
+
+        1  2  3  4  5  6
+      +-------------------+
+    1 | 2  3  4  5  6  7  |
+    2 | 3  4  5  6  7  8  |
+    3 | 4  5  6  7  8  9  |
+    4 | 5  6  7  8  9  10 |
+    5 | 6  7  8  9  10 11 |
+    6 | 7  8  9  10 11 12 |
+      +-------------------+
+
+    P(7) = 6/36 = 1/6
+
+You're most likely to get a 7 than any other number from rolling two die.  How
+about getting a 2 or 11?
+
+    P(2 U 11) = P(2) + P(11) = 1/36 + 2/36 = 1/13
+
+Let's find the probability without using the grid.  What's the probability of
+getting a 5?
+
+Figure out the ways to get a 5: (1,4), (2,3), (3,2), (4,1).  That's 4 events
+that satisfy the criteria out of 36.
+
+    P(5) = 4/36 = 1/9
+
+Probability (part 6) - Intro to Conditional Probability
+=======================================================
+
+Given a bag of coins where:
+
+* 9 are fair coins
+* 1 is a two-sided head coin
+
+If you pick a random coin from the bag and flip it five times, what's the
+probability that you get five heads?
+
+    P(normal picked) = 9/10
+    P(two-sided picked) = 1/10
+
+Now figure out the probability of getting all heads given each event:
+
+    P(five heads | normal) = 1/32
+    P(five heads | two-sided) = 1
+
+Given these probabilities, we can solve for our initial question.
+
+    P(five heads) = P(five heads | normal) * P(normal picked) +
+                    P(five heads | two-sided) * P(two-sided picked)
+    P(five heads) = 1/32 * 9/10 + 1/10 * 1
+    P(five heads) = 9/320 + 1/10 = 41/320 = ~12.8%
+
+Probability (part 7) - Touch on Bayes' Theorem
+==============================================
+
+Let's figure out the probability that you picked a two-sided coin given that you
+got 5 heads in a row (given the bag of coins from the previous section):
+
+    P(2s | five heads) = ?
+
+Intuitively, if you flip a coin hundreds of times and got heads - you'll
+conclude that you probably got the two-sided coin.
+
+    P(five heads | normal) * P(normal picked) = 1/32 * 9/10 = 9/320
+    P(five heads | two-sided) * P(two-sided) = 1 * 1/10 = 32/320
+
+The probability of getting five heads is 41/320.  Of this, 9/320 was due to
+picking a normal coin and 32/320 was due to picking a two-sided coin.  Sal
+draws a rectangle with areas to show relativity of each coin.
+
+    P(2s | five heads) = 32/320 / (41/320) = 32/41 =~ 78%
+
+Let's go through what Bayes' Theorem is and use it to solve instead:
+
+    P(a AND b) = P(a | b) * P(b)
+    P(a AND b) = P(b AND a) = P(b | a) * P(a)
+    P(a | b) * P(b) = P(b | a) * P(a)
+    P(b | a) = P(a | b) * P(b) / P(a)
+
+Probability (part 8) - Using Bayes' Theorem
+===========================================
+
+We're trying to solve using Bayes' Theorem:
+
+    P(2s | five heads) = P(five heads | 2s) * P(2s picked) / P(five heads)
+
+We already solved for these probabilities in the previous videos, so we can just
+sub in:
+
+    P(2s | five heads) = 1 * 1/20 / 41/320
+    P(2s | five heads) = 32/41
+
+Permutations
+============
+
+Given three chairs and seven people, how many different ways can these seven
+people sit in these three chairs?
+
+    _ _ _  A B C D E F G
+    1 2 3
+
+There are seven possibilities for people to sit in chair 1.  Then there are
+six possibilities for people to sit in chair 2.  Last, there's five
+possibilities for the final chair.
+
+    7 * 6 * 5 = 210 possibilities
+
+Think of it like the compounding rule for independent events.  For the coin,
+we used 2^n where n is the number of slots.  In this case, there are 7 likely
+events instead of 2.  But every time someone sits down, the number of possible
+events decreases by one.
+
+We care about the ordering of people.  The ways we can order them are called
+**permutations**.  Permutations can be written in a few ways:
+
+    7^P*3, P^7(sub 3), P(7,3)
+
+Let's generalize this, how many ways can you put n things into k spaces?
+
+    P(n,k) = n * n-1 * n-2 * ... * (n-(k-1))
+    P(n,k) = n! / (n-k)!
+
+Combinations
+============
+
+The permutations formula was great when ordering mattered.  But there are many
+times when we didn't care about ordering.  What if we didn't care who's in which
+seat?  Instead, we only care about the set of people who's sitting.
+
+A **combination** is just like a **permutation**, except you don't care about
+the order.
+
+How many different ways can you arrange 3 people?
+
+    A B C
+    A C B
+    ...
+    C B A
+
+It's the same as permutations, except the number of items and slots are the
+same.
+
+    3! / (0)! = 3! = 6
+
+Combinations are usually written like this:
+
+    sub(5) P sub(3)
+    sub(n) P sub(k) = n items in k slots
+
+So how many different groups can be seated given 5 people and 3 seats?  Just
+figure out the number of permutations and divide that by the times you've
+double-counted due to ordering:
+
+    P(5,3) / 3! = 60 / 6 = 10
+
+We can generalize this formula:
+
+    P(n,r) / r! 
+    n! / r!(n-r)!
