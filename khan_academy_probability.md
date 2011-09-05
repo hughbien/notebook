@@ -113,7 +113,7 @@ Compound Probability of Independent Events
 ==========================================
 
 We'll try finding the probability of a sequence of events.  If you flip a coin
-twice, what's the probabily of getting heads twice?  You can think of all the
+twice, what's the probability of getting heads twice?  You can think of all the
 different possibilities:
 
     HH
@@ -130,7 +130,7 @@ affect the second flip.  This is called the **gambler's fallacy**, where people
 assume there are better odds getting a tail after many heads.
 
 To figure out the probability of a sequence of independent events, just multiply
-the proabilities of each individual event:
+the probabilities of each individual event:
 
     P(HH) = P(H) * P(H) = 1/2 * 1/2 = 1/4
 
@@ -140,12 +140,12 @@ Getting at Least One Heads
 If you flip a coin three times, what's the probability of getting at least one
 head?
 
-There are 8 possibilties, we can figure that out because there are 2
+There are 8 possibilities, we can figure that out because there are 2
 possibilities per flip:
 
     8 = 2 * 2 * 2
 
-Instead of writing out all the possible combinations, reframe the question:
+Instead of writing out all the possible combinations, re-frame the question:
 
     P(at least one H) = P(not getting all tails)
     P(at least one H) = 1 - P(TTT)
@@ -211,7 +211,102 @@ the second heads can only be in three different places.
     Ha  Hb
      4 * 3 = 12 scenarios
 
-But Ha and Hb are interchangable, ordering doesn't matter.  So there are
+But Ha and Hb are interchangeable, ordering doesn't matter.  So there are
 actually only 6 different scenarios (12 divided by 2).
 
     P(exactly 2 "heads") = 6/16
+
+Exactly Three Heads in Five Flips
+=================================
+
+Let's flip a fair coin five times.  What's the probability of getting exactly
+three heads?
+
+    _ _ _ _ _ = 2^5 = 32 equally likely possibilities
+    2 2 2 2 2
+
+We want exactly three heads: Ha, Hb, Hc.  The resulting sets should look like
+this: {Ha, Hb, Hc, T, T}.  Ordering doesn't matter.
+
+So for Ha, there are five possible slots.  For Hb, there are four possible
+slots since Ha is occupying one.  Hc has three possible slots.  There are
+`5 * 4 * 3 = 60` different scenarios if ordering mattered.  But ordering doesn't
+matter, so we need to divide 60 by the ways we can arrange the heads.
+
+Ha can go into any slot.  Hb can go into two slots afterwards.  Hc can only go
+into one slot.  This means you can arrange three heads in 6 different ways.
+
+    # of three heads events = 60/6 = 10
+    P(exactly 3 "heads") = 10 / 32 = 5/16
+
+Generalizing with Binomial Coefficients
+=======================================
+
+Let's generalize to find the probability of getting "K" heads in "N" flips of
+the fair coin:
+
+    P(K heads in N flips)
+
+The number of equally likely possible events is **2^n**.  We can determine the
+number of possible events that include K heads when ordering matters:
+
+    Ka = n possibilities
+    Kb = (n - 1) possibilities
+    Kc = etc...
+    # events = n * (n-1) * ... * (n-(k-1))
+
+Now we need to determine the number of events if ordering doesn't matter:
+
+    Ha Hb Hc
+    is the same as
+    Hc Ha Hb
+
+We need to find a generic way to discover how many ways to order things:
+
+    T1, T2, T3, ... TK
+    K * K-1 * K-2 * ... * 1
+    K!
+
+This is just K factorial.  T1 can occupy K slots, T2 can occupy K-1 slots, all
+the way down to TK which can occupy just one slot.  Our formula becomes:
+
+               n * (n-1) * ... * (n-(k-1))
+    # events = ---------------------------
+                           K!
+
+    # events = n!/(k! * (n-k)!)
+
+This is called the **generalized formula for binomial coefficients**.
+
+Back to our original problem:
+
+                            # events
+    P(K heads in N flips) = -------- = n!/(2^n * k! * (n-k)!)
+                               2^n
+
+Probability (part 2) - Explaining Compound Rule
+===============================================
+
+Here's another way to view how multiply odds yields the probability.  Sal uses
+a probability tree to explain it:
+
+                  HH
+             H -[ HT
+    start -[      
+             T -[ TH
+                  TT
+
+Let's go along a path:
+
+    start => H => H
+
+Getting a heads on the first flip is a 1/2 chance.  Getting a heads again is
+1/2 of that initial 1/2 change.  So `P(HH) = 0.5 * 0.5 = 0.25`.  And this holds
+true to get to any of the leaf nodes of the tree.
+
+What's the probability of getting 1 heads and 1 tails?
+
+    P(TH U HT) = P(TH) + P(HT) = 1/4 + 1/4 = 1/2
+
+The reason we can multiply probabilities is because the fair coin's flip is
+independent of any initial flips.
