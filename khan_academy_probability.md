@@ -463,6 +463,8 @@ Combinations are usually written like this:
 
     sub(5) P sub(3)
     sub(n) P sub(k) = n items in k slots
+    |n| where two vertical bars is actually a parenthesis
+    |k|
 
 So how many different groups can be seated given 5 people and 3 seats?  Just
 figure out the number of permutations and divide that by the times you've
@@ -474,3 +476,95 @@ We can generalize this formula:
 
     P(n,r) / r! 
     n! / r!(n-r)!
+
+Probability Using Combinations
+==============================
+
+What's the probability of getting 3 heads out of 8 flips of a fair coin?
+
+    P(3H/8) = # of events with 3 heads / total possible events
+
+The total possible events is just 2^8 = 256.
+
+For the 8 flips, it's similar to picking 3 people to sit down out of 8.  It's
+just like combinations:
+
+    8! / 3!(8-3)! = 8! / 3!5! = (8*7*6)/(3*2*1) = 56 possible events
+    P(3H/*) = 56/256 =~ 21.9%
+
+Probability and Combinations (Part 2)
+=====================================
+
+Given a free throw percentage of 80%, if I shoot 5 free throws what's the
+probability that I make 3 shots?
+
+     B  B  B  M  M  ==  B  M  B  M  B
+    .8*.8*.8*.2*.2     .8*.2*.8*.2*.8
+
+No matter how you order it, it's always going to be `.8^3 * .2^2`.  But that's
+only for a single arrangement, what about all arrangements?
+
+For the 5 shots, we need to pick 3 - it's a combinatorial problem:
+
+     = 5! / 3!(5-3)!
+     = 5 * 4 * 3 / (3 * 2 * 1)
+     = 10 combinations
+
+So the probability of making at least 3 shots is the probability of making 3
+shots times the number of possible combinations:
+
+     P(3/5) = .8^3 * .2^2 * 10 = 20.48%
+
+What's the probability of getting at least 3 shots out of 5?
+
+     P(at least 3) = P(3/5) + P(4/5) + P(5/5)
+     P(at least 3) = 20.48% + 40.96% + 32%
+     P(at least 3) = 94.21%
+
+Conditional Probability and Combinations
+========================================
+
+This problem involves everything we've done so far - probability, conditions,
+and combinations.  Given a bag with:
+
+* 5 fair coins
+* 10 unfair coins - 80% heads, 20% tails
+
+Let's say I picked a coin randomly, flipped it 6 times and got 4 heads, what's
+the probability that I picked out a fair coin?
+
+    P(fair | 4/6 heads)
+
+Quick review of Bayes' theorem, you should be able to figure this out
+intuitively without memorizing the formula:
+
+    P(A and B) = P(A|B) * P(B)
+    P(B and A) = P(B|A) * P(A)
+    P(B|A) * P(A) = P(A|B) * P(B)
+    P(A|B) = P(B|A) * P(A) / P(B)
+
+So for our initial problem:
+
+                          P(4/6 heads | fair) * P(fair)
+    P(fair | 4/6 heads) = -----------------------------
+                                  P(4/6 heads)
+
+Let's figure out the probability of getting 4 out of 6 heads first.
+
+    P(4/6 heads) = P(4/6 heads | fair) * P(fair) +
+                   P(4/6 heads | unfair) * P(unfair)
+    P(4/6 heads | fair) = (1/2)^6 * 6!/4!2! = (1/2)^6 * 15 = 15/64
+    P(fair) = 5/15 = 1/3
+    P(4/6 heads | unfair) = (4/5)^4 * (1/5)^2 * 6!/4!2! = 1/3 * 1/25 * 15 = 1/5
+    P(unfair) = 10/15 = 2/3
+    P(4/6 heads) = 15/64 * 1/3 + 1/5 * 2/3 = 15/192 + 2/15 = 21.1%
+
+Now we can sub that into Bayes' theorem:
+
+    P(fair | 4/6 heads) = 15/64 * 1/3 / 21.1%
+    P(fair | 4/6 heads) = 32.3%
+
+Another way to re-derive Bayes' theorem is to think about areas.  What portion
+of the total probability accounts for the part we want?  We want the probability
+of getting `P(4/6 heads AND fair)`.  Divide that by the total probability of
+getting 4/6 heads.
