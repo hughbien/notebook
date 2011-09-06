@@ -145,6 +145,9 @@ possibilities per flip:
 
     8 = 2 * 2 * 2
 
+Think about it in terms of a tree.  At each branch, there are 2 possible paths.
+So given that you need to traverse 3 levels, you'll get 2^3 possible leaf nodes.
+
 Instead of writing out all the possible combinations, re-frame the question:
 
     P(at least one H) = P(not getting all tails)
@@ -232,6 +235,12 @@ So for Ha, there are five possible slots.  For Hb, there are four possible
 slots since Ha is occupying one.  Hc has three possible slots.  There are
 `5 * 4 * 3 = 60` different scenarios if ordering mattered.  But ordering doesn't
 matter, so we need to divide 60 by the ways we can arrange the heads.
+
+How did we come up with `5 * 4 * 3`?  Think of it as a tree, where the root
+node has 5 children (each child being a choice).  As you go down a level, you
+lose a choice because you already used one up (whereas with coins, you can
+always get another heads/tails).  So the total number of leaf numbers is
+simply `5 * 4 * 3`.
 
 Ha can go into any slot.  Hb can go into two slots afterwards.  Hc can only go
 into one slot.  This means you can arrange three heads in 6 different ways.
@@ -457,7 +466,7 @@ How many different ways can you arrange 3 people?
 It's the same as permutations, except the number of items and slots are the
 same.
 
-    3! / (0)! = 3! = 6
+    3! / (3 - 3)! = 3! = 6
 
 Combinations are usually written like this:
 
