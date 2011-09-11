@@ -4,6 +4,66 @@ Khan Academy: Statistics
 My notes form Khan Academy's Statistics videos.  Full videos can be viewed
 at <http://www.khanacademy.org>.
 
+Intro and The Average
+=====================
+
+In broad terms, statistics is getting your head around data.  There's a few
+branches:
+
+* descriptive - find indicative numbers without going over the entire data set
+* inferential - using data to make conclusions like from a sample population
+
+We're starting with descriptive statistics.  The average of a set of numbers
+is also known as the **central tendency**.  In formal terms, the average could
+be one of:
+
+* arithmetic mean (most people are talking about this)
+* median
+* mode
+
+To calculate the mean, divide the sum by the number of items in the set.
+
+    avg({1, 1, 2, 3, 4}) = (1 + 1 + 2 + 3 + 4) / 5
+
+To find the median, sort the numbers and find the number where there's an equal
+amount of numbers to the left and right of it:
+
+    1, 1, 2, 3, 4
+         ---
+
+What if it's an even number set?  Just take the middle two numbers and find
+their arithmetic mean.
+
+    1, 1, 2, 3, 4, 4
+          ____
+
+The mode is the number that occurs most frequently.  For our set, it's the
+number 1.
+
+Sample vs Population Mean
+=========================
+
+Let's say we wanted to know the average height of all men in America.  The
+total population would be ~150 million men.  It would be almost impossible to
+get everyone's height.
+
+The best way to get a sense is to take the average of a sample.  Find random
+people in random situations so it's not skewed (don't use your basketball team).
+
+    {5, 6, 5.5, 5.75, 6.5}
+
+The above set would be a sample of the population.  Instead of taking the mean
+of the entire population, we can just use the mean of the sample.  In statistics,
+the population mean is represented by the **greek letter mu**.  The sample mean
+is represented by an **x with a line over it**.
+
+The formulas are (unfortunately, working with ascii):
+
+    mu = (sigma 1 to N) x (sub n) / N
+    -x = (sigma 1 to n) x (sub n) / n
+
+Big N means total population.  Small n means just a sample.  It's a convention.
+
 Introduction to Random Variables
 ================================
 
@@ -169,7 +229,7 @@ doesn't really do it justice, but here it is!
 The x-axis is number of shots made and the y-axis is the probability.
 
 This probability distribution is based on a 30% free throw percentage.  If we
-changed it to 50%, we get a nice symmetrical bell cruve.  If you change the
+changed it to 50%, we get a nice symmetrical bell curve.  If you change the
 free throw percentage to 80%, you'll see the peak shift to the right.
 
 Expected Value E(X)
@@ -185,7 +245,7 @@ be the sum divided by how many numbers we have:
     60% * 3 + 20% * 4 + 20% * 5
 
 The last expression is different.  We don't know how many numbers there are,
-but we're stating the frequences of the numbers.  60% of the numbers are 3,
+but we're stating the frequencies of the numbers.  60% of the numbers are 3,
 20% are 4, and 20% are 5.
 
 Let's set a random variable to the number of heads from 6 tosses of a fair coin:
@@ -198,9 +258,9 @@ from some experiments - it's just a sample of an endless population.
 
 The expected value of a random variable is the same thing as the population
 mean.  It works with infinite sets - you can't really calculate the average
-of inifinite sets.
+of infinite sets.
 
-Sal goes back to the spreadsheet he created in the last video and substitues
+Sal goes back to the spreadsheet he created in the last video and substitutes
 a 50/50 percentage to imitate a fair coin toss:
 
     P(0H) = 1.563%
@@ -221,5 +281,5 @@ We're finding the arithmetic mean (or expected value) of an infinite set.
     E(X) = 3
 
 That's kind of an expected outcome with a 50/50 chance.  If you flip a coin
-six times, you'll expect to get three heads the most times.  The expeceted
+six times, you'll expect to get three heads the most times.  The expected
 value isn't always the most probable value - in this case it is.
