@@ -4,6 +4,9 @@ Khan Academy: Probability
 My notes form Khan Academy's Probability videos.  Full videos can be viewed
 at <http://www.khanacademy.org>.
 
+Videos overlapping with the statistics series can be found my in Khan Academy
+stats notes.
+
 Basic Probability
 =================
 
@@ -486,6 +489,9 @@ We can generalize this formula:
     P(n,r) / r! 
     n! / r!(n-r)!
 
+Since I'm limited to ascii, I'll use P(n,r) for permutations and C(n,r) for
+combinations.
+
 Probability Using Combinations
 ==============================
 
@@ -577,47 +583,3 @@ Another way to re-derive Bayes' theorem is to think about areas.  What portion
 of the total probability accounts for the part we want?  We want the probability
 of getting `P(4/6 heads AND fair)`.  Divide that by the total probability of
 getting 4/6 heads.
-
-Introduction to Random Variables
-================================
-
-**Random Variable** can take on multiple values like a variable, but it's not
-something you usually solve for.  It's usually a capital letter (like capital
-X).  It's really a function that maps from the world of random processes to an
-actual number.
-
-Let's say we want to quantify: is it going to rain tomorrow?
-
-    X = { 1 if it rains tomorrow
-        { 0 doesn't rain tomorrow
-
-X is going to be random - we don't know if it's going to rain tomorrow.  It can
-take on either value.
-
-It could also be something more obvious:
-
-    X = number facing up when I roll a fair dice
-    X = { 1 if heads
-        { 0 if tails
-
-There are two types of random variables: **discrete** or **continuous**.
-Discrete is like rolling a dice - you have a countable set of results 1-6.
-A continuous variable can take on an infinite set of values - like the amount
-of rain tomorrow.  It could be 1.1 inches, 1.2 inches, etc...
-
-Let's use the random variable for number facing up when rolling a dice.  Here's
-the probability distribution for it (unfortunately in ascii!):
-
-         |
-         |
-         |
-         |
-     1/6 |   |   |   |   |   |   |   |
-         |___|___|___|___|___|___|___|___
-             1   2   3   4   5   6   7   
-
-The probability distribution is just a bar graph with the results on the x-axis
-and the probability on the y-axis.
-
-If X is equal to the number facing up described by the probability function
-above, what is `P(X=6)`?  It's just `1/6`.
