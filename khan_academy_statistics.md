@@ -59,10 +59,101 @@ is represented by an **x with a line over it**.
 
 The formulas are (unfortunately, working with ascii):
 
-    mu = (sigma 1 to N) x (sub n) / N
-    -x = (sigma 1 to n) x (sub n) / n
+    mu = (Sigma i=1 to N) x (sub i) / N
+    -x = (Sigma i=1 to n) x (sub i) / n
 
 Big N means total population.  Small n means just a sample.  It's a convention.
+
+Variance of a Population
+========================
+
+The central tendency numbers lose a lot of information.  We don't know if the
+numbers in the set are spread or near.  That's what the measure of **dispersion**
+is for.
+
+    {2, 2, 3, 3}
+    mu = (2 + 2 + 3 + 3)/4 = 2.5
+
+    {0, 0, 5, 5}
+    mu = (0 + 0 + 5 + 5)/4 = 2.5
+
+The arithmetic mean for both populations are the same, but the distance of the
+numbers in the bottom set are much further from the mean.  You can think of
+it as being more dispersed.
+
+Variance is usually represend by the **lowercase greek letter sigma squared**.
+
+    sig^2 = (Sigma i=1 to N) (x (sub i) - mu)^2 / N
+
+`x (sub i) - mu` is just the distance of the number from the mean.  Let's
+find the variance for the first set:
+
+    sig^2 = (.5^2 + .5^2 + .5^2 + .5^2) / 4
+    sig^2 = .25
+
+Let's find the variance for the second set:
+
+    sig^2 = (2.5^2 + 2.5^2 + 2.5^2 + 2.5^2) / 4
+    sig^2 = 6.25
+
+Sample Variance
+===============
+
+Variance is represented by the lowercase sigma character.  Sample variance is
+usually represented by the **lowercase 's' squared**:
+
+    s^2 = (Sigma i=1 to n) (x (sub i) - -x)^2 / n
+
+It uses lowercase 'n' instead of uppercase 'N'.  It also uses the x with a line
+over it to represent the sample mean instead of population mean.
+
+The sample variance will often underestimate the actual population variance.
+There's another formula which is usually closer to the population variance and
+is sometimes represented by the letter s or s (sub n-1):
+
+    s^2 (sub n-1) = (Sigma i=1 to n) (x (sub i) - -x)^2 / (n - 1)
+
+The difference is that it's divided by a slightly smaller number `n-1`.
+
+Standard Deviation
+==================
+
+Standard deviation is the square root of the variance.  It's represented by
+the **lowercase sigma** for populations and **lowercase 's'** for samples.
+
+    sig = ((Sigma i=1 to N) (x (sub i) - mu)^2 / N) ^ (1/2)
+    s = ((Sigma i=1 to n) (x (sub i) - -x)^2 / n) ^ (1/2)
+
+Let's try calculating it.
+
+    {1, 2, 3, 8, 7}
+    mu = 21/5 = 4.2
+    sig^2 = ((1-4.2)^2 + (2-4.2)^2 + (3-4.2)^2 + (8-4.2)^2 + (7-4.2)^2) / 5
+    sig^2 = 38.8/5 = 7.76
+    sig = 2.79
+
+If the set was just a sample, we would divide by 4 (n - 1) instead of 5.  The
+standard deviation was just the square root of the variance.
+
+Alternate Variance Formulas
+===========================
+
+For the equations below, let SIG represent Sigma i = 1 to N
+
+    sig^2 = SIG (x (sub i) - mu)^2 / N
+    sig^2 = SIG (x^2 (sub i) - 2x (sub i) mu + mu^2) / N
+    sig^2 = (SIG (x^2 (sub i)) - 2mu * SIG (x (sub i)) + mu^2 * SIG (1)) / N
+    sig^2 = (SIG (x^2 (sub i)) - 2mu * SIG (x (sub i)) + mu^2*N) / N
+    sig^2 = SIG(x^2 (sub i))/N - 2mu^2 + mu^2
+    sig^2 = SIG(x^2 (sub i))/N - mu^2
+
+This is getting close to the **raw score** method, which is a faster way of
+calculating the variance.
+
+    sig^2 = SIG(x^2 (sub i))/N - SIG(x (sub i))^2/N^2
+
+The formula above may seem more complicated, but it can be faster because you
+don't have to calculate the mean ahead of time.
 
 Introduction to Random Variables
 ================================
@@ -188,12 +279,31 @@ The graph above is a particular instance of a
 **binomial probability distribution**.  As you get towards continuous random
 variables, this graph would appear like the famous bell curve.
 
+A binomial distribution is the distribution of the number of successes in a
+sequence of N independent yes/no experiments.  It's also called the Bernoulli
+experiment.
+
 It's really important to understand that not all probability distributions
 are this normal distribution (in a bell curve form).  Don't assume!
 
 A binomial is just a pair like (n - x) or (n + x).  That's why the formula
-for permutations are called binomial coefficients.  It's also why it's called
+for combinations are called binomial coefficients.  It's also why it's called
 the binomial distribution.
+
+For the notes below, I'll be using the notation C(n, k) as the combinations
+method for binomial coefficients.
+
+Side note, in algebra we learned the binomial theorem.  Here's an example:
+
+    (x + y)^2
+    x^2 + xy + y^2
+    
+The coefficient of each term (in the case above, it's always 1) is known as
+the binomial coefficient:
+
+    n = b + c
+    a = x^b * y^c  <-- a is the binomial coefficient
+    a = C(n,b) = C(n,c)
 
 Binomial Distribution 3
 =======================
@@ -283,3 +393,47 @@ We're finding the arithmetic mean (or expected value) of an infinite set.
 That's kind of an expected outcome with a 50/50 chance.  If you flip a coin
 six times, you'll expect to get three heads the most times.  The expected
 value isn't always the most probable value - in this case it is.
+
+Expected Value of Binomial Distribution
+=======================================
+
+Let's set some general values:
+
+    X = # of successes with probability p after n trials
+    E(X) = n * p
+
+Let's use a more concrete example:
+
+    X = # of baskets made after 10 shots where my shooting pct is 40%
+    E(X) = 10 shots * 40% = 4 shots
+
+For binomial distributions, you can view the expected value as the most likely
+and probable outcome.
+
+Let's prove that the general case is true for any binomial distributions:
+
+    P(X = k) = C(n, k) P^k (1-P)^(n-k)
+
+The expected value is just a probability weighted sum:
+
+    E(X) = (Sigma k=0 to n) k * C(n, k) * p^k * (1-p)^(n-k)
+
+The first simplification we can make is that when `k = 0`, the entire value is 0.
+So we can leave out the initial `k = 0`.
+
+    E(X) = (Sigma k=1 to n) k * n!/(k!(n-k)!) * p^k * (1-p)^(n-k)
+    E(X) = (Sigma k=1 to n) n!/((k-1)!(n-k)!) * p^k * (1-p)^(n-k)
+    E(X) = np * (Sigma k=1 to n) (n-1)!/((k-1)!(n-k)!) * p^(k-1) * (1-p)^(n-k)
+
+Since our formula is so complicated, let's make some substitutions:
+
+    a = k - 1
+    b = n - 1
+    b - a = n - k
+
+Now our equation is a bit easier to read:
+
+    E(X) = n * p * (Sigma k=a to b) b! / (a!(b-a)!) * p^a * (1-p)^(b-a)
+    E(X) = n * p * (Sigma k=a to b) C(b,a) * p^a * (1-p)^(b-a)
+    E(X) = n * p * 1
+    E(X) = n * p
