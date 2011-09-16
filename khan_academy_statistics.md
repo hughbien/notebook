@@ -437,3 +437,194 @@ Now our equation is a bit easier to read:
     E(X) = n * p * (Sigma k=a to b) C(b,a) * p^a * (1-p)^(b-a)
     E(X) = n * p * 1
     E(X) = n * p
+
+Poisson Process 1
+=================
+
+Let's say you're a traffic engineer and you want to figure out how many cars
+pass by in a given time frame:
+
+    X = # of cars pass in an hour
+
+The goal is to figure out the probability distribution of this random variable.
+From that, you can figure it out for any time frame.  That's assuming any hour
+is the same on this street which is usually not the case.  You could also get
+the value for multiple hours and average them out.
+
+    E(X) = lambda = n * p
+    lambda cars/hours = 60 minutes/hour * lambda/60 cars/minutes
+    P(X = k) = C(60, k) * (lambda / 60)^k * (1 - lambda/60)^(60-k)
+
+But success here is defined as one car passing in one minute?  What if more cars
+passes in that single minute?  We could do it more granular:
+
+    P(X = k) = C(3600, k) * (lambda / 3600)^k * (1 - lambda/3600)^(3600-k)
+
+But the same problem applies.  What if two cars go by in one second?  If we
+keep getting more and more granular, we'll get the **Poisson distribution**.
+
+Some refreshers:
+
+    lim x -> inf (1 + a/x)^x = e^a
+    lim x -> a [f(x)g(x)] = lim x -> a [f(x)] * lim x -> a [g(x)]
+    x!/(x-k)! = (x)(x-1)(x-2)...(x-k+1)
+
+Poisson Process 2
+=================
+
+Let's take our binomial distribution as the intervals approaches infinity:
+
+    E(X) = lambda = n*p
+    P(X=k) = lim n->inf [C(n, k) (lambda / n)^k (1 - lambda/n)^(n-k)]
+    P(X=k) = lim n->inf [n!/(k!(n-k)!) * lambda^k/n^k *
+                         (1-lambda/n)^n * (1-lambda/n)^-k]
+    P(X=k) = lim n->inf [(n^k + ...)/n^k] * lambda^k/k! * 
+             lim n->inf [1-lambda/n]^n * lim n->inf [1-lambda/n]^-k
+    P(X=k) = 1 * (lambda^k)/k! * e^-lambda * 1
+    P(X=k) = (lambda^k)/k! * e^-lambda
+
+So what's the probability that two cars pass in a given hour?
+
+    P(X=2) = (9^2)/2! * e^-9
+
+The Poisson distribution is also known as the **Poisson law of small numbers**.
+
+Law of Large Numbers
+====================
+
+Let's say we have a random variable X and know E(X).  As the number of
+experiments you perform approaches infinity, the arithmetic mean and expected
+value will converge:
+
+                x1 + x2 + ... + xn
+    -x(sub n) = ------------------
+                        n
+    -x(sub n) -> E(X) for n -> infinity
+    -x(sub n) -> mu
+
+Let's use a more concrete example.
+
+    X = # of heads after 100 tosses of fair coin
+    E(X) = 100 * 0.5 = 50
+                55 + 65 + 45 + ... + n
+    -x(sub n) = ----------------------
+                          n
+    -x(sub n) = 50 as n -> infinity
+
+It's not telling you that if you continually get high values of X, the next
+trial has a higher probability of getting a lower X to make up.  That's known
+as the gamber's fallacy.
+
+This is what the casinos use to make money.  While a small number of people
+will win, over the long term the casino wins due to the game's probabilities.
+
+Normal Distribution Excel Exercise
+==================================
+
+The **normal distribution** is also known as the **Gaussian distribution** or
+the **bell curve**:
+
+                   1
+    P(x) = ----------------- * e ^ [-1/2 * ((x-mu)/sigma)^2 ]
+           sigma * sqrt(2pi)
+
+It's a good approximation for the binomial distribution and vice versa, if
+you're taking enough trials.
+
+Introduction to the Normal Distribution
+=======================================
+
+To get the probability given the distribution, you get the area under the curve:
+
+    integral 4.5 to 5.5 [P(x) dx]
+
+The **central limit theorem** states that if you take the sum of all of your
+experiments, as you approach an infinite number you'll converge to a normal
+distribution (sounds a lot like law of large numbers).
+
+Sal plays around with the normal distribution formula to give some intuition
+about it.  He recommends that you just memorize it.
+
+Normal Distribution Problems: Qualitative Sense of Normal Distributions
+=======================================================================
+
+Which of the following is more likely to follow a normal distribution?
+a) The hand span (measured from tip of thumb to tip of 5th extended finger) of
+   a random sample of high school seniors.
+b) The annual salaries of all employees of a large shipping company.
+c) The annual salaries of a random sample of 50 CEOs of major companies, 25 men
+   and 25 women.
+d) The dates of 100 pennies taken from a cash drawer in a convenience store.
+
+The hand span is a factor of genetics and environment, like how much milk a
+peron drank.  It is very close to a random process so it should be pretty close
+to a normal distribution.  It won't be a perfect normal distribution because
+it would never go into the negative region.  The right side also has a growth
+limit.  It's also possible to have a **bi-modal distribution**, one for men and
+one for women.
+
+The salaries of a large shipping company probably has two spikes in its
+distribution.  There's a $40k mean for minimum wage workers and executives would
+have $200k mean.  It would not be a normal distribution.  It would definitely
+be bi-modal.
+
+The salaries of 50 CEOs is probably close to normal distribution.  It would be
+a **right-skewed distribution** due to a base salary and then slowly decreasing
+value.  Here's my best attempt at a right skewed distribution:
+
+    |      ______
+    |     /      \
+    |     |       ----
+    |     |           \
+    |_____|____________----____
+
+The initial vertical incline is due to the base salary and the diminishing
+slope is the variance.  Sometimes a right-skewed distribution is called a
+**positively skewed distribution**.  The mean is on the right of the median due
+to the diminishing tail.
+
+Most pennies are newer pennies because they have a higher chance of survival.
+The older pennies have been lost, destroyed, or melted.  You'll find a ton
+of current year pennies and it goes down from there.  It's a left-skewed
+distribution.
+
+(a) the hand span is most likely to follow a normal distribution.
+
+Normal Distribution Problems: z-score
+=====================================
+
+The grades on a statistics mid-term for a high school are normally distributed
+with `mu = 81` and `sigma = 6.3`.  Calculate the z-score for each of the
+following exam grades.  Draw and label a sketch for each example.
+
+a) 65
+b) 83
+c) 93
+d) 100
+
+The **z-score** is just how many standard deviations `sigma` away it is from
+the arithmetic mean `mu`.  Here's the formula:
+
+    z-score(x) = (x - mu) / sigma
+
+Let's use it to figure out each z-score:
+
+    z-score(65) = (65 - 81) / 6.3 = -2.54
+    z-score(83) = (83 - 81) / 6.3 = .32
+    z-score(93) = (93 - 81) / 6.3 = 1.9
+    z-score(100) = (100 - 81) / 6.3 = 3.02
+
+For labeling a sketch, draw a normal distribution and label the middle as the
+mean.  Draw vertical axises for 1, 2, and 3 standard deviations in each
+direction from the mean.  Now you can label where each exam falls.
+
+           _____
+          /  :  \
+         -.  :  .-
+        / .  :  . \
+       /  .  :  .  \
+    _--___.__:__.___--_
+           mu=81
+
+Normal Distribution Problems: Empirical Rule
+============================================
