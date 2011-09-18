@@ -50,7 +50,7 @@ You can plot vectors or even customize the plotting character (`pch`).
     > plot(height, weight)
     > plot(height, weight, pch=2)
 
-A peron's expected BMI should be about 22.5 where `BMI = weight/height^2`.  The
+A person's expected BMI should be about 22.5 where `BMI = weight/height^2`.  The
 `lines` function will add a line to the current plot.  The first argument is
 a vector of x coordinates, the second is a vector of y coordinates.
 
@@ -148,6 +148,7 @@ the fields in a list:
     [1] "before" "after"
     > mylist$before
     > mylist$after
+    > ls(mylist)
 
 **Data frames** are made up of vectors of the same length.  The individual
 components can be accessed with the `$` operator:
@@ -205,3 +206,156 @@ other vectors in parallel:
     > sort(vector)
     > order(vector)
     [1] 4 1 3 2
+
+The R Environment
+=================
+
+Here are some common functions when dealing with your workspace:
+
+    > ls()           # lists all variables
+    > ls(list)       # lists variables in `list`
+    > rm(var)        # removes a variable from workspace
+    > rm(list=ls())  # removes all variables in workspace
+    > save.image()   # saves current workspace to .RData file
+    > load(".RData") # loads workspace
+    > sink("myfile") # redirects stdout to a file
+    > sink()         # re-establishes stdout to REPL
+
+Some useful functions for working with scripts:
+
+    > source("file")         # runs script
+    > source("file", echo=T) # runs script and prints commands
+    > savehistory("file")    # save REPL history to file
+    > loadhistory("file")    # load REPL history
+    > history()              # show current history
+
+Some commands to get help or documentation:
+
+    > help.start()       # opens the R manual
+    > help(fn)           # print function's documentation
+    > ?fn                # same as above
+    > apropos("arg")     # finds functions starting with arg
+    > help.search("arg") # uses fuzzy matching and deeper search
+
+R packages are centralized on CRAN (Comprehensive R Archive Network) which
+currently hosts over 1000 packages.  Installed libraries are just directories
+of code on your filesystem.
+
+    > library()                 # currently installed packages
+    > install.packages("IsWR")  # installs IsWR package
+    > library(IsWR)             # loads package into workspace
+    > detach("package:IsWR")    # removes package from workspace
+    > help(package=IsWR)        # docs for IsWR 
+
+Packages use **lazy loading** since data sets can get large.  Some packages
+still require explicit calls to `data`.  This function goes through data
+directories of each package and loads anything present.  If files are present
+with the `.tab` extension, it'll use `read.table`.  Other file extensions exist
+for special treatment.  You can make R look for variables in a data frame using
+the `attach`, `detach`, and `with` functions.
+
+    > data(thuesen) # searches for file with basename thuesen
+    > thuesen$blood.glucose
+    > thuesen$short.velocity
+    > attach(thuesen) # attaches thuesen in system's search path
+    > search()
+      ... "thuesen" ...
+    > blood.glucose
+    > short.velocity
+    > detach(thuesen)
+    > with(thuesen, plot(blood.glucose, short.velocity))
+
+`subset` and `transform` are useful functions to operate on vectors and data
+frames.  `subset` will filter out elements/rows, `transform` can be used to add
+additional information.  `within` is a more flexible alternative.
+
+    > thue2 <- subset(thuesen, blood.glucose < 7)
+    > thue3 <- transform(thuesen, log.gluc=log(blood.glucose))
+    > thue4 <- within(thuesen, {
+    +   log.gluc <- log(blood.glucose)
+    +   m <- mean(log.gluc)
+    +   centered.log.gluc <- log.gluc - m
+    +   rm(m)
+    + })
+
+Let's try plotting something and adding to the plot:
+
+    > x <- runif(50, 0, 2)  # random uniform distribution
+    > y <- runif(50, 0, 2)
+    > plot(x, y, main="Main title", sub="subtitle", 
+    +            xlab="x-label", ylab="y-label")
+    > text(0.5, 0.5, "text at (0.6, 0.6)")  # adds text to point
+    > abline(h=.6, v=.6)  # adds a horizontal and vertical line
+    > # loop through and add margin text
+    > for(side in 1:4) mtext(-1:4, side=side, at=.7, line=-1:4)
+    > mtext(paste("side", 1:4), side=1:4, line=-1, font=2)
+
+In the example below, we're building a plot from pieces:
+
+    > # type="n" means draw no points, axes=F means draw no axes
+    > plot(x, y, type="n", xlab="", ylab="", axes=F)
+    > points(x, y)
+    > axis(1)
+    > axis(2, at=seq(0.2, 1.8, 0.2)  # alternative set of ticks
+    > box()
+    > title(main="Main title" sub="subtitle", xlab="x-label", ylab="y-label")
+
+`par` is a powerful function that lets you control various settings of the plot.
+The author says it's pretty confusing and you should just play around with it
+to learn.
+
+Let's plot a histogram and add an overlaying curve:
+
+    > x <- rnorm(100)
+    > hist(x, freq=F)         # plot by densities instead of absolute counts
+    > curve(dnorm(x), add=T)  # add=T means add to existing plot
+
+The top of the curve is cut off because the y-axis played no role for the curve.
+To fix this, we can re-use the same y values for both plots and make the plot
+big enough to hold both:
+
+    > h <- hist(x, plot=F)
+    > ylim <- range(0, h$density, dnorm(0))
+    > hist(x, freq=F, ylim=ylim)
+    > curve(dnorm(x), add=T)
+
+You can write your own functions in R:
+
+    functionname <- function(arg1, arg2, arg3=default, ...) {
+       # body of function goes here
+    }
+
+R also has conditional and looping constructs:
+
+    while (condition) expression
+    repeat {
+      if (condition) break
+    }
+    for (variable in vector) expression
+
+In R, objects have a `class` attribute.  Some functions will change depending
+on what this attribute is, like the `print` function.
+
+    > print
+    function (x, ...)
+    UseMethod("print")  # using print on class htest will use print.htest
+
+You can read in a space delimited file with `read.table`.  The `header` option
+is a boolean flag for whether or not headers are present.  There's also a
+`read.csv` function for CSVs and `read.delim` for tab delimited.  `read.delim`
+allows you to specify your own delimiters.  The flip side to reading are the
+functions `write.table` and `write.csv`.  Some notes:
+
+* `sep` option to specify the field separator
+* `na.strings` option to specify not available data (`"NA"` by default)
+* `quote` option to specify which characters are used for quotes
+* `comment.char` option to ignore certain lines in data
+* `fill` and `flush` option to ignore errors of mismatch line lengths
+
+R lets you edit data frames using a spreadsheet-like interface via `edit`:
+
+    > aq <- edit(airquality)
+    > fix(airquality)  # modifies airquality instead of returning new data
+    > # start with a new spreadsheet
+    > dd <- data.frame()
+    > fix(dd)
