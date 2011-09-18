@@ -359,3 +359,60 @@ R lets you edit data frames using a spreadsheet-like interface via `edit`:
     > # start with a new spreadsheet
     > dd <- data.frame()
     > fix(dd)
+
+Probability and Distributions
+=============================
+
+R can pick random samples for you:
+
+    > sample(1:40, 5)  # pick five numbers randomly from 1 to 40
+    > sample(40, 5)    # same as above
+    > sample(c("H", "T"), 10, replace=T)                    # simulate coin
+    > sample(c("H", "T"), 10, replace=T, prob=c(0.9, 0.1))  # unfair coin
+
+You can use it to calculate permutations and combinations:
+
+    > prod(40:36)   # 40 * 39 * 38 * 37 * 36
+    > choose(40, 5) # choose 40 items into 5 slots
+
+The following functions can be used for normal distributions:
+
+* `dnorm` for density
+* `pnorm` for probability
+* `qnorm` for quantile
+* `rnorm` for random
+
+There are parallel functions for binomial distributions:
+
+* `dbinom` for density
+* `pbinom` for probability
+* `qbinom` for quantile
+* `rbinom` for random
+
+The density for a continuous distribution is a measure of the relative
+probability of "getting a value close to x".  It uses `dnorm`.  To plot a bell
+curve:
+
+    > x <- seq(-4, 4, 0.1)
+    > plot(x, dnorm(x), type="l")     # l for line graph
+    > curve(dnorm(x), from=-4, to=4)  # alternative plot
+
+The type of plot "l" is a line graph.  Use "h" for a histogram.
+
+The cumulative distribution function describes the probability of "hitting" x
+or less in a given distribution.  It uses `pnorm` or `pbinom`.
+
+Say a biochemical measure in healthy individuals is described by a normal
+distribution with a mean of 132 and standard deviation of 13.  What is the
+probability a patient has a value of 160?
+
+    > 1 - pnorm(160, mean=132, sd=13)
+
+`pnorm` returns the probability of getting a value smaller than its first arg
+in a normal distribution.
+
+The quantile function is the inverse of cumulative distribution function.
+There is a probability p of getting a value less than or equal to the p-quantile.
+It uses the `qnorm` and `qbinom` functions.
+
+`rnorm` and `rbinom` are used to generate pseudo-random numbers.
