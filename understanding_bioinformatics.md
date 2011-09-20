@@ -130,3 +130,191 @@ usually require human intervention.  Annotations can be in any form.  The
 highest quality databases have human curation.
 
 Many sites even require publication of research before they'll input the data.
+
+Producing and Analyzing Sequence Alignments
+===========================================
+
+## How is homology determined by sequence alignment?
+
+Evolutionary **homology** means two sequences are evolutionary related. 
+Alignment is the task of locating equivalent regions of two or more sequences to
+maximize their similarity.  The similarities in sequences can help construct
+phylogenetic trees or trace evolutionary relationships between species or within
+a family of proteins.
+
+## Describe different uses of protein and DNA sequence alignments.
+
+There are two types of data used in alignment: DNA sequences and protein
+sequences.  DNA alignment use the four nucleotides ACTG.  Protein sequences
+are made up of the 20 amino acids.
+
+It's easier to detect homology when comparing protein sequences vs nucleic
+acid sequences.  Since the alphabet for DNA is only four letters, the probability
+of similarity is very high.  It's tough to differentiate similarity from
+homology.  Also, the genetic code is redundant.  Two or more different codons
+can code for the same amino acid.  Protein structure is very specialized for
+its function so it evolves much slower.
+
+Since protein structure is so important, often times sequences could have very
+different amino acids but still function similarly.
+
+Sequences that are very similar to each other but aren't evolutionary homologous
+are said to be the result of **convergent evolution** (instead of divergent).
+
+## What are scoring alignments?
+
+Sequence alignment has to take into account many factors: differences in amino
+acids could result in the same function, some mutations are accepted others are
+not, effectiveness of gaps, etc...  Specialized scoring schemes have been
+developed to generate the best possible alignments.  "Best" usually means best
+for what you're looking for.  It could be evolutionary homologous, similarity,
+or just similar function.
+
+The quality of an alignment is measured by giving it a quantitative **score**. 
+The best is referred to as the **optimal alignment**.  Slightly worse scores are
+called **suboptimal alignments**.  No scoring scheme has been developed that
+perfectly models the evolutionary process.
+
+Some scoring alignments are:
+
+* **Identity**: percent of identical matches vs total length of sequence.  It's
+  naive/easy, doesn't take into account for gaps
+* **dot-plot**: uses a matrix to compare two sequences
+* **substitution matrices**: assign scores to aligned sequence positions.  The
+  **PAM substitution matrices** use point frequencies derived from sets of
+  closely related protein sequences.
+
+90% of sequence pairs with identity >= 30% were pairs of structurally similar
+proteins.  Only 10% of sequence pairs with Below 25% sequence identity were
+structurally similar.  The region between 30% and 20% is the **twilight zone**
+and less than 20% is the **midnight zone**.
+
+An **accepted mutation** is a mutation that has been retained in the sequence
+(aka the mutation hasn't killed off the organism).  PAM stands for Point
+Accepted Mutations.  The PAM250 means that 250 mutations have been fixed on
+average per 100 residues.
+
+Another commonly used substitution matrix is the **BLOSUM matrix** which stands
+for BLOck SUbstitution Matrix.  The PAM matrix indicate evolutionary distance
+whereas the BLOSUM matrix refers to percentage identity.
+
+## How do you make alignments between two sequences?
+
+Some vocabulary first:
+
+* **indels** are differences in sequences that could be the result of an
+  insertion in one sequence or a deletion in another.  We don't know.
+* **gaps** are unaccounted sequence portions which don't match
+* **gap penalty** is the penalty amount due to a single gap (ignoring length)
+* **gap extension penalty** is the penalty amount due to number of letters in gap
+
+There are different types of alignments you can use:
+
+* **global alignment** covers the entire length
+* **local alignment** covers only parts of sequences, for example only one
+  domain of a protein
+
+For both types of alignments there are two methods:
+
+* **pairwise alignment** of just two sequences (answer to this question)
+* **multiple alignments** of more than two sequences
+
+For two sequences to do a pairwise alignment, you'd use a Needleman-Wunsch-type
+algorithm or Smith-Waterman.  Find the alignment with the best score.  Look
+for the optimal solution and a few sub-optimal solutions.
+
+## How do you make multiple alignments between many sequences?
+
+Multiple alignments can be used to find interesting patterns characteristic of
+specific protein families, build phylogenetic trees, detect homology between
+new sequences and existing families, or to help predict secondary/tertiary
+structures of new sequences.
+
+It can be constructed with a few different techniques:
+
+* **cluster analysis** first does pairwise alignments, then performs an analysis
+  on pairwise data to generate a hierarchy of sequences in order of similarity.
+  The hierarchy is a phylogenetic tree called the **guide tree**.  The alignments
+  are slowly combined until all sequences are aligned.
+* **divide-and-conquer method** sequences are cut several times to reduce length,
+  aligned, then concatenated into a multiple alignment
+
+Some software packages to help with multiple alignments are ClustalW, DIALIGN,
+AMAS, CINEMA, and ESPript.
+
+## Compare local alignment techniques for finding limited areas of similarity.
+
+FASTA is a fast database-search method based on matching short identical segments
+at the expense of some sensitivity.  It speeds up search via hashing of the
+search query (called **k-tuples** short stretches of k contiguous residues).
+Partial matches are ignored due to the hashing.
+
+BLAST (Basic Local Alignment Search Tool) or Wu-BLAST is based on finding very
+similar short segments.  First, all suitable matches are located in each
+database sequence.  Matches are then extended without including gaps and are
+ranked.  Highest scoring sequences are subjected to dynamic programming to
+obtain final alignment and scores.
+
+PSI-BLAST enables profile-based database searches.  A profile or position
+specific scoring matrix of set of sequences is constructed and replaces the
+substitution matrix in the BLAST search.
+
+SSEARCH is a rigorous alignment method based on the Smith-Waterman algorithm.
+The Smith-Waterman algorithm compares segments of all possible lengths and
+chooses the segment that optimizes the similarity measure.  It's slower but
+much more accurate.
+
+## Explain global alignment techniques for matching whole sequences.
+
+It's possible to estimate the probability of two random sequences aligning
+with a score greater than or equal to S, which is usually reported as the
+**expectation value or E-value** in database search results.  The probability
+follows the extreme-value distribution.  Closely related sequences are given
+a very small E-value of 10^-20 or less.  An E-Value of 3 means you'll find
+three sequence alignments in the database (suggesting it's not related).  The
+smaller the E-value the better.
+
+Different databases can be used to solve particular problems.  GenBank for DNA
+sequences, SWISS-PROT for annotated protein sequences, TrEBML for translated
+EMBL DNA-sequence, PDB for protein structures, dbEST for EST database.
+
+## How do you search databases for homologous sequences?
+
+Set a low threshold on the E-Value before doing your database search.  Use the
+correct scoring algorithm for alignment (PAM) and set the level to be reasonable
+as per the amount of evolution time between the two sequences.
+
+## How do you look for patterns and motifs in a protein sequence?
+
+A similarity between an unknown sequence and a sequence of known function may
+be limited to a few critical residues.  You need a method of searching for
+the occurrence of short sequence patterns (called **motifs**).  A motif is a
+conserved element of a sequence alignment.
+
+There are specialized databases dedicated to patterns in the genome and proteins.
+It's mostly used with protein sequences instead of nucleotide sequences.  These
+specialized databases have been constructed by hand or via a consensus method
+(the most similar regions in are used to construct a pattern).
+
+Some of these databases and tools are:
+
+* BLOCKS database
+* PROSITE database
+* PHI-BLAST (Pattern Hit Initiated BLAST)
+* PRINTS database holds fingerprints representing sets of conserved motifs
+* Pfam database defines profiles of protein families
+
+## How do you use patterns/motifs to locate proteins of similar functions?
+
+During signal transduction (signals of environments transmitted to the inside
+of the cell) components are chemically/transiently modified.  Usually they
+include adding/removing phosphate groups.  Neural network methods can predict
+serine, threonine, and tyrosine phosphorylation sites in eukaryotic proteins.
+The NetPhos tool and PROSITE database can help with these.
+
+Hydrophobic cluster analysis (HCA) compares the alpha helices to compare
+possible similar functions of proteins.
+
+Proteins often contain instrinsic sequence motifs that are involved in their
+delivery to sites.  If you know the sequence motifs, you can figure out where
+the protein will end up in the cell.
