@@ -416,3 +416,151 @@ There is a probability p of getting a value less than or equal to the p-quantile
 It uses the `qnorm` and `qbinom` functions.
 
 `rnorm` and `rbinom` are used to generate pseudo-random numbers.
+
+Descriptive Statistics and Graphics
+===================================
+
+Here's how to obtain the mean, standard deviation, variance, median, and
+quantile:
+
+    > x <- rnorm(50)
+    > mean(x)
+    > sd(x)
+    > var(x)
+    > median(x)
+    > quantile(x)  # defaults to every 25%
+    > quantile(x, seq(0, 1, 0.1))  # every 10%
+
+The `juul` data set from the `ISwR` package contains variables from a insulin
+study.  Let's do some operations on it:
+
+    > attach(juul)
+    > mean(igf1)  # means insulin growth factor 1, returns NA
+    > mean(igf1, na.rm=T)
+    > sum(!is.na(igf1))  # length function has no na.rm argument
+    > summary(igf11)
+    > summary(juul)
+    > detach(juul)
+
+Let's set the correct types on our variables by setting some factors:
+
+    > juul$sex <- factor(juul$sex, labels=c("M", "F"))
+    > juul$menarche <- factor(juul$menarche, labels=c("No", "Yes"))
+    > juul$tanner <- factor(juul$tanner,
+                            labels=c("I","II","III","IV","V"))
+    > attach(juul)
+    > summary(juul)  # display changes for factor variables
+
+A shortcut for the factor setting could have been:
+
+    > juul <- transform(juul,
+    +   sex=factor(sex,labels=c("M","F"))
+    +   menarche=factor(menarche,labels=c("No","yes"))
+    +   tanner=factor(tanner,labels=c("I","II","III","IV","V"))
+    + )
+
+A histogram gives a reasonable shape of a distribution with the `hist` function.
+You can specify cutpoints with `breaks=n` where `n` is the number of bars.
+
+    > mid.age <- c(2.5,7.5,13,16.5,17.5,19,22.5,44.5,70.5)
+    > acc.count <- c(28,46,58,20,31,64,149,316,103)
+    > age.acc <- rep(mid.age, acc.count)
+    > brk <- c(0,5,10,16,17,18,20,25,60,80)
+    > hist(age.acc, breaks=brk)
+
+You can also plot the empirical cumulative distribution or change it to a qqplot
+with a builtin function:
+
+    > n <- length(x)
+    > plot(sort(x), (1:n)/n, type="s", ylim=c(0,1))  # type s is step function
+    > qqnorm(x)
+
+A boxplot aka "box-and-whiskers plot" is a graphical summary of a distribution.
+The box in the middle are "hinges" and median.  The lines ("whiskers") show the
+largest or smallest observation that falls within a distance of 1.5 times the
+box size from the nearest hinge.  Other "extreme" values are shown separately:
+
+    > par(mfrow=c(1,2)) # specifies layout of plot
+    > boxplot(IgM)
+    > boxplot(log(IgM))
+    > par(mfrow=c(1,1))
+
+You can get summary statistics within groups, for example a table of means and
+standard deviations.  Use the `tapply` function.
+
+    > attach(red.cell.folate)
+    > xbar <- tapply(folate, ventilation, mean)  # split according to ventilation
+    > s <- tapply(folate, ventilation, sd)
+    > n <- tapply(folate, ventilation, length)
+    > cbind(mean=xbar, std.dev=s, n=n)
+
+The function `aggregate` is just like `tapply` but works on the entire data
+frame.  The function `by` takes an entire (sub-) data frame.
+
+For grouped data, you may want to split it up before plotting.  For example,
+let's split up two histograms:
+
+    > attach(energy)
+    > expend.lean <- expend[stature=="lean"]
+    > expend.obese <- expend[stature=="obese"]
+    > par(mfrow=c(2,1))
+    > hist(expend.lean,breaks=10,xlim=c(5,13),ylim=c(0,4),col="white")
+    > hist(expend.obese,breaks=10,xlim=c(5,13),ylim=c(0,4),col="grey")
+    > par(mfrow=c(1,1))
+    > boxplot(expend.lean, expend.obese)  # boxplot instead of histogram
+
+A stripchart is useful to show variations:
+
+    > opar <- par(mfrow=c(2,2), mex=0.8, mar=c(3,3,2,1)+.1)
+    > stripchart(expend ~ stature)
+    > stripchart(expend ~ stature, method="stack")
+    > stripchart(expend ~ stature, method="jitter")
+    > stripchart(expend ~ stature, method="jitter", jitter=.03)
+    > par(opar)
+
+ASCII tables are useful too and can be assembled via `matrix`.
+
+    > caff.marital <- matrix(c(652,1537,598,242,36,46,38,21,218,327,106,67),
+                             nrow=3, byrow=T)
+    > colnames(caff.marital) <- c("0, "1-500", "151-300", ">300")
+    > rownames(caff.marital) <- c("Married", "Prev.married", "Single")
+    > names(dimnames(caff.marital)) <- c("marital", "consumption")
+    > caff.marital
+
+You can use the `as.data.frame` and `as.table` functions to convert between 
+tables and data frames:
+
+    > as.data.frame(as.table(caff.marital))
+    > table(sex)
+    > table(sex, menarche)
+    > table(menarche, tanner)
+    > xtab(~ tanner + sex, data=juul)  # same as table, except uses formula
+    > ftable(coma + diab ~ dgn, data=stroke)  # creates a flat table
+    > t(caff.marital)  # to transpose
+
+For graphical displays of tables, you can try using a `barplot`, `dotchart`, or
+`pie`:
+
+    > total.caff < margin.table(caff.marital, 2)
+    > barplot(total.caff, col="white")
+    > par(mfrow=c(2,2))
+    > barplot(caff.marital, col="white")
+    > barplot(t(caff.marital), col="white")
+    > barplot(t(caff.marital), col="white", beside=T)
+    > barplot(prop.table(t(caff.marital),2), col="white", beside=T)
+    > par(mfrow=c(1,1))
+
+The `dotchart` looks like a horse race with the big dots representing a horse:
+
+    > dotchart(t(caff.marital), lcolor="black")
+
+The `pie` function is used to make piecharts:
+
+    > opar <- par(mfrow=c(2,2), mex=0.8, mar=c(1,1,2,1))
+    > slices <- c("white", "grey80", "grey50", "black")
+    > pie(caff.marital["Married",], main="married", col=slices)
+    > pie(caff.marital["Prev.married",],
+          main="Previously married", col=slices)
+    > pie(caff.marital["Single",], main="Single", col=slices)
+    > par(opar)
+
