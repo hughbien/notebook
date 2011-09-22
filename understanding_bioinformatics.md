@@ -318,3 +318,22 @@ possible similar functions of proteins.
 Proteins often contain instrinsic sequence motifs that are involved in their
 delivery to sites.  If you know the sequence motifs, you can figure out where
 the protein will end up in the cell.
+
+Patterns, Profiles, and Multiple Alignments
+===========================================
+
+## Explain how to produce PSSMs.
+
+**PSSMs or position-specific scoring matrices**
+
+## Describe methods to overcome lack of data.
+## Compare/constrast scoring methods for alignments and profiles.
+## Explain the graphical illustration of sequence profiles and patterns.
+## Explain how to produce profile HMMs
+
+**HMMs or Hidden Markov Models**
+
+## Describe the alignment of profiles with sequences and other profiles.
+## How do you obtain multiple alignments?
+## How do you discover sequence patterns?
+## Discuss the statistical scoring of patterns.
