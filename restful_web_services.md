@@ -1,5 +1,6 @@
 RESTful Web Services
 ====================
+
 **Representational State Transfer** or REST, described in Roy Fielding's
 dissertation, is an architecture for designing web services that emphasizes
 HTTP's strength and simplicity.  There is no definitive specification and an

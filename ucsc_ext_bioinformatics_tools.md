@@ -28,7 +28,7 @@ PubMed would be useful.
 
 ## What database do you search for info about polymorphic variation in a gene?
 
-There is currently do specialized database for polymorphic variants.
+There is currently no specialized database for polymorphic variants.
 
 ## Can you use SRS to search sequence databases?
 
@@ -177,7 +177,7 @@ give meaning to the data.
 
 A computer "parses" data in order to understand it.  It's easier to parse data
 when it's in a standardized format - such as the headers.  This makes it easy
-to extract data from annotations.
+to extract data from annotations.  We can parse a flat file database.
 
 During lecture, we also discussed NLP (Natural Language Processing).  NLP can
 be applied to articles for computers to parse entire articles - not just the
@@ -207,32 +207,200 @@ Statistics in Bioinformatics
 ============================
 
 ## Why is probability and statistics important for bioinformatics?
+
+Separates good results from bad results using statistical inference and
+biological insight.
+
 ## How often would you find any dinucleotide sequence in a random sequence?
 ## How often would you find any tri-nucleotide sequence in a random sequence?
 ## Given a nucldeotide sequence with random distribution, what can you conclude?
 ## Given a non-random distribution, what does it tell you?
 ## When would you use a Hidden Markov Model to analyze a sequence?
+
+To determine if a sequence is the member of a certain family.
+
 ## What is information theory used for in bioinformatics?
 ## How often do you expect a single nucleotide to appear in a random sequence?
 ## Is a sequence random if the four nucleotides appear in same frequency?
 ## What further tests would you do to make sure the sequence is random?
 
-To answer this, come up with some sequences that had the same distribution
-of nucleotides but was not random.
+_To answer this, come up with some sequences that had the same distribution
+of nucleotides but was not random._
 
 ## How often would you find the cut site for HindIII in a random sequence?
 
-To answer this, you need to find information about the HindIII cut site and its
-length.
+_To answer this, you need to find information about the HindIII cut site and its
+length._
 
 ## What is a sliding window technique and why is it useful?
+
+As you change the window size, the results will also change.  Patterns will start
+appearing.  Small windows have noisy data, larger windows are smoother.
+
+It's used to analyze the signal in data and to help find patterns.  It helps
+filter out the noise.
+
 ## Why is leucine the most common amino acid?
+
+Leucine has more codons that code for it than the other amino acids.  There are
+20 amino acids, but 64 possibilities from triplet nucleotides.
+
+Proteins that need to be expressed frequently will tend to have more amino acids
+that are frequently expressed.
+
 ## What is a codon preference table?  When would you use one?
+
+A codon frequency table includes the frequency that a codon occurs for a human
+gene (and for other species and organelle).  You can use it to go backwards
+from knowledge of a protein to figure out the DNA sequence, with a certain
+probability.
+
 ## Can the selection of a codon be used to regulate transcription rate?
 ## Can the selection of a codon be used to regulate gene expression?
 ## If you shuffle a sequence, will the single nucleotide frequencies change?
 ## You shuffle a sequence and di-nucleotide frequencies stay constant.  Why?
 ## How is a bioinformatics experiment designed?
+
+1. Go to the database, get training set
+2. Collect data on probabilities of events
+3. Calculate frequencies
+
 ## Where does the data from a bioinformatics experiment come from?
+
+Online databases like SwissProt or GenBank.
+
 ## How do you know if a bioinformatics experiment worked?
+
+Do a Bayesian analysis to make sure your results are "correct" to a certain
+degree of belief.
+
 ## What is Bayes Equation?  Why is it so useful?
+
+    P(b | a) = P(a | b) * P(b) / P(a)
+
+This equation has four variables.  You usually have access to three, so you
+can solve for the unknown probability.
+
+Sequence Comparison
+===================
+
+## Why compare sequences?
+## Why compare a sequence to itself, won't that just find a perfect match?
+## Why penalize gaps?  How are gaps penalized?
+## Why do you need a scoring function?
+## What is a sequence comparison matrix used for?
+## Why not use an identity matrix for proteins?
+## How do you know if a sequence comparison is correct?
+## What are sub-optimal alignments and why are they important?
+## How do you choose what sequence comparison matrix to use?
+## What is the goal of sequence comparison?  A good alignment shows what?
+## What is the difference between similarity and homology?
+## What is the difference between orthologs and paralogs?
+## When would you use a global alignment and when would you use a local?
+## What are the advantages and disadvantages of a dot matrix comparison?
+## What do gaps along the diagonal of a dot matrix comparison represent?
+## How would you reduce the noise in a dot matrix alignment?
+## What do off diagonal lines represent in a dot matrix alignment?
+## Why do we use the term INDEL to describe a gap in an alignment?
+## What parameters in the LALIGN alignment program would you use?
+
+_For the scenario of a computer giving you an alignment that had no gaps._
+
+## What does a negative number in the PAM sequence comparison matrix tell you?
+## Two sequences are found to be similar, are they also homologous?
+## What is the best gap penalty to use?
+## How does the software still manage to do a good job?
+
+_You usually want an alignment program to align sequences based on evolutionary
+events or align according to functional regions.  However, the software doesn't
+know anything about the biology of the sequences being aligned.
+
+## How are whole genome comparisons different than small sequence comparisons?
+## Will a gene be on chromosome 1 of a mouse if it's on human chromosome 1?
+## What is synteny?
+
+Multiple Alignment
+==================
+
+## What can be learned from multiple alignments?  What do they answer?
+## What further analyses can be done with the results of a multiple alignment?
+## What is the most important step in the multiple alignment process?
+## Why don't we use the method that guarantees best alignment?
+## How does a progressive pairwise alignment work?
+## What is a dendrogram?  How is it used?
+## Why use a monospaced font when viewing/printing a multiple alignment?
+## How can you tell whether a multiple alignment is correct?
+## What are some databases of multiple alignments?
+## How can multiple alignment databases be used?
+## What alignment algorithm does Clustal use?
+## How does the most recent version of Clustal differ from the original version?
+## The best scored alignment might not be the correct alignment.  Why?
+## How is T-Coffee an improvement over other methods of multiple alignments?
+## When wouldn't you want to do a multiple alignment?
+## How would you analyze a protein with domains X,Y,Z against protein with Z,X?
+## What is a consensus sequence?
+## What is a sequence logo?
+## Can you use ClustalX to align only two sequences?  Is ClustalX the best way?
+## Should you use only one comparison matrix for the following scenario?
+
+_You're aligning many sequences and some are evolutionary close, others are
+evolutionary distant._
+
+## How does Clustal resolve the problem of evolutionary closeness and distance?
+## How can you search a database using a multiple alignment?  Name some methods.
+## What is the best method for searching a database using a multiple alignment?
+
+Database Searching
+==================
+
+## What questions can be answered using database searching?
+## How is sequence comparison different from database searching?
+## Explain the tradeoff between speed and sensitivity in database searches.
+## Why would you want to give up sensitivity to achieve speed?
+## Can sequence comparison techniques be used to do database searches?
+## Why does BLAST do a faster database search than other methods?
+## When would you want to use a BLOSUM 80 comparison matrix?
+## When would you use the BLASTX program?
+## Which of DNA or protein sequences do you use for evolutionary distant matches?
+## You're searching if a specific sequence is in the DB, do parameters matter?
+## What are the limitations to BLAST?
+## How does the window size improve search speed or sensitivity?
+## What is an expectation value?
+## What is the best expectation value you can get?
+## Is an E value of 6e^-12 good or bad?
+## What is a Z-score?
+## Will the expectation value be the same for two searches that's months apart?
+## Why can you infer homology with a DB search, but not with sequence comparison?
+## What is a false positive?  What is a false negative?
+## What does the TFASTA program do?
+## Is translating DNA or backtranslating a protein better for searching?  Why?
+## You backtranslate protein and do a DNA search, why no good match?
+## GenBank has only one strand for each sequence, how do you search the opposite?
+## Does GenBank use PAM or BLOSUM for searching DNA sequences?
+## What is the value of searching a DB and looking at different reading frames?
+## What are frame-shift mutations?
+## Can you use BLAST to do a sequence comparison with only two sequences?
+## Why filter sequences?  When would filtering not be a good idea?
+
+Database Searching #2
+=====================
+
+## How does PSI-BLAST work?  Why is it better than BLAST?
+## Does PSI-BLAST work with DNA?
+## Can you use BLAST to compare two sequences?
+## Can you send multiple sequences to BLAST at one time?
+## What is better to use as a query sequence, DNA or protein?
+## Give 3 examples for not translating DNA to protein before doing a DB search.
+## Why are pattern searches more sensitive than searching with a single sequence?
+## Why is a consensus sequence not very good to represent a multiple alignment?
+## Why break up long protein or nucleotide sequences before doing a DB search?
+## What comparison matrix would you use to find evolutionary distance sequences?
+## There's a new gene in humans, why find the same gene in a simpler organism?
+## What does the following mean?
+
+_You discovered an ORF and do a DB search and find nothing statistically
+significant._
+
+## What's the advantage of searching using different reading frames?
+## Why is filtering a sequence useful?
+## What does filtering do?
