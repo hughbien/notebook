@@ -626,5 +626,192 @@ direction from the mean.  Now you can label where each exam falls.
     _--___.__:__.___--_
            mu=81
 
-Normal Distribution Problems: Empirical Rule
-============================================
+Central Limit Theorem
+=====================
+
+The **central limit theorem** stats conditions under which the mean of a
+sufficiently large number of independent random variables, each with finite
+mean and variance, will be approximately normally distributed.
+
+Let's say we have a discrete distribution that can take on the values 1 to 6:
+
+    |                 x
+    |                 x
+    |  x              x
+    |  x     x  x     x
+    |__x_____x__x_____x__
+       1  2  3  4  5  6
+
+Let's say the sample size is `n = 4`, the resulting sets of dice rolls are:
+
+    s(1) = [1, 1, 3, 6]
+    xbar(1) = 2.75
+
+    s(2) = [3, 4, 3, 1]
+    xbar(2) = 2.75
+
+    s(3) = [1, 1, 6, 6]
+    xbar(3) = 3.5
+
+Let's plot the frequency of the sample means above:
+
+    |
+    |       x
+    |_______x_____x__
+           2.75   3.5
+
+Let's say we keep running the experiment over and over again and plot the means:
+
+    |       x
+    |      xxx
+    |    xxxxxxx
+    |  xxxxxxxxxxx
+    |xxxxxxxxxxxxxxx
+
+Over time, you'll start having a plot that resembles the normal distribution.
+That's what the central limit theorem states.  It applies to the mean of a set
+as well as the sum.
+
+As you sample size approaches infinity, the plot will approach a normal
+distribution.
+
+For a lot of experiments, we don't know the actual probability distributions.
+That's why the central limit theorem is useful - we always know that the
+frequencies of the mean approaches a normal distribution.
+
+Sampling Distribution of the Sample Mean
+========================================
+
+The plots of the frequency of the means above are called the
+**sampling distribution of the sample mean**.  Let's dissect it:
+
+* it's a plot of the sample mean
+* it's a distribution of the means
+* we derive if from sampling of experiments
+
+The mean of the plots will have the same mean as your original probability
+distribution.
+
+Sal reviews some terms: skew and kurtosis.  Both are used to describe a
+distribution.  Positive skew means the peak is more towards the left with a
+long tail towards the right.  Negative skew is the opposite.  Positive kurtosis
+means the peak is more narrow/pointy and longer tails.  Negative kurtosis means
+the peak is round and smaller tails on the sides.
+
+When your sample size is larger, the sampling distribution of the sample mean
+has skew/kurtosis closer to zero.  It's a tighter normal distribution.  This
+makes sense because when your sample size is larger, you have better odds of
+getting closer to the mean.
+
+Another way to say it: the standard deviation gets smaller.
+
+Standard Error of the Mean
+==========================
+
+The **standard error of the mean** is also known as the standard deviation of
+the sampling distribution of the sample mean.
+
+    SEM = s / sqrt(n)
+
+Where `s` is the standard deviation and `n` is the sample size.
+
+Sal reminds us that as our sample size increases, the distribution gets tighter
+and the standard deviation decreases.  So it makes sense, intuitively, that the
+standard error of the mean is inversely proportional to the sample size.
+
+The variance of the original probability distribution is equal to the variance
+of the sampling distribution of sample mean divided by number of experiments:
+
+    s(sampling dist)^2 = s(original dist)^2 / n
+
+The standard error of the mean (aka standard deviation of sampling distribution)
+can be obtained by just taking the square root of both sides.
+
+Sampling Distribution Example Problem
+=====================================
+
+The average male drinks 2L of water when active outdoors with a standard
+deviation of .7L.  You're planning a full day nature trip for 50 men and will
+bring 110L of water.  What's the probability you'll run out?
+
+    mu = 2L
+    sigma = .7L
+
+The probability of running out of water is the probability of using more than
+110L of water.  This is the same as the probability of the average water use
+is greater than 2.2L (110L divided by 50 men) per man:
+
+    P(average water use > 2.2L per man)
+
+Now let's figure out some properties of the sampling distribution of sample mean:
+
+    mu(xbar) = mu = 2L
+    sigma(xbar)^2 = sigma^2 / n
+    sigma(xbar) = sigma / sqrt(n) = 0.7 / sqrt(50) = 0.099
+
+Notice the standard deviation of the sample mean is much smaller than the
+standard deviation of the population.  The distribution will be much narrower.
+
+We just need to figure out how many standard deviations 2.2L is away from the
+mean (known as the z-score):
+
+    2.2 - mu   2.2 - 2
+    -------- = ------- = 2.02
+     sigma      0.099
+
+The probability that average water us > 2.2L per man is the same as probability
+that the sample mean will be more than 2.02 standard deviations above the mean.
+Now you can use a z-table to figure out that probability:
+
+    0.9783 is the probability that we're less than 2.02 standard deviations
+    above the mean
+    P(running out of water) = 1 - .9783 = .0217
+
+Confidence Interval 1
+=====================
+
+**Confidence interval** indicates the reliability of an estimate.
+
+Mean and Variance of Bernoulli Distribution Example
+===================================================
+
+Let's say we go out and survey the population.  We'd ask them what they thought
+of the current president.  They have two options: unfavorable and favorable.
+
+    |         x        unfavorable => 40%
+    |    x    x        favorable   => 60%
+    |____x____x_____
+         U    F
+
+In order to do calculations, we'll need to assign values to `U` and `F`.  Let's
+assign `U = 0` and `F = 1`.
+
+    mu = .4 * 0 + .6 * 1 = 0.6
+    sig^2 = .4(0 - .6)^2 + .6(1 - .6)^2 = 0.24
+    sig = sqrt(0.24) = 0.49
+
+This is an interesting case, the expected value is actually not a valid option
+for the survey.
+
+The **Bernoulli Distribution** is a special case of the binomial distribution
+where the probability of one result is equal to 1 minutes the probability of
+the other result.
+
+Bernoulli Distribution Mean and Variance Formulas
+=================================================
+
+Here's a general Bernoulli Distribution:
+
+    |         x        P(failure) = 1 - P(success)
+    |    x    x        0 => 1 - P
+    |____x____x_____   1 => P
+         0    1
+
+Let's generalize the calculations above so it works for any Bernoulli 
+Distribution:
+
+    mu = (1-P)*0 + P*1 = P
+    sig^2 = (1-P)(0-P)^2 + P(1-P)^2 = P(1-P)
+    sig = sqrt(P(1-P))
+
+We're going to build on this later on during inferential statistics.

@@ -208,20 +208,63 @@ Statistics in Bioinformatics
 
 ## Why is probability and statistics important for bioinformatics?
 
-Separates good results from bad results using statistical inference and
-biological insight.
+You can separate good results from bad results using statistical inference with
+biological insight.  Using probability/statistics, you can ask yourself if an
+outcome is reasonable.
 
 ## How often would you find any dinucleotide sequence in a random sequence?
+
+The nucleotide alphabet is made up of four letters: A, T, G, C.  There are
+sixteen different possibilities for any dinucleotide sequences:
+
+    [ ] [ ]
+     4 * 4 = 16
+
+So you would expect to find any dinucleotide `1/16` times in a random sequence.
+
 ## How often would you find any tri-nucleotide sequence in a random sequence?
+
+There are 64 different possibilities.
+
+    [ ] [ ] [ ]
+     4 * 4 * 4 = 64
+
+So you'd epxect to find any tri-nucleotide sequence `1/64` times in a random
+sequence.
+
 ## Given a nucldeotide sequence with random distribution, what can you conclude?
+
+That there's nothing particular special about the sequence.  The actual average
+distribution of the human genome is:
+
+    A .295
+    C .205
+    G .205
+    T .295
+
 ## Given a non-random distribution, what does it tell you?
+
+That there's specific biology going on with this sequence.
+
 ## When would you use a Hidden Markov Model to analyze a sequence?
 
 To determine if a sequence is the member of a certain family.
 
 ## What is information theory used for in bioinformatics?
+
+Information theory deals with transmission of messages.  Sequence data can be
+thought of as messages.  For example, a popular method of analyzing proteins
+for secondary structure uses information theory (GOR Method).
+
 ## How often do you expect a single nucleotide to appear in a random sequence?
+
+25% of the time because the nucleotide alphabet is made of four letters.
+
 ## Is a sequence random if the four nucleotides appear in same frequency?
+
+Yes, if they appear in about the same frequency.  The actual distribution is
+a little different.  A's and T's occur more often than C's and G's.
+
 ## What further tests would you do to make sure the sequence is random?
 
 _To answer this, come up with some sequences that had the same distribution
@@ -229,8 +272,11 @@ of nucleotides but was not random._
 
 ## How often would you find the cut site for HindIII in a random sequence?
 
-_To answer this, you need to find information about the HindIII cut site and its
-length._
+The recognition site for HindIII is:
+
+    AAGCTT
+
+That's 6 nucleotides in length.  The number of possible permutations are 
 
 ## What is a sliding window technique and why is it useful?
 
