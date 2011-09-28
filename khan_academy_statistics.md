@@ -869,3 +869,57 @@ This gives us a 95% confidence interval of 33% to 53%:
 If you want a smaller margin of error, you'll need to increase your sample size.
 Increasing the sample size will decrease your standard deviation of the mean,
 which will decrease the margin of error.
+
+Hypothesis Testing and P-values
+===============================
+
+A neurologist is testing the effect of a drug on response time by injecting 100
+rats with a unit dose of the drug, subjecting each to neurological stimulus,
+and recording its response time.  The neurologist knows that the mean response
+time for rats not injected with the drug is 1.2 seconds.  The mean of the 100
+injected rats' response times is 1.05 seconds with a sample standard deviation
+of 0.5 seconds.  Do you think that the drug has an effect on response time?
+
+We're going to come up with two hypothesis.  The null hypothesis is that the
+drug has no effect.  The null hypothesis will always be the status quo.
+
+    H(0): Drug has no effect  =>  mu = 1.2 seconds (even with drug)
+    H(1): Drug has an effect  =>  mu != 1.2 seconds when drug is given
+
+The way to proceed is to assume the null hypothesis is true.  Figure out the
+probability of the results with the null hypothesis, if the probability is small
+then we can believe in the alternative hypothesis.
+
+    mu(xbar) = mu = 1.2s
+    sig(xbar) = sig/sqrt(100) =~ s/sqrt(100) = 0.5/10 = 0.05
+
+How many standard deviations away from the mean is 1.05 seconds?
+
+    z = (1.2 - 1.05) / 0.05 = 3
+
+Now that we have the z-score, we can figure out the probability of getting
+that value by looking it up in the z-table (both in negative and positive
+directions).
+
+* 99.7% probability that the result is within 3 standard deviations of mean
+* 0.3% probability that it's 3 standard deviations away from mean
+
+The 0.003 probability is known as the **P-value**.
+
+If the null hypothesis was true, there is a 0.3% of our results occurring.  Our
+alternative hypothesis seems more likely.  We're going to reject our null
+hypothesis.
+
+One-Tailed and Two-Tailed Tests
+===============================
+
+The test we did above was a two-tailed test, our alternative hypothesis was
+just that the drug had no effect.  If we wanted to do a one-tailed test:
+
+    H(0): Drug has no effect; mu = 1.2 seconds (even with drug)
+    H(1): Drug lowers response time; mu < 1.2 seconds when drug given
+
+Let's say the drug doesn't lower our response time.  What's the probability of
+getting the response time at the lower extreme?
+
+Now we're only considering only the left tail.  The P-value is halved, or 0.15%.
