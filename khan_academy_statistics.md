@@ -923,3 +923,150 @@ Let's say the drug doesn't lower our response time.  What's the probability of
 getting the response time at the lower extreme?
 
 Now we're only considering only the left tail.  The P-value is halved, or 0.15%.
+
+Z-statistics vs T-statistics
+============================
+
+We've been plotting the sampling distribution of sample mean.  We've also been
+asking "what's the probability" of getting a result that's # standard deviations
+away from the sample mean:
+
+                                   xbar - mu(xbar)
+    how many standard deviations = ---------------
+                                      sig(xbar)
+
+`sig(xbar)` is the standard error of the mean, which can be calculated as:
+
+    sig(xbar) = sig / sqrt(n)
+
+We can substitute that into the equation above:
+
+              xbar - mu(xbar)
+    z-score = ---------------
+               sig / sqrt(n)
+
+This is a z-statistic.  We can look up the probability using a z-table.  We
+usually don't know what `sig` is (standard deviation of the population).  We can
+sub in the standard deviation of the sample `s` instead:
+
+               xbar - mu(xbar)
+    z-score =~ ---------------
+                 s / sqrt(n)
+
+If your sample size is over 30, your standard deviation is going to be a good
+approximation.  If it's small, then it will no longer be a z distribution.  It
+will be a **t-distribution** and you'll need to use a **t-table** to get the
+probability.  A t-distribution is similar to a normal distribution, but it has
+fatter tails.
+
+Type 1 Errors
+=============
+
+**Type 1 error** is also known as a **false positive**.  It occurs when you
+reject the null hypothesis even though it's true.
+
+A **type 2 error** is a **false negative**.  It occurs when you accept a null
+hypothesis that's false.
+
+When doing hypothesis testing, we usually have a probability threshold.  For
+example, there's less than a 1% chance of the experiment result to occur given
+that the null hypothesis is true.  Since it's so unlikely, we decide to reject
+the null hypothesis.
+
+Another way to view it, there's a 1% chance that we made a type 1 error.
+
+Small Sample Hypothesis Test
+============================
+
+The mean emission of all engines of a new design needs to be below 20 ppm to
+meet new requirements.  Ten engines are manufactured for testing and the
+emission level is determined for each:
+
+    15.6 16.2 22.5 20.5 16.4 19.4 16.6 17.9 12.7 13.9
+
+Does the data supply sufficient evidence to conclude this engine meets the new
+requirements?  We are willing to risk a Type 1 error with probability = 0.01.
+
+    xbar = 17.17
+    s = 2.98
+
+Let's define what our null and alternative hypothesis are:
+
+    H(0) = we don't meet our new requirements, mu = 20ppm
+    H(1) = we do meet our new requirements, mu < 20ppm
+
+Assume that `H(0)` is true.  If the probability of getting a sample mean of
+`17.17` is less than 1%, we can reject our null hypothesis.
+
+Next, we need to think about what type of distribution to use.  We have a small
+sample size so we're going to be dealing with a t-distribution and t-statistic.
+
+          17.7 - 20
+    t = ------------- = -3.00
+        2.98/sqrt(10)
+
+T-tables usually only give positive values.  T-distributions are symmetric around
+their means.  Use the t-table to figure out a t-value where the probability of
+getting a value below it is 99%.
+
+Our sample size is `10` so we have `10 - 1 = 9` degrees of freedom.  This is
+used to look up the probability in the T-table.
+
+The t-value threshold is -2.821.  Our t-value is less than that, so it's less
+probable than 1%.  From that, we can reject our null hypothesis.
+
+Based on the sample data, we can safely conclude this engine meets the new
+requirements.
+
+T-Statistic Confidence Interval
+===============================
+
+Let's use the same data from the last video to come up with a 95% confidence
+interval.  The thresholds for the t-score are:
+
+    -2.262 < t-score < 2.262
+
+Now we can plug in the formula for the t-score:
+      
+               17.7 - mu
+    -2.262 < ------------- < 2.262
+             2.98/sqrt(10)
+    19.3 > mu > 15.05
+
+There's a 95% probability that `19.3 > mu > 15.05` is true.
+
+Large Sample Proportion Hypothesis Testing
+==========================================
+
+We want to test the hypothesis that more than 30% of US households have internet
+access (with a significance level of 5%).  We collect a sample of 150 households
+and find that 57 have access.
+
+    H(0): P <= 30%
+    H(1): P > 30%
+
+Assume null hypothesis is true.  Our sample proportion:
+
+    pbar = 57/150 = 0.38
+
+Our assumption distribution:
+
+    |  x       P(H0) = 0.3
+    |  x       0 => 70%
+    |__x__x__  1 => 30%
+       0  1
+
+Now we need to figure out the z-score:
+
+    mu(H0) = 0.3
+    sig(H0) = sqrt(.3 * .7) = sqrt(.21)
+    sig(pbar) = sig(H0) / sqrt(150) = 0.037
+
+        pbar - mu(pbar)
+    z = --------------- = 2.14
+           sig(pbar)
+
+We can look up the 95% probability in the z-table which is `1.65` (the critical
+z-value).  Our actual z-value is `2.14`, the probability of getting it is less
+than 5%.  So we can reject our null hypothesis and accept that more than 30%
+of US households have internet access.
