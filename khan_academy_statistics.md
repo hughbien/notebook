@@ -815,3 +815,57 @@ Distribution:
     sig = sqrt(P(1-P))
 
 We're going to build on this later on during inferential statistics.
+
+Margin of Error #1
+==================
+
+The **margin of error** expresses the amount of random sampling error in a
+survey results.
+
+Let's say there's an election coming up and everyone is going to vote for either
+candidate A or candidate B.
+
+    |         x        B => P
+    |    x    x        A => 1 - P
+    |____x____x_____   mu = P
+        A=0  B=1
+
+Let's survey 100 people.  57 say they'll vote for A, 43 say they'll vote for B.
+
+    xbar = 0.43
+    s^2 = (57(0 - 0.43)^2 + 43(1 - 0.43)^2) / 99 = 0.2475
+    s = 0.5
+
+We can't figure out the standard error of the mean because we don't have the
+population standard deviation.  We can estimate it using the sample standard
+deviation though:
+
+    SEM = sigma / sqrt(100)
+    SEM estimate = 0.5 / sqrt(100) = 0.05
+
+For any normal distribution, the probability of an outcome falling within two
+standard deviations is roughly ~95.4%.
+
+Margin of Error #2
+==================
+
+Now we want to find an interval such that we're "reasonably confident" that
+there is a 95% chance that the true mean of the population (mu=P) is in that
+interval:
+
+    P(xbar is within 2sig(xbar) of mu(xbar)) = 95.4%
+    P(mu(xbar) is within 2sig(xbar) of xbar) = 95.4%
+    P(P is within 2sig(xbar) of xbar) = 95.4%
+    P(P is within 2*0.05 of xbar) =~ 95%
+    P(P is within 0.1 of xbar) =~ 95%
+    P(P is within 0.43 +/- 0.1) =~ 95%
+
+This gives us a 95% confidence interval of 33% to 53%:
+
+    43% will vote for candidate B
+    57% will vote for candidate A
+    margin of error: 10%
+
+If you want a smaller margin of error, you'll need to increase your sample size.
+Increasing the sample size will decrease your standard deviation of the mean,
+which will decrease the margin of error.
