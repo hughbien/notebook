@@ -1188,7 +1188,7 @@ We know the standard deviation from the last video:
 
 What this means is there's a 5% chance that the difference of the means is
 greater than `0.617 * 1.65 = 1.02`.  The difference of the mean we got was
-`1.91`, which means there is a less than 5% chance of that occuring.
+`1.91`, which means there is a less than 5% chance of that occurring.
 
 We can reject our null hypothesis.
 
