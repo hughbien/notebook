@@ -1070,3 +1070,302 @@ We can look up the 95% probability in the z-table which is `1.65` (the critical
 z-value).  Our actual z-value is `2.14`, the probability of getting it is less
 than 5%.  So we can reject our null hypothesis and accept that more than 30%
 of US households have internet access.
+
+Variance of Differences of Random Variables
+===========================================
+
+Let's review some statistics.  Given that `X` and `Y` are independent random
+variables:
+
+    E(X) = mu(X)
+    E(Y) = mu(Y)
+    var(X) = E((X - mu(X))^2) = sig(X)^2
+    var(Y) = E((Y - mu(Y))^2) = sig(Y)^2
+
+    Z = X + Y
+    E(Z) = E(X + Y) = E(X) + E(Y)
+    mu(Z) = mu(X) + mu(Y)
+    var(Z) = var(X) + var(Y)
+    sig(Z)^2 = sig(X + Y)^2 = sig(X)^2 + sig(Y)^2
+
+    A = X - Y
+    E(A) = E(X - Y) = E(X) - E(Y)
+    mu(A) = mu(X) - mu(Y)
+    var(A) = var(X) + var(Y)  <-- it's the sum, not the difference
+    sig(A)^2 = sig(X - Y)^2 = sig(X)^2 + sig(-Y)^2
+
+Difference of Sample Means Distribution
+=======================================
+
+Given two distributions and two different sampling distributions of the mean:
+
+    z = xbar - ybar
+
+`z` is another random variable that's just the difference between the two
+sampling means.
+
+    mu(xbar - ybar) = mu(xbar) - mu(ybar)
+
+The whole point of this is to eventually do inferential statistics about the
+difference of means.  We can ask questions like how likely the difference of
+mean is a random chance or not random chance.  Or what is the confidence interval
+of difference of means.
+
+    sig(xbar - ybar)^2 = sig(xbar)^2 + sig(ybar)^2
+    sig(xbar - ybar)^2 = sig(x)^2/n + sig(y)^2/m
+
+Just take the square root of both sides to get the standard deviation:
+
+    sig(xbar - ybar) = sqrt(sig(x)^2/n + sig(y)^2/m)
+
+Confidence Interval of Difference of Means
+==========================================
+
+We're testing that a new diet helps obese people lose weight.  100 randomly
+assigned obese people are assigned to group 1 placed on the diet.  Another 100
+are assigned to group 2 and placed on a normal diet.  After 4 months, the
+mean weight loss was 9.31 lbs for group 1 (s=4.67) and 7.40 lbs for group 2
+(s=4.04).
+
+    Low-Fat:
+    x1bar = 9.31
+    s1 = 4.67
+
+    Control:
+    x2bar = 7.40
+    s2 = 4.04
+
+    x1bar - x2bar = 9.31 - 7.4 = 1.91
+
+The difference of the means is `1.91 lbs`.  Let's get a 95% confidence interval
+around this number.  The critical z-value required for that is `1.96` standard
+deviations.
+
+Let's construct an exact phrase of what we want:
+
+    95% chance that mu(x1bar - x2bar) is within 1.96 sig(x1bar - x2bar) of
+    1.91 lbs.
+
+We need to figure out what `sig(x1bar - x2bar)` is:
+
+    sig(x1bar - x2bar) = sqrt(s1^2/n1 + s2^2/n2)
+    sig(x1bar - x2bar) = sqrt(4.67^2/100 + 4.04^2/100)
+    sig(x1bar - x2bar) = 0.617
+
+We can calculate our interval:
+
+    1.96 * 0.617 = 1.21
+
+We can reconstruct our confidence interval phrase:
+
+    95% chance that mu(x1bar - x2bar) is 0.7 to 3.12 lbs
+
+Hypothesis Test for Difference of Means
+=======================================
+
+Let's use the same data from the last video to do a hypothesis test:
+
+    H0: diet does nothing
+        mu1 - mu2 = 0 // aka population mean should be the same
+        mu(xbar1) - mu(xbar2) = 0 // aka mean of sampling dist should be same
+        mu(xbar1 - xbar2) = 0
+    H1: diet does something
+        mu1 - mu2 > 0
+        mu(xbar1 - xbar2) > 0
+
+We're going to assume that our null hypothesis is true.  We need to pick a
+probability threshold and if the probability of our result is past it, we can
+reject our null hypothesis.  Our threshold will be `95%`.
+
+We need to figure out the critical z-value by looking at the z-table.  At the
+`95%` threshold, the critical z-value is `1.65`.
+
+    1.65 * sig(xbar1 - xbar2)
+
+We know the standard deviation from the last video:
+
+    sig(xbar1 - xbar2) = 0.617
+
+What this means is there's a 5% chance that the difference of the means is
+greater than `0.617 * 1.65 = 1.02`.  The difference of the mean we got was
+`1.91`, which means there is a less than 5% chance of that occuring.
+
+We can reject our null hypothesis.
+
+Comparing Population Proportions 1
+==================================
+
+Let's say there's an election and you want to find out if there's a meaningful
+difference between the proportion of men or women who vote for a candidate.
+
+For the men:
+* `P1` proportion voting for valued at `1`
+* `(1-P1)` not votiing for valued at `0`
+* `mu1 = P1`
+* `sig1^2 = P1(1 - P1)`
+
+For the women:
+* `P2` proportion voting for valued at `1`
+* `(1-P2)` not voting for valued at `0`
+* `mu2 = P2`
+* `sig2^2 = P2(1 - P2)`
+
+We're going to come up with a 95% confidence interval for whether `P1 - P2` is
+significant or not. 
+
+Let's assign some concrete numbers.  1000 men, 642 vote for, the rest don't.
+1000 women, 591 vote for, the rest don't.
+
+    P1 = mu1 = P1bar = 0.642
+    P2 = mu2 = P2bar = 0.591
+
+We're going to do some work with the sampling distribution:
+
+    sig(P1bar)^2 = P1(1-P1)/1000
+    sig(P2bar)^2 = P2(1-P2)/1000
+
+Let's combine both sampling distributions so we can analyze the difference
+between the two data sets:
+
+    mu(P1bar - P2bar) = P1 - P2
+    sig(P1bar - P2bar)^2 = P1(1-P1)/1000 + P2(1-P2)/1000
+    sig(P1bar - P2bar) = sqrt(P1(1-P1)/1000 + P2(1-P2)/1000)
+
+Comparing Population Proportions 2
+==================================
+
+In this video we find the confidence interval.  Note that `P1-P2=0.051`.
+
+    95% chance that P1 - P2 is within d of 0.051
+
+The z-table gives you a cumulative percentage up to a value.  We're looking
+for a 95% chance with 2.5% on both tails.  So look for 97.5% on the z-table.
+Our critical z-score is `1.96`.
+
+    95% chance that P1 - P2 is within 1.96 * sig(P1bar - P2bar) of 0.051
+
+We have the standard deviation of our sample (which is the best estimate for
+the standard deviation of our population).  We figured it out in the last video,
+its value is `0.022`.
+
+    95% chance that 0.008 < P1 - P2 < 0.094
+
+Squared Error of Regression Line
+================================
+
+Given many points on a graph, we want to find a line that minimizes the
+squared error.  For each point, the error is the vertical distance between
+the point and the line.
+
+    y = mx + b
+
+We're trying to find the `m` slope and `b` y-intercept.  The error for each
+point is just the difference between its y-value and the line's y-value or:
+
+    error1 = y1 - (mx1 + b)
+
+We want to minimize the square of the error:
+
+    SE(line) = SIGMA (yi - (mxi + b))^2
+
+The equation for `m` slope is:
+
+        xbar*ybar - xybar
+    m = -----------------
+         xbar^2 - x^2bar
+
+And the equation for `b` intercept is:
+
+    b = ybar - m*xbar
+
+Regression Line Example
+=======================
+
+Let's get the regression line for these three points:
+
+    (1,2), (2,1), (4,3)
+
+We need to figure out some mean values:
+
+    xbar = (1 + 2 + 4)/3 = 7/3
+    ybar = (2 + 1 + 3)/3 = 2
+    xybar = (1*2 + 2*1 + 4*3)/3 = 16/3
+    x^2bar = (1^2 + 2^2 + 4^2)/3 = 7
+
+With these values we can find the optimal slope and y-intercept:
+
+        (7/3 * 2) - 16/3
+    m = ---------------- = 3/7
+          (7/3)^2 - 7
+
+    b = 2 - (3/7)*(7/3) = 1
+
+Our regression line is:
+
+    y = (3/7)*x + 1
+
+R-Squared or Coefficient of Determination
+=========================================
+
+The regression line attempted to minimize the square of the error:
+
+    SE(line) = SIGMA (yi - (mxi + b))^2
+
+Given a regression line, how much (what %) of the total variation in y is
+described by the variation in x?
+
+    SE(ybar) = total variation in y = SIGMA (yi - ybar)^2
+
+If we divide it by `n`, you'd get the variance of y.  Now we need to figure out
+how much of this total variation is described by the variation in x.
+
+What % of variation is **not** described by the regression line (variation in x)?
+
+    SE(line) / SE(ybar)
+
+We just want the leftover percentage which is the percentage of total variation
+described by the regression line (variation in x):
+
+    1 - SE(line)/SE(ybar)
+
+This is also known as the **coefficient of determination** or **R-Squared**.
+Some properties of R-Squared:
+
+* if SE(line) is small, the line is a good fit
+* if SE(line) is small, R^2 will be close to 1 and a lot of variation in y is
+  described by variation in x
+* if SE(line) is large, R^2 is close to 0 and very little variation in y is
+  described by variation in x
+
+Covariance and the Regression Line
+==================================
+
+**Covariance** is the measure of how much two variables change together.
+
+For the formula below, the expected value of X or Y can be thought of as its
+population mean:
+
+    Cov(X,Y) = E[(X-E[X])(Y-E[Y])]
+
+Every X and Y coordinates can be placed into the covariance formula.  Let's
+use the coordinate `X=1, Y=3` and we know `E[X] = 0, E[Y]=4`:
+
+    Cov(1,3) = E[1 * -1]
+
+X was above its expected value while Y was below its expected value.  When they
+go in different directions, the covariance is negative.  If they both go up or
+both go down, the covariance is positive.
+
+Another way to describe covariance:
+
+    Cov(X,Y) = XYbar - Ybar*Xbar
+
+You'll notice that this formula is actually the numerator for the slope of the
+regression line.  The denominator for the slope could be viewed as Cov(X,X):
+
+    Cov(X,X) = XXbar - Xbar*Xbar = X^2bar - Xbar^2
+
+The covariance of a variable with itself is just the variance.
+
+    Regression Line Slope = Cov(X,Y) / Cov(X,X)
+
