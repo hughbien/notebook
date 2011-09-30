@@ -1369,3 +1369,171 @@ The covariance of a variable with itself is just the variance.
 
     Regression Line Slope = Cov(X,Y) / Cov(X,X)
 
+Chi-Square Distribution Introduction
+====================================
+
+Let's say X is normally distributed with a mean of 0 and variance of 1:
+
+    X ~ N(0,1) or E[X] = 0 and Var(X) = 1
+
+Let there be a random variable `Q`:
+
+    Q = X^2
+
+The distribution for the random variable Q is the Chi-Square Distribution.
+
+    Q ~ Chi^2
+
+The above means Q is a member of Chi squared.  Since it's a sum of one
+independent variable, we say it only has one degree of freedom.  Let's say
+we have another random variable Q2:
+
+    Q2 = X1^2 + X2^2
+
+Q2 is a Chi Square distributed random variable with two degrees of freedom.
+
+Q1 and Q2 are smooth curves.  With three degrees of freedom, you'll start
+getting a vertical hump.  The more degrees of freedom you add, the further right
+the hump goes.
+
+There's a Chi Square table which includes probabilities depending on the
+degrees of freedom.
+
+Pearson's Chi Square Test (Goodness of Fit)
+===========================================
+
+We're thinking about buying a restaurant and we ask the owner for the
+distribution of customers:
+
+           Day:   M   T   W   T   F   S
+    Expected %:  10  10  15  20  30  15
+      Observed:  30  14  34  45  57  20
+
+Let's analyze this distribution to see if it fits the observed data.  We'll do
+a hypothesis test with a significance level of 5%:
+
+    H0: owner's distribution is correct
+    H1: owner's distribution is not correct
+
+Assuming the owner's distribution is correct, what would have been the actual
+observed distribution?  Note that total customers is 200.
+
+           Day:   M   T   W   T   F   S
+    Expected %:  10  10  15  20  30  15
+      Observed:  30  14  34  45  57  20
+      Expected:  20  20  30  40  60  30
+
+To calculate the Chi-Square statistic, for each day take the squared difference
+of each day and divide by the expected:
+
+    X^2 = (30-20)^2/20 + (14-20)^2/20 + (34-30)^2/30 +
+          (45-40)^2/40 + (57-60)^2/20 + (20-30)^2/30 = 11.44
+
+We're taking six sums, so we might be tempted to say there are 6 degrees of
+freedom.  But the first five determine the last sum, so we only have 5 degrees
+of freedom.
+
+Is `11.44` a more extreme result than the critical Chi-Square value for our
+significance level of 5%?  We'll look it up in the Chi-Square table.
+
+Our critical Chi-Square value is 11.07.  Our statistic is even less likely
+than that.  So we're going to reject our null hypothesis.
+
+ANOVA 1 - Calculating SST (Total Sum of Squares)
+================================================
+
+ANOVA stands for **analysis of variance**.  It's a collection of statistical
+models and procedures where observed variance is partitioned by sources.
+
+We're going to be doing calculations on this data set to give us an intuitive
+sense on what analysis of variance is all about:
+
+    1:  2:  3:
+    3   5   5
+    2   3   6
+    1   4   7
+
+The sum of squares total can be viewed as the numerator when you calculate the
+variance.  First, let's calculate the grand mean (the mean of all means):
+
+    xbarbar = (3 + 2 + 1 + 5 + 3 + 4 + 5 + 6 + 7)/9 = 4
+    x1bar = (3 + 2 + 1)/3 = 2
+    x2bar = (5 + 3 + 4)/3 = 4
+    x3bar = (5 + 6 + 7)/3 = 6
+
+We can use this information to calculate the sum of squares total:
+
+    (3-4)^2 + (2-4)^2 + (1-4)^2 +
+    (5-4)^2 + (3-4)^2 + (4-4)^2 +
+    (5-4)^2 + (6-4)^2 + (7-4)^2 = 30
+
+For the matrix with dimensions `m` by `n`, the degrees of freedom will be:
+
+    m * n - 1 = 8
+
+So we need to figure out how much of the total variation is coming from within
+each group or is coming from between each group.
+
+ANOVA 2 - Calculating SSW and SSB (Total Sum of Squares Within And Between)
+===========================================================================
+
+SSW means Sum of Squares Within.  SSB means Sum of Squares Between.  For SSW,
+we use xnbar instead of xbarbar.
+
+    SSW = (3-2)^2 + (2-2)^2 + (1-2)^2 +
+          (5-4)^2 + (3-4)^2 + (4-4)^2 +
+          (5-6)^2 + (6-6)^2 + (7-6)^2 = 6
+
+Our total variation was 30, 6 of that 30 comes from the variation within these
+samples.  Sal reasons that each group has `n-1` degrees of freedom since you
+know the mean for each group.  So there's 6 degrees of freedom.
+
+Another way to think about SSB is how much variation is between the means of
+each group.  For each element in a group, calculate the squared difference
+between the grand mean and group mean:
+
+    SSB = 3(2-4)^2 + 3(4-4)^2 + 3(6-4)^2 = 24
+
+In this case there is 2 degrees of freedom `m-1`.  If you know two means, you
+can calculate the third mean since we know the grand mean.
+
+    SSW = 6 with 6 degrees of freedom
+    SSB = 24 with 2 degrees of freedom
+    SST = 30 with 8 degrees of freedom
+
+Notice that `SST = SSB + SSW`, even with the degrees of freedom.
+
+ANOVA 3 - Hypothesis Test with F-Statistic
+==========================================
+
+We've been dealing with these numbers in the abstract but let's imagine that
+they were a part of an experiment: Food #1, Food #2, Food #3.  Does the type
+of food people take really affect their scores?  Is the difference purely random
+chance or can we be confident that the different would show up in population
+means also?
+
+    mu1 = mu2 = mu3 ?
+
+Let's do a hypothesis test with confidence level of 10%.
+
+    H0: Food doesn't make a difference or mu1 = mu2 = mu3
+    H1: Food does make a difference
+
+We're going to assume that H0 is true.  Sal uses an F-statistic, which can be
+thought of as two Chi-Square distributions:
+
+                    SSB/(m-1)
+    F-Statistic = -------------
+                  SSW/(m*(n-1))
+
+Let's think about this formula.  If the numerator is much larger than the
+denominator, it tells us the variation in the data is mostly due to the 
+difference between groups telling us our null hypothesis is not likely.  If it's
+smaller than the denominator, the variation comes from within each data set.
+That would make us believe that the difference between the means is random.
+
+    F-Statistic = (24/2)/(6/6) = 12
+
+Looking at our F-Table for the critical F-value using the degrees of freedom
+2 and 6, the value is 3.46.  We got 12, a much larger value.  The probability
+of getting this is very low, we we reject our null hypothesis.
