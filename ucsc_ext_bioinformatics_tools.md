@@ -270,6 +270,8 @@ a little different.  A's and T's occur more often than C's and G's.
 _To answer this, come up with some sequences that had the same distribution
 of nucleotides but was not random._
 
+You could search the existing sequence database.
+
 ## How often would you find the cut site for HindIII in a random sequence?
 
 The recognition site for HindIII is:
@@ -302,9 +304,25 @@ from knowledge of a protein to figure out the DNA sequence, with a certain
 probability.
 
 ## Can the selection of a codon be used to regulate transcription rate?
+
+Yes, some codons are more likely to be expressed than others.  The gene
+expression could occur at the transcription level.
+
 ## Can the selection of a codon be used to regulate gene expression?
+
+Yes, some codons are more likely to be expressed than others.
+
 ## If you shuffle a sequence, will the single nucleotide frequencies change?
+
+No, the frequency would stay the same.  You're just getting a different
+permutation.
+
 ## You shuffle a sequence and di-nucleotide frequencies stay constant.  Why?
+
+Some nucleotide pairs are not randomly distributed.  For instance, there could
+be a high probability of getting G after a C.  It's different than P(g) or
+just P(c).
+
 ## How is a bioinformatics experiment designed?
 
 1. Go to the database, get training set
@@ -331,68 +349,272 @@ Sequence Comparison
 ===================
 
 ## Why compare sequences?
+
+We sequenced the human genome, but we don't know what a lot of it does.  Just
+like hieroglyphics, we can compare sequences with unknown functionality to
+sequences whose functionality we know to learn more.
+
+You can answer the questions:
+
+* is sequence A evolutionary related to sequence B?
+* is there a functional relationship?
+
 ## Why compare a sequence to itself, won't that just find a perfect match?
+
+To find internal duplications.
+
 ## Why penalize gaps?  How are gaps penalized?
+
+It'd be too easy to score high if you don't penalize gaps.  For instance,
+one alignment with a massive gap would score the same as a perfect alignment.
+Or an alignment with many tiny gaps would score the same as a perfect alignment.
+
+Gaps are penalized by the number of gaps and the length of each gap.
+
 ## Why do you need a scoring function?
+
+The scoring function acts as a way to judge whether an alignment is statistically
+significant.  It's only useful in terms of relativeness - to tell whether one
+alignment is better or worse than another.
+
 ## What is a sequence comparison matrix used for?
+
+It's a method to assign a score to alignments.  One sequence is listed on the
+horizontal axis and another sequence is listed on the vertical axis.  At some
+intersections, a score or penalty is given.  The sum of all squares is the
+total score of the alignment.
+
 ## Why not use an identity matrix for proteins?
+
+For amino acids, often times you can substitute amino acids and still come up
+with a protein that acts functionally the same.  For nucleotides, different
+codons still code for the same amino acids.
+
 ## How do you know if a sequence comparison is correct?
+
+Use statistics to tell whether it's significant or if it could have happened
+by random chance.  You can compare the score with other alignments.  If you've
+only got two sequences, you could shuffle and compute the z-score.
+
 ## What are sub-optimal alignments and why are they important?
+
+The best alignment from a biological point of view may not be the best
+alignment from a computational point of view.  The sub-optimal alignments are
+the ones that don't result in the best score but may have helical regions
+or active sites aligned better than the "optimal" alignment.
+
 ## How do you choose what sequence comparison matrix to use?
+
+Each comparison matrix has its own goals.  PAM is for evolutionary related
+sequences.  BLOSUM uses related protein regions instead of similar sequences.
+You also want to check how sensitive the algorithm is for scoring.
+
 ## What is the goal of sequence comparison?  A good alignment shows what?
+
+The goal of sequence comparison is to determine if two sequences are related
+either in terms of evolution or functionality.  A good alignment means it's more
+likely that the two sequences are related.
+
 ## What is the difference between similarity and homology?
+
+Homology means evolutionary related sequences.  Similarity means the sequences
+share certain patterns but it's not known whether they're evolutionary related
+or not.  Any similarity could have been by convergent evolution.
+
 ## What is the difference between orthologs and paralogs?
+
+Orthologs are genes in different species that derive from a common ancestor and
+may or may not have the same function.  Paralogs are genes within a single
+species that diverged by gene duplication.
+
 ## When would you use a global alignment and when would you use a local?
+
+A global alignment is used to compare the entire specific gene on a chromosome.
+A local alignment is used to find patterns in genes, so you can shuffle them
+left or right to find the best score.
+
 ## What are the advantages and disadvantages of a dot matrix comparison?
+
+The dot matrix is a great visual tool that shows patterns which might otherwise
+be missed.  Unfortunately, there might be too much noise to discern patterns.
+
 ## What do gaps along the diagonal of a dot matrix comparison represent?
+
+This particular position in both sequences do not match.
+
 ## How would you reduce the noise in a dot matrix alignment?
+
+You can use the sliding window technique.  Determine a window size and
+stringency.  A high stringency will reduce the noise.  Too high will also
+reduce the signal.
+
 ## What do off diagonal lines represent in a dot matrix alignment?
+
+Patterns within regions of sequences.
+
 ## Why do we use the term INDEL to describe a gap in an alignment?
+
+INDEL stands of insertion or deletion.  It's used when we don't know whether
+a gap is an insertion in one sequence or a deletion in another sequence.  Both
+satisfy the end comparison.
+
 ## What parameters in the LALIGN alignment program would you use?
 
 _For the scenario of a computer giving you an alignment that had no gaps._
 
+The gap penalties wouldn't matter.
+
 ## What does a negative number in the PAM sequence comparison matrix tell you?
+
+That the amino acid isn't a good substitution and effects the functionality
+of the translated protein.
+
 ## Two sequences are found to be similar, are they also homologous?
+
+No, there might be a good chance that it's homologous but we have no idea.
+
 ## What is the best gap penalty to use?
+
+Use a high gap penalty if you want your alignments to be strict.
+
 ## How does the software still manage to do a good job?
 
 _You usually want an alignment program to align sequences based on evolutionary
 events or align according to functional regions.  However, the software doesn't
-know anything about the biology of the sequences being aligned.
+know anything about the biology of the sequences being aligned._
+
+It uses statistics to tell you if this alignment could have happened by chance.
+If there's a small chance that it could have happened randomly, you know there's
+some biology going on.
 
 ## How are whole genome comparisons different than small sequence comparisons?
+
+Small sequence comparisons are useful to find motifs, or patterns, which could
+yield similar functionality.
+
 ## Will a gene be on chromosome 1 of a mouse if it's on human chromosome 1?
+
+No, genes are located on different chromosomes for different species.
+
 ## What is synteny?
+
+Gene clusters that are on the same chromosome location in two different species.
 
 Multiple Alignment
 ==================
 
 ## What can be learned from multiple alignments?  What do they answer?
+
+* phylogenetic trees
+* finding blocks or motifs
+* revealing functionality
+
 ## What further analyses can be done with the results of a multiple alignment?
+
+A good alignment is critical for further analysis:
+
+* functional domains, motifs, blocks
+* protein families
+* evolutionary analysis
+* structural analysis
+* secondary structure prediction
+
 ## What is the most important step in the multiple alignment process?
+
+You need to pick related sequences.
+
 ## Why don't we use the method that guarantees best alignment?
+
+It's too computationally expensive.  It would take too long.
+
 ## How does a progressive pairwise alignment work?
+
+1. Align A and B first
+2. Then add sequence C to the previous alignment
+3. Keep adding sequences, align the most closely related sequences first.
+   Insert gaps as needed.
+
 ## What is a dendrogram?  How is it used?
+
+A dendrogram is better known as a guide tree.  It's used to determined which
+order sequences should be aligned (by giving scores to alignments).
+
 ## Why use a monospaced font when viewing/printing a multiple alignment?
+
+It's easier to view alignments when each nucleotide/amino acid is properly
+aligned font-wise.
+
 ## How can you tell whether a multiple alignment is correct?
+
+You use a scoring function.  All scoring methods attempt to minimize the number
+of evolutionary events required to describe the divergence of the sequences.
+
 ## What are some databases of multiple alignments?
+
+* BaliBase (Reference DB)
+* Profiles
+* BLOCKS
+* PFAM
+
 ## How can multiple alignment databases be used?
+
+In the future, alignments won't be done from scratch.  The optimized alignment
+will be available in databases.  New sequences will be added to existing
+alignments.  Multiple alignment databases have common domains and their
+alignments.
+
 ## What alignment algorithm does Clustal use?
+
+Clustal uses a heuristic (rule based) alignment method: progressive alignment.
+
 ## How does the most recent version of Clustal differ from the original version?
+
+The recent ClustalW (W stands for Weighted) gives different weights to
+sequences and parameters in different parts of the alignment to try and create
+an alignment that makes sense biologically.  There's a large penalty for closely
+related sequences and a small one for divergent sequences.
+
 ## The best scored alignment might not be the correct alignment.  Why?
 ## How is T-Coffee an improvement over other methods of multiple alignments?
+
+T-Coffee uses clustal global alignment with local alignment and weighting
+to determine the best alignment.  It's slower but more accurate.
+
 ## When wouldn't you want to do a multiple alignment?
+
+When the sequences aren't related.  If the sequences include short non 
+overlapping fragments.  If sequences do not share common ancestry.  If sequences
+have large, variable, N- and C-terminal overhangs.
+
 ## How would you analyze a protein with domains X,Y,Z against protein with Z,X?
+
+Only match up the domains which are present in both proteins.
+
 ## What is a consensus sequence?
+
+A consensus sequence is a single sequence which represents multiple ones.  It's
+similar to an "average".  You can have different rules to define the consensus -
+it could be use the nucleotide that's most common or more expected.
+
 ## What is a sequence logo?
+
+It's an image of a sequence where the size of the individual letters depict
+the relative frequency of occurrence.
+
 ## Can you use ClustalX to align only two sequences?  Is ClustalX the best way?
 ## Should you use only one comparison matrix for the following scenario?
 
 _You're aligning many sequences and some are evolutionary close, others are
 evolutionary distant._
 
+No, you should use Clustal which will vary the table.  You could use BLOSUM62
+which is just the average, but Clustal is your best tool.
+
 ## How does Clustal resolve the problem of evolutionary closeness and distance?
+
+It uses varying tables for alignment.  It stands for "Cluster Alignment".  It
+uses pairwise progressive alignment.
+
 ## How can you search a database using a multiple alignment?  Name some methods.
 ## What is the best method for searching a database using a multiple alignment?
 
@@ -400,48 +622,196 @@ Database Searching
 ==================
 
 ## What questions can be answered using database searching?
+
+* determine what ortholog or paralog exists for a particular protein or the gene
+  that encodes it
+* determine what proteins or genes are present in a particular organism
+* determine the identity of a particular protein or DNA sequence, based on its
+  similarity to known sequences
+* discover new genes
+* determine the published variants for a particular gene or protein sequence
+* investigate the transcriptome database to identify novel splice variants
+* discover which amino acid residues within an alignment are conserved
+
+From database searching #2:
+
+* I have just sequenced something, has someone already found it?
+* I have a sequence of unknown function, is there homology with another sequence
+  that has a known function?
+* I found a new protein in a lower organism, is there homology in a higher
+  species?
+
 ## How is sequence comparison different from database searching?
+
+Sequence comparison searches for similarity, database searching searches for
+homologous sequences.  You assume homology with a good score for database
+searching.
+
+Sequence comparison is for global alignments whereas with database searching
+the best local alignments determine top scores.
+
+Sequence comparison requires sensitivity whereas database searching the
+speed is of utmost importance.  Database searching includes many false positives.
+
 ## Explain the tradeoff between speed and sensitivity in database searches.
 ## Why would you want to give up sensitivity to achieve speed?
+
+There's not enough computational power to have 100% sensitivity.  Also, you will
+problem lose many true positives.
+
 ## Can sequence comparison techniques be used to do database searches?
+
+It's a thourough search but slow.
+
 ## Why does BLAST do a faster database search than other methods?
+
+BLAST uses a pre-indexed database.
+
 ## When would you want to use a BLOSUM 80 comparison matrix?
+
+To align very closely related sequences.
+
 ## When would you use the BLASTX program?
+
+To compare a nucleotide query vs protein database.
+
 ## Which of DNA or protein sequences do you use for evolutionary distant matches?
+
+I'd use the protein sequences because the alphabet is larger and there's not the
+problem that multiple codons code for the same amino acid.
+
 ## You're searching if a specific sequence is in the DB, do parameters matter?
 ## What are the limitations to BLAST?
+
+You can only search for a single query, can't do complex queries, can't search
+for multiple sequences.
+
 ## How does the window size improve search speed or sensitivity?
+
+I think it would help improve the speed because the "keyword" to use for the
+index is larger.
+
 ## What is an expectation value?
+
+It's the number of sequences you would expect to find with this score (or better)
+if you searched another database of the same size.  0 is a good score.  1 is a
+bad score.
+
 ## What is the best expectation value you can get?
+
+Zero.
+
 ## Is an E value of 6e^-12 good or bad?
+
+It's borderline, you'd have to use biological knowledge to rate it.
+
 ## What is a Z-score?
+
+The number of standard deviations away from the mean.
+
 ## Will the expectation value be the same for two searches that's months apart?
+
+No, because it's based on the size of the database.
+
 ## Why can you infer homology with a DB search, but not with sequence comparison?
 ## What is a false positive?  What is a false negative?
+
+False positives are non homologous results that are returned.  False negatives
+are results that are missing from your search which are homologous and should
+have been returned.
+
 ## What does the TFASTA program do?
+
+TFASTA takes a protein sequence and compares it to a nucleotide database by
+translating the DNA in all reading frames.
+
 ## Is translating DNA or backtranslating a protein better for searching?  Why?
+
+Translating a DNA because multiple codons can code for the same amino acid.
+
 ## You backtranslate protein and do a DNA search, why no good match?
+
+Backtranslating amino acids results in multiple codons.
+
 ## GenBank has only one strand for each sequence, how do you search the opposite?
+
+There's an option to search for complementary sequence.  Or you can use a program
+to output the complementary and search for that.
+
 ## Does GenBank use PAM or BLOSUM for searching DNA sequences?
 ## What is the value of searching a DB and looking at different reading frames?
+
+To see different results.  Since the database pre-indexes, if your frame is too
+large it may produce false negatives.
+
 ## What are frame-shift mutations?
+
+Genetic mutation caused by INDELs that's not evenly divisible by three.  It
+results in a completely different translation from the original.
+
 ## Can you use BLAST to do a sequence comparison with only two sequences?
+
+No.  You can only do one query.
+
 ## Why filter sequences?  When would filtering not be a good idea?
 
 Database Searching #2
 =====================
 
 ## How does PSI-BLAST work?  Why is it better than BLAST?
+
+It builds a PSSM (Position Specific Scoring Matrix) from the first BLAST search,
+then uses it for your actual search.  This lets you search for sequences that
+are similar to a gorup of sequences (instead of a specific query).  BLAST
+limits you to a single sequence.
+
+1. Run Blast
+2. Select representative "hits"
+3. Use hits to create a PSSM
+4. Use the PSSM to search the database
+
 ## Does PSI-BLAST work with DNA?
+
+It only works with proteins.
+
 ## Can you use BLAST to compare two sequences?
+
+Nope, it's limited to a single sequence.
+
 ## Can you send multiple sequences to BLAST at one time?
+
+Nope, it's limited to a single sequence.
+
 ## What is better to use as a query sequence, DNA or protein?
+
+Protein, because there are more letters in the alphabet so less likely to have
+matches based on random chance.  It's easier to filter out repetitive regions.
+
 ## Give 3 examples for not translating DNA to protein before doing a DB search.
+
+* You need the introns for some reason
+* You need the regulatory DNA
+
 ## Why are pattern searches more sensitive than searching with a single sequence?
 ## Why is a consensus sequence not very good to represent a multiple alignment?
+
+IT finds sequences that are very similar to the consensus, but not sequences
+that are still in the family (but slightly differ from the consensus).
+
 ## Why break up long protein or nucleotide sequences before doing a DB search?
+
+To find patterns within the sequence as opposed to a long match.
+
 ## What comparison matrix would you use to find evolutionary distance sequences?
+
+PAM-1 or BLOSUM-100 for small evolutionary distance, PAM-400 or BLOSUM-30 for
+large evolutionary distance.
+
 ## There's a new gene in humans, why find the same gene in a simpler organism?
+
+It's much easier to do experiments in the simpler organism (ie. it's hard to
+do experiments on humans!)
+
 ## What does the following mean?
 
 _You discovered an ORF and do a DB search and find nothing statistically
@@ -449,4 +819,104 @@ significant._
 
 ## What's the advantage of searching using different reading frames?
 ## Why is filtering a sequence useful?
+
+To filter out the noise or filter out repetitive regions that mean nothing.
+Over 50% of DNA is repetitive, keeping the DNA there will increase the chance
+of false negative matches during database search.
+
 ## What does filtering do?
+
+Filters out junk DNA, decreasing sensitivity.
+
+Biological Patterns
+===================
+
+## Why is searching using a pattern created from a family of proteins better?
+
+_Why is searching a database using a pattern created from a family of
+proteins a better strategy than just searching a database with a single
+protein sequence that is a known member of the family of proteins?_
+
+## What is a motif?
+## What is a regular expression?
+## Why should you not use a consensus sequence to search for other members?
+
+_A consensus sequence is created from a multiple alignment of a family of related
+sequences, why should you not use one to search a database for other members of
+the family that was used to create the consensus?_
+
+## Why would you ignore commonly found patterns?
+
+_Such as described in the Prosite database._
+
+## What are some names of protein pattern databases?
+## What is a PSSM?
+## Why does a PSSM do a better job of describing a pattern than other methods?
+## What are you looking for when searching a protein pattern DB with protein seq?
+## What is more sensitive, a PSSM or a motif?
+## Why is Blocks better than Prosite?
+## Why is a HMM better than a Profile PSSM?
+## If two genes have the same expression pattern, what does it tell you?
+## What does the following tell you?
+
+_You do a pattern search using a protein of unknown function and find nothing
+significant._
+
+## What is a sequence logo?
+## You have a sequence of unknown function.  What pattern DB do you search?
+## How would you test out a pattern to see if it was any good?
+## Describe the pattern in words. 
+
+    C-A-x-T-[K,R]-x(4)-C-H
+
+## How do you search SwissProt for other sequences with same function, given:
+
+_You have several protein sequences with the same function._ 
+
+## Could "grep" miss a restriction site given a GenBank sequence?
+## What needs to be done so "grep" can see any pattern in a GenBank file?
+## Which pattern is less likely to find a match on SwissProt and why?
+
+    G-A-L-I-V-T-S
+    P-C-K-W-M-Y-H-Q
+
+Annotation Study Questions
+==========================
+
+## What are the steps in annotating a genome?
+## What is annotation?
+## Does sequence/variations of sequence tell you everything about effects?
+
+_Does determining the sequence and sequence variations of a gene tell you
+everything about how that gene or loss of that gene will effect the organism?
+Why or why not?_
+
+## How does GenScan work?
+## Why is determining gene structure more difficult in eukaryotes than prok?
+## What genes can GenScan not find?
+## GenScan isn't perfect, why doesn't it matter when trying to identify a protein?
+## How do you identify a potential gene in a prokaryote?
+## How do you determine if a predicted gene is correct using computer techniques?
+## When can you not tell whether a predicted gene is correct?
+## What test determines if a genomic region is a gene for a tRNA molecule?
+## Do you know all the genes that cause human disease?  Why or why not?
+
+_Given that we sequenced the entire human genome._
+
+## You sequenced bacteria genome and want to find all genes.  Do you use GenScan?
+
+_Why or why not?_
+
+## You sequenced fruit fly genome and want to find all genes.  Do you use GenScan?
+
+_Why or wy not?_
+
+## You want to analyze a human genomic region and send the DNA sequence to GenScan.
+
+_Now waht do you do with the results in order to complete the analysis?_
+
+## Why is GenScan useful if you can look up the info in GenBank/SwissProt?
+## What is a Genome Wide Association Study?  What can it tell us?
+## How does the Gene Ontology classify a gene?
+## Why is this an improvement over the way GenBank/SwissProt categorizes an entry?
+## What is the difference between GenScan and Grail?
