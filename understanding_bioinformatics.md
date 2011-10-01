@@ -319,6 +319,74 @@ Proteins often contain instrinsic sequence motifs that are involved in their
 delivery to sites.  If you know the sequence motifs, you can figure out where
 the protein will end up in the cell.
 
+Pairwise Sequence Alignment and Database Searching
+==================================================
+
+## Compare and contrast different scoring schemes.
+
+Alignment scores attempt to measure the likelihood of a common evolutionary
+ancestor.
+
+* Point Accepted Mutations (PAM) matrix were designed to trace evolutionary
+  origins of proteins.  The higher the matrix number (PAM-1 vs PAM-250) the more
+  mutations that have been accepted (further back in time).
+* BLOSUM matrices were designed to find conserved regions of proteins.  A lower
+  BLOSUM matrix can be used for evolutionary distance sequences (inverse of PAM).
+
+## Summarize techniques for obtaining best-scoring alignments of given type.
+
+Optimal global alignments are produced using efficient variations of the
+Needleman-Wunsch algorithm.
+
+## Describe ways to reduce the computational resources required.
+
+* Don't calculate the whole matrix
+* Use dynamic programming techniques
+* Index using a suffix tree (used in BLAST)
+* Index using hashing
+
+## Speed up database searches using index techniques.
+
+You can index using a suffix tree or hashing.  FASTA uses hashing and chaining.
+BLAST uses indexing.
+
+## Summarize techniques for aligning DNA and protein sequences together.
+
+This requires some modifications to the BLAST and FASTA algorithms.  Two problems
+arise:
+
+1. A nucleotide sequence can be translated into protein in six different
+   reading frames (three on each strand), so that there are six different
+   potential protein sequences to be examined for each nucleotide sequence
+2. Insertion of deletion errors can be present in the nucleotide sequence
+   resulting in frameshift mutations
+
+An **open reading frame** is a special reading frame that does not contain a
+stop codon.
+
+You can either translate the nucleotide sequence into amino acids or
+back-translate the amino acid sequence.
+
+## Identify sequences of low complexity.
+
+Simple sequences include stretches of identical amino acids in proteins,
+repeated short sequences, and longer DNA repeats.  About half of all database
+searches contain at least one such region.
+
+The program SEG uses compositional complexcity as a measure to determine regions
+of simple sequences.
+
+## Identify significant alignments on the basis of their score.
+
+Alignment scores are based on an extreme-value distribution.  We can use
+statistics and biological knowledge to determine if the alignment score is
+good (E-Value).
+
+## Summarize the techniques for alignments involving complete genome sequences.
+
+Indexing becomes more important with the complete genome sequences, the computer
+will need enough memory to hold the index.
+
 Patterns, Profiles, and Multiple Alignments
 ===========================================
 
