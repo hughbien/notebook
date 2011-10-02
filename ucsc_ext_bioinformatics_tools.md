@@ -837,24 +837,67 @@ _Why is searching a database using a pattern created from a family of
 proteins a better strategy than just searching a database with a single
 protein sequence that is a known member of the family of proteins?_
 
+We need to understand what patterns do then look for these patterns in sequences
+of unknown functions.  If you find a pattern of known function, you can
+figure out wht a protein or nucleotide sequence can do.
+
 ## What is a motif?
+
+Patterns in protein sequences that create a structure.
+
 ## What is a regular expression?
+
+A concise and fliexble expression for matching strings of text aka pattern
+matching.
+
 ## Why should you not use a consensus sequence to search for other members?
 
 _A consensus sequence is created from a multiple alignment of a family of related
 sequences, why should you not use one to search a database for other members of
 the family that was used to create the consensus?_
 
+A consensus sequence only shows one choice at each position.  It doesn't
+account for ambiguities.  Consensus sequences are made to reduce the amount
+of information.  You need to be able to accoutn for a pattern where having
+two or more molecules in one position are equally valid.
+
 ## Why would you ignore commonly found patterns?
 
 _Such as described in the Prosite database._
 
+These are repeat DNAs that don't mean anything.  They don't provide any use for
+searching.
+
 ## What are some names of protein pattern databases?
+
+* Prosite
+* eMotif
+
 ## What is a PSSM?
+
+Position Specific Scoring Matrix, it's a matrix of scores used to score a
+protein pattern.  The left axis are the amino acids.  You move left to right,
+adding the score for each amino acid.
+
 ## Why does a PSSM do a better job of describing a pattern than other methods?
+
+It's a more flexible search and gives specific weight to each position in a
+pattern.
+
 ## What are you looking for when searching a protein pattern DB with protein seq?
+
+Proteins in the same family.
+
 ## What is more sensitive, a PSSM or a motif?
+
+Motifs have fewer false positives, so it's more sensitive than PSSM.
+
 ## Why is Blocks better than Prosite?
+
+Blocks of aligned sequences from highly conserved regions that have been
+defined by the Prosite databases.  When you compare a sequence to an entry in
+the BLOCKS database, the BLOCK is converted to a PSSM.
+
 ## Why is a HMM better than a Profile PSSM?
 ## If two genes have the same expression pattern, what does it tell you?
 ## What does the following tell you?
@@ -880,43 +923,240 @@ _You have several protein sequences with the same function._
     G-A-L-I-V-T-S
     P-C-K-W-M-Y-H-Q
 
-Annotation Study Questions
-==========================
+Annotations
+===========
 
 ## What are the steps in annotating a genome?
+
+* Identification and prediction of genes
+* Characterization of gene features
+* Chacterization of genome features
+* Prediction of gene function
+* Prediction of pathways
+* Integration with known biological data
+* Comparative genomics
+
 ## What is annotation?
+
+The process of interpreting genomic sequence information, defining signal
+regions, open reading frames and defining the function of the regions.
+
 ## Does sequence/variations of sequence tell you everything about effects?
 
 _Does determining the sequence and sequence variations of a gene tell you
 everything about how that gene or loss of that gene will effect the organism?
 Why or why not?_
 
+No, there's still the regulatory regions.
+
 ## How does GenScan work?
+
+GenScan uses statistical methods to annotate a gene.  It compares many splice
+sites and uses Maximal Dependence Decomposition (MDD) which captures dependencies
+between positions.
+
+It look sfor ORFs using a variety of techniques:
+
+* Hexamer Composition of Introns & Exons
+* 5' 3' Splice Signal
+* Reading Frame
+* Exon-Intron length
+* Promoter or Poly A signals
+
 ## Why is determining gene structure more difficult in eukaryotes than prok?
+
+Eukaryotes have more non-coding DNA, introns/exons, repetitive regions.  There
+are more post-transcriptional modifications and psuedogenes.
+
 ## What genes can GenScan not find?
+
 ## GenScan isn't perfect, why doesn't it matter when trying to identify a protein?
+
 ## How do you identify a potential gene in a prokaryote?
+
+Look for the start and stop codons in the sequence.
+
 ## How do you determine if a predicted gene is correct using computer techniques?
+
+Search the existing databases for your gene.
+
 ## When can you not tell whether a predicted gene is correct?
+
+Do a lab experiment.  Place the gene into a plasmid and see if it gets expressed
+properly.
+
 ## What test determines if a genomic region is a gene for a tRNA molecule?
+
+Looking for tRNA promoter sequences or for that cloverleaf folding pattern.
+
 ## Do you know all the genes that cause human disease?  Why or why not?
 
 _Given that we sequenced the entire human genome._
+
+No, we still don't understand what particular sequences or variations of those
+sequences mean.
 
 ## You sequenced bacteria genome and want to find all genes.  Do you use GenScan?
 
 _Why or why not?_
 
+No, it only works with vertebrates, maize, and some flower.
+
 ## You sequenced fruit fly genome and want to find all genes.  Do you use GenScan?
 
-_Why or wy not?_
+_Why or why not?_
+
+No, it only works with vertebrates, maize, and some flower.
 
 ## You want to analyze a human genomic region and send the DNA sequence to GenScan.
 
-_Now waht do you do with the results in order to complete the analysis?_
+_Now what do you do with the results in order to complete the analysis?_
+
+Go to Embel and perform a pairwise alignment using the amino acid sequence from
+GenScan and the actual amino acid sequence from GenBank.  Compare the results
+between GenScan and the pairwise alignment.
 
 ## Why is GenScan useful if you can look up the info in GenBank/SwissProt?
 ## What is a Genome Wide Association Study?  What can it tell us?
+
+Association analysis performed with a panel of polymorphic markers adequately
+spaced to capture most of the linkage disequilibrium information in the entire
+genome in the study population.
+
+It studies the SNPs.  Do changes in a single nucleotide actually affect the
+phenotype?  We need to separate the real effects with noise.
+
 ## How does the Gene Ontology classify a gene?
+
+There are three descriptors:
+
+* molecular function
+* biological process
+* cellular component
+
+Let's use DNA Polymerase as an example:
+
+* function => add dNTPs to 5' end of dsDNA template
+* prcoess => DNA replication
+* cell component => nucleus
+
 ## Why is this an improvement over the way GenBank/SwissProt categorizes an entry?
+
+It has a controlled vocabulary.  The gene name can change but the GO doesn't.
+Often times you'll miss information when searching for a gene because the gene
+name changed.
+
 ## What is the difference between GenScan and Grail?
+
+Grail uses multiple parameters and hidden markov models.  It combines prediction
+techniques with database entries.
+
+Primer and Sequencing
+=====================
+
+## Why is it difficult to sequence repetitive regions using shotgun sequencing?
+
+Shotgun sequencing uses overlapping regions to re-assemble fragments.  Sequences
+with repetitive regions are difficult to re-assemble because there are too many
+false overlaps.
+
+## Why can't you use sequence comparison software to design primers?
+
+Sequence comparison software tries to align sequences that are similar or
+homologous.  Primers need to be complementary.  Also, primer design requires
+more than just complements.  You need to be sure the primer doesn't wrap onto
+itself.
+
+## How is fragment assembly different from multiple alignment or sequence comparison?
+
+With fragment assembly, you're looking for overlaps between your fragments.
+These overlaps much have 100% match, there can be no gaps.
+
+## Why is primer design important?
+
+Primers are used to synthesize DNA.  It's useful to create DNA or CDNA libraries.
+Some other uses:
+
+* making molecular tweezers
+* nanoswitches
+* DNA computers
+* nanosensors
+* create complicated DNA structures
+
+## Why do we want a fragment assembly program to generate a consensus sequence?
+
+_Previously we said a consensus sequence is not good for describing a biological
+pattern and capturing all the sequence variation present in a pattern._
+
+## What do you have to do to be confident this is not a sequencing error?
+
+_You have sequenced a nucleotide fragment and found that the nucleotide in
+position 23 is a G. How can you be sure that it actually is a G and not another
+nucleotide._
+
+Nucleotides in the middle usually have a higher rate of being correct than
+nucleotides on each ends.  You could do sequencing walking to verify with just
+the small fragment that you're concerned about.
+
+## How would you sequence only these regions of the genome?
+
+_If only 5% of the human genome codes for proteins._
+
+You could sequence the post-processed mRNA and use its complementary for the
+cDNA.  You could also use the reverse-transcriptase enzyme to backtranslate it
+back into DNA.
+
+## What does the strategy above miss?
+
+The introns.
+
+## How do dot plots for sequence comparison and fragment assembly alignments differ?
+
+With fragment assembly, the sequences are much shorter than the overall alignment.
+Internal gaps are heavily penalized since a gap indicates you missed a base.
+You can only use identity matrix.
+
+## Why are thermodynamic parameters important in primer design?
+
+For the primer's reaction with DNA.  It needs to be optimized so it can anneal
+with the DNA.  Some of the reaction conditions are:
+
+* salt concentration
+* DNA concentration
+* temperature of hybridization
+* temperature of melting
+
+GC bonds are stronger than AT bonds which will raise the melting point.
+
+## Why those parameters not important in the following?
+
+* fragment assembly
+* multiple alignments 
+* database searching
+
+## How would you test out the primer to make sure there were no mispriming sites?
+
+_You want to find a primer that will hybridize to only one gene in a genome._
+
+Do a database search using the original BLAST, without gaps.
+
+## Does increasing the GC content in a primer raise/lower the melting temp? Why?
+
+It raises the melting temperature because GC bonds are stronger than AT bonds
+(triple hydrogen bonds vs double hydrogen bonds).
+
+## How can you make sure there's no other site that it could hybridizes to?
+
+_You have designed a primer to a plasmid._
+
+Do a database search using BLAST.
+
+## What software would you use for the above?
+
+BLAST.
+
+## Why do we sequence many times more than the length of the region being sequenced?
+
+We have to re-assemble the fragments, which require that we have multiple overlaps.
+The more overlaps, the better since it lowers the probability that any overlap
+could have happened by chance.
