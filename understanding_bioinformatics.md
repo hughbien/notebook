@@ -386,22 +386,3 @@ good (E-Value).
 
 Indexing becomes more important with the complete genome sequences, the computer
 will need enough memory to hold the index.
-
-Patterns, Profiles, and Multiple Alignments
-===========================================
-
-## Explain how to produce PSSMs.
-
-**PSSMs or position-specific scoring matrices**
-
-## Describe methods to overcome lack of data.
-## Compare/constrast scoring methods for alignments and profiles.
-## Explain the graphical illustration of sequence profiles and patterns.
-## Explain how to produce profile HMMs
-
-**HMMs or Hidden Markov Models**
-
-## Describe the alignment of profiles with sequences and other profiles.
-## How do you obtain multiple alignments?
-## How do you discover sequence patterns?
-## Discuss the statistical scoring of patterns.
