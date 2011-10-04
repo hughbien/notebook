@@ -1160,3 +1160,104 @@ BLAST.
 We have to re-assemble the fragments, which require that we have multiple overlaps.
 The more overlaps, the better since it lowers the probability that any overlap
 could have happened by chance.
+
+Phylogenetic Analysis
+=====================
+
+## What do you need to start with before you can do phylogenetic analysis?
+
+You you to start with similar sequences.  If you choose bad sequences, you'll
+get bad output.  You need the output from a multiple alignment (some software
+will do the alignment for you, some software requires the output because you
+might want to do manual adjustments).
+
+An example of when you want to edit the output: gaps.  You want to put gaps where
+it makes biological sense - such as in between separate helices.
+
+## Is it better to use DNA or protein sequences when doing phylogenetic analysis?
+
+For evolutionary distant sequences, it's best to use protein sequences.  It's
+always better to use protein sequences unless they're evolutionary close.  If
+two sequences are too close, there may not be any difference between the amino
+acid sequences.
+
+## Why correct sequence distances?
+
+Correcting sequences accounts for nucleotides which change back.  For example,
+`C` changes to `T` which changes back to `C` in a later step.  It also fixes
+the comparison of two sequences by adding a common parent between the two instead
+of just assuming that one evolved into the other.
+
+## Are phylogenetic trees actually how the sequences evolved or are just models?
+
+They're just models.  For actual proof, you'll need palentological evidence.
+
+## Does a phylo tree showing gene evolution describe species evolution?
+
+No.  A single gene is not enough evidence for the evolution of a species
+evolving.  It just means the rate of the gene evolving is close for those two
+species.  You'll need to throw more data to get the species evolution info.
+
+## How far is the inferred ancestral sequence separated from A?
+
+_You find that two sequences A and B are separated by a distance of 6._
+
+6 steps.
+
+_Is that the only possibility?_
+
+No, it's just the shortest.  Nucleotides could change back, eg A -> C -> A.
+
+## How can you determine which tree is probably correct?
+
+_You do a phylogenetic analysis and your tree drawing program returns more than
+one tree that could explain how the sequences evolved._
+
+The simpler tree with fewer steps is usually correct.  Nature is lazy.  You can
+also use probability to analyze your results.  Some nucleotides are more likely
+to mutate into other nucleotides.
+
+## Can you use this dendrogram to infer how the sequences evolved?
+
+_You do a multiple alignment and it creates a dendrogram._
+
+No, guide trees don't take common parents into account when comparing two
+sequences.  If you infer from it, you'll miss the common parent.
+
+## Do all proteins evolve at the same rate in an organism?
+
+No, they do not.  There's a wide range of variety for each protein.
+
+## Does the same protein evolve at the same rate in different organisms?
+
+Sometimes their rate is similar.  Most of the time they're different.
+
+## What is the best method to do a phylogenetic analysis of a multi-domain protein?
+
+Separate the domains and analyze each one individually.  The domains were
+most likely independent and then got connected over time.  If you analyze them
+as connected domains, you can only go as far back as when they originally fused.
+
+## How is the evolutionary distance between two sequences calculated?
+
+It's the number of substitutions/changes to get from one parent sequence to
+the child sequence.
+
+## What is more likely, a complicated evolutionary path or a simple evolutionary path?
+
+Nature is lazy, a simple evolutionary path.
+
+## What is an exhaustive search and why is it not the best method? 
+
+_To use to find the optimal phylogenetic tree._
+
+An exhaustive search assembles every possible tree and evaluates the distances
+to find the best one.  It's too computationally expensive and should only be
+used when you only have a few sequences.
+
+## How would you do that?
+
+_You have a collection of related proteins and you want to find the region that
+is probably the active site._
+
+The conserved amino acids in a phylogenetic tree indicate the active site.
