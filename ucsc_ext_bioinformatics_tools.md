@@ -1261,3 +1261,58 @@ _You have a collection of related proteins and you want to find the region that
 is probably the active site._
 
 The conserved amino acids in a phylogenetic tree indicate the active site.
+
+Microarray Technology
+=====================
+
+## What can a microarray experiment tell you?
+
+A microarray experiment is used to analyze gene expression in a cell.
+
+## What do the colors in a heat map tell you?
+
+The expression level (via the amount of mRNA) of each gene.
+
+## What are the limitations of microarray experiments?
+
+* they have a high error rate
+* microarray tells mRNA levels, we want protein levels
+* they're expensive, currently ~$400 a chip
+
+## Will full genome sequencing replace microarrays?
+
+No, genome sequencing just tells you the sequence.  Microarrays will tell you
+if the DNA is being expressed or not.
+
+## Why is normalization useful?
+
+Normalization is done to compare two chips.  It cleans up the data.
+
+## What are the different types of microarrays?
+
+* affymetrix
+* spotted array
+
+## How is the initial image of a gene chip converted into a heat map?
+
+A computer shoots a laser through the gene chip to detect the levels of
+expression via fluorescence.
+
+## Can the results of two different microarray experiments be combined?
+
+Yes, often times experiments are run over again to make sure there weren't
+any errors.
+
+## How is clustering used to analyze microarray data?
+
+Colors of similar expression levels are clustered together.  You look for
+deviations away from the mean.  You have an average color in the matrix of
+colors.
+
+## Are there any microarray databases?
+
+Yes, here are the big three:
+
+* GEO (NCBI) - Gene Expression Omnibus
+* SMD - Stanford Microarray Database
+* ArrayExpress (EBI)
