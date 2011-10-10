@@ -2,8 +2,7 @@ Bioinformatics For Dummies
 ==========================
 
 Jean-Michel Claverie and Cedric Notredame walks us through the tools and
-techniques of bioinformatics.  It assumes some biology knowledge and teaches
-the computer tools.
+techniques of bioinformatics.
 
 Finding Out What Bioinformatics Can Do For You
 ==============================================
@@ -90,6 +89,135 @@ the entire **genome** of an organism.  Studying the genome as a whole is called
 
 How Most People Use Bioinformatics
 ==================================
+
+In this chapter, the author shows us bioinformatics tools to find information
+like:
+
+* medical information on any biological subject
+* protein/DNA sequences
+* sequence comparison and alignment
+
+**PubMed** is a database of medical related articles.  It's useful for references
+and bibliographic resources.  We'll start off by searching PubMed for the
+`dUTPase` protein:
+
+1. Go to <http://www.ncbi.nlm.nih.gov/sites/entrez?db=pubmed>
+2. Search PubMed for `dUTPase`
+3. Click on any of the results to learn more about the protein.  
+
+The search box isn't just limited to topics.  You can also search by author
+name.  You can narrow down your search results using fields:
+
+1. Click the Display drop-down menu and choose MEDLINE
+2. Use each field to narrow your search.  There's TI for title, AB for abstracts,
+   AD for lab address, AU for authors, and SO for journal.
+
+You can use fields in the main search box by placing the field abbreviation in
+square brackets.  Here's how to search for the topic `duTPase` with the lab
+address in Chicago:
+
+    dUTPase [TIAB] Chiago [AD]
+
+You can also specify ranges or **limits** to your search fields.  A good example
+is limiting your search to recently review articles:
+
+1. Search for `dUTPase`
+2. On results page, click on the Limits tab
+3. For "Type of Article" choose "Review"
+4. Click "Go"
+
+**ExPASy** is a site for protein information.  It provides a database of
+information and tools for protein analysis.  Let's find the protein sequence of
+`dUTPase` in E. coli:
+
+1. Go to <http://www.expasy.org/sport/> (the Swiss-Prot database)
+2. Search for `dUTPase coli`
+3. Click on a result
+4. Click the FASTA format link to get the sequence
+
+The result page is broken up into four parts.  The top has the
+**primary accession number** and is a unique identifier for this protein.
+The next section has a biochemical description of the protein and a list of
+bibliographic references.  The next section is a series of links to functional
+classification schemes.  Finally, the sequence section provides the actual
+amino acid sequence.
+
+To do an advanced search of the Swiss-Prot database:
+
+1. Go to <http://www.expasy.org/sprot/>
+2. Click "Advanced Search in the UniProt Knowledgebase" link
+3. Type `dUTPase` in the Description field, choose baker's yeast for Organism
+4. Submit the form
+
+To retrieve a list of related protein sequences:
+
+1. Go to <http://www.expasy.org/sprot/> then go to Advanced Search in UniProt
+2. Keep Swiss-Prot checked but deselect the TrEMBL box.  The TrEMBL database is
+   made of unsupervised translations of new DNA sequences while Swiss-Prot is
+   curated by experts.
+3. Search for `dUTPase`
+4. On the results page, click "Select All" and then "Retrieve Sequences"
+
+Not all DNA codes for proteins.  It also includes regulatory regions and
+untranslated regions.  Expressed regions are called **exons** and interrupts
+are called **introns**.  There are different types of DNA sequences:
+
+* primary transcript includes exons and introns
+* mature transcript discards the introns
+* protein-coding region is the open reading frame
+* partial sequences
+
+Let's get a DNA sequence for the coding region of a protein:
+
+1. Go to <http://www.expasy.org/sprot/>
+2. Enter the accession number `P06968` for E Coli dUTPase
+3. Click the Cross-References link near top of the form.  This section has links
+   to other databases.
+4. Click the "GenBank" link
+
+The GenBank website is full of DNA information.  The format consists of four
+parts:
+
+1. Identifiers like accession number and locus name
+2. Reference section
+3. Features section like ribosome binding sites and protein coding segments (CDS)
+4. Sequence section includes the nucleotides
+
+You can save the sequence into FASTA format for use with other programs.  It's
+available from the Display drop-down at the top of the page.
+
+**BLAST** is short for **Basic Local Alignment Search Tool** and is a sequence
+comparison tool.  It will find other proteins with sequences similar to yours.
+This acts like a Rosetta Stone, which will help you identify the structure or
+function of your sequence by comparing it to a known sequence.
+
+1. Go to <https://www.ncbi.nlm.nih.gov/BLAST/>
+2. Click "blastp" to do a Protein-Protein BLAST
+3. Select the "nr" (nonredundant) database which includes all protein sequences
+   known to man
+4. Paste a protein sequence (FASTA format works) and click "BLAST!"
+
+If you used a known protein, the best matched protein will probably be an
+identical match.  The **E-Value** is a statistical score of each sequence.  It
+represents the probability of getting a hit on a database of the same size by
+chance.  The lower the E-Value, the more significant the result.
+
+You can also do multiple protein sequence alignments with ClustalW.  Multiple
+alignments are used for:
+
+* identifying sequence positions for structural integirty or function
+* define sequence signatures for protein families
+* classify sequences and build evolutionary trees
+
+Here's an example using the **Protein Information Resource (PIR)**:
+
+1. Go to <http://pir.georgetown.edu>
+2. Under Search/Analysis, choose Multiple Alignment
+3. Paste the sequences in FASTA format
+4. Click "Submit"
+
+The results page will include a diagram of matched amino acids, functional
+signatures, and phylogenetic trees.
 
 Using Nucleotide Sequence Databases
 ===================================
