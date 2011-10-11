@@ -222,6 +222,60 @@ signatures, and phylogenetic trees.
 Using Nucleotide Sequence Databases
 ===================================
 
+This chapter explores the DNA/genome databases available on the internet.  The
+database to use is GenBank which is maintained by:
+
+* US National Center for Biotechnology Information (NCBI)
+* European Molecular Biology Laboratory (EMBL)
+* DNA Data Bank of Japan (DDBJ)
+
+Prokaryotic gene DNA sequence are relatively easy to read.  Here are the steps
+to find `E Coli dUTPase gene`:
+
+1. Go to <http://www.ncbi.nlm.nih.gov/entrez/>
+2. Choose Nucleotide in the Search pull down
+3. Search for `X01714` (the accession id)
+
+The various sections of the resulting page:
+
+* LOCUS is the locus name (arbitrary name), sequence size, molecule type, and
+  its shape (linear or circular)
+* DEFINITION is a short definition of the gene
+* ACCESSION is a unique identifier
+* VERSION has past IDs
+* KEYWORDS are terms used for searching
+* SOURCE is the common name of the organism
+* ORGANISM is the organism host of this gene
+* REFERENCE includes credits/links to relevant articles
+* COMMENT is free formed miscellaneous text
+* ORIGIN is the beginning of the raw sequence (ending with //)
+
+The FEATURES table describes biological properties:
+
+* source - specific regions of sequence
+* promoter - coordinates of promoter element in sequence
+* misc feature - misc coordinates
+* RBS (Ribosome Binding Site) - location of last upstream element
+* CDS (CoDing Segment) - location of gene's open reading frame
+
+You can save the sequence data into FASTA format by using the menu at the top
+of the page.
+
+Try searching for `AF018430`, a human gene.  Some additional sections for
+eukaryotic genes are:
+
+* DEFINITION includes the exon number now
+* SEGMENT indicates that this particular gene is broken into segments and
+  this particular segment is 2 out of 4
+* FEATURES this includes additional entries.  The source now tells you which
+  chromosome it comes from.  Gene is a splicing recipe on how to reconstruct
+  the mRNA sequence.
+
+To find a gene without an accession number you can search for it using fields.
+To find the gene above, search for:
+
+    human [organism] AND dUTPase [Protein name]
+
 Using Protein and Specialized Sequence Databases
 ================================================
 
