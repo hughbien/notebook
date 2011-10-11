@@ -249,6 +249,7 @@ That there's specific biology going on with this sequence.
 ## When would you use a Hidden Markov Model to analyze a sequence?
 
 To determine if a sequence is the member of a certain family.
+It is a position specific scoring matrix.
 
 ## What is information theory used for in bioinformatics?
 
@@ -270,7 +271,8 @@ a little different.  A's and T's occur more often than C's and G's.
 _To answer this, come up with some sequences that had the same distribution
 of nucleotides but was not random._
 
-You could search the existing sequence database.
+You can start looking at di-nucleotide patterns or tri-nucleotide patterns.
+It could still be 1/4 but be `AAAACCCCTTTTGGGG`.
 
 ## How often would you find the cut site for HindIII in a random sequence?
 
@@ -754,6 +756,11 @@ results in a completely different translation from the original.
 No.  You can only do one query.
 
 ## Why filter sequences?  When would filtering not be a good idea?
+
+Remove sequences of low complexity so you get fewer false positives.  Masking
+uses a database of known repeat regions whereas filtering uses an algorithm to
+filter regions of low complexity.
+
 
 Database Searching #2
 =====================
@@ -1286,7 +1293,9 @@ if the DNA is being expressed or not.
 
 ## Why is normalization useful?
 
-Normalization is done to compare two chips.  It cleans up the data.
+Normalization is done to compare two chips.  It cleans up the data.  It lets
+you see the data better.  For example, the data might be too compact or too
+exponential.  Use the log function to make it linear.
 
 ## What are the different types of microarrays?
 

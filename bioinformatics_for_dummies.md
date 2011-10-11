@@ -205,7 +205,7 @@ chance.  The lower the E-Value, the more significant the result.
 You can also do multiple protein sequence alignments with ClustalW.  Multiple
 alignments are used for:
 
-* identifying sequence positions for structural integirty or function
+* identifying sequence positions for structural integrity or function
 * define sequence signatures for protein families
 * classify sequences and build evolutionary trees
 
