@@ -513,7 +513,7 @@ Let's use a more concrete example.
 
 It's not telling you that if you continually get high values of X, the next
 trial has a higher probability of getting a lower X to make up.  That's known
-as the gamber's fallacy.
+as the gambler's fallacy.
 
 This is what the casinos use to make money.  While a small number of people
 will win, over the long term the casino wins due to the game's probabilities.
