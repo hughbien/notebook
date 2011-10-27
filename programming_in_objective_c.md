@@ -345,7 +345,7 @@ objects that have been retained by your instance variables.  The `super` keyword
 gives access to the superclass:
 
     - (void) dealloc {
-      if (origin) {
+      if(origin) {
         [origin release];
       }
       [super dealloc];
@@ -588,7 +588,7 @@ context that it's used:
 
     #define AND &&
     #define OR ||
-    if (x > 0 AND x < 10 OR y > 0)
+    if(x > 0 AND x < 10 OR y > 0)
 
 If the expression uses multiple lines, use the backslash character `\` to do
 a continuation.  Definitions can also take arguments:
@@ -906,23 +906,392 @@ work in the Objective-C runtime:
 Introduction to the Foundation Framework
 ========================================
 
+A framework is a collection of classes, methods, functions, and documentation
+grouped together.  OS X has more than 90 frameworks.  The foundation for all
+these frameworks is the **Foundation Framework**.  It includes support for
+basic objects like numbers, strings, arrays, dictionaries, and sets.
+
+**Application Kit** is a framework for developing GUIs.  For documentation in
+Xcode, you can search in the "Help" window.  You can also hold down the
+Option key and click in your text editor for quick documentation.
+
 Numbers, Strings, and Collections
 =================================
+
+Start by importing the foundation framework:
+
+    #import <Foundation/Foundation.h>
+
+These files have been preprocessed by the compiler to reduce compile time.
+
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    NSNumber *myInt = [NSNumber numberWithInteger:100];
+    NSLog(@"%i", [myInt integerValue]);
+    [pool drain];
+
+The Autorelease Pool automatically frees memory used by objects.  An object is
+added to the pool whenever it gets sent the `autorelease` message.  The chapter
+on memory management will discuss more on this.
+
+`NSNumber` is the class you'll deal with most for numbers.  It wraps basic
+data types and works well across platforms.  Some methods:
+
+* numberWithInt: and intValue
+* numberWithShort: and shortValue
+* numberWithUnsignedInt: and unsignedIntValue
+* numberWithLong: and longValue
+* numberWithFloat: and floatValue
+* numberWithDouble: and doubleValue
+* numberWithBool: and boolValue
+* numberWithChar: and charValue
+* isEqualToNumber:
+
+Worth noting is the `isEqualToNumber:` method works with different number types:
+
+    [intNumber isEqualToNumber:floatNumber]
+
+Strings are of the `NSString` type and created with an `@""`:
+
+    @"Programming is fun"
+
+C-style strings use `char` characters whereas `NSString` uses `unichar`.  We've
+used `NSLog` to output strings.  You can use the `%@` formatting option to
+display any object, it just sends the `description` message to that object:
+
+    - (NSString *) description;
+    NSlog(@"Description: %@", object);
+
+`NSNumber` and `NSString` are immutable objects.  Use `NSMutableString` for a
+mutable string.
+
+Foundation includes immutable and mutable arrays via `NSArray` and
+`NSMutableArray`.  Use the `arrayWithObjects:` varargs method to create one.
+Use `nil` to denote when the array ends (that's how varargs methods work).
+
+    NSMutableArray *a = [NSMutableArray arrayWithObjects:
+      @"One", @"Two", @"Three", nil];
+    [a addObject:@"Four"];
+    [[a objectAtIndex:0] isEqualToString:@"One"];
+
+Arrays let you use **fast enumeration** which has a concise syntax and has
+mutation guards:
+
+    for(NSString *element in stringArray) {
+      // ...
+    }
+
+Any object which adopts the `NSFastEnumeration` protocol can be used.  You can
+sort arrays using the `sortUsingSelector:` method.  Here's an example:
+
+    [book sortUsingSelector:@selector(compareNames:)];
+    // elsewhere
+    - (NSComparisonResult) compareNames:(id)element {
+      return [name compare:[element name]];
+    }
+
+Instead of a selector, you can use an inline block.  The definitions look like
+this:
+
+    - (void) sortUsingComparator:(NSComparator)block;
+    typedef NSComparisonResult (^NSComparator)(id obj1, id obj2);
+    [book sortUsingComparator:^(id obj1, idobj2) {
+      return [[obj1 name] compare:[obj2 name]];
+    }];
+
+Arrays and dictionaries can only store `NSObject`s.  To store primitive types,
+you'll need to wrap them.  `NSValue` is handy to wrap primitives, especially
+structs.  Here's an example wrapping a `CGPoint` struct:
+
+    CGPoint *myPoint;
+    NSValue *pointObj;
+    NSArray *touchPoints;
+    // ...
+    pointObj = [NSValue valueWithPoint:myPoint];
+    [tochPoints addObject:pointObj];
+
+A dictionary is a key-value store implemented by `NSDictionary` and
+`NSMutableDictionary`:
+
+    NSMutableDictionary *glossary = [NSMutableDictionary dictionary];
+    [dictionary setObject:@"value" forKey:@"key"];
+    [dictionary objectForKey:@"key"];  // = @"value"
+
+Using fast enumeration with a dictionary will return all the keys:
+
+    for(NSString *key in dictionary) {
+      // ...
+    }
+
+A set is a collection of objects where ordering doesn't matter.  It's
+implemented by `NSSet`, `NSMutableSet`, `NSIndexSet`, and `NSCountedSet`:
+
+    NSMutableSet *set1 = [NSMutableSet setWithObjects:@"one", @"two", nil];
+    NSMutableSet *set2 = [NSMutableSet setWithObjects:@"two", @"four", nil];
+    [set1 isEqualToSet:set2]; // false
+    [set1 containsObject:@"one"]; // true
 
 Working with Files
 ==================
 
+`NSFileManager` lets you:
+
+* create a new file
+* read a file
+* write data to a file
+* rename a file
+* delete a file
+* test for existence of a file
+* determine metadata of a file
+* make a copy of a file
+* compare contents
+
+As well as other operations on directories and symbolic links.
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if(![fm removeItemAtPath:@"todolist" error:nil]) {
+      NSLog(@"Unable to remove file.");
+    }
+
+Use `NSString's stringWithContentsOfFile:encoding:error` to read contents of
+a file.  Sometimes you'll have to deal with buffers (temporary storage area)
+and `NSData`.
+
+    NSData *fd = [fm contentsAtPath:@"todolist"];
+    [fm createFileAtPath:@"todolist.backup" contents:fd attributes:nil];
+
+`NSPathUtilities.h` includes functions and category extensions to work with
+pathnames.  You should use this to make your program independent of the file
+system.
+
+`NSProcessInfo` includes information about your application's current running
+process like `PID` or arguments.
+
+`NSFileHandle` includes methods for IO operations with files.  The `NSURL` class
+deals with URLs.  A few file operations take `NSURL` as arguments.
+
+When you create an application using Xcode, it stores your application resources
+and metadata into an **application bundle**.  You can use the `NSBundle` class
+to access resources, icons, and other data.
+
 Memory Management
 =================
+
+Objective-C includes garbage collection, but it's not always possible to use it.
+Phones have a limited amount of memory so you'll have to manually allocate and
+free objects.
+
+A new language feature called **ARC or Automatic Reference Counting**
+automatically handles your memory for you at compile time - so it can be used
+on devices with limited memory.  Use it when possible.
+
+This chapter explains memory management for when you don't have access to
+ARC of if you just want to manually manage memory.
+
+Objective-C uses a **retain/release** memory model which keeps track of the
+**reference count** for each object.  `NSAutoreleasePool` keeps track of your
+objects and their reference count:
+
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    // ...
+    [pool drain];
+
+Foundation automatically adds arrays, strings, dictionaries, and other objects
+to this pool.  If your program generates a lot of temporary objects, you can
+use a temporary pool.  Use the `autorelease` method to tag an object for
+draining:
+
+    NSAutoreleasePool *tempPool;
+    for(i = 0; i < 100000; i++) {
+      tempPool = [[NSAutoreleasePool alloc] init];
+      [obj autorelease];
+      // ...
+      [tempPool drain];
+    }
+
+Autorelease pools are setup in the event loop and are drained on each run for
+iOS and OS X applications by default.
+
+Each time you want an ensure an object is kept around, increment its reference
+count by 1 with `retain`.  Decrease the reference count when you no longer need
+it with `release`.  Some methods automatically retain like `addObject:`.
+
+    [myFraction retain];
+    [myFraction release];
+
+When an object is `alloc`, its reference count is `1`.  Once it reaches zero,
+the memory gets freed or deallocated.  The `retainCount` message can be sent
+for inspection.
+
+Constant strings like `@"Constant string"` use no reference counting scheme
+because they're never released.
+
+When the pool is drained, every object gets a `release` message sent to it for
+every time `autorelease` was previously sent.
+
+Be careful not to over-release an object.  If you over-release, the object will
+be deallocated and no longer valid.  When it gets an invalid `release` message,
+your program will most likely terminate with a segmentation fault.
+
+By convention, if you call `copy`, `mutableCopy`, `alloc` or `new` directly -
+you are in charge of freeing the object.  Any other factory methods will have
+already sent an `autorelease` and you only need to retain/release if necessary.
+
+If you don't use the `@synthesize` directive, you'll have to be careful with
+instance setters.  Be sure to release or autorelease the previous instance
+object and retain the new one.  Overriding `dealloc` lets you have a tidy way
+to deallocate your instance variables.
+
+    - (void) dealloc {
+      [ivar1 release];
+      [super dealloc];
+    }
 
 Copying Objects
 ===============
 
+Regular assignments just create another reference to the same object in memory:
+
+    NSMutableArray dataArray2 = dataArray;
+
+Foundation classes implement `copy` and `mutableCopy` methods from the
+`<NSCopying>` protocol:
+
+    NSMutableArray dataArray2 = [dataArray mutableCopy];
+    // ...
+    [dataArray2 release];
+
+This returns a **shallow copy**.  Modifying any elements in this copied array
+will still modify the elements in the original.  You'll have to copy each item
+manually for a **deep copy**.
+
+To implement copying in your own classes, you'll need to adopt the `<NSCopying>`
+protocol which has one required method:
+
+    - (id) copyWithZone:(NSZone *)zone {
+      Fraction *newFract = [[Fraction allocWithZone:zone] init];
+      [newFract setTo:numerator over:denominator];
+      return newFract;
+    }
+
+`NSZone` has to do with memory zones.  Use `allocWithZone` if your application
+deals with a lot of objects in memory to be more efficient.  If your class might
+be subclassed, use this instead:
+
+    id newFract = [[[self class] allocWithZone:zone] init];
+
+You can do a deep copy instead, there's currently no convention.  If you want
+to make a copy in a setter method and are using the `@property` directive:
+
+    @property (copy) NSString *name;
+
 Archiving
 =========
+
+OS X applications use **XML plists or Propery Lists** for storage such as
+application preferences, configuration, or archiving objects (serialization).
+
+Some of the limitations of plists for archiving:
+
+* specific object classes not retained
+* multiple references to same object not stored
+* mutability of object not preserved
+
+`NSString`, `NSDictionary`, `NSArray`, `NSDate`, `NSData`, and `NSNumber`
+implements the method `writeToFile:atomically` to archive an object:
+
+    if(![glossary writeToFile:@"glossary.xml" atomically:YES]) {
+      NSLog(@"Saving failed.");
+    }
+
+To read a dictionary back from a file:
+
+    [NSDictionary dictionaryWithContentsOfFile:@"glossary.xml"];
+
+A more flexible method uses `NSKeyedArchiver`, which works on any `NSObject`:
+
+    [NSKeyedArchiver archiveRootObject:glossary toFile:@"glossary.archive"];
+    [NSKeyedUnarchiver unarchiveObjectWithFile:@"glossary.archive"];
+
+If you want your class to be archive-able, you'll need to tell `NSKeyedArchiver`
+how to **encode** and **decode** it.  Your class needs to adopt the
+`<NSCoding>` protocol which has these required methods:
+
+* `encodeWithCoder:`
+* `initWithCoder:`
+
+When you implement these two methods, you'll use some `NSCoder` methods to
+encode/decode basic data types and instance fields:
+
+* `encodeObject:forKey:` and `decodeObject:forKey:`
+* `encodeBool:forKey:` and `decodeBool:forKey:`
+* `encodeInt:forKey:` and `decodeInt:forKey:`
+* `encodeInt32:forKey:` and `decodeInt32:forKey:`
+* `encodeInt64:forKey:` and `decodeInt64:forKey:`
+* `encodeFloat:forKey:` and `decodeFloat:forKey:`
+* `encodeDouble:forKey:` and `decodeDouble:forKey:`
+
+Here's an example for our `AddressBook` class:
+
+    - (void) encodeWithCoder:(NSCoder *)encoder {
+      [encoder encodeObject:name forKey:@"AddressCardName"];
+      [encoder encodeObject:email forKey:@"AddressCardEmail"];
+    }
+    - (id) initWithCoder:(NSCoder *)decoder {
+      name = [[decoder decodeObjectForKey:@"AddressCardName"] retain];
+      email = [[decoder decodeObjectForKey:@"AddressCardEmail"] retian];
+      return self;
+    }
+
+Any subclasses should call its superclass:
+
+    [super encodeWithCoder:encoder];
+
+Now you can use `NSKeyedArchiver` and `NSKeyedUnarchiver`:
+
+    [NSKeyedArchiver archiveRootObject:addressBook toFile:@"book.archive"];
+    [NSKeyedUnarchiver unarchiveObjectWithFile:@"book.archive"];
+
+You can combine several objects and write all of them to a single file.  Use
+`NSData` as a buffer:
+
+    NSMutableData buffer = [NSMutableData data];
+    NSKeyedArchiver *archiver = 
+      [[NSKeyedArchiver alloc] initForWritingWithMutableData:buffer]
+    [archiver encodeObject:obj1 forKey:@"obj1"];
+    [archiver encodeObject:obj2 forKey:@"obj2"];
+    [archiver finishEncoding];
+    if(![buffer writeToFile:@"data.archive" atomically:YES]) {
+      NSLog(@"Writing failed.");
+    }
+
+A neat trick is making a deep copy by archiving into a buffer and unarchiving
+back into a new object.
 
 Introduction to Cocoa and Cocoa Touch
 =====================================
 
-Writing iOS Applications
-========================
+The frameworks provided by OS X are collectively called **Cocoa** and include:
+
+* Foundation
+* Core Data
+* Application Kit (or AppKit)
+
+A good representation:
+
+    User <-> App <-> Cocoa <-> App Services <-> Core Services <-> Kernel
+
+The kernel provides low-level communication to the hardware via device drivers.
+It manages resources like scheduling programs, managing memory/power, and IO.
+
+Core Services provides support for networking, debugging, file management,
+memory management, threads, time, and power.
+
+Application Services includes support for printing and graphics rendering via
+Quartz, OpenGL, and Quicktime.
+
+Cocoa offers a framework for application developers and is what you'll be using
+most.
+
+iOS devices run a scaled-down version of OS X that use the **Cocoa Touch**
+framework.  Both use Foundation and Core Data, but Cocoa Touch uses UIKit
+instead of AppKit.
