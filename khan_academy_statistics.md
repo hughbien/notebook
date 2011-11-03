@@ -629,7 +629,7 @@ direction from the mean.  Now you can label where each exam falls.
 Central Limit Theorem
 =====================
 
-The **central limit theorem** stats conditions under which the mean of a
+The **central limit theorem** states conditions under which the mean of a
 sufficiently large number of independent random variables, each with finite
 mean and variance, will be approximately normally distributed.
 

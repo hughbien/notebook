@@ -1211,6 +1211,220 @@ The StaticBackgroundLayer just renders a simple static image as the background.
 The GameControlLayer should initialize the joystick and buttons as we've done
 previously.
 
+First, let's create a simple scrolling layer with a background that's twice
+as long as the screen.  Then we'll add a parallax node and scroll with a
+TileMap layer.
+
+    @interface GameplayScrollingLayer : CCLayer {
+      CCSpriteBatchNode *sceneSpriteBatchNode;
+      CCTMXTiledMap *tileMapNode;
+      CCParallaxNode *parallaxNode;
+    }
+    - (void) connectControlsWithJoystick:(SneakyJoystick *)leftJoystick
+                           andJumpButton:(SneakyButton *)jumpButton
+                         andAttackButton:(SneakyButton *)attackButon;
+
+The connection method just connects the various buttons to our viking.  We'll
+add the method addScrollingBackground which adds the long background.
+
+    - (void)addScrollingBackground {
+      CGSize screenSize = [[CCDirector sharedDirector] winSize];
+      CGSize levelSize = [[GameManager sharedGameManager] getDmensionsOfCurrentScene];
+      CCSprite *scrollingBackground;
+      [CCSprite spriteWithFile:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ?
+          @"FlatScrollingLayer.png",
+          @"FlatScrollingLayeriPhone.png")];
+      [scrollingBackground setPosition:ccp(levelSize.width/2, levelSize.height/2)];
+      [self addChild:scrollingBackground];
+    }
+
+The method was pretty simple, just adding a new sprite as a background.  The
+init method will add a sprite to the cache and allocate a new viking.
+
+    - (id) init {
+      if (!(self = [super init])) return;
+      CGSize screenSize = [[CCDirector sharedDirector] winSize];
+      BOOL isIpad = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad ;
+      [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+        (isIpad ? @"scene1atlas.plist", @"scene1atlasiPhone.plist")];
+      sceneSpriteBatchNode = [CCSpriteBatchNode batchNodeWithFile:
+        (isIpad ? @"scene1atlas.png" : @"scene1atlasiPhone.png"];
+      [self addChild:sceneSpriteBatchNode];
+
+      Viking *viking = [[Viking alloc] initWithSpriteFrame:
+        [[CCSpriteFrameCache sharedSpriteFromCache] spriteFrameByName:@"sv_anim_1.png"]];
+      [viking setJoystick:nil];
+      [viking setJumpButton:nil];
+      [viking setAttackButton:nil];
+      [viking setPosition:ccp(screenSize.width*0.35f, screenSize.height*0.14f)];
+      [viking setCharacterHealth:100];
+      [sceneSpriteBatchNode addChild:viking z:1000 tag:kVikingSpriteTagValue];
+
+      [self addScrollingBackground];
+      [self scheduleUpdate];
+      return self;
+    }
+
+The adjustLayer method will move the background layer appropriately whenever
+the viking moves.
+
+    - (void) adjustLayer {
+      Viking *viking = (Viking *) [sceneSpriteBatchNode getChildByTag:kVikingSpriteTagValue];
+      float vikingXPosition = viking.position.x;
+      CGSize screenSize = [[CCDirector sharedDirector] winSize];
+      float halfOfTheScreen = screenSize.width / 2.0f;
+      CGSize levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
+      if (vikingXPosition > halfOfTheScreen &&
+          vikingXPosition < (levelSize.width - halfOfTheScreen)) {
+        float newXPosition = halfOfTheScreen - vikingXPosition;
+        [self setPosition:ccp(newXPosition, self.position.y)];
+      }
+    }
+
+If the viking is more than halfway across the screen and less than half a
+screen from the end of the level, the layer gets scrolled.  The update: method
+for this layer should call adjustLayer.
+
+Cocos2D has a built in action called CCFollow which can follow any CCNode
+and can be used for layer scrolling.  Unfortunately, it works in both the
+X and Y axes, so we couldn't use it.
+
+    id followAction = [CCFollow actionWithTarget:playerCharacter];
+    [layer runAction:followAction];
+
+To give more depth to the game, you can have multiple background layers
+scrolling at different rates (known as Parallax Layers).  Backgrounds that are
+closer to the player will scroll faster.
+
+    - (void) addScrollingBackgroundWithParallax {
+      CGSize screenSize = [[CCDirector sharedDirector] winSize];
+      CGSize levelSize = [[GameManager sharedGameManager] getDimensionsOfCurrentScene];
+      CCSprite *BGLayer1 = [CCSprite spriteWithFile:@"chap9_scrolling4iPhone.png"];
+      CCSprite *BGLayer2 = [CCSprite spriteWithFile:@"chap9_scrolling2iPhone.png"];
+      CCSprite *BGLayer3 = [CCSprite spriteWithFile:@"chap9_scrolling3iPhone.png"];
+      parallaxNode = [CCParallaxNode node];
+      [parallaxNode setPosition:ccp(levelSize.width/2.0f, screenSize.height/2.0f)];
+      float xOffset = 0;
+
+      [parallaxNode addChild:BGLayer1
+                           z:40
+               parallaxRatio:ccp(1.0f, 1.0f)
+              positionOffset:ccp(0.0f, 0.0f)];
+      xOffset = (levelSize.width/2) * 0.3f;
+      [parallaxNode addChild:BGLayer2
+                           z:20
+               parallaxRatio:ccp(0.2f, 1.0f)
+             positionOffset:ccp(xOffset, 0)];
+      xOffset = (levelSize.width/2) * 0.8f;
+      [parallaxNode addChild:BGLayer3
+                           z:30
+               parallaxRatio:ccp(0.7f, 1.0f)
+             positionOffset:ccp(xOffset, 0)];
+      [self addChild:parallaxNode z:10];
+    }
+
+Now switch addScrollingBackground with our new parallax background method.  It
+works by using ratios and offsets for each background.
+
+Now we're going to make a cut scene with an infinite scrolling background of
+clouds.  We'll have 25 clouds moving right to left at random speeds.  When they
+go offscreen on the left, we'll reposition them on the right side.
+
+    @interface PlatformScrollingLayer : CCLayer {
+      CCSpriteBatchNode *scrollingBatchNode;
+    }
+    @end
+
+There will be 6 different clouds in the same texture atlas.  CCSpriteBatchNode
+will include all 25 clouds, the viking, and the background layer.
+
+    @interface PlatformScrollingLayer (Private)
+    - (void) resetCloudWithNode:(id)node;
+    - (void) createCloud;
+    - (void) createVikingAndPlatform;
+    - (void) createStaticBackground;
+    @end
+
+The init method initializes the batch node and calls other methods.
+
+    - (id) init {
+      if (!(self = [super init])) return nil;
+      srandom(time(NULL));
+      self.isTouchEnabled = YES;
+      [self createStaticBackground];
+      [CCSpriteFrameCache sharedSpriteFrameCache] 
+        addSpriteFramesWithFile:@"ScrollingCloudsTextureAtlasiPhone.plist"];
+      scrollingBatchNode =
+        [CCSpriteBatchNode batchNodeWithFile:@"ScrollingCloudsTextureAtlasiPhone.png"];
+      [self addChild:scrollingBatchNode];
+      for (int x=0; x<25; x++) {
+        [self createCloud];
+      }
+      [self createVikingAndPlatform];
+      return self;
+    }
+
+The createStaticBackground method is simple and just adds a background node to
+the screen.
+
+    - (void) createStaticBackground {
+      CGSize screenSize = [CCDirector sharedDirector].winSize;
+      CCSprite *background = [CCSprite spriteWithFile:@"tiles_grad_bkgrndiPhone.png"];
+      [background setPosition:ccp(screenSize.width/2, screenSize.height/2)];
+      [self addChild:background];
+    }
+
+The createCloud method creates a cloud using a random tile from our sprite.
+
+    - (void) createCloud {
+      int cloudToDraw = random() % 6;
+      NSString *cloudFileName =
+        [NSString stringWithFormat:@"tiles_cloud%d.png", cloudToDraw];
+      CCSprite *cloudSprite = [CCSprite spriteWithSpriteFrameName:cloudFileName];
+      [scrollingBatchNode addChild:cloudSprite];
+      [self resetCloudWithNode:cloudSprite];
+    }
+
+resetCloudWithNode is used to reset the cloud's position to the right and use
+a CCMove action to move it left.
+
+    - (void) resetCloudWitihNode:(id)node {
+      CGSize screenSize = [CCDirector sharedDirector].winSize;
+      CCNode *cloud = (CCNode *) node;
+      float xOffset = [cloud boundingBox].size.width / 2;
+      int xPosition = screenSize.width + 1 + xOffset;
+      int yPosition = random() % (int) screenSize.height;
+      [cloud setPosition:ccp(xPosition, yPosition)];
+      int moveDuration = random() % kMaxCloudMoveDuration;
+      if (moveDuration < kMinCloudMoveDuration) {
+        moveDuration = kMinCloudMoveDuration;
+      }
+      float offScreenXPosition = (xOffset * -1) - 1;
+      id moveAction = [CCMoveTo actionWithDuration:moveDuration
+                       position:ccp(offScreenXPosition, [cloud position].y)];
+      id resetAction = [CCCallFuncNactionWithTarget:self selector:@selector(resetCloudWithNode:)];
+      id sequenceAction = [CCSequence actions:moveAction, resetAction, nil];
+      [cloud runAction:sequenceAction];
+
+      int newZOrder = kMaxCloudMoveDuration - moveDuration;
+      [scrollingBatchNode reorderChild:cloud z:newZOrder];
+    }
+
+Finally, the createVikingAndPlatform method is used to add the viking
+and his platform to the screen.
+
+    - (void) createVikingAndPlatform {
+      CGSize screenSize = [CCDirector sharedDirector].winSize;
+      int nextZValue = [scrollingBatchNode children].count + 1;
+      CCSprite *platform = [CCSprite spriteWithSpriteFrameName:@"platform.png"];
+      [platform setPosition:ccp(screenSize.width/2, screenSize.height * 0.09f)];
+      [scrollingBatchNode addChild:platform z:nextZValue];
+      nextZValue = nextZValue + 1;
+      CCSprite *viking = [CCSprite sepriteWithSpriteFrameName:@"sv_anim_1.png"];
+      [viking setPosition:ccp(screenSize.width/2, screenSize.height*0.23f)];
+      [scrollingBatchNode addChild:viking z:nextZValue];
+    }
+
 Basic Game Physics: Adding Realism with Box2D
 =============================================
 
