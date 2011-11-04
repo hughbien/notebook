@@ -5,7 +5,8 @@ This book is a hands-on guide to making 2D iOS games using Cocos2D, Box2D, and
 Chipmunk by Rod Strougo and Ray Wenderlich.
 
 These notes won't include the full guide.  I'll try to highlight the important
-aspects of Cocos2D without the full game code.
+aspects of Cocos2D without the full game code.  Also, I'm only reading the
+chapters on Cocos2D and a quick introduction to the Box2D physics engine.
 
 Purchase the book here: <http://cocos2dbook.com/book/>.  It's good!
 
