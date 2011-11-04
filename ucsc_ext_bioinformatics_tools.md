@@ -13,13 +13,13 @@ Bioinformatics Databases
 
 ## What database do you search for info about introns in a gene?
 
-You can use the GenBank database managed by NCBI [http://www.ncbi.nlm.nih.gov].
+You can use the GenBank database managed by NCBI <http://www.ncbi.nlm.nih.gov>.
 Search in the Genome database, the GenBank format includes introns.
 
 ## What database do you search for genetic diseases caused by a gene?
 
 OMIM or the Online Mendelian Inheritance in Man database can be used to search
-for information about genetic diseases [http://www.ncbi.nlm.nih.gov/omim].
+for information about genetic diseases <http://www.ncbi.nlm.nih.gov/omim>.
 
 ## What database do you search for gene therapy information with a gene?
 
@@ -153,7 +153,7 @@ Straight from the lecture disadvantages:
 ## What database do you search to find a gene given the discoverer's last name?
 
 Use the SRS provided by EMBL
-[http://srs.ebi.ac.uk/srsbin/cgi-bin/wgetz?-page+srsq2+-noSession].
+<http://srs.ebi.ac.uk/srsbin/cgi-bin/wgetz?-page+srsq2+-noSession>.
 
 One of the headers you can search by is the author's name of a paper.
 

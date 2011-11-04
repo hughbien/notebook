@@ -2,7 +2,7 @@ The 4-Hour Workweek
 ===================
 
 The 4-hour workweek is a lifestyle design book by Tim Ferriss.  The online
-counterpart is available at [http://www.fourhourworkweek.com/].  These notes
+counterpart is available at <http://www.fourhourworkweek.com/>.  These notes
 don't cover the entire book. I picked the portions that seemed most interesting
 to me.
 

@@ -4,8 +4,8 @@ Introductory Statistics with R
 Peter Dalgaard walks us through an introduction of R targeting the
 non-statistician.  The text/code have been updated to R version 2.6.2.
 
-Go to [http://cran.r-project.org] to download the R language.  A good IDE to use
-is RStudio and can be found at [http://rstudio.org].
+Go to <http://cran.r-project.org> to download the R language.  A good IDE to use
+is RStudio and can be found at <http://rstudio.org>.
 
 Be sure to install thw `ISwR` package  which stands for Introductory Statistics
 with R.  Just run `install.packages("ISwR")`.
