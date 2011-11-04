@@ -1428,23 +1428,147 @@ and his platform to the screen.
 Basic Game Physics: Adding Realism with Box2D
 =============================================
 
-Intermediate Game Physics: Modeling, Racing, and Leaping
-========================================================
+Game physics lets you add more realism to your game for collisions, bouncing,
+collapsing, or falling.  Box2D is a physics library integrated with Cocos2D.
+You tell Box2D where to initially place your objects and it does the rest.
 
-Advanced Game Physics: Even Better than the Real Thing
-======================================================
+For this example, we're going to add a see-saw to the game as a puzzle.
 
-The Chipmunk Physics Engine (No Alvin Required)
-===============================================
+    @interface PuzzleLayer : CCLayer {
+    }
+    + (id) scene;
+    @end
 
-Particle Systems: Creating Fire, Snow, Ice, and More
-====================================================
+    @implementation PuzzleLayer
+    + (id) scene {
+      CCScene *scene = [CCScene node];
+      PuzzleLayer *layer = [self node];
+      [scene addChild:layer];
+      return scene;
+    }
 
-Achievements and Leaderboards with Game Center
-==============================================
+    - (id) init {
+      if (!(self = [super init])) return;
+      CGSize winSize = [CCDirector sharedDirector].winSize;
+      CCLabelTTF *label = [CCLabelTTF
+        labelWithString:@"Hello, Mad Dreams of the Dead!"];
+               fontName:@"Helvetica"
+               fontSize:24.0];
+      label.position = ccp(winSize.width/2, winSize.height/2);
+      [self addChild:label];
+      return self;
+    }
+    @end
 
-Performance Optimizations
-=========================
+When you created your project, you can choose the Cocos2D Application template
+with Box2D.  We didn't, so we'll have to manually add them.  Just download
+Box2D from the website and add them to the libs folder of your project.  Be sure
+to copy items into destination folder.  Next, click on your project settings.
+Go to Build Settings for All/Combined projects.  Look for Search Paths >
+Header Search Paths.  Add a new entry and add the libs directory.
 
-Conclusion
-==========
+Box2D uses C++, so you'll need to use Objective-C++ instead.  Just rename
+your file extensions to `.mm` instead of `.m` and Xcode will know how to handle
+it.
+
+Box2D is optimized to work with meters, kilograms, and seconds.  Objects of
+length between 0.1 and 10 meters are optimized for.  A good conversion between
+Cocos2D coordinate system and Box2D is 100px = 1 meter for our viking game.
+Each game will have its own good ratio value (it depends on the size of your
+sprites!)
+
+    #define PTM_RATIO 100.0
+
+That's for the iPad.  What about iPhone?
+
+    #define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() == \
+                        UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
+
+To get access to Box2D's functions and classes:
+
+    #import "GLES-Render.h"
+
+Now add this to PuzzleLayer:
+
+    // instance variables
+    b2World *world;
+    GLESDebugDraw *debugDraw;
+
+    // implementation
+    - (void) setupWorld {
+      b2Vec2 gravity = b2Vec2(0.0f, -10.0f); // x-axis and y-axis gravity
+      bool doSleep = true;
+      world = new b2World(gravity, doSleep);
+    }
+
+`-10.0f` is a downwards 10 meters/second^2 gravity which is close the the actual
+9.8 m/s^2 acceleration of the real world.
+
+Since we're using C++, we have to be sure to deallocate our initialized world
+when we're done with it.
+
+    - (void) dealloc {
+      if (world) {
+        delete world;
+        world = NULL;
+      }
+      [super dealloc];
+    }
+
+Box2D's jargon:
+
+* body - each individual object in Box2D world.  It's a rigid world, so bodies
+  don't squish when they collide.
+* fixture - the pieces that make up a body.
+* body definition - specification for properties of a body
+* dynamic body - Box2D handles the movement
+* kinematic body - game code handles the movement
+* static body - the body doesn't move at all
+
+Let's create a box in PuzzleLayer.
+
+    - (void) createBoxAtLocation:(CGPointlocation)location withSize:(CGSize)size {
+      b2BodyDef bodyDef;
+      bodyDef.type = b2_dynamicBody;
+      bodyDef.position = b2Vec2(location.x/PTM_RATIO, location.y/PTM_RATIO);
+      b2Body *body = world->CreateBody(&bodyDef);
+
+      b2PolygonShape shape;
+      shape.SetAsBox(size.width/2/PTM_RATIO, size.height/2/PTM_RATIO);
+
+      b2FixtureDef fixtureDef;
+      fixtureDef.shape = &shape;
+      fixtureDef.density = 1.0;  // higher the density, heavier it is
+      body->CreateFixture(&fixtureDef);
+    }
+
+The Box2D body is there, but nothing actually gets rendered.  Use Box2D's
+debugging capabilities to draw something quickly.
+
+    - (void) setupDebugDraw {
+      debugDraw = new GLESDebugDraw(
+        PTM_RATIO * [[CCDirector sharedDirector] contentScaleFactor]);
+      world->SetDebugDraw(debugDraw);
+      debugDraw->SetFlags(b2DebugDraw::e_shapeBit);
+    }
+
+    - (void) draw {
+      glDisable(GL_TEXTURE_2D);
+      glDisableClientState(GL_COLOR_ARRAY);
+      glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+      world->DrawDebugData();
+
+      glEnable(GL_TEXTURE_2D);
+      glEnableClientState(GL_COLOR_ARRAY);
+      glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    }
+
+    - (void) dealloc {
+      [super dealloc];
+      //...
+      if (debugDraw) {
+        delete debugDraw;
+        debugDraw = nil;
+      }
+    }
