@@ -564,3 +564,27 @@ The `pie` function is used to make piecharts:
     > pie(caff.marital["Single",], main="Single", col=slices)
     > par(opar)
 
+One- and Two-Sample Tests
+=========================
+Regression and Correlation
+==========================
+Analysis of Variance and the Kruskal-Wallis Test
+================================================
+Tabular Data
+============
+Power and Computation of Sample Size
+====================================
+Advanced Data Handling
+======================
+Multiple Regression
+===================
+Linear Models
+=============
+Logistic Regression
+===================
+Survival Analysis
+=================
+Rates and Poisson Regression
+============================
+Nonlinear Curve Fitting
+=======================
