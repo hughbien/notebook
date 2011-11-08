@@ -1173,6 +1173,72 @@ also.
 Useful Tricks
 =============
 
+This chapter is all about useful functions and idioms that you'll need once in
+a while.
+
+Peek at your data with `head(x)` and `tail(x)`.
+
+R wraps your output whenever it's too wide.  To extend the width, use
+`options(width=numcols)`.
+
+If your want your assignments printed, just put parenthesis around the
+statement.  Instead of `x <- 1/pi` do `(x <- 1/pi)` in the REPL.
+
+The `rowSums(m)` and `colSums(m)` functions will show the sums of your rows
+and columns for data frames and matrices.
+
+Given two parallel vectors and you want to quickly compare them side by side,
+use `cbind`.  For example, instead of using `print`:
+
+    > print(x)
+    [1] ......
+    > print(y)
+    [1] ......
+    > print(cbind(x,y))
+           x    y
+    [1,] ...  ...
+    [2,] ...  ...
+
+The `cut(x, breaks)` function lets you split your data into groups of intervals.
+Statisticians call this binning your data.
+
+Use the `match(value, vec)` function to find the index of a particular value in
+a vector.
+
+Use `v[seq_along(v) %% n == 0]` to select every nth element in a vector.
+
+Use `pmin(v1, v2)` and `pmax(v1, v2)` to return pairwise minimums and maximums
+of two vectors.
+
+Use the `expand.grid(f,g)` function to quickly generate all combinations of
+several factors.
+
+Use `as.vector(as.matrix(dataframe))` to flatten the data in a data frame.
+To sort a data frame, use `dfrm[order(dfrm$key),]`.  The `order(key)` function
+takes varargs amount of keys.
+
+You can remove attributes from a variable with the `attributes(x) <- NULL`
+expression.  To remove single attributes, use `attr(x, "name") <- NULL`.
+
+Some useful debugging functions for objects are:
+
+* `class(x)`
+* `unclass(x)` to look at underlying structure
+* `str(x)` to show internal structure and contents
+
+Use `system.time(expression)` to benchmark your code.  Use `suppressMessages`
+or `suppressWarnings` to suppress warnings from your code.
+
+`do.call(fn, argumentlist)` turns any list of arguments into an actual argument
+list for the function call.  It's like the splat operator in Ruby.
+
+You can define your own binary operators.  R recognizes any function names that
+start and end with `%` as binary operators:
+
+    > '%+-% <- function(x, margin) x + c(01,+1)*margin
+    > 100 %+-% (1.96*15)
+    [1] 70.6 129.4
+
 Beyond Basic Numerics and Statistics
 ====================================
 
