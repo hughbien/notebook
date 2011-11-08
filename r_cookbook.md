@@ -742,8 +742,229 @@ is not small, we fail to reject the null hypotheses.  A common p-value is
 `P < 0.05` to reject or a significance level of `alpha = 0.05`.  You may also
 want to state confidence intervals instead of doing hypotheses tests.
 
+Use the `summary(data)` function to get useful statistical summary of your data:
+
+    > summary(vec)
+      Min. 1st Qu. Median   Mean 3rd Qu.   Max.
+    0.1803 1.1090  1.9520 2.1750 2.6920 7.3290
+
+The 1st Qu and 3rd Qu are the first and third quartile.  The median/mean values
+let you detect skew.  This works with vectors, matrices, and data frames.
+
+The `mean` function accepts expressions to compute relative frequencies.  For
+example, you can determine the relative frequency of positive numbers in a
+vector:
+
+    > x <- c(-1, 0, 1, 2, 3)
+    > mean(x > 0)  # should be 3/5
+    [1] 0.6
+
+`table` is a useful function to tabulate factors.  For example, the initial and
+outcome factors can be cross-tabulated:
+
+    > table(initial, outcome)
+            outcome
+    initial Fail Pass
+        Yes   13   24
+         No   24   12
+      Maybe   10   17
+
+Using `table` and `summary` together can perform a chi-squared test given two
+factors.  The output includes a p-value.  A p-value < 0.05 indicates the
+variables are likely not independent and a p-value > 0.05 fails to provide
+any such evidence.  Or you can use `chisq.test`.
+
+    > summary(table(fac1, fac2))
+
+Use the `quantile(vec, frac)` function to determine the quantile of any given
+vector.  Omit the `frac` argument to get the quartiles.  You may alo use a
+vector of fractions for the second argument.
+
+Use the `scale(x)` function to convert a dataset to its corresponding z scores.
+This is also known as normalizing the data.
+
+The `t.test(x, mu=m)` function will let you know if the mean of a population
+could reasonably be a value given a sample.  The output contains a p-value,
+a low p-value indicates that the mean is unlikely to be m. 
+
+Use `paired=T` with the `t.test` to compare the means of two samples.  For
+example `t.test(x, y, paired=T)`.  A low p-value indicates they are likely
+different.
+
+The output of a t.test also includes a confidence interval.  Use the
+`conf.level` argument to include other confidence intervals.
+
+To calculate the confidence interval of a median instead of the mean, use
+`wilcox.test`:
+
+    > wilcox.test(x, conf.int=T)
+
+If you have two populations with similar distribution and you want to know if
+one population is shifted left/right compared to the other, use the
+`wilcox.test(x, y, paired=T)`.  A p-value < 0.05 indicates the second population
+is shifted left or right.
+
+Use `prop.test(x, n, p)` to test a sample proportion.  For example, say the Cubs
+won 11 out of the last 20 games (55%).  Should you be very confident that the
+Cubs will win more than 1/2 of their remainder games this year?
+
+    > prop.test(11, 20, 0.5, alternative="greater")
+    1-sample proportions test with continuity correction
+    data: 11 out of 20, null probability 0.5
+    X-squared = 0.05, df = 1, p-value = 0.4115
+    alternative hypothesis: true p is greater than 0.5
+    95 percent confidence interval:
+      0.3496150 1.0000000
+    sample estimates:
+       p
+    0.55
+
+The p-value is 0.4115, too large.  We cannot reject the null hypotheses.  This
+function is also useful to form confidence intervals.  Just leave off the `p`
+argument.
+
+The `shapiro.test(x)` function tells us if `x` is normally distributed or not.
+A p-value < 0.05 indicates that it is not likely normally distributed.
+
+Use the package `tseries` and `runs.test` to determine if a sequence of binary
+events is random or not.  A p-value < 0.05 means that the series is likely not
+random.
+
+    > library(tseries)
+    > runs.test(as.factor(s))
+
+Use `cor.test(x, y)` to determine if the correlation between two variables is
+significant.  Use the `method="Spearment"` argument for non-normal populations.
+A p-value < 0.05 indicates that it's likely significant.
+
+The Kolmogorov-Smirnov test compares two samples to determine if they were
+drawn from the same distribution.
+
+    > ks.test(x, y)
+
+A p-value < 0.05 indicates the two samples were drawn from different
+distributions.
+
 Graphics
 ========
+
+R has high-level graphics functions which initializes new graphs and low-level
+graphics function which adds something to an existing graph.  The high-level
+functions are:
+
+* plot - generic plotting function
+* boxplot - creates a box pot
+* hist - creates a histogram
+* qqnorm - creates a quantile-quantile (Q-Q) plot
+* curve - graph a function
+
+The low-level function sare:
+
+* points - add points
+* lines - add lines
+* abline - add straight line
+* segments - add line segments
+* polygon - add a closed polygon
+* text - add some text
+
+The do a scatterplot of paired observations, just pass it to the `plot(x,y)`
+function.  If your data is in a data frame, pass it to `plot(dataframe)`.  See
+`?plot` for more info about its optional arguments:
+
+    > plot(X, main="Title", xlab="X Axis", ylab="Y Axis")
+    > # ... or ...
+    > plot(x, ann=F)  # without annotations
+    > title(main="Title", xlab="X Axis", ylab="Y Axis")
+
+Use the `grid()` function to add a grid to your plot.  Use the option `type="n"`
+to initialize a plot without displaying data, then add the data later using
+`points(x, y)`.
+
+You can group scatter plots using factors with the `pch` argument.
+
+    > plot(x, y, pch=as.integer(factor))
+
+I think `pch` stands for point character.  It's just a vector of integers, each
+integer representing a different character to use.
+
+Use the `legend()` function to add a legend to your plot.  This is especially
+useful when using `pch`.
+
+Often times you'll want to plot the regression line of a scatter plot:
+
+    > m <- lm(y ~ x)
+    > plot(y ~ x)
+    > abline(m)
+
+Using the `plot()` function on a dataframe will create plots for each pair of
+columns.  To turn your scatter plot into a line plot, use `type="l"`.  The
+`lty` option can be used to change the line type ("solid", "dashed", "dotdash",
+"dotted", "blank", "longdash", or "twodash").  Use the `lwd` option to control
+the line width and `col` to control the color.
+
+After creating a plot, you can add more data via the `lines` or `points`
+functions.  Use `abline` to make horizontal/vertical lines.
+
+You may also want to create a plot for each level in a factor.  This is called
+a conditioning plot:
+
+    > coplot(y ~ x | f)
+
+Another plot you can do is bar plots.  Use the `barplot` function and pass in
+a vector of data.  Bar plots can include various options for display:
+
+    > barplot(heights,
+    +   main="Mean Temp. by Month",
+    +   names.arg=c("May", "Jun", "Jul", "Aug", "Sep"), + ylab="Temp (deg. F)")
+
+The `gplots` library includes `barplot2`, which has options for confidence
+intervals.
+
+Use `boxplot(x)` to create a box plot:
+
+* the thick line in the middle is the median
+* surrounding box identifies the first/third quartiles, bottom is Q1 and top is
+  Q3
+* the "whiskers" above/below show range of data excluding outliers
+* circles identify outliers.  Outliers are values further than 1.5 x IQR away
+  from the box where IQR is the interquartile range or Q3 - Q1
+
+Box plots work with factors: `boxplot(x ~ factors)`.
+
+Use the `hist(x)` function to create a histogram.  The second argument to this
+function is the number of bins.  You can add a density estimate with a call to
+`lines(desntiy(x))`.  A neat way to create a histogram for discrete datasets:
+
+    > plot(table(x), type="h")
+
+Use `qqnorm(x)` to create a basic Q-Q plot.  Use `qqline(x)` to add a diagonal
+line to it.  This is typically done to determine if your data is normally
+distributed.
+
+Use the `curve` function to graph the value of a function:
+
+    > curve(sin, -3, +3)  # graph sine function from -3 to +3
+
+The `par()` function lets you get and set graphics options.  For example, always
+set the line width to 2 with `pwd(lwd=2)`.  Get the current line width option
+with `pwd("lwd")`.
+
+The global graphic option `ask` can be set to ask you before overriding plots.
+This is useful if you're plotting a lot:
+
+    > par(ask=T)
+
+If you want to display plots side by side, use the `mfrow=(c(N,M))` graphics
+option for an NxM matrix:
+
+    > par(mfrow=(c(2,4)))
+
+Or you can open additional graphics windows with `win.graph()`.
+
+Use the `savePlot(filename="filename", type="type")` function to save your
+current plot to a file.  Type can be one of "png" or "jpeg".  For batch scripts,
+call `png(...)` or `jpeg(...)` before plotting.  then call `dev.off()` when
+finished plotting.
 
 Linear Regression and ANOVA
 ===========================
