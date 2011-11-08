@@ -969,6 +969,207 @@ finished plotting.
 Linear Regression and ANOVA
 ===========================
 
+The `lm` function performs a simple linear regression:
+
+    > lm(y ~ x)
+    Call:
+    lm(formula = y ~ x)
+    Coefficients:
+    (Intercept)    x
+         17.72  3.25
+
+R uses ordinary least squares method to find the fit.  The main argument is a
+model formula, with the response variable on the left and predictor variable
+on the right.  It then reports the coefficient of x and the y-intercept.  The
+linear regression equation is:
+
+    y = 17.72 + 3.25x + error
+
+You can perform multiple linear regressions at once:
+
+    > m <- lm(y ~ u + v + w)
+
+You can gather regression statistics with these functions:
+
+* `anova(m)` for the ANOVA table
+* `coefficients(m)` or `coef(m)` for model coefficients
+* `confint(m)` for confidence intervals of regression coefficients
+* `deviance(m)` for residual sum of squares
+* `effects(m)` for vector of orthogonal effects
+* `fitted(m)` for vector of fitted y values
+* `residuals(m)` or `resid(m)` for model residuals
+* `summary(m)` for key statistics like R^2, F statistic, and residual
+  standard error
+* `vcov(m)` for variance-covariance matrix
+
+Recipe 11.4 is important, it explains the summary output for linear regression
+models.  Here's the whole summary:
+
+    > summary(m)
+    Call:
+    lm(formula = y ~ u + v + w)
+
+    Residuals:
+        Min      1Q  Median     3Q    Max
+    -3.3965 -0.9472 -0.4708 1.3730 3.1283
+
+    Coefficients:
+              Estimate Std. Error t value Pr(>|t|)
+    (Intercept) 1.4222    1.4036    1.013  0.32029
+    u           1.0359    0.2811    3.685  0.00106 **
+    v           0.9217    0.3787    2.434  0.02211 *
+    w           0.7261    0.3652    1.988  0.05744 .
+    ---
+    Signif. codes: 0 '***' 0.001 '**' 0.01 '**' 0.05 '.' 0.1 ' ' 1
+
+    Residual standard error: 1.625 on 26 degrees of freedom
+    Multiple R-squared: 0.4981,    Adjusted R-squared: 0.4402
+    F-statistic: 8.603 on 3 and 26 DF,    p-value: 0.0003915
+
+The summary includes how the linear model was initially constructed under the
+"Call:" section.
+
+The "Residuals" section help you identify possible deviations from normal
+distributions.  Residuals are measures of the actual deviation from the fitted
+line.  The ordinary least squares (OLS) algorithm is mathematically guaranteed
+to produce residuals with a mean of zero.  The sign of the median indicates a
+skew and magnitude indicates degree.  For a normal distribution, 1Q and 3Q
+(first and third quartile) should have the same magnitude.  Min/max is useful to
+identify outliers.
+
+The "Coefficients" section contains key data about the fitted line.  The
+"Estimate" column contains the estimated regression coefficients.  If a
+coefficient is zero - the variable is worthless and adds nothing to the model.
+These are just estimates, the t statistic and p-value answers the question of
+how likely they are zero.
+
+The p-value indicates likelihood of the coefficient not being significant - so
+smaller is better.  R highlights significant values with asteriks and periods.
+The table also includes standard error which shows variation from the mean.
+
+The "Residual standard error" is the average deviation of each value of Y
+around the estimated Y values from the fitted line.
+
+R-squared is the measure of the model's quality - bigger is better.  It's the
+fraction of the variance of y explained by the regression model.  The remaining
+fraction not explained by the model is due to other factors like unknown
+variables or sampling variability.  In this case the model explains
+almost 50% of the variance of y.
+
+Teetor suggests using the adjusted R-squared value which takes account for the
+number of variables in your model and is more realistic.
+
+The F statistic also tells you if the model is significant.  The model is
+significant if any coefficient is non-zero.  Conventionally, a p-value < 0.05
+indicates the model is likely significant.
+
+Teetor suggests starting with the F statistic, then move on to the adjusted
+R-squared value to determine significance.
+
+To force an intercept of zero, use append `+ 0` to your linear model formula.
+For example: `lm(y ~ x + 0)`.
+
+Use `u*v` to deal with interaction terms.  For example:
+
+    > lm(y ~ u*v)
+    > # ... expands to ...
+    > # y = b0 + b1u + b2v + b3uv + error
+
+In regression, an interaction occurs when the product of two predictor
+variables is a significant predictor in addition to the variables themselves.
+
+If you have a lot of regression variables to choose from and you want to
+choose the best, use the `step()` function.  It can do backwards (remove
+under-performers) or go forwards (adds new ones to improve the model).
+
+    > # going backwards
+    > full.model <- lm(y ~ x1 + x2 + x3 + x4)
+    > reduced.model <- step(full.model, direction="backward")
+    > # going forwards
+    > min.model <- lm(y ~ 1)
+    > fwd.model <- step(min.model, direction="forward", scope=(~x1+x2+x3+x4))
+
+The `lm()` function has a `subset` argument which takes a sequence or vector.
+For example, use `subset=1:100` to only use the first 100 observations of your
+data set.
+
+If you want to use expressions inside your regression formula, you'll have to
+surround them within the `I(...)` function.  Otherwise, they may be mistaken
+for an interaction term.
+
+    > lm(y ~ u + I(u^2))
+
+For polynomials, use the `poly(x, n, raw=T)` function.  Regression formulas
+work fine with transformation functions like `log()`:
+
+    > lm(log(y) ~ x)
+
+If you're trying to find the best power transformation for your model, you
+might be interested in the Box-Cox procedure.  It's the `boxcox` function
+available in the `MASS` package.  It identifies a power where transforming your
+response variable will improve the fit of your model:
+
+    > library(MASS)
+    > m <- lm(y ~ x)
+    > bc <- boxcox(m)  # returns (x,y) pairs displayed in plot
+    > lambda <- bc$x[which.max(bc$y)]
+    > m2 <- lm(I(y^lambda) ~ x)
+
+Use `confint(linearmodel)` to get the confidence intervals for each slope and
+intercept.
+
+You can plot your linear model with just `plot(model)`.  If you want to plot
+the residuals, use `plot(model, which=1)`.  Both are useful for diagnosing your
+linear regression.  You can also identify outliers with the `car` package's
+`outlier.test(model)` function.
+
+Some steps to take to diagnose your linear regression model:
+
+1. Ensure the F statistic is significant from the `summary()`
+2. Make sure the p-value is small enough, conventionally less than 0.05
+3. Plot it with `plot(model)`
+4. Use the `outlier.test(model)` function from the `car` package
+
+The `influence.measure(m)` function reports useful statistics for identifying
+influential observations.  The significant ones are flagged with asteriks.
+
+The Durbin-Watson Test is useful for testing residuals for autocorrelation.
+It's available in the `lmtest` library as the `dwtest(m)` function.  A small
+p-value < 0.05 indicates the residuals are significantly correlated.
+
+Given a regression model, you may want to predict new values.  Use the
+`predict(model, newdata=dataframe)` function.  Use the argument
+`interval="prediction"` to get prediction intervals: the range of the
+distribution of the prediction.
+
+Given two groups that are normally distributed, you may want to know if the
+groups have significantly different means.  This is a one-way ANOVA, it's useful
+for clinical trial data.  Use the `oneway.test` function:
+
+    > oneway.test(x ~ f)  # where f is the factor groups
+
+A p-value below 0.05 indicates that two or more groups have significantly
+different means.  You can also use the `aov(x ~ f)` function, but it always
+assumes equal variances.
+
+After performing a multi-way ANOVA, you can use
+`interaction.plot(pred1, pred2, resp)` to visually check possible interactions
+between the predictors.
+
+The `TurkeyHSD(m)` will tell you the actual mean different between your groups.
+Use it with the results from `aov(x ~ f)`.
+
+If the groups are not normally distributed but have similar shapes, you want
+to do an ANOVA on the medians.  Use the Kruskal-Wallis test.
+
+    > kruskal.test(x ~ f)
+
+The Kruskal-Wallis test doesn't assume a normal curve, but it does assume that
+both groups follow the same shape.
+
+Note that the `anova(lm1, lm2)` function works on linear models as arguments
+also.
+
 Useful Tricks
 =============
 
