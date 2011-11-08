@@ -1242,5 +1242,130 @@ start and end with `%` as binary operators:
 Beyond Basic Numerics and Statistics
 ====================================
 
+These are more advanced techniques and recipes for common problems.
+
+Use the `optimize(fn, lower=lowerBound, upper=upperBound, maximum=T)` function
+to find the optimal argument for a function.  You can use it to find the maximum
+or minimum.
+
+`optimize` only works for functions with single arguments.  For multiple
+argument functions, try `optim(startingPoint, fn)`.  Use the argument
+`control=list(fnscale=01)` to get the maximum.
+
+Use the function `eigen` to calculate the eigenvalues and eigenvectors of a
+matrix.
+
+Use the `prcomp` function to identify principal components of a multi-variable
+dataset:
+
+    > r <- prcomp(~x + y + z)
+    > summary(r)
+
+Here's a simple algorithm to identify clusters in your dataset:
+
+    > d <- dist(x)             # compute distances between observations
+    > hc <- hclust(d)          # form hierarchical clusters
+    > clust <- cutree(hc, k=n) # organize into largest n clusters
+
+Given a dataset and a function to calculate a statistic from the dataset, you
+might want to estimate a confidence interval for that statistic.  The `boot`
+package includes a `boot` function to calculate that:
+
+    > library(boot)
+    > bootfun <- function(data, indices) { ... }
+    > reps <- boot(data, bootfun, R=999)
+
+Use the `factanal(data, factors=n)` function to perform factor analysis on your
+dataset to see which groups have what in common.
+
 Time Series Analysis
 ====================
+
+Teetor warns us to choose the object we store our data in carefully.  He used
+to store it in simple vectors, but found out he was missing out on a lot of
+features by doing so.  He recommends using the `zoo` or `xts` packages for
+representing time-series data.  `xts` is a superset of `zoo`.
+
+The base distribution of R comes with `ts` class, it's not recommended for
+general use because it's too restrictive.
+
+    > library(xts)
+    > ts <- xts(x, dt)   # x is vector of data, dt vector of dates
+
+For a concrete example;
+
+    > prices <- c(132.45, 130.85, 130.00, 129.55, 130.85)
+    > dates <- as.Date(c("2010-01-04", "2010-01-05", "2010-01-06",
+                         "2010-01-07", "2010-01-05"))
+    > ibm.daily <- zoo(prices,dates)
+    > print(ibm.daily)
+    2010-01-04 2010-01-05 2010-01-06 2010-01-07 2010-01-08
+        132.45     130.85     130.00     129.55     130.85
+
+You can extract the two vectors using `coredata(ts)` or `index(ts)`.
+
+    > plot(ibm.daily, type="l")      # to plot a line graph
+    > plot(ibm.infl, screens=1)      # plots two time series in ibm.infl at once
+    > plot(ibm.infl, screens=c(1,2)) # plots in different graphs
+
+Use `head(ts)` or `tail(ts)` to examin the start/end of the time series.  Use
+`ts[i]` or `ts[i,j]` to get subsets of the time series.  Indeces can be dates
+also.  To merge several time series together:
+
+    > merge(ts1, ts2, ...)
+
+Sometimes you want to pad a time series.  This can also be done with `merge`:
+
+    > dates <- seq(from=as.Date("..."), to=as.Date("..."))
+    > empty <- xts(,dates)
+    > merge(ts, empty, all=T)
+
+Use the `lag(ts, k)` function to shift a time series left or right.  Use the
+`diff(x)` function to compute successive differences.  Time series can have
+calculations performed on them just like vectors, R is pretty smart about it.
+
+Sometimes you'll want to compute the moving average of a time series:
+
+    > library(xts)
+    > ma <- rollmean(ts, k)                 # k is the number of periods
+    > ma <- rollmean(ts, k, align="right")  # only use historical data
+
+You can even apply functions towards specific days of the week:
+
+    > apply.daily(ts, fn)
+    > apply.weekly(ts, fn)
+    > apply.monthly(ts, fn)
+    > apply.quarterly(ts, fn)
+    > apply.yearly(ts, fn)
+
+Or even apply a rolling function to all data points:
+
+    > rollapply(ts, width, fn)   # optional align="right" argument
+
+Use the `acf(ts)` function to plot the autocorrelation.  Use `Box.test(ts)` to
+test for autocorrelation.  Use `pacf(ts)` to plot the partial autocorrelation.
+`ccf(ts)` will reveal lagged correlations via the cross-correlation function.
+
+You may want to detrend your time series - removing a upward or downward slope.
+You can use linear regression to identify the trend component and then subtract
+it from the original time series:
+
+    > m <- lm(coredata(ts) ~ index(ts))
+    > detr <- xts(resid(m), index(ts))   # just the residuals for flatness
+
+If a time series is mean reverting, it tends to return to its long-run average.
+You can test for this using the Augmented Dickey-Fuller test.
+
+    > library(tseries)
+    > adf.test(ts)
+
+A low p-value < 0.05 indicates there's significance in mean reverting.
+
+If you have a noisy time series, you can smooth the data with the `dpill` and
+`locploy` function from the KernSmooth package.
+
+    > library(KernSmooth)
+    > gridsize <- length(y)
+    > bw <- dpill(t, y, gridsize=gridsize)
+    > lp <- locploy(x=t, y=y, bandwidth=bw, gridsize=gridsize)
+    > smooth <- lp$y
