@@ -566,6 +566,163 @@ The `pie` function is used to make piecharts:
 
 One- and Two-Sample Tests
 =========================
+
+The t tests assume that data comes from a normal distribution.  The key concept
+of the t test is the relationship between difference of means and the standard
+error of the mean (sigma = std deviation of sample):
+
+    SEM = sigma / sqrt(n)
+
+For normally distributed data, 95% probability means being within `mu + 2sigma`.
+You can calculate the t-score:
+
+    t = (xbar - mu) / SEM
+
+The t-score answers the question "how many standard deviations" away from the
+mean we want.  For large sets, this is a z-score.
+
+The t-table will turn t-scores into probabilities.  If you're looking for a
+95% confidence interval:
+
+    -2.262 < t-score < 2.262
+
+Alternatively, R gives you a p-value which is the probability of the null
+hypothesis occuring.  You can use this to accept or reject your null hypothesis.
+Usually a p-value < 0.05 means you can reject your null hypothesis.
+
+Let's say you want to investigate a data set whether it deviated from the
+recommended value of 7725 kJ.
+
+    > daily.intake <- c(5260,5470,5640,6180,6390,6515,6805,7515,7515,8230,8770)
+    > mean(daily.intake)
+    [1] 6753.636
+    > sd(daily.intake)
+    [1] 1142.123
+    > quantile(daily.intake)
+      0%  25%  50%  75% 100%
+      5260 5910 6515 7515 8770
+
+Assuming normal distribution:
+
+    > t.test(daily.intake,mu=7725)
+
+         One Sample t-test
+
+     data:  daily.intake
+     t = -2.8208, df = 10, p-value = 0.01814
+     alternative hypothesis: true mean is not equal to 7725
+     95 percent confidence interval:
+      5986.348 7520.925
+     sample estimates:
+     mean of x
+      6753.636
+
+We get the t statistic (-2.8208), the associated degree of freedoms, and the
+exact p-value.  You won't need to look up the t value tables.  In this case,
+p < 0.05 so data does deviate significantly from the hypothesis that the mean
+is 7725.
+
+The data also gives you a range for the true mean with a 95% confidence
+interval (5986.348 to 7520.925).
+
+The last line is the actual mean of the sample.
+
+The `t.test` function has some arguments that are useful.  For the previous
+test, our alternative hypothesis was an exact mean.  We could also specify
+`alternative="greater"` or `alternative="less"`.  You can change the confidence
+intervals with `conf.level=0.99`.
+
+Whereas the t test assumes normal distribution, the **Wilcoxon test** is
+useful for data sets that aren't normally distributed.  The function call works
+exactly like the t test:
+
+    > wilcox.test(daily.intake, mu=7725)
+
+A two sample t test can be performed on two different data sets.  The hypothesis
+is that they come from the same distributions with the same mean.
+
+            xbar1 - xbar2
+    t = ---------------------
+        sqrt(SEM1^2 + SEM2^2)
+
+The denominator is the standard error of difference of means.  An alternative
+test is the Welch test which can be used when the groups differe significantly
+in distribution and standard deviations.
+
+    > energy
+    expend stature
+    1 9.21 obese
+    2 7.53 lean
+    3 7.48 lean
+    ...
+    20 7.58 lean
+    21 9.19 obese
+    22 8.11 lean
+    > t.test(energy$expend ~ energy$stature)
+    Welch Two Sample t-test
+    data:  expend by stature
+    t = -3.8555, df = 15.919, p-value = 0.001411
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+     -3.459167 -1.004081
+    sample estimates:
+       mean in group lean mean in group obese
+                 8.066154           10.297778
+
+The tilde operator means that `energy$expend` is described by `energy$stature`.
+Your two data sets are formed via two different categories (lean vs obese).
+Use the option `var.equal=T` to use the traditional t test.
+
+The `var.test` function lets you perform an F test, which compares the
+variances of two data sets:
+
+    > var.test(expend~stature)
+
+         F test to compare two variances
+
+    data:  expend by stature
+    F = 0.7844, num df = 12, denom df =  8, p-value = 0.6797
+    alternative hypothesis: true ratio of variances is not equal to 1
+    95 percent confidence interval:
+      0.1867876 2.7547991
+    sample estimates:
+     ratio of variances
+               0.784446
+
+The Wilcoxon test also works with two samples:
+
+    > wilcox.test(expend~stature)
+
+The paired t test can be used when there are two measurements on the same
+experimental units.  For exmaple, measuring pre- and postmenstrual energy
+intake in a group of women.  Since measurements are taken before and after for
+the same women, a paired t test makes sense:
+
+    > attach(intake)
+    > intake
+        pre post
+    1  5260 3910
+    2  5470 4220
+    3  5640 3885
+    ....
+    > t.test(pre, post, paired=T)
+           Paired t-test
+    data:  pre and post
+    t = 11.9414, df = 10, p-value = 3.059e-07
+    alternative hypothesis: true difference in means is not equal to 0
+    95 percent confidence interval:
+      1074.072 1566.838
+    sample estimates:
+      mean of the differences
+                     1320.455
+
+If you had two independent groups, one for measuring pre- and one for measuring
+post-, you would do a two-sample t test.
+
+The Wilcoxon test also has a pair option:
+
+    > wilcox.test(pre, post, paired=T)
+
 Regression and Correlation
 ==========================
 Analysis of Variance and the Kruskal-Wallis Test
