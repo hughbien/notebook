@@ -725,6 +725,149 @@ The Wilcoxon test also has a pair option:
 
 Regression and Correlation
 ==========================
+
+Linear regression lets you describe the relation between two variables, for
+example describing `short.velocity` as a function of `blood.glucose`.  The
+linear regression model is:
+
+    yi = alpha + beta*xi + error
+
+The slope of the line is also known as the regression coefficient (beta).  The
+line intersects the y-axis at the intercept alpha.  The parameters alpha, beta,
+and error can be estimated using the method of least squares.  Finding the
+values involves minimizing the sum of squared residuals:
+
+    SSres = SIG(yi - (alpha + B*xi))^2
+
+Use the function `lm` which stands for linear model for linear regression
+analysis:
+
+    > attach(thuesen)
+    > lm(short.velocity~blood.glucose)
+    Call:
+    lm(formula = short.velocity ~ blood.glucose)
+
+    Coefficients:
+      (Intercept)  blood.glucose
+          1.09781        0.02196
+
+The argument to `lm` is a model formula.  This works for multiple linear
+regression analysis also (`lm(y ~ x1 + x2 + x2)`).  The output in this case
+includes the estimated intercept and slope.
+
+    short.velocity = 1.098 + 0.0220 * blood.glucose
+
+Use the `summary()` function to extract more information:
+
+    > summary(lm(short.velocity~blood.glucose))
+    Call:
+    lm(formula = short.velocity ~ blood.glucose)
+
+    Residuals:
+         Min       1Q   Median       3Q      Max
+    -0.40141 -0.14760 -0.02202  0.03001  0.43490
+
+    Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)
+    (Intercept)    1.09781    0.11748   9.345 6.26e-09 ***
+    blood.glucose  0.02196    0.01045   2.101   0.0479 *
+    ---
+
+    Residual standard error: 0.2167 on 21 degrees of freedom
+      (1 observation deleted due to missingness)
+    Multiple R-squared: 0.1737,     Adjusted R-squared: 0.1343
+    F-statistic: 4.414 on 1 and 21 DF,  p-value: 0.0479
+
+The summary gives a quick distribution of the residuals.  The average is zero
+by definition so the median shouldn't be too far out.  The residuals is the
+difference of the actual data from our regression line on the y-axis.
+
+The coefficients table gives you the slope for each variable (Estimate
+column) and accompanying standard errors.  The standard error tells us the
+accuracy of our prediction when using this linear model.
+
+The t-value and P-values are also given.  More asterisks are given to values
+that are significant.
+
+The residual standard error is also given.  In this case, "1 observation
+deleted" means that one value is NA in our data set.
+
+R^2 is a statistic that gives information about the goodness of fit.  It tells
+you how well the regression line fits the data.  An R^2 of 1 means the line fits
+the data perfectly.  The adjusted R^2 takes into account the number of data
+points.  This is valuable if you're adding/subtracting predictor variables -
+it could decrease if your new predictor variable doesn't add anything to the
+linear model.
+
+The summary includes the F-statistic for the hypothesis that the regression
+coefficient is zero.
+
+You can also use the extraction functions `fitted` and `resid`:
+
+    > lm.velo <- lm(short.velocity~blood.glucose)
+    > fitted(lm.velo)
+           1        2        3        4        5        6        7 
+    1.433841 1.335010 1.275711 1.526084 1.255945 1.214216 1.302066 
+           8        9       10       11       12       13       14 
+    1.341599 1.262534 1.365758 1.244964 1.212020 1.515103 1.429449
+          15       17       18       19       20       21       22
+    1.244964 1.190057 1.324029 1.372346 1.451411 1.389916 1.205431
+          23       24
+    1.291085 1.306459
+    > resid(lm.velo)
+               1            2            3            4            5
+     0.326158532  0.004989882 -0.005711308 -0.056084062  0.014054962
+               6            7            8            9           10
+     0.275783754  0.007933665 -0.251598875 -0.082533795 -0.145757649
+              11           12           13           14           15
+     0.005036223 -0.022019994  0.434897199 -0.149448964  0.275036223
+              17           18           19           20           21
+    -0.070057471  0.045971143 -0.182346406 -0.401411486 -0.069916424
+              22           23           24
+    -0.175431237 -0.171085074  0.393541161
+
+The fitted values are the y-values you'd expect for the given x-values according
+to the best fitting straight line.  The residuals are the difference between
+the fitted values and the observed values.
+
+To get a good plot of the fitted vs residuals (and remove NAs):
+
+    > plot(blood.glucose, short.velocity)
+    > ablines(blood.glucose[!is.na(short.velocity)], fitted(lm.velo))
+
+Narrow bands around the fitted line represents the confidence bands - the
+uncertainty of the line.  Wide bands are prediction bands - the uncertainty
+about future observations.
+
+Use the `predict` function to extract the predicted values from a linear model.
+You can pass it an `interval="confidence"` or `interval="prediction"` argument
+to get extra band information.
+
+The second part of this chapter deals with correlation.  The values given
+for correlation range from -1 to +1, extremes indicate perfect correlation and
+0 indicates no correlation.  Negative correlation means when one is small the
+other is large (anti-correlated).
+
+    > cor(blood.glucose,short.velocity,use="complete.obs")
+    [1] 0.4167546
+
+Here we use `use="complete.obs"` to deal with the missing data.  The `cor`
+function performs a linear correlation or Pearson correlation by default.  It
+works on vectors as well as data frames.
+
+The output doesn't tell you if the correlation is significant.  To get this and
+more information, use `cor.test()`.
+
+Spearman's method can be used for nonparametric variants:
+
+    > cor.test(blood.glucose, short.velocity, method="spearman")
+
+You can also use Kendall's method based on concordant and discordant pairs.
+Concordant means the difference in the x-coordinate is of the same sign as the
+difference in the y-coordinate.
+
+    > cor.test(blood.glucose, short.velocity, method="kendall")
+
 Analysis of Variance and the Kruskal-Wallis Test
 ================================================
 Tabular Data
