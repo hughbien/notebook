@@ -933,6 +933,56 @@ The output reads just like the one-way ANOVA.
 
 Tabular Data
 ============
+
+This chapter is about tests used to analyze tabular data:
+
+* `prop.test`
+* `binom.test`
+* `chisq.test`
+* `fisher.test`
+
+Tests of single proportions are based on the binomial distribution.  Let's
+use the example where 39 of 215 randomly chosen patients have asthma.  We want
+to test the hypothesis that the probability of a "random patient" having
+asthma is 0.15:
+
+    > prop.test(39,215,.15)
+       1-sample proportions test with continuity correction
+    data:  39 out of 215, null probability 0.15
+    X-squared = 1.425, df = 1, p-value = 0.2326
+    alternative hypothesis: true p is not equal to 0.15
+    95 percent confidence interval:
+      0.1335937 0.2408799
+    sample estimates:
+            p
+    0.1813953
+
+`prop.test` takes the number of positive outcomes, total outcomes, and the
+theoretical probability to test for (50% by default).  The function `binom.test`
+also works for binomial distributions.
+
+`fisher.test` works on matrices where the first column is positive outcomes
+and the second column is negative outcomes:
+
+    > matrix(c(9,4,3,9),2)
+         [,1] [,2]
+    [1,]    9    3
+    [2,]    4    9
+    > lewitt.machin <- matrix(c(9,4,3,9),2)
+    > fisher.test(lewitt.machin)
+             Fisher's Exact Test for Count Data
+    data:  lewitt.machin
+    p-value = 0.04718
+    alternative hypothesis: true odds ratio is not equal to 1
+    95 percent confidence interval:
+      0.9006803 57.2549701
+    sample estimates:
+    odds ratio
+      6.180528
+
+The standard Chi-Squared test can be done with `chisq.test` and the input/output
+is just like `fisher.test`.
+
 Power and Computation of Sample Size
 ====================================
 Advanced Data Handling
