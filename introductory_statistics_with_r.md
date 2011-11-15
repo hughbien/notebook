@@ -870,6 +870,67 @@ difference in the y-coordinate.
 
 Analysis of Variance and the Kruskal-Wallis Test
 ================================================
+
+This chapter starts with the one-way analysis of variance (ANOVA).  It works
+by comparing the variation within a group to the variation between groups.  For
+more information, check out "Khan Academy Statistics".
+
+The descriptive variable needs to be a factor.  The call to `anova` can use
+the model of a linear regression if the predictor variable is a factor:
+
+    > attach(red.cell.folate)
+    > anova(lm(folate~ventilation))
+    Analysis of Variance Table
+    Response: folate
+                Df Sum Sq Mean Sq F value  Pr(>F)
+    ventilation  2  15516    7758  3.7113 0.04359 *
+    Residuals   19  39716    2090
+
+The top line has the sum of square distance between groups (variation between
+groups) and mean square between groups (normalized variation against degrees
+of freedom).  The bottom line has the sum of square distance within groups
+and mean square within groups.  The F value can be calculated like so:
+
+    F = MSb / MSw
+
+`pairwise.t.test` computes possible two-group comparisons
+
+    > pairwise.t.test(folate, ventilation, p.adj="bonferroni")
+           Pairwise comparisons using t tests with pooled SD
+    data:  folate and ventilation
+              N2O+O2,24h N2O+O2,op
+    N2O+O2,op 0.042      -
+    O2,24h    0.464      1.000
+    P value adjustment method: bonferroni
+
+The output is a table of p-values.  The `oneway.test` is an ANOVA that doesn't
+assume equal variance among groups.
+
+    > oneway.test(folate~ventilation)
+        One-way analysis of means (not assuming equal variances)
+    data:  folate and ventilation
+    F = 2.9704, num df =  2.000, denom df = 11.065, p-value = 0.09277 
+
+The Kruskal-Wallis test is a nonparametric counterpart of the one-way ANOVA.
+
+    > kruskal.test(folate~ventilation)
+       Kruskal-Wallis rank sum test
+    data:  folate by ventilation
+    Kruskal-Wallis chi-squared = 4.1852, df = 2, p-value = 0.1234
+
+For a two-way ANOVA, your data needs to be in a vector with two parallel
+factors.
+
+    > anova(lm(hr~subj+time))
+    Analysis of Variance Table
+    Response: hr
+              Df Sum Sq Mean Sq F value    Pr(>F)
+    subj       8 8966.6  1120.8 90.6391 4.863e-16 ***
+    time       3  151.0    50.3  4.0696   0.01802 *
+    Residuals 24  296.8    12.4
+
+The output reads just like the one-way ANOVA.
+
 Tabular Data
 ============
 Power and Computation of Sample Size
