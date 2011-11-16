@@ -566,7 +566,8 @@ structures called caveolae.
 Viruses usually enter cells by endocytosis.  We learn a lot about endocytosis
 through virology.  An example that uses receptor mediated endocytosis is HIV.
 
-# Lecture #4: Cytoskeleton, Cellular Adhesion and ECM
+Lecture #4: Cytoskeleton, Cellular Adhesion and ECM
+===================================================
 
 ## Cytoskeleton Overview
 
@@ -1472,8 +1473,8 @@ reprogrammed backwards (shown to work in mice).  You have pluripotent stem
 cells and you inject them into blastocyst of different genetic background.  The
 organism that comes out are chimeric.
 
-Cancer Biology
-==============
+Lecture #8: Cancer Biology
+==========================
 
 Textbook: "Biology of Cancer" by Albert Weinberg
 Documentary: Fork over Knives
