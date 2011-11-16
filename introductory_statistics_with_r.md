@@ -983,19 +983,46 @@ and the second column is negative outcomes:
 The standard Chi-Squared test can be done with `chisq.test` and the input/output
 is just like `fisher.test`.
 
-Power and Computation of Sample Size
-====================================
-Advanced Data Handling
-======================
 Multiple Regression
 ===================
+
+This chapter is about regression analysis with multiple predictors.
+
+    y = B0 + B1*x1 + ... + Bk*xk + error
+
+Use the `pairs` to do pairwise scatterplots of your data set:
+
+    > par(mex=0.5)
+    > pairs(cystfibr, gap=0, cex.labels=0.9)
+
+Let's with with this data set:
+
+    > attach(cystfibr)
+
+Specifying multiple dependencies can be done with `+`.
+
+    > lm(pemax~age+sex+height+weight+bmp+fav1+rv+frc+tlc)
+
+Which means `pemax` is described by using a model that is additive in `age`,
+`sex`, and so forth.  Using the `summary` function along with this model will
+give more output.
+
+There's usually a large difference between adjusted and non-adjusted R^2 value
+for muliple linear regression models.  Adjusted R^2 values take into account the
+degrees of freedom.
+
+You can also perform ANOVAs on multiple regressions:
+
+    > anova(lm(pemax~age+sex+height+weight+bmp+fav1+rv+frc+tlc))
+
+Dalgaard mentions the `step` function which can be used to perform model
+searches.  It's beyond the scope of the book, though.  Instead, he shows us
+how to reduce our model by hand.  Continue to remove a single variables which
+aren't significant until you get your reduced model.
+
 Linear Models
 =============
 Logistic Regression
 ===================
 Survival Analysis
 =================
-Rates and Poisson Regression
-============================
-Nonlinear Curve Fitting
-=======================
