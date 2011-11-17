@@ -1154,3 +1154,71 @@ function for more information about residuals and data points.
 
 Survival Analysis
 =================
+
+Survival analysis is the analysis of lifetimes.  **Censorship** is an important
+concept in survival analysis because it occurs so often.  Data is said to be
+censored whenever we don't know the exact lifetime of a subject - perhaps we
+don't know the exact time of death or the subject survived passed the study
+time.
+
+The **survival function** S(t) measures the probability of being alive at a
+given time.  The **hazard function** h(t) measures the risk of dying within a
+short interval of time t given the subject is still alive at time t.  The
+density function f(t) is given as:
+
+    h(t) = f(t)/S(t)
+
+In R, use the `survival` package for survival analysis.  We'll work with the
+`melanom` data set:
+
+    > library(survival)
+    > attach(melanom)
+    > names(melanom)
+    [1] "no"     "status" "days"   "ulc"    "thick"  "sex"
+
+The `Surv` function is used to create an object used in survival analysis.
+
+    > Surv(days, status==1)
+    ...
+    [181] 3476+ 3523+ 3667+ 3695+ 3695+ 3776+ 3776+ 3830+ 3856+ 3872+
+    [191] 3909+ 3968+ 4001+ 4103+ 4119+ 4124+ 4207+ 4310+ 4390+ 4479+
+    [201] 4492+ 4668+ 4688+ 4926+ 5565+
+
+The Kaplan-Meier estimator is implemented with `survfit`.
+
+    > survfit(Surv(days, status==1))
+    Call: survfit(formula = Surv(days, status == 1))
+          n  events  median 0.95LCL 0.95UCL
+        205      57     Inf     Inf     Inf
+
+More information is given with the `summary` function:
+
+    > summary(survfit(Surv(days, status==1)))
+    Call: survfit(formula = Surv(days, status == 1))
+     time n.risk n.event survival std.err lower 95% CI upper 95% CI
+     ...
+
+Censoring times aren't displayed.  Use `censored=T` to show them.  This method
+is a step function with jump points given in `time` and values right after a
+jump given the `survival` column. 
+
+You can plot the `Surv` object to see it graphically.  You can even distinguish
+plots by a factor:
+
+    > plot(survfit(Surv(days, status==1)))
+    > plot(survfit(Surv(days, status==1)~sex))
+
+The log-rank test can be used to compare two survival curves.  It compares the
+survival rate and survivors at each point in time.  It's implemented by the
+`survdiff` function:
+
+    > survdiff(Surv(days,status==1)~sex)
+    Call:
+    survdiff(formula = Surv(days, status == 1) ~ sex)
+            N Observed Expected (O-E)^2/E (O-E)^2/V
+    sex=1 126       28     37.1      2.25      6.47
+    sex=2  79       29     19.9      4.21      6.47
+    Chisq= 6.5  on 1 degrees of freedom, p= 0.011
+
+The Cox proportional hazards model analyzes survival data by regression models
+similar to `lm` and `glm`.  It's implemented by the `coxph` function.
