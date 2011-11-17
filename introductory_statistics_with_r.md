@@ -1022,7 +1022,135 @@ aren't significant until you get your reduced model.
 
 Linear Models
 =============
+
+Linear models provide a flexible framework that most data can be fitted.  Or
+at least transformed before fitted.
+
+Linear models can still be made for polynomial regressions:
+
+    > attach(cystfibr)
+    > summary(lm(pemax~height+I(height^2)))
+
+The `I()` function makes sure the model formula is protected.  It's the
+identity function.  This also works with interacting predictors.
+
+Sometimes it makes sense to create a model that goes through the origin.  You
+can use the term `-1` in your model which means minus intercept:
+
+    > summary(lm(y~x-1))
+
+The `model.matrix` function gives the design matrix for a given model.  The
+results look like this.
+
+Although the function `anova` can take two arguments which are the two groups
+of data, you can also formally create a model for it.  The next two lines are
+equivalent:
+
+    > anova(lm(trypsin~grp), lm(trypsin~grpf))
+    > anova(lm(trypsin~grp+grpf))
+
+**Interaction terms** occur when the level of one predictor effects another.
+There's a level of synergy.  For example, a stroke is much more likely to occur
+at older ages or in males.  But if a subject is both elderly and male then the
+synergy of the two interacting terms creates a very high probability.
+
+Interaction can occur between two factors, one factor and one continuous
+variable, or two continuous variables.  Interactions in models are specified
+with `*` operator:
+
+    > lm(time~width*temp)
+
+It's usually good to get a graphic description of your data before trying to
+fit a model.
+
+    > plot(conc,diameter,pch=as.numeric(glucose))
+    > legend(locator(n=1),legend=c("glucose","no glucose"),pch=1:2)
+
+`locator` returns the coordinates of a point on a plot.  In this case, the plot
+will look much nicer for a logarithmic x-axis scale.  We can transform our data
+before trying to fit it.
+
+    > plot(conc,diameter,pch=as.numeric(glucose),log="x")
+    > lm(log10(diameter)~log10(conc),data=tethym.nogluc)
+
+You can use any arithmetic expressions in a model formula.  Sometimes, you'll
+have to surround your expression with the `I()` identity function.  This is the
+case for multiplication and addition to avoid confusion with interacting and
+additive models.
+
 Logistic Regression
 ===================
+
+Logistic regression is all about modeling binary outcomes.  A linear model for
+transformed probabilities:
+
+    logit p = B0 + B1*x1 + B2*x2 + ... + Bk*xk
+
+The **log odds** is:
+
+    logit p = log[p/(1-p)]
+
+Logistic regression analysis belongs to the class of **generalized linear
+models** or the `glm` function in R.  These models are characterized by their
+binomial distributions.  Let's do some logistic regression on tabular data:
+
+    > no.yes <- c("No","Yes")
+    > smoking <- gl(2,1,8,no.yes)
+    > obesity <- gl(2,2,8,no.yes)
+    > snoring <- gl(2,4,8,no.yes)
+    > n.tot <- c(60,17,8,2,187,85,51,23)
+    > n.hyp <- c(5,2,1,0,35,13,15,8)
+    > data.frame(smoking,obesity,snoring,n.tot,n.hyp)
+      smoking obesity snoring n.tot n.hyp
+      1      No      No      No    60     5
+      2     Yes      No      No    17     2
+      3      No     Yes      No     8     1
+      4     Yes     Yes      No     2     0
+      5      No      No     Yes   187    35
+      6     Yes      No     Yes    85    13
+      7      No     Yes     Yes    51    15
+      8     Yes     Yes     Yes    23     8
+
+First, you'll need to specify the response as a matrix where one column is
+success and the other is failure.
+
+    > hyp.tbl <- cbind(n.hyp,n.tot-n.hyp)
+    > hyp.tbl
+         n.hyp
+    [1,]    5  55
+    [2,]    2  15
+    [3,]    1   7
+    [4,]    0   2
+    [5,]   35 152
+    [6,]   13  72
+    [7,]   15  36
+    [8,]    8  15
+
+Finally, use the `glm` function to create a logistic regression:
+
+    > glm(hyp.tbl~smoking+obesity+snoring,family=binomial("logit"))
+
+Note that "logit" is the default distribution so the family argument could be
+left off.  R also lets you specify the proportion of success/total.
+
+    > prop.hyp <- n.hyp/n.tot
+    > glm.hyp <- glm(prop.hyp~smoking+obesity+snoring,
+    +                binomial,weights=n.tot)
+
+The output is very similar to linear models.  Use the `summary` function more
+more detailed output.  The "deviance" is the same as sum of squares in linear
+models.  You can use it to pinpoint cells that deviate from the fit (that are
+poorly fitted).
+
+The "Residual deviance" is similar to the residual sum of squares in ordinary
+regression analysis.  The "null deviance" is the deviance of a model containing
+only the intercept.
+
+Once you construct your model, pass it to `anova` to analyze the deviance.  You
+can also pass it to `confint` to get confidence intervals.
+
+Just like normal linear models, you may pass it to `predict` or `fitted`
+function for more information about residuals and data points.
+
 Survival Analysis
 =================
