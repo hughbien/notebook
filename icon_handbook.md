@@ -238,3 +238,26 @@ declare a new "icon font".  See the Pictos icon pack for more info.
 
 Application Icons
 =================
+
+Application icons tend to have the most detail and largest sizes.  Its format
+is dependent on the platform.  Linux uses SVG, OS X uses ICNS, and Windows
+uses ICO.
+
+The icon should be memorable.  This is the most important trait of an
+application icon.  Its metaphor is still important.
+
+Hicks walks us through the process of creating an application icon:
+
+1. Sketching on paper.
+2. Vector sketch without showing too much detail.  Use basic shapes and
+   simple gradients to get a concept out.
+3. Draw and iterate on the detailed icon.
+4. Export to the correct formats and sizes.
+
+Application icons tend to use a lot of realism in its shading.  Make sure the
+light source is from one area and the perspective is consistent with other
+application icons.  For example, OS X icons tend to have a 9 degree rotation
+and are viewed as if the icon is on a desktop.
+
+Textures tend to be realistic - leather, plastic, brushed metal.  Be sure to
+keep your pixels crisp for larger sizes.
