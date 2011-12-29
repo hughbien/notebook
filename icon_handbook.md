@@ -198,5 +198,43 @@ dotted effect to make these gradients look better.  It may make sense to include
 Icon Formats and Deployment
 ===========================
 
+Size is important.  Displays have different resolutions - think retina vs
+regular iPhones.  An icon might look crisp on the regular iPhone but blurry on
+the retina display.  Users can also zoom into icons via their browsers.  It's
+important to design icons that can scale.
+
+For simple monochrome pictograms, vectors work great.  For larger icons that
+require detail, you'll need to create separate images.
+
+Hicks recommends using the Mac app "Opacity" for creating icons of different
+sizes.
+
+The most popular format for icons are PNG.  If transparency is required for IE6,
+think about using GIF.  If it's specifically for OS X, you might want to use
+the TIFF format.
+
+PNG, GIF, and TIFF were bitmap formats.  Some browsers support SVG, a scalable
+vector format.  There's also Canvas as an alternative.  PDF is supported by
+Quartz and is scalable for Mac applications.
+
+For the web, you might want to use CSS3 media queries to determine the
+device resolution.  This way, you can display different icons depending on the
+resolution:
+
+    @media="only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen
+            and (-o-min-device-pixel-ratio: 3/2), only screen and 
+            (min-device-pixel-ratio: 1.5) {
+      .icon {
+        background-image: url(iconx2.png);
+        background-size: 150px 40px;
+      }
+    }
+
+Hicks also mentions browsers starting to support data-uris where the image is
+Base64 encoded and embedded into the HTML or CSS.
+
+A popular way to display icons is using fonts.  You can use `@font-face` to
+declare a new "icon font".  See the Pictos icon pack for more info.
+
 Application Icons
 =================
