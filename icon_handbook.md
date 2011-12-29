@@ -88,6 +88,59 @@ Some tips when designing a favicon:
 Metaphor
 ========
 
+This chapter follows a client scenario.  If a convention already exists, use it.
+If not, create a new convention.
+
+The first thing you need to ask when creating an icon is how to best represent
+that tool, function, or direction?
+
+To figure this out, you can break it down:
+
+1. What is the icon for?
+2. What is its context?
+3. Who's it for?
+4. Is there a single message?  Sometimes the goal is too dispersed and needs
+   to be focused.
+5. Does it need to even be an icon?
+
+Some tips for figuring out if a metaphor already exists:
+
+1. Use Google's image search
+2. Use <http://thenounproject.com>
+3. Use <http://iconfinder.com>
+
+If you need to start from scratch, try doing a mind map.  Start with the message
+you're trying to convey and then create new nodes which are related.  For
+the "view" function, some nodes could be: eyes, detail/close-up, sight, literal
+view.  Each node can have something that could represent it: actual eyes,
+magnifying glass, telescope, binoculars, glasses, landscape.  Now ask the
+following questions:
+
+1. Would the icon be recognizable?
+2. How much detail is required to make it recognizable?
+3. Are there any negative connotations?
+
+You can use combinations of pictograms to make your icon clearer.  A plus sign
+with a document means "New Document".
+
+The final part is to use color.  Here are some emotions evoked by different
+colors:
+
+* red => importance, warm, life, love, revolution, celebration, good luck.
+         Also stop, problems, danger, warning, error.
+* orange => warmth, energy.  Also cheap and RSS.
+* yellow => joy, happiness, light, wisdom.  Also warning, forbidden, cowardice,
+            decay, secure, highlight.
+* green => life, nature, vitality, go, growth.  Also envy/madness.  Technical
+           uses include sharing and correctness.
+* purple => royalty, cruelty, arrogance
+* blue => daytime, calm, information, corporate.  Also cold/corporate.
+          Technical uses include selected, on, enabled.
+* gray => luxury, sadness, disabled, off
+* brown => comfort, nature, poverty
+* black => sophistication, luxury, expensive, prosperity, death, mourning, evil,
+           mystery, misery
+
 Drawing Icons
 =============
 
