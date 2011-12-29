@@ -144,6 +144,57 @@ colors:
 Drawing Icons
 =============
 
+Some guidelines when drawing icons:
+
+* Stay in context.  If it's going to be used for a toolbar - draw it with the
+  toolbar present.
+* Stay in company.  Don't draw each icon in isolation.  Try to draw them in
+  the same document next to each other to avoid inconsistencies.
+
+Some helpful features your icon editor should support:
+
+* vector drawing
+* pixel grid
+* pixel preview
+* export options
+
+The canvas size matters, especially for smaller icons.  A symmetric arrow on a
+16x16 canvas will have a blunt/round pointy end.  This is because the point
+occupies two pixel rows.  Using an odd canvas size (15x15), the pointy end will
+only occupy one pixel row making it pointier.
+
+It's tempting to fill up the entire canvas with your icon.  Don't, the icon
+weight needs to be balanced.  That's why it's important to draw them in the
+same document as each other.
+
+Some tips to deal with scaling icons for multiple sizes:
+
+* use Photoshop's smart objects or Illustrator's symbols
+* keep details on a separate layer to show/hide depending on icon size
+
+It's up to you how much detail to include.  But excessive details sometimes
+reduce an icon's clarity and crispness.  It's a tradeoff.  Try to avoid:
+
+* excessive shadows and borders
+* too much anti-aliasing
+* perspective (for smaller icons)
+* straight pixels that aren't crisp
+
+If your icon uses a font, try using one that's specialized for smaller sizes
+like Verdana, Mini, or Cellular (also called bitmap fonts).
+
+Color depth is a number representing how many colors each pixel can represent.
+It's measured in bit and usually called bit depth.  1-bit depth is just black
+and white with no grayscale.  4-bit depth was capable of showing 16 colors.
+Most modern computers use 24-bit (16 million colors) or 32-bit (24-bit color and
+8-bit alpha channel).  With 24-bits, each color channel RGB gets 8 bits or 256
+different options.  
+
+That's a lot of colors - but it's noticeable if a screen doesn't support as many
+colors during the use of gradients, especially mobile devices.  Dithering is a
+dotted effect to make these gradients look better.  It may make sense to include
+4-bit versions with your icons for these other devices.
+
 Icon Formats and Deployment
 ===========================
 
