@@ -178,6 +178,77 @@ You can mark your place in a file with `m`:
 Introducing the ex Editor
 =========================
 
+ex is a line editor underlaying vi.  Back then, programmers would print a single
+line to view it and edit.
+
+    $ ex practice
+    "practice" 6 lines, 320 characters
+    :1p
+    With a screen editor you can
+    :s/screen/line/
+    With a line editor you can
+    :vi
+
+Some ex commands you can use for editing:
+
+* `:p` print lines
+* `:nu` print lines and line numbers
+* `:d` deletes lines
+* `:m` moves lines
+* `:co` or `:t` copies lines
+* commands work on whatever line the cursor is on.  You can also prefix it with
+  a single line number of line range (`:5d` deletes line 5, `:5,10d` deletes
+  lines 5 to 10).  You can also specify using search patterns.
+
+Some examples:
+
+* `160,224m23` moves lines 160-224 to follow line 23
+* `23,29co100` yanks lines 23-29 and pastes them after 100
+
+Toggle line numbers with `:set number` and `:set nonumber`.  Print out lines
+with a range followed by `#` like `:1,10#`.
+
+Some special symbols you can use when specifying ranges:
+
+* `.` represents the current line
+* `$` represents the last line of the file
+* `%` is the entire file
+* `+` and `-` are numeric operators that can be performed on line numbers or
+  symbols (`.,.+20` means next 20 lines).  The dot is optional and considered
+  default.
+* `/pattern/` is valid for ranges (`/pattern1/,/pattern2/+2` goes from the first
+  pattern to the second plus two lines)
+* Use `;` instead of `,` to switch the current line relative to the starting
+  location (`100;+5` means lines 100 to 105)
+
+You may only want to effect lines that include a pattern or does not include
+a pattern:
+
+* `:g/pattern/` are all lines including pattern
+* `:g!/pattern/` are all lines not including the pattern
+* `:60,124g/pattern/` all lines including pattern within lines 60-124
+
+Ex commands can be combined with a vertical bar `|`.  It works like the Unix
+semi-colon.  Ranges need to be specified for each command.
+
+Some common ex commands to saving, reading, and quitting:
+
+* `:w` writes the file
+* `:w newfilename` for a new filename
+* `:230,$w newfilename` only save a portion of the file
+* `:340,$w >>newfilename` appends to file
+* `:q` quits
+* `:wq` or `:x` writes and quits
+* `:read filename` or `:r filename` reads a file into the buffer
+* `:e filename` opens the file in a new buffer
+* `:e!` resets the current file
+* `%` represents the current filename in a command (`:w %.new` saves a new
+  file with extension ".new")
+* `:e #` or `:b #` or `^^` switches back and forth between two buffers
+* `:ls` to list current buffers
+* `:b` followed by a number to switch buffers.  You can also use a filename.
+  This works great with `tab` for autocompletion.
+
 Global Replacement
 ==================
 
