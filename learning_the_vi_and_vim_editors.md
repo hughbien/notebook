@@ -252,6 +252,62 @@ Some common ex commands to saving, reading, and quitting:
 Global Replacement
 ==================
 
+The substitution command has this syntax:
+
+    :s/old/new/
+
+This works on the current line and works on the first occurrence of the 'old'
+pattern.  Use the `g` option which stands for global to affect all patterns of
+'old' in the current line:
+
+    :s/old/new/g
+
+This command can be prefixed with a range:
+
+    :1,$s/old/new/g
+    :%s/old/new/g
+
+For Vim, I like to use `V` to enter visual mode and highlight the lines I'd
+like to change.  Then just hit `:` and enter the substitution command to affect
+only those lines.
+
+The `c` option lets you confirm substitutions:
+
+    :%s/old/new/gc
+
+Just hit 'y' and enter to confirm.  Hit enter to skip.
+
+Using the range prefix is useful for context sensitive replacements:
+
+    :g/condition/s/old/new/g
+
+vi uses the same pattern matching rules as grep, sed, and awk.  This can be
+used with the `:s`, `:g`, `/`, and `?` commands:
+
+* `.` matches any single character except a newline
+* `*` matches zero or more of previous character
+* `^` matches beginning of line
+* `$` matches end of line
+* `\` escapes special characters
+* `[]` for character sets
+* `[^]` inverse character set
+* `\(\)` saves pattern for later use in replacement (use `\n` where 'n' is the
+  number for replacement)
+* `\<` or `\>` for beginning of end of word
+* `~` last search
+* `[::]`, `[..]`, `[==]` can be used for character sets, multicharacter
+  sequences, and locale searches
+
+Some special characters to use in the replacement string:
+
+* `\n` for newline
+* `\` to escape special characters
+* `&` entire search match
+* `~` previous search match
+* `\1`, `\2`, `\3`, etc... for saved patterns via `\(\)`
+* `\u` and `\l` changes next character to uppercase/lowercase
+* `\U` and `\L` for all proceeding characters until a `\e` or `\E` reached
+
 Advanced Editing
 ================
 
