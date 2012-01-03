@@ -70,10 +70,10 @@ Some simple edit commands:
 
 Combining movements with edit commands is a great way to showcase vi's power:
 
-    cw      # changes to the end of a word
-    c2b     # changes back to words
-    d$      # deletes to end of the line
-    4dd20Gp # delete 4 lines, move to line 20, paste deleted lines
+    cw      " changes to the end of a word
+    c2b     " changes back to words
+    d$      " deletes to end of the line
+    4dd20Gp " delete 4 lines, move to line 20, paste deleted lines
 
 Repeating, undoing, and redoing commands:
 
@@ -406,11 +406,86 @@ Some tips for editing source code:
 * vi supports ctags.  Use the ctags command to generate one then use `:tag name`
   to jump to a tag.  Or use `^]` while the cursor is over an identifier.
 
-Vim (vi Improved); An Introduction
+Vim (vi Improved): An Introduction
 ==================================
+
+Vim stands for "vi improved" and is an implementation/extension of vi written
+by Bram Moolenaar.  It has become so popular that the words vi and vim are
+almost synonymous.  Many systems ship with the command `vi` as a soft link to
+vim.
+
+Vim adds features like syntax extensions, autocompletion, GUIs, scripting,
+plugins, session context, and more.  Use `:set compatible` to switch back and
+forth between vim and vi modes.  If you don't already have it, you get download
+it from <http://www.vim.org>.
 
 Major Vim Improvements over vi
 ==============================
+
+Some of the major features of vim includes built-in help, initialization,
+motion commands, extended regular expressions, extended undos, and customizing
+the executable.
+
+To use the help system:
+
+* `:help` starts off with basic instructions
+* `:help topic` get the help page for a specific topic
+* `:help t<tab>` to autocomplete/search through topics.  Vim lets you `<tab>`
+  through any ex commands and arguments for context sensitive autocompletion.
+
+Vim has some extra startup and initialization options:
+
+* `:help startup` to see your options
+* `-b` to edit binary files
+* `-c command` or `-cmd` runs ex command on startup
+* `-C` runs in compatibility mode
+* `-d` for diff mode
+* `-E` use improved ex mode
+* `-F` or `-A` for Farsi or Arabic modes
+* `-g` use gvim
+* `-m` turns off write options
+* `-o` or `-O` to open files in different windows horizontal or vertical
+* `-y` easy mode for beginners
+* `-z` runs in restricted mode
+
+The initialization process for vim is:
+
+1. Runs contents of `VIMINIT` environment variable as an ex command
+2. Runs user `vimrc` file in `$HOME/.vimrc`
+3. If `exrc` option is set, runs `.exrc` file
+
+Most people customize vim via their `vimrc` file.  For ex commands, the initial
+colons may be left off.  Some relevant environment variables for vim are:
+
+* `SHELL` or `COMSPEC` is the shell vim uses for shell commands
+* `TERM` tells vim which terminal to use, usually never needs to be set
+* `MYVIMRC` overrides the vimrc file location
+* `VIMINIT` ex commands to run on initialization
+* `EXINIT` same as VIMINIT
+* `VIM` directory to vim installation for more materials
+* `VIMRUNTIME` point to different vim support files like documentation
+
+Vim provides some new motion commands:
+
+* `n%` will go to the nth percent line in the file
+* `:go n` will go to the nth character in the file
+* `v` or `V` enters visual mode, where you can select text to act upon later.
+  Movement is by characters or lines.
+
+Vim also provides extended regular expressions for searches.  See
+`:help regular-expressions` for a full list.  Here is a summary:
+
+* `\|` for an OR as in `house\|home`
+* `\+` for one or more of preceding character
+* `\=` zero or one of preceding character
+* `\{n.m}` n to m of preceding character
+* `\{n}` n preceding characters exactly
+* `\{n,}` at least n of preceding character
+* `\,m}` matches 0 to m of preceding character
+* negatives values may be used to match as few as possible instead of as most
+  as possible
+* `\s` or `\S` for any whitespace or inverse
+* `\r` for carriage returns
 
 Multiple Windows in Vim
 =======================
