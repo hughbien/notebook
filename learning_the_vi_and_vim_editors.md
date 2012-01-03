@@ -311,6 +311,101 @@ Some special characters to use in the replacement string:
 Advanced Editing
 ================
 
+`ex` uses the `:set` command to set and unset options:
+
+* `:set option` will set an option to true
+* `:set noption` will set it to false
+* `:set option=value` will set a value to a non-boolean option
+* `:set option=` will unset the value
+* `:set option?` for more info about the option
+* `:set all` will show all available options
+* `:set` shows currently set options
+
+Use the file `~/.vimrc` or `~/.exrc` to set common options every time vi starts.
+An example file:
+
+    " comments start with double quotes
+    set nowrapscan 
+    set wrapmargin=7
+    set sections=SeAhBhChDh
+
+Put `set exrc` in your `~/.exrc` to read an additional `.exrc` file in the
+current working directory for further configuration.  You can manually include
+configuration files using the `:so config.file` command.
+
+Some useful options:
+
+* `wrapmargin` set to size of right margin for autowrap
+* `ignorecase` to ignore casing in searches
+* `wrapscan` to search above and below current position
+* `magic` to enable or disable special characters in searches
+* `autoindent`, `showmatch`, `tabstop`, `shiftwidth`, `number`, and `list`
+  may be useful for programmers
+* `autowrite` will automatically save to disk when you switch buffers
+
+You can execute Unix commands from vi:
+
+    :!command
+
+If you want to just access the shell temporarily, use `:sh` and then exit the
+shell to return to vi.  You can also use Unix suspension.  `Ctrl-Z` to suspend
+the current vi job.  Use `fg` to return it back later.  If you have multiple
+jobs suspended, use `%jobid`.  To get the list of currently suspended jobs, use
+`jobs`.
+
+vi can read the results of a command into the editor or send the contents of
+a file to a command:
+
+* `:r !date` read in the date command
+* `:96,99!sort` sort lines 96-99
+* use `V` to enter visual mode, then use the range with a command to send it
+* you can also hit `!` first, then use a movement, then type a command
+
+vi supports text abbreviations in insert mode via `:ab abbr phrase`.  Whenever
+you type "abbr" followed by a nonalphanumeric character in insert mode, it will
+expand to "phrase".  Use `:unab abbr` to unabbreviate.  Use `:ab` alone to
+list all abbreviations.
+
+You can map your own key sequences to more complex sequences:
+
+* `:map x sequence` where x is any character sequence
+* `:unmap x` disables the map
+* `:map` list currently mapped sequences
+
+Vim has the convention of the "leader" key for users to define their own
+shortcuts.  I usually set mine to comma:
+
+    let mapleader = ','
+    map <leader>p :!git push<CR>
+
+Some other friendly keys to start maps with are `g, K, q, ^A, ^K, ^O, ^W, ^X, _,
+*, \, and =`.  You can also map function keys via `#1`, `#2`, etc...  If you're
+unsure about what a key translate to in text, run vi and start the `:map ` ex
+command.  Hit the key you wan to map, ex will translate the escaped sequence
+for you.
+
+Use `map!` instead of `map` to override existing maps and also have it apply
+to insert mode.  Your shortcut key sequence will now invoke the command instead
+of inserting characters to your document.
+
+vi has a feature called "@-Functions" which let you hold commands into the
+copy/paste registers.  Just enter a vi command (either in normal mode or ex
+command) into your text, cut it into a register, then execute via `@buffer`.
+For example:
+
+1. type `cwgadfly^[`
+2. `"gdd` to cut command into buffer g
+3. `@g` to execute
+4. Use `.` or `@@` to repeat
+
+Some tips for editing source code:
+
+* with autoindent enabled, Ctrl-T and Ctrl-D will add/remove a level of
+  indentation in insert mode
+* when over a bracket, hit `%` to jump to corresponding bracket
+* vi supports ctags.  Use the ctags command to generate one then use `:tag name`
+  to jump to a tag.  Or use `^]` while the cursor is over an identifier.
+
 Vim (vi Improved); An Introduction
 ==================================
 
