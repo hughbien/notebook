@@ -570,8 +570,124 @@ When working with buffers, these commands are handy:
 Vim Scripts
 ===========
 
-Graphical Vim (gvim)
-====================
+Robbins starts off with color scheme customization:
+
+    colorscheme desert
+
+Stick that into your `.vimrc` to update your colorscheme.  Use the command
+`:colorscheme <tab>` to toggle available colorschemes.
+
+Vim has conditional constructs:
+
+    if cond expr
+      line of vim code
+    elseif some secondary expr
+      another line of vim code
+    else
+      last line of vim code
+    endif
+
+Vim also supports the ternary operator:
+
+    cond ? expr 1 : expr 2
+
+Vim variables can be set using `let varname = "value"`.  Variables are prefixed
+with a letter and a colon.  Each letter has some significance:
+
+* `b:` variable for single vim buffer
+* `w:` for single vim window
+* `t:` for single vim tab
+* `g:` recognized globally
+* `s:` within sourced script
+* `a:` a function argument
+* `v:` a vim variable, only Vim should use it
+
+Let's look at our first program:
+
+    let currentHour = strftime("%H")
+    echo "currentHour is " . currentHour
+    if currentHour < 6 + 0
+      let colorScheme ="darkblue"
+    elseif currentHour < 12 + 0
+      let colorScheme = "morning"
+    elseif currentHour < 18 + 0
+      let colorScheme = "shine"
+    else
+      let colorScheme = "evening"
+    endif
+    echo "setting color scheme to" . colorScheme
+    colorscheme colorScheme
+
+The last line will produce an error because `colorScheme` will be mistaken for
+a literal (there's no colorscheme by that name).  Instead, change the line to
+use `execute`:
+
+    execute "colorscheme " . colorScheme
+
+Vim also supports functions:
+
+    function myFunction (arg1, arg2...)
+      line of code
+    endfunction
+    call myFunction(arg1, arg2)
+
+And arrays:
+
+    let g:Favcolorschemes = ["darkblue", "morning", "shine", "evening"]
+    g:Favcolorschemes[0]
+
+Vim uses autocommands to execute commands on certain events.  Some events are:
+
+* BufNewFile - triggered when editing a new file
+* BufReadPre - right before vim moves to a new buffer
+* BufRead, BufReadPost - right after vim moves to a new buffer
+* BufWrite, BufWritePre - right before writing to disk
+* FileType - triggered after setting filetype
+* VimResized - triggered when resizing a window
+* WinEnter, WinLeave - window events
+* CursorMoved, CursorMovedI - cursor moved in normal or insert mode
+
+The autocmd format is as follows:
+
+    autocmd [group] event pattern [nested] command
+
+The events were listed above.  The pattern is the file pattern for which these
+commands should be executed if matched.  The nested flag says whether or not
+this command can be nested with others.  For example:
+
+    autocmd CursorMovedI * call CheckFileType()
+
+Variables prefixed with `&` represents options.  You can check certain options
+such as:
+
+    if &filetype == ""
+
+Autocommands can be associated with groups for quick referencing and
+dereferencing.
+
+    augroup groupname
+      autocommand lines
+    augroup END
+
+You can then delete autocommands:
+
+    autocmd! [group] [event] [pattern]
+
+A little bit more about variables.  These types are supported:
+
+* number
+* string
+* funcref
+* list
+* dictionary
+
+There are a ton of built-in functions to help you with your scripts.  Check out:
+
+* `:help usr_41.txt`
+* `:help autocmd`
+* `:help scripts`
+* `:help variables`
+* `:help functions`
 
 Vim Enhancements for Programmers
 ================================
