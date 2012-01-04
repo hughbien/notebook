@@ -692,5 +692,163 @@ There are a ton of built-in functions to help you with your scripts.  Check out:
 Vim Enhancements for Programmers
 ================================
 
+Vim has a lot of features for programmers: folding, auto indenting, keyword
+and dictionary word completion, tags, syntax highlighting, quickfix.
+
+There are six ways of creating folds: manually, indentation, regular
+expressions, syntax, diffs, and predefined markers.  All fold commands are
+prefixed with `z`:
+
+* `zA` toggle state of folds
+* `zC` close folds
+* `zD` deletes folds
+* `zE` eliminates all folds
+* `zf` creates a fold from current line to motion command
+* `countzF` create fold for count lines
+* `zM` set option foldlevel to 0
+* `zN`, `zn` set or reset foldenable option
+* `zO` opens folds
+* `za` toggle state of one fold
+* `zc` close one fold
+* `zd` delete on fold
+* `zi` toggle foldenable option
+* `zj`, `zk` move cursor to start of end of next/prev fold
+* `zm`, `zr` decrement or increment foldlevel
+* `zo` open one fold
+* folding works with visual mode also
+* `:loadview` and `:mkview` to load and save folds
+
+For programming, try `:set foldmethod=syntax`.  Vim will automatically detect
+the correct folds for your source code.
+
+Vim has a few different options for autoindent which can be set like
+`:set autoindent`:
+
+* `autoindent` works just like in vi, newlines start indented like the
+  previous line
+* `smartindent` recognizes basic C syntax primitives
+* `cindent` recognizes C syntax almost completely
+* `indentexpr` lets you define your own indent expressions
+
+`smartindent` automatically inserts or removes indents on angle brackets { and
+}, any line proceeding line beginning with keyword contained in `cinwords`, new
+lines preceding closed braces.
+
+`cindent` uses the `cinkeys` to signal reevaluation of indentation, 
+`cinoptions` to define indentation style, and `cinwords` to signal an indent.
+cinkeys is a comma separate list:
+
+    0{,0},0),:,0#,!^X^F,o,O,e
+
+Let's break this apart:
+
+* `0{` means if the bracket is found at the beginning of a line
+* `0}` and `0)` mean the same
+* `:` is for C's case statement
+* `0#` another beginning of line context
+* `!^F` exclamation point means the follow character is a trigger to reevaluate
+  indentation.  In this case, `^F` will reevaluate indentation.
+* `o` covers new lines below
+* `O` covers new lines above
+* `e` covers the `else` keyword
+
+The syntax rules for `cinkeys` are:
+
+* `!` causes reevaluation on next key
+* `*` reevaluate current line indentation before inserting key
+* `0` beginning of line context
+* `<>` contains special characters like `<Up>`
+* `^` specifies control character
+* `=word`, `=~word` words defining special behavior, maybe ignoring case
+
+`cinwords` is a comma separated list, where each word signals vim to indent:
+
+    let cinwords=if,else,while,do,for,switch
+
+You can turn off auto indentation temporarily when you want to paste in text
+that's already indented.  Use `:set paste` before pasting, then turn it off
+with `:set nopaste`.
+
+Vim has autocompletion commands, each start with `^X`.  For example, to
+autocomplete filenames use `^X-^F`.  Then use `^N` to move next and `^P` to
+move previous.
+
+* `^X-^L` tries to complete the whole line by looking through your file history
+* `^X-^N` autocompletes keywords, defined by `iskeyword` option
+* `^X-^K` autocompletes dictionary words
+* `^X-^T` autocompletes by thesaurus
+* `^X-^I` autocompletes using keywords in current and included files
+* `^X-^]` uses tags for autocompletion
+* `^X-^F` autocompletes filename in current directory
+* `^X-^D` autocompletes macros (using `#define`)
+* `^X-^V` autocompletes vim commands (for vim scripts)
+* `^X-^U` user customizable function, calls `completefunc`
+* `^X-^O` completion via omni function, user defined function that's filetype
+  specific.
+* `^X-^S` spell correcting
+* `^N` combines all previous autcompletes into one, can be customized with the
+  `complete` option
+
+The `complete` option can customize `^N` sources.  It's a comma separated list:
+
+* `.` searches current buffer
+* `w` searches other windows
+* `b` searches loaded buffers
+* `u` searches unloaded buffers in buffer list
+* `U` searches buffers not in buffer list
+* `k` searches dictionary file
+* `kspell` for spelling
+* `s` for thesaurus
+* `i` searches current and included files
+* `d` searches current and included files for macros via `#define`
+* `t`, `]` search for tag completion
+
+Vim supports ctags, a Unix program to index source code.  You can generate it
+via `:!ctags *.[ch]`.  To output a custom tagfile, use `:!ctags -f filename *.c`
+and `set tags=filename`.
+
+* `:tag name` to lookup the tag, this works well with tab autocompletion
+* `:tn` and `:tp` to go to the next/prev tag for multiple matches.  Can be
+  prefixed with a count.
+* `:ts [name]` to list all current matches or matches for name
+* `^]` while your cursor is over an identifier to jump to it
+* `^T` or `:pop` to go back to your initial location.  Pop can be prefixed with
+  a count.
+
+One of the best features of Vim is syntax highlighting:
+
+    :syntax enable
+    :syntax on
+
+You can force Vim to use a certain language for syntax highlighting via
+`:set syntax=language`
+One of the best features of Vim is syntax highlighting:
+
+    :syntax enable
+    :syntax on
+
+You can force Vim to use a certain language for syntax highlighting via
+`:set syntax=language`.
+
+Vim offers quickfix, an IDE-like edit-compile-debug cycle.  You can use `make`
+from Vim, any compilation errors will end up in a Quickfix List window.  Move
+your cursor over any errors and hit `Enter` to go to it.  Or you can use the
+command `:cnext` or `:cn`.
+
+Some additional info about quickfix:
+
+* `makeprg` is the option for your project's make or compile program
+* `:cnext`, `:cprevious` to go to next or previous errors
+* `:colder`, `:cnewer` to load in older or newer error lists.  Takes count.
+* `:clist` to list all current errors
+* `errorformat` is an option to integrate the make program's error format with
+  vim.  Use `:help errorformat` for more info.
+
+Quickfix also works with `vimgrep`.  To find all occurrences of a phrase:
+
+    :vimgrep phrase *.c *.h
+
+Now use the regular quickfix commands to cycle through.
+
 Other Cool Stuff in Vim
 =======================
