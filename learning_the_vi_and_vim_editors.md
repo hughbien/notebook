@@ -490,6 +490,83 @@ Vim also provides extended regular expressions for searches.  See
 Multiple Windows in Vim
 =======================
 
+Some ways to start editing with multiple windows:
+
+* use the `-o` or `-O` options when starting vim with multiple filenames
+* use the `:split filename` or `:vsplit filename` commands
+* using the `:split` or `:vsplit` without a filename will split the current
+  document
+* use `^Ws` or `^WS` to split the current file
+
+The `split` commands has a few arguments of its own:
+
+    :[n]split [++opt] [+cmd] [file]
+
+* n is how many lines to open in the new window
+* opt passes option information
+* cmd is an ex command to run on opening the new window
+* file is the filename to split
+
+Moving your cursor from one window to another uses commands prefixed with
+`^W`:
+
+* `^W-down`, `^W-j`, `^W-^J` to move to the next window down
+* `^W-up`, `^W-k`, `^W-^K` to move to the next window up
+* `^W-left`, `^W-h`, `^W-^H` to move to the next window left
+* `^W-right`, `^W-l`, `^W-^L` to move to the next window right
+* `^W-w`, `^W-^W` to cycle through windows
+* `^W-t`, `^W-^T` move cursor to top leftmost window
+* `^W-b`, `^W-^B` move cursor to bottom rightmost window
+* `^W-p`, `^W-^P` move cursor to previous window
+* `^W-r` and `^W-R` rotates window placements clockwise or counter clockwise
+* `^W-x` and `^W-X` swaps current window with next, can be prefixed with count
+* use `^W-` with `K, J, H, or L` to move the current window a direction and
+  occupy the full width or height
+* `^W-=` to resize all windows to be equal sizes
+* `^W-+` and `^W--` adds or subtracts a row to the window size
+* `^W-<` and `^W->` adds or subtracts a column
+* `^W-|` maximizes the window size
+* `:resize n` to manually set a size
+* `^W-q` or `:q` to quit the current window
+* `^W-c` or `:hide` to close the current window, sets the hidden option on the
+  buffer
+* `^W-o` or `:only` to close all windows except this one
+
+Vim uses buffers to handle multiple windows.  Use `:ls` or `:buffers` or
+`:files` to get a list of current buffers.  Some status indicators:
+
+* `u` means the buffer is unlisted (use `:ls!` to show it)
+* `%` is the current buffer in the window
+* `#` is the alternate buffer
+* `a` is the active buffer that's loaded/visible
+* `h` is a hidden buffer
+* `-` and `=` is readonly, the later meaning no permissions
+* `+` is a modified buffer
+* `x` is a buffer with read errors
+
+Vim has a few special buffers:
+
+* quickfix used to hold compile/debug errors.  Can be viewed with the commands
+  `:cwindow` or `:lwindow`
+* help for the built-in documentation
+* directory which lets you move around in a directory
+* scratch is an expendable buffer for general purposes
+
+When working with buffers, these commands are handy:
+
+* `windo cmd` executes the cmd in all visible buffers
+* `bufdo cmd` operates on all open buffers, even the invisible ones
+* `:ls`, `:files`, `:buffers` list buffers, add `!` to view special ones
+* `:badd file` add file to buffer list
+* `:bdel`, `:bdelete` will remove buffer from buffer list
+* `:b number`, `:b filename` or the longer version `:buffer arg` to edit a
+  file.  Use tab for autocompletion of filename.  Prefix with `s` to open in
+  a new window
+* `:bn`, `:bnext`, `:bp`, `:bprev` edits the next/previous buffer.  Takes
+  a count argument.
+* `:bN`, `:bNext`, `:bP`, `:bPrev` will move active buffer next or previous.
+  Takes a count argument.
+
 Vim Scripts
 ===========
 
