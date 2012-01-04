@@ -849,6 +849,3 @@ Quickfix also works with `vimgrep`.  To find all occurrences of a phrase:
     :vimgrep phrase *.c *.h
 
 Now use the regular quickfix commands to cycle through.
-
-Other Cool Stuff in Vim
-=======================
