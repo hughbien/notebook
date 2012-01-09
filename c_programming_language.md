@@ -197,6 +197,76 @@ usage.
 Types, Operators, and Expressions
 =================================
 
+Variable names are made of letters, digits, or hyphens.  The first character
+must be a letter.
+
+The data types available are `char`, `int`, `float`, and `double`.  There
+are also `short`, `long`, `signed`, and `unsigned` qualifiers.  See `<limits.h>`
+or `<float.h>` for actual sizes and limits.
+
+    short int sh; // int is optional
+    long int counter;
+
+You've seen integer constants before, they're just numbers.  Float constants use
+a decimal point or exponent (`1e-2`).  Constants can be suffixed with `u` or `U`
+for unsigned.  They can also be suffixed with `l` or `L` for long.  For example:
+`123ul`.
+
+A leading zero specifies octal, a leading `0x` specifies hexadecimal.
+
+A **character constant** is just an integer written as one character in single
+quotes like `'x'`.  It's stored as a numerical value according to the machine's
+character set.
+
+String constants are concatenated at compile time:
+
+    "hello, " "world" == "hello, world"
+
+**Enumeration constants** are lists of constant integers:
+
+    enum boolean { NO, YES };
+
+The first element has value 0, following elements are incremented by 1.  They
+can receive explicit values:
+
+    enum escapes { NEWLINE = '\n', TAB = '\t' };
+
+We've already covered variable declaration.  You can also initialize variables
+at the time you declare it.  Automatic variables without explicit initialization
+have undefined values.  External and static variables are initialized to zero
+by default.
+
+The binary arithmetic operators are: `+`, `-`, `*`, `/`, and `%`.  The logical
+operators are: `>`, `>=`, `<`, `<=`, `==`, `!=`, `&&`, and `||`.
+
+There are also unary increment and decrement operators: `++` and `--`.
+
+C sometimes does implicit type conversions from narrower to wider types, like
+ints to floats.  chars may be used in arithmetic expressions, since they're
+just narrow ints.  Logic expressions may use integers, true just means non-zero.
+
+Longer integers are converted to shorter ones by dropping excess high-order
+bits.
+
+Explicit type conversion can be coerced with a unary **type cast**:
+
+    (type name) expression
+
+C provides operators for bit manipulation: `&` AND, `|` OR, `^` exclusive OR, 
+`<<` left shift, `>>` right shift, `~` one's complement.
+
+AND is often used to mask off bits, while OR is used to turn bits on.  The shift
+operators will shift bits by a given number of positions.  `x << 2` shifts x by
+two positions.  New bits are zero.
+
+The **assignment operator** is an abbreviated way to combine binary operators
+with an assignment.  `i = i + 2` becomes `i += 2` and works with most binary
+operators.
+
+Conditional expressions may also use the **ternary operator** `?:`:
+
+    expr1 ? expr2 : expr3
+
 Control Flow
 ============
 
