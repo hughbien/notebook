@@ -859,3 +859,25 @@ Some useful math functions: `sin`, `cos`, `atan2`, `exp`, `log`, `log10`, `pow`,
 
 The UNIX System Interface
 =========================
+
+All input/output on a Unix system is done by reading or writing to files.  This
+includes peripheral devices like keyboards.  A **file descriptor** is sort of
+an ID to represent files.  Unix and programs use this to read/write.
+
+At the lowest level of read/write, there are these two functions:
+
+    int n_read = read(int fd, char *buf, int n);
+    int n_written = write(int fd, char *buf, int n);
+
+To open a file:
+
+    int fd = open(char *name, int flags, int perms);
+
+The flags can be one of: `O_RDONLY`, `O_WRONLY`, or `O_RDWR`.  You can create
+a file with:
+
+    int fd = create(char *name, int perms);
+
+To remove a file, you **unlink** it.  You can remove a file with:
+
+    unlink(char *name);
