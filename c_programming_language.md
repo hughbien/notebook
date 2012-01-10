@@ -609,6 +609,140 @@ Let's look at some more complicated declarations:
 Structures
 ==========
 
+**Structures** are collections of one or more variables grouped together for
+convenience.
+
+    struct point {
+      int x;
+      int y;
+    };
+
+In this case, `point` is the **structure tag** which is an optional name.  The
+variables inside are called **members**.  A struct declaration defines a type:
+
+    struct { ... } x, y, z;  // x, y, z are all structures
+
+If no variables follow, then the declaration reserves no space.  It just acts
+as a template.  The tag can be used later to declare a variable.
+
+    /* declaring and using structures */
+    struct point pt;
+    struxt point maxpt = {320, 200};
+
+    maxpt.x == 320;
+    maxpt.y == 200;
+
+    /* nested structures */
+    struct rect {
+      struct point pt1;
+      struct point pt2;
+    };
+    struct rect screen;
+    screen.pt1.x = 100;
+
+    /* returning structures from functions */
+    struct point makepoint(int x, int y) {
+      struct point temp = {x, y};
+      return temp;
+    }
+
+    /* passing structures to functions */
+    struct rect canonrect(struct rect r) {
+      struct rect temp;
+      // ...
+      return temp;
+    }
+
+If the structure is large, it's more efficient to pass a pointer:
+
+    struct point *pp = &apoint;
+    pointfn(pp);
+    (*pp).x; // access a member
+
+Pointers to structures are frequently used so there's a shorthand notation to
+access members:
+
+    pp->x == (*pp).x;
+
+The `->` operator has high precedence along with `.`, `()` function calls, and
+`[]` subscripts.  They're used before arithmetic operators.
+
+There's a operator `sizeof` which returns a `size_t`.  This is just an unsigned
+integer value that represents the size of an object or type:
+
+    sizeof object
+    sizeof typename
+
+C provides `typedef` for creating new data types:
+
+    typedef int Length;
+
+Now `Length` is a synonym for `int`.  It can be used in declarations, casts,
+etc...
+
+     Length len, maxlen, *lengths[];
+
+     typdef char *String;
+     String p, lineptr[MAXLINES];
+
+This becomes very handy for `structs` so you don't have to type the keyword
+`struct` when declaring new ones:
+
+    typedef struct tnode {
+      char *word;
+      int count;
+      struct tnode *left;
+      struct tnode *right;
+    } Treenode;
+    Treenode node = {"test", 1, &left, &right};
+
+**Unions** are like structures, but they hold objects of different types/sizes
+at different times in the same storage space:
+
+    union u_tag {
+      int ival;
+      float fval;
+      char *sval;
+    } u;
+    union-name.member;
+    union-pointer->member;
+
+If storage is precious, you may want to pack objects into a single machine
+word using bit flags.  The most compact way is to use one-bit flags in a single
+char or int.  First, define bit masks in powers of 2:
+
+    #define KEYWORD  01
+    #define EXTERNAL 02
+    #define STATIC   04
+    // or
+    enum { KEYWORD = 01, EXTERNAL = 02, STATIC = 04 };
+
+To turn on the flags use the OR bit operator:
+
+    flags |= EXTERNAL | STATIC;
+
+To turn off the flags:
+
+    flags &= ~(EXTERNAL | STATIC);
+
+To check if a flag is on or off:
+
+    flags & EXTERNAL
+    flags & STATIC
+    flags & (EXTERNAL | STATIC)  // checks both at once
+
+Besides bit flags, you may also want to use **bit fields**:
+
+    struct {
+      unsigned int is_keyword : 1;
+      unsigned int is_extern  : 1;
+      unsigned int is_static  : 1;
+    } flags;
+
+`flags` is a table containing three 1-bit fields now.  It can be used just like
+a regular struct.  Here we used 1 as the bit width.  The special width `0` will
+force alignment to the next word boundary.  Fields are implementation dependent.
+
 Input and Output
 ================
 
