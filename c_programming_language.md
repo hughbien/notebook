@@ -270,6 +270,71 @@ Conditional expressions may also use the **ternary operator** `?:`:
 Control Flow
 ============
 
+An **expression** becomes a **statement** when it's followed by a semicolon.
+The semicolon is a statement terminator.  Braces are used to group declarations
+and statements together into a compound statement or **block**, syntactically
+equivalent to a single statement.
+
+We've already seen the if-else statement in earlier examples.  Conditional
+expressions evaluate any non-zero values as true.
+
+    if (condition)
+      statements
+    else if (condition)
+      statements
+    else
+      statements
+
+There's also the **switch** statement:
+
+    switch (expression) {
+      case const-expr: statements
+      case const-expr: statements
+      default: statements
+    }
+
+Constant expressions need to be an integer value (remember that characters are
+integer values also).
+
+C supports while loops:
+
+    while (expression)
+      statement
+ 
+And for loops:
+
+    for (expr; expr; expr)
+      statement
+
+The first expression is the initializer, the second is the condition to stop,
+and the third is the step expression.  Each are optional.
+
+There's also the **do-while loop**:
+
+    do
+      statement
+    while (expression)
+
+It's valuable when the statement needs to be executed at least once.  The
+keyword **break** allows you to exit early from any loops or switch statement.
+The keyword **continue** exits the current block, but continues to the next
+iteration of the loop.
+
+For completeness, the authors mention the **goto statement**.  It's not normally
+used in practice, but is provided:
+
+    for ( ... )
+      for ( ... ) {
+        if (disaster)
+          goto error:
+      }
+    ...
+    error:
+      /* clean up the mess */
+
+The label follows the same naming convention as variables and has the scope of a
+function.
+
 Functions and Program Structure
 ===============================
 
