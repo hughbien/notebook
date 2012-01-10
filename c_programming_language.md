@@ -465,6 +465,147 @@ Some other useful preprocessor statements are `#if`, `#elif`, `#else`, and
 Pointers and Arrays
 ===================
 
+A **pointer** is a variable that contains the address of a variable.  The unary
+`&` operator gives the address of an object:
+
+    p = &c;
+
+The unary `*` operator is the **dereferencing** operator.  Applied to a pointer,
+it accesses the object the pointer points to.
+
+    int x = 1, y = 2, z[10];
+    int *ip;      /* ip is a pointer to int */
+    ip = &x;      /* ip now points to x */
+    y = *ip;      /* y is now 1 */
+    *ip = 0;      /* x is now 0 */
+    ip = &z[0];   /* ip now points to z[0] */
+
+Both `*` and `&` have higher precedence than arithmetic operators.
+
+Since C passes arguments by values in functions, we can use pointers and
+addresses to implement a swap function:
+
+    void swap(int *px, int *py) {
+      int temp;
+      temp = *px;
+      *px = *py;
+      *py = temp;
+    }
+
+Pointers and arrays have a strong relationship.  Any array subscripting can be
+done with pointers.  `int a[10]` creates an array with ten spaces:
+
+    a: [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
+        0  1                       9
+
+Let's assign a pointer to point to the first element, then assign another
+variable to the dereferenced pointer:
+
+    int *pa = &a[0];
+    int x = *pa;
+
+By definition, `pa + 1` points to the next element.  So we can iterate along
+the array using pointer arithmetic:
+
+    *(pa + 1) == a[1]
+    *(pa + 2) == a[2]
+
+In fact, an array is just a pointer to the first element.  C just converts the
+subscript syntax into pointer arithmetic for you:
+
+    a == pa
+    a[i] == *(a+i)
+
+The only difference is that a pointer is a variable, whereas an array is not.
+We can do `pa = a` and `pa++`, but we can't do `a = pa` and `a++`.
+
+Passing an array to a function is just passing a pointer to the first element,
+so it's pass by reference.  You can modify the original contents.
+
+    f(int *arr) { ... }
+    f(int arr[]) { ... }
+
+It's easy to create subarrays using pointer arithmetic also:
+
+    f(a + 2)
+    f(&a[2])
+
+The author illustrates memory management by writing two functions: `alloc(n)`
+and `afree(p)`.  `alloc` returns a pointer to `n` consecutive bytes which must
+be released so it can be re-used later on.  They must be called in order of a
+stack (last-in, first-out).  
+
+`malloc(n)` and `free(p)` use the heap so they don't require the same stack
+ordering.
+
+`alloc` and `afree` uses `allocbuf`, the buffer that stores your data.  There's
+a limit on its size.  If it's not large enough to allocate more memory,
+`alloc` returns zero.  If it's large enough, there's a pointer called `allocp`
+which points to the current position in the stack.  It gets incremented and
+`alloc` returns the pointer.  `afree(p)` just sets `alloccp` back to `p` so
+memory can be re-used.
+
+    #define ALLOCSIZE 10000 /* size of available space */
+    static char allocbuf[ALLOCSIZE]; /* storage for alloc */
+    static char *allocp = allocbuf;  /* next free position */
+
+    char *alloc(int n) {  /* return pointer to n characters */
+      if (allocbuf + ALLOCSIZE - allocp >= n) {  /* it fits */
+        allocp += n;
+        return allocp - n; /* old p */
+      } else      /* not enough room */
+        return 0;
+      }
+    }
+
+    void afree(char *p) { /* free storage pointed to by p */
+      if (p >= allocbuf && p < allocbuf + ALLOCSIZE)
+        allocp = p;
+    }
+
+Strings are just a null-byte terminated character sequence.  A variable holding
+a string is a `char *`.
+
+    char amessage[] = "now is the time";
+    char *pmessage = "now is the time";
+
+The difference is the array is just big enough to hold the sequence of
+characters plus `\0`.  `amessage` contents can be modified and it will always
+refer to the same storage.  `pmessage` is a pointer, it can point somewhere else
+but you cannot modify the contents (C has undefined behavior).
+
+The `main` function actually takes two arguments, an argument count and an
+array of strings.  `argv[0]` is the name of the program.  `argv[argc]` is a
+null pointer.
+
+    main (int argc, char *argv[]) {
+      int i;
+      for (i = 0; i < argc; i++) {
+        printf("%s", argv[i]);
+      }
+    }
+
+You can even have pointers to functions.  These can be assigned, passed around,
+or returned from functions.
+
+    int (*compare)(void *, void *)
+    int* comparep(void *, void *)
+
+`compare` is a pointer to a function that has two `void *` arguments and returns
+an `int`.  `comparep` is a function that returns a pointer to an int.  The
+parentheses are required.
+
+Let's look at some more complicated declarations:
+
+* `char **argv` pointer to char sequence
+* `int (*daytab)[13]` pointer to `array[13]` of int
+* `void *comp()` function returning pointer to void
+* `void (*comp)()` pointer to function returning void
+* `char (*(*x())[])()` function returning pointer to array of pointer to
+  function returning char
+* `char (*(*x[3])())[5]` `array[3]` of pointer to function returning pointer to
+  `array[5]` of char 
+
 Structures
 ==========
 
