@@ -746,5 +746,116 @@ force alignment to the next word boundary.  Fields are implementation dependent.
 Input and Output
 ================
 
+We've already used `getchar(void)` and `putchar(int)`.  This works using
+standard input and output.  For a Unix environment, a program gets input and
+puts output in several ways:
+
+    prog < infile
+    otherprog | prog
+
+    prog > outfile
+    prog | anotherprog
+
+We've also used `int printf(char *format, arg1, arg2, ...)` for formatted
+output.  Here are some basic printf conversions:
+
+* `d,i` decimal number
+* `o` unsigned octal number
+* `x,X` unsigned hexadecimal number
+* `u` unsigned decimal number
+* `c` single character
+* `s` character sequence
+* `f` double
+* `e,E` double exponent for smaller/larger numbers
+* `g,G` double
+* `p` void pointer, implementation dependent representation
+* `%` escapes percents
+
+Notice that `printf` is a varargs functions.  To declare one:
+
+    void functionname(char *fmt, ...)
+
+The `...` means any number of arguments and types may be used.  `<stdarg.h>`
+contains macros that help step through variable argument lists.  `va_list`
+will declare a variable to use that refers to each argument.  `va_arg` returns
+one argument, a step at a time.  `va_end` does cleanup.  `va_start` will
+initialize your first argument.  Here's an example of our own `printf` style
+function:
+
+    void minprintf(char *fmt, ...) {
+      va_list ap;
+      char *p, *sval;
+      int ival;
+      double dval;
+
+      va_start(ap, fmt);
+      for (p = fmt; *p; p++) {
+        if (*p != '%') {
+          putchar(*p);
+          continue;
+        }
+        switch (*++p) {
+        case 'd':
+          ival = va_arg(ap, int);
+          printf("%d", ival);
+          break;
+        case 'f':
+          dval = va_arg(ap, double);
+          printf("%f", dval);
+          break;
+        case 's':
+          for (sval = va_arg(ap, char *); *sval; sval++)
+            putchar(*sval);
+          break;
+        default:
+          putchar(*p);
+          break;
+        }
+      }
+      va_end(ap);
+    }
+
+The input version of `printf` is `int scanf(char *format, ...)`.  This function
+reads characters from standard input.  The variable argument list should each
+be a pointer and is where the input gets stored.
+
+`<stdio.h>` includes a struct called `FILE`.  You can use this to read/write
+file contents.
+
+    FILE *fp = fopen("filename", "rw");  // the mode can include r, w, b, or a
+    getc(fp);      // get a single character
+    putc('C', fp); // print a single character
+
+Standard input/output are actually just file pointers.  They can be accessed
+via `stdin`, `stdout`, or `stderr`.  Some other useful functions are:
+
+    int fscanf(FILE *fp, char *format, ...)
+    int fprintf(FILE *fp, char *format, ...)
+    char *fgets(char *line, int maxline, FILE *fp)
+    int fputs(char *line, FILE *fp)
+ 
+If an error occurs in your program, you may want to print to `stderr` and then
+exit the program with a status code:
+
+    fprintf(stderr, "There was an error");
+    exit(2);  // 0 signals all is well, non-zero usually means an error
+
+Some string functions the authors mention that are useful: `strcat`, `strncat`,
+`strcmp`, `strncmp`, `strcpy`, `strncpy`, `strlen`, `strchr`, `strrchr`.  Some
+character functions: `isalpha`, `isupper`, `islower`, `isdigit`, `isalnum`,
+`isspace`, `toupper`, `tolower`.  For command execution use `system`.  You can
+find documentations for any of these functions via their man page.
+
+`malloc` and `calloc` obtain blocks of memory dynamically:
+
+    void *malloc(size_t n)            // for object of size n
+    void *calloc(size_t n, size_t s)  // for array of n objects of size s
+
+Each returns a pointer to the beginning of the block or NULL on any errors.  The
+pointer must be casted.  Use `free(p)` to free the space pointed to by a pointer.
+
+Some useful math functions: `sin`, `cos`, `atan2`, `exp`, `log`, `log10`, `pow`,
+`sqrt`, `fabs`, `rand`.
+
 The UNIX System Interface
 =========================
