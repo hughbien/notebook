@@ -338,6 +338,130 @@ function.
 Functions and Program Structure
 ===============================
 
+Functions break a large program into smaller chunks.  A function needs to be
+defined or declared as a prototype before being used in a file.  We've already
+seen what a function definition looks like:
+
+    return-type function-name(argument declarations) {
+      declarations and statements
+    }
+
+Many parts are optional, here's the minimal function:
+
+    dummy() {}
+
+The **return statement** is used to return a value from a function to its
+caller:
+
+    return expression;
+
+There's an implicit conversion to the return type if needed.  Parentheses around
+the expression are optional.
+
+Compiling multiple source files will create object files.  If you need to, you
+can recompile a single file to produce an executable, just pass along the
+generated object files:
+
+    % cc main.c getline.c strindex.c
+    % cc main.c getline.o strindex.o
+    % ./a.out
+
+The default return type of a function is an integer.  If it's something else, it
+needs to be explicitly declared.  Function declarations can even be made local
+to another function:
+
+    main() {
+      double atof(char []);
+    }
+
+Functions are considered external, you cannot have a function local to another
+one.  Variables are external if it's defined outside of any function.
+
+The **scope** of a variable is the part of the program in which it may be
+used.  The scope of an external variable or function is from the point it's
+declared (or defined) to the end of the file being compiled.  If it's being used
+before it's defined, an `extern` declaration is required.
+
+    extern int sp;
+    extern double val[];
+
+The lines above declare the variables for usage, but they do not reserve any
+storage space for them.  There should be only one definition among all files,
+other files contain the `extern` declaration to access it.
+
+A **header file** uses the file suffix `.h` and usually contains declarations
+for functions or variables for central access.  For example, a `calc.h` header
+file might look like:
+
+    #define NUMBER '0'
+
+    void push(double);
+    double pop(void);
+    int getop(char []);
+    int getch(void);
+    void ungetch(int);
+
+Whereas the implementation file will look like:
+
+    #include <stdio.h>
+    #include <ctype.h>
+    #include "calc.h"
+
+    int getop() {
+      ...
+    }
+
+The **static** declaration limits the scope of the variable to the source file
+it's in during compilation.  External static means it's external so multiple
+functions can access it, but it's still limited in scope to a single source
+file.  It can be applied to functions also.
+
+    static char buf[BUFSIZE];
+    static int bufp = 0;
+    static ing getch(void) { ... }
+
+It can also be applied to local variables within a function.  Unlike automatics,
+they remain in existence after the end of the function.
+
+The **register** declaration tells the compiler that the variable is in heavy
+use and should consider storing it in the CPU register:
+
+    register int x;
+
+The scope of a variable can be limited by any curly brackets, such as following
+if statements (not just functions).  You can override a variable name when the
+program name enters a new scope:
+
+    int x;
+    f(double x) { ... }
+
+Automatic and register variables have garbage values for implicit initialization.
+External and static variables are initialized to zero.  You can initialize an
+array using curly brackets:
+
+    int days[] = {31, 28, 31, 30};
+
+C functions may be used recursively (calling itself).  Be sure to declare the
+function so it can call itself.
+
+The C preprocessor is an initial step in compilation.  We've used this before
+with `#include` and `#define`.  For file inclusion, use quotes to include a
+relative file and use angle brackets for system libraries. 
+
+Macros can be defined with arguments:
+
+    #define max(A, B) ((A) > B) ? (A) : (B))
+
+They can be undefined with `#undef`.  If a parameter name is preceded by a
+`#` in the replacement text, the preprocessor will use a quoted string.
+
+Some other useful preprocessor statements are `#if`, `#elif`, `#else`, and
+`#endif`.  This can be used for conditional inclusion:
+
+    #if !defined(HDR)
+    #define HDR
+    #endif
+
 Pointers and Arrays
 ===================
 
