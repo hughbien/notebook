@@ -216,6 +216,188 @@ and variable arguments:
 Writing Your First Allegro Game
 ===============================
 
+The first example game in this book is "Tank War", a two-player game on a single
+screen.  The tanks are a series of rectangles:
+
+    void drawtank(int num) {
+      int x = tanks[num].x;
+      int y = tanks[num].y;
+      int dir = tanks[num].dir;
+
+      //draw tank body and turret
+      rectfill(screen, x-11, y-11, x+11, y+11, tanks[num].color);
+      rectfill(screen, x-6, y-6, x+6, y+6, 7);
+
+      //draw the treads based on orientation
+      if (dir == 0 || dir == 2) {
+        rectfill(screen, x-16, y-16, x-11, y+16, 8);
+        rectfill(screen, x+11, y-16, x+16, y+16, 8); 
+      } else if (dir == 1 || dir == 3) {
+        rectfill(screen, x-16, y-16, x+16, y-11, 8);
+        rectfill(screen, x-16, y+16, x+16, y+11, 8); 
+      }
+
+      //draw the turret based on direction
+      switch (dir) {
+        case 0:
+          rectfill(screen, x-1, y, x+1, y-16, 8);
+          break;
+        case 1:
+          rectfill(screen, x, y-1, x+16, y+1, 8);
+          break;
+        case 2:
+          rectfill(screen, x-1, y, x+1, y+16, 8);
+          break;
+        case 3:
+          rectfill(screen, x, y-1, x-16, y+1, 8);
+          break;
+      } 
+    }
+
+    void erasetank(int num) {
+      //calculate box to encompass the tank int left = tanks[num].x - 17;
+      int top = tanks[num].y - 17;
+      int right = tanks[num].x + 17;
+      int bottom = tanks[num].y + 17;
+
+      //erase the tank
+      rectfill(screen, left, top, right, bottom, 0);
+    }
+
+The projectiles from tanks are also small rectangles.  `fireweapon` is used
+to draw the bullet in the correct direction.  It looks at the pixels in front
+to determine if it's a hit or to keep moving it.
+
+    void fireweapon(int num) {
+      int x = tanks[num].x;
+      int y = tanks[num].y;
+
+      //ready to fire again?
+      if (!bullets[num].alive) {
+        bullets[num].alive = 1;
+        //fire bullet in direction tank is facing
+        switch (tanks[num].dir) {
+          //north
+          case 0:
+            bullets[num].x = x;
+            bullets[num].y = y-22;
+            bullets[num].xspd = 0;
+            bullets[num].yspd = -BULLETSPEED;
+            break;
+          //east
+          case 1:
+            bullets[num].x = x+22;
+            bullets[num].y = y;
+            bullets[num].xspd = BULLETSPEED;
+            bullets[num].yspd = 0;
+            break;
+          //south
+          case 2:
+            bullets[num].x = x;
+            bullets[num].y = y+22;
+            bullets[num].xspd = 0;
+            bullets[num].yspd = BULLETSPEED;
+            break;
+          //west
+          case 3:
+            bullets[num].x = x-22;
+            bullets[num].y = y;
+            bullets[num].xspd = -BULLETSPEED;
+            bullets[num].yspd = 0;
+        }
+      }
+    }
+
+The `updatebullet` actually updates the bullet's rendering on the screen.
+
+    void updatebullet(int num) {
+      int x = bullets[num].x;
+      int y = bullets[num].y;
+
+      if (bullets[num].alive) {
+        //erase bullet
+        rect(screen, x-1, y-1, x+1, y+1, 0);
+
+        //move bullet
+        bullets[num].x += bullets[num].xspd;
+        bullets[num].y += bullets[num].yspd;
+        x = bullets[num].x;
+        y = bullets[num].y;
+
+        //stay within the screen
+        if (x < 5 || x > SCREEN_W-5 || y < 20 || y > SCREEN_H-5) {
+          bullets[num].alive = 0;
+          return;
+        }
+
+        //draw bullet
+        x = bullets[num].x;
+        y = bullets[num].y;
+        rect(screen, x-1, y-1, x+1, y+1, 14);
+
+        //look for a hit
+        if (getpixel(screen, bullets[num].x, bullets[num].y)) {
+          bullets[num].alive = 0;
+          explode(num, x, y);
+        }
+
+        //print the bullet position
+        textprintf_ex(screen, font, SCREEN_W/2-50, 1, 2, 0,
+          "B1 %-3dx%-3d B2 %-3dx%-3d", bullets[0].x, bullets[0].y,
+          bullets[1].x, bullets[1].y);
+      }
+    }
+
+There's an array called `key` that stores values of keys pressed.  We'll use
+this to move the tanks.
+
+    void getinput() {
+      //hit ESC to quit if (key[KEY_ESC])
+      gameover = 1;
+      //WASD / SPACE keys control tank 1
+      if (key[KEY_W]) forward(0);
+      if (key[KEY_D]) turnright(0);
+      if (key[KEY_A]) turnleft(0);
+      if (key[KEY_S]) backward(0);
+      if (key[KEY_SPACE]) fireweapon(0);
+
+      //arrow / ENTER keys control tank 2
+      if (key[KEY_UP]) forward(1);
+      if (key[KEY_RIGHT]) turnright(1);
+      if (key[KEY_DOWN]) backward(1);
+      if (key[KEY_LEFT]) turnleft(1);
+      if (key[KEY_ENTER]) fireweapon(1);
+
+      //short delay after keypress
+      rest(10);
+    }
+
+The `checkpath` function checks to see if the tank's pathway is clear.
+
+    int checkpath(int x1,int y1,int x2,int y2,int x3,int y3) {
+      if (getpixel(screen, x1, y1) ||
+          getpixel(screen, x2, y2) ||
+          getpixel(screen, x3, y3))
+        return 1;
+      else
+        return 0;
+    }
+
+The structs that define the tanks and bullets are located in the header.
+
+    struct {
+      int x, y;
+      int dir, speed;
+      int color;
+      int score;
+    } tanks[2];
+
+    struct {
+      int x, y;
+      int alive;
+      int xspd, yspd;
+    } bullets[2];
+
 Getting Input from the Player
 =============================
 
