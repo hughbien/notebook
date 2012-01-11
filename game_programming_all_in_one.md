@@ -401,6 +401,81 @@ The structs that define the tanks and bullets are located in the header.
 Getting Input from the Player
 =============================
 
+To start detecting keyboard input, you'll need to initialize Allegro:
+
+    int install_keyboard();
+
+The `allegro_exit` function will handle uninitializing it, but if you need to
+do so before the exit is called use:
+
+    void remove_keyboard();
+
+Allegro keeps track of keys pressed in a global variable:
+
+    extern volatile char key[KEY_MAX];
+
+Check Allegro's `keyboard.h` for constants of each key on the keyboard.  A
+few examples are:
+
+* `KEY_UP`
+* `KEY_DOWN`
+* `KEY_LEFT`
+* `KEY_RIGHT`
+* `KEY_SPACE`
+* `KEY_LSHIFT`
+
+The typical game loop is:
+
+    while (!key[KEY_ESC]) {
+      // do some stuff
+    }
+
+Besides using the `key` variable, you can also use buffered keyboard input which
+reads input via ASCII code.
+
+    int readkey();                // returns next ASCII code or waits
+    int ureadkey(int *scancode);  // returns next Unicode key or waits
+
+The ASCII code is actually a two-byte integer value, the low byte is the ASCII
+code that changes depending on modifier keys and the high byte is the scan
+code regardless of modifier keys.
+
+For demos, you can simulate key presses using:
+
+    void simulate_keypress(int key);
+    void simulate_ukeypress(int key, int scancode);
+    void clear_keybuf();
+
+To detect mouse input, you'll also need to initialize it:
+
+    int install_mouse();
+    void remove_mouse(); // optional, only if you want to disable it
+
+The current mouse position is available via:
+
+    extern volatile int mouse_x;
+    extern volatile int mouse_y;
+    extern volatile int mouse_z;  // wheel
+    extern volatile int mouse_b;  // mouse button
+
+`mouse_b` is just packed bits.  Use bit masks to detect which button was
+pressed:
+
+    mouse_b & 1; // left button
+    mouse_b & 2; // right button
+    mouse_b & 4; // center button
+
+You can personalize the mouse cursor with:
+
+    void set_mouse_sprite(BITMAP *sprite);
+    void set_mouse_sprite_focus(int x, int y); // default is top-left
+    void show_mouse(BITMAP *bmp);  // tell mouse where to be drawn
+    void scare_mouse();
+    void unscare_mouse();
+    void position_mouse(int x, int y);
+    void set_mouse_range(int x1, int y1, int x2, int y2);
+    void set_mouse_speed(int xspeed, int yspeed);
+
 Mastering the Audible Realm
 ===========================
 
