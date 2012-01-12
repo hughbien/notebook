@@ -479,6 +479,92 @@ You can personalize the mouse cursor with:
 Mastering the Audible Realm
 ===========================
 
+The first thing to do is detect digital sound drivers.  This function returns
+zero if none are available or the maximum number of voices a driver can
+provide:
+
+    int detect_digi_driver(int driver_id)
+
+You then need to reserve digital and Midi sound drivers.  If you reserve too
+many, the quality will drop.  Pass `-1` to restore voice setting to default:
+
+    void reserve_voices(int digi_voices, int midi_voices)
+
+You can control the volume per voice.  Pass `-1` to reset, use `0` for maximum
+volume without distortion.  Use `1` when panning, each time you increase the
+parameter by one the sound of each voice is halved.
+
+    void set_volume_per_voice(int scale)
+
+After configuring the sound system, Allegro can initialize it with:
+
+    int install_sound(int digi, int midi, const char *cfg_path)
+
+For `digi` the default is `DIGI_AUTODETECT`, for `midi` the default is
+`MIDI_AUTODETECT`.
+
+If you ever need to disable sound use:
+
+    void remove_sound()
+
+This gets called by default when Allegro exits.  The `set_volume` function
+lets you set volume from 0 to 255.  Use `-1` for one parameter to leave it
+unchanged:
+
+    void set_volume(int digi_volume, int midi_volume)
+
+To load a sample file in `WAV` or `VOC` format and play it:
+
+    SAMPLE *load_sample(const char *filename)
+    int play_sample(const SAMPLE *spl, int vol, int pan, int freq, int loop)
+    void stop_sample(const SAMPLE *spl)
+    void adjust_sample(const SAMPLE *spl, int vol, int pan, int freq, int loop)
+    SAMPLE *create_sample(int bits, int stereo, int freq, int len)
+    void destroy_sample(SAMPLE *spl)
+
+The same thing for voices:
+
+    int allocate_voice(const SAMPLE *spl)
+    void deallocate_voice(int voice)
+    void reallocate_voice(int voice, const SAMPLE *spl)
+    void release_voice(int voice)
+    void voice_start(int voice)
+    void voice_stop(int voice)
+
+To adjust the loop status:
+
+    void voice_set_playmod(int voice, int playmode)
+
+The available playmodes are:
+
+* `PLAYMODE_PLAY`
+* `PLAYMODE_LOOP`
+* `PLAYMODE_FORWARD`
+* `PLAYMODE_BACKWARD`
+* `PLAYMODE_BIDIR` reverses direction on each finish
+
+You can also control the voice volume, pitch, and panning:
+
+    int voice_get_volume(int voice)
+    void voice_set_volume(int voice, int volume)
+    void voice_ramp_volume(int voice, int time, int endvol)
+    void voice_stop_volumeramp(int voice)
+    void voice_set_frequency(int voice, int frequency)
+    int voice_get_frequency(int voice)
+    void voice_sweep_frequency(int voice, int time, int endfreq)
+    void voice_stop_frequency_sweep(int voice)
+    int voice_get_pan(int voice)
+    void voice_set_pan(int voice, int pan)
+    void voice_sweep_pan(int voice, int time, int endpan)
+    void voice_stop_pan_sweep(int voice)
+
+MIDI music uses different functions.  It uses the struct `midi`:
+
+    int get_midi_length(MIDI *midi)
+    int play_midi(MIDI *MIDI, int loop)
+    void midi_pause()
+    void midi_resume()
+
 Basic Bitmap Handling and Blitting
 ==================================
 
