@@ -568,6 +568,106 @@ MIDI music uses different functions.  It uses the struct `midi`:
 Basic Bitmap Handling and Blitting
 ==================================
 
+A sprite is a animated, moving object that usually interacts with the player -
+or it could be the player.  Usually you draw it using a graphic editing tool
+like Photoshop, save it in a file, then load that image with Allegro.
+
+    BITMAP *tank = create_bitmap(32, 32);
+    clear_bitmap(tank);
+    putpixel(tank, 16, 16, 15);
+    blit(tank, screen, 0, 0, 0, 0, 32, 32);
+
+`create_bitmap` allocates memory for the bitmap of `32x32` size.  `clear_bitmap`
+actually clears the memory space.  The `putpixel` function was used previously
+with `screen` to draw directly to the screen.  In this case, we want to draw
+on the new bitmap instead.  **Blit** stands for bit-block transfer (copying
+memory from one location to another).
+
+Here's the bitmap structure:
+
+    typedef struct BITMAP {
+      int w, h;              // width and height
+      int clip;              // flag if clipping is turned on
+      int cl, cr, ct, cb;    // clip left, right, top, bottom values
+      GFX_VTABLE *vtable;    // drawing functions
+      void *write_bank;
+      void *read_bank;
+      void *dat;             // memory for bitmap
+      unsigned long id;      // for identifying sub bitmaps
+      void *extra;           // points to struct with more info
+      int x_ofs;             // horizontal offset
+      int y_ofs;             // vertical offset
+      int seg;               // bitmap segment
+      ZERO_SIZE_ARRAY(unsigned char *, line);
+    } BITMAP;
+
+If your artwork is in a certain color depth, you may want to call
+`set_color_depth` after `set_gfx_mode` in the initialization code.  Or you can
+use `create_bitmap_ex` whose first parameter is the color depth.  You can get
+the color depth with `bitmap_clor_depth(BITMAP *bmp)`.  There's also an
+alternative to `clear_bitmap`, `clear_to_color(BITMAP *bitmap, int color)`.
+
+You can create sub-bitmaps that shares memory with a parent bitmap.  Any changes
+to the sub-bitmap will be visible on the parent (and the reverse is true):
+
+    BITMAP *create_sub_bitmap(BITMAP *parent, int x, int y, int w, int h);
+
+Anything that goes beyond the boundaries of the sub bitmap will not be drawn.
+This is especially useful for the `screen` for windowing effects like scrolling
+backgrounds.
+
+When you're done with a bitmap, you want to free its memory with:
+
+    void destroy_bitmap(BITMAP *bitmap);
+
+Some functions to retrieve information for bitmaps:
+
+    int bitmap_mask_color(BITMAP *bmp);
+    int is_same_bitmap(BITMAP *bmp1, BITMAP *bmp2);
+    int is_linear_bitmap(BITMAP *bmp);  // linear memory
+    int is_planar_bitmap(BITMAP *bmp);
+    int is_memory_bitmap(BITMAP *bmp);
+    int is_screen_bitmap(BITMAP *bmp);
+    int is_video_bitmap(BITMAP *bmp);
+
+Bitmaps are actually automatically locked/unlocked every time you draw on it.
+It can be a bottleneck.  Instead, you can do it manually:
+
+    void acquire_bitmap(BITMAP *bmp);
+    void release_bitmap(BITMAP *bmp);
+    void acquire_screen();
+    void release_screen();
+
+You can clip a bitmap so it never draws beyond a boundary:
+
+    void set_clip(BITMAP *bitmap, int x1, int y1, int x2, int y2);
+
+Turn it off by giving all zeros for coordinates.  By default, a bitmap is
+clipped to its created size.
+
+You can load a bitmap from disk after saving it as an optimization:
+
+    int save_bitmap(const char *filename, BITMAP *bmp, const RGB *pal);
+    BITMAP *load_bitmap(const char *filename, RGB *pal);
+
+To save a screenshot to disk:
+
+    BITMAP *bmp;
+    bmp = create_sub_bitmap(screen, 0, 0, SCREEN_W, SCREEN_H);
+    save_bitmap("screenshot.pcx", bmp, NULL);
+    destroy_bitmap(bmp);
+
+Here's the prototype for the blit function:
+
+    void blit(BITMAP *source, BITMAP *dest, int source_x, int source_y,
+      int dest_x, int dest_y, int width, int height);
+
+There are also more specialized versions of blitting:
+
+* `stretch_blit` for scaling
+* `masked_blit` for copying only solid pixels
+* `masked_stretch_blit` for both
+
 Introduction to Sprite Programming
 ==================================
 
