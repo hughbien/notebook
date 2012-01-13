@@ -805,8 +805,62 @@ Next, Harbour walks us through creating a sprite handler starting with the
       }
     }
 
+Now, we need to learn how to store all frames into a single image.  Here's the
+sprite tile algorithm:
+
+    int x = startx + (frame % columns) * width;
+    int y = starty + (frame / columns) * height;
+
+Usually `startx` and `starty` are zero.  If you decide to cache all animations
+into a single file, you can use `startx` and `starty` to initialize the starting
+positions.  Here's the function that can grab a single frame out of an image:
+
+    BITMAP *grabframe(BITMAP *source, int width, int height,
+      int startx, int starty, int columns, int frame) {
+      BITMAP *temp = create_bitmap(width,height);
+      int x = startx + (frame % columns) * width;
+      int y = starty + (frame / columns) * height;
+      blit(source,temp,x,y,0,0,width,height);
+      return temp;
+    }
+
+Note that it's up to the caller to destroy the bitmap after it's no longer
+needed.
+
 Advanced Sprite Programming
 ===========================
+
+Allegro can use run-length encoding or RLE to compress sprite images.  These
+sprites cannot be flipped, rotated, or copied into.
+
+    RLE_SPRITE *get_rle_sprite(BITMAP *bitmap);
+    void destroy_rle_sprite(RLE_SPRITE *sprite);
+    void draw_rle_sprite(BITMAP *bmp, const RLE_SPRITE *sprite, int x, int y);
+    void draw_trans_rle_sprite(BITMAP *bmp, const RLE_SPRITE *sprite,
+      int x, int y);
+    void draw_lit_rle_sprite(BITMAP *bmp, const RLE_SPRITE *sprite,
+      int x, int y, int color);
+
+Compiled sprites actually store the machine code instructions to draw a
+specific image onto a bitmap, significantly improving speed.  They take up more
+memory than standard or compressed sprites.
+
+    COMPILED_SPRITE *get_compiled_sprite(BITMAP *bitmap, int planar);
+    void destroy_compiled_sprite(COMPILED_SPRITE *sprite);
+    void draw_compiled_sprite(BITMAP *bmp, const COMPILED_SPRITE *sprite,
+      int x, int y);
+
+The easiest and most efficient collision detection is to compare bounding
+rectangles of two objects.  Keep these boundaries lean - they may even be
+smaller than the actual image to improve accuracy.
+
+    int inside(int x, int y, int left, int top, int right, int bottom) {
+      return x > left && x < right && y > top && y < bottom;
+    }
+
+Harbour then creates a function which calls `inside` four times and takes two
+sprites as input.  There's an alternative which uses a `border` parameter to
+reduce the bounding box by a certain amount.
 
 Programming the Perfect Game Loop
 =================================
