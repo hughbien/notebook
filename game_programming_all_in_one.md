@@ -887,32 +887,150 @@ that requires real processing since timing is crucial.
 Programming Tile-Based Scrolling Backgrounds
 ============================================
 
-Creating a Game World: Editing Tiles and Levels
-===============================================
+Here's an example program that uses the arrow keys to scroll around the game
+world:
 
-Loading Native Mappy Files
-==========================
+    #include <stdlib.h>
+    #include "allegro.h"
 
-Vertical Scrolling Arcade Games
-===============================
+    //define some convenient constants
+    #define MODE GFX_AUTODETECT_FULLSCREEN
+    #define WIDTH 640
+    #define HEIGHT 480
+    #define STEP 8
+    
+    BITMAP *scroll; //virtual buffer variable
+    int x=0, y=0; //position variables 
+    int main(void) {
+      allegro_init();
+      install_keyboard();
+      install_timer();
+      set_color_depth(16);
+      set_gfx_mode(MODE, WIDTH, HEIGHT, 0, 0);
 
-Horizontal Scrolling Platform Games
-===================================
+      //load the large bitmap image from disk
+      scroll = load_bitmap("bigbg.bmp", NULL);
 
-The Importance of Game Design
-=============================
+      while (!key[KEY_ESC]) {
+        if (key[KEY_RIGHT]) {
+          x += STEP;
+          if (x > scroll->w - WIDTH) x = scroll->w - WIDTH;
+        }
+        if (key[KEY_LEFT]) {
+          x -= STEP;
+          if (x < 0) x = 0;
+        }
+        if (key[KEY_DOWN]) {
+          y += STEP;
+          if (y > scroll->h - HEIGHT) y = scroll->h - HEIGHT;
+        }
+        if (key[KEY_UP]) {
+          y -= STEP;
+          if (y < 0) y = 0;
+        }
+
+        //draw the scroll window portion of the virtual buffer
+        blit(scroll, screen, x, y, 0, 0, WIDTH-1, HEIGHT-1);
+        //slow it down
+        rest(20);
+      }
+      destroy_bitmap(scroll);
+      allegro_exit();
+      return 0;
+    }
+    END_OF_MAIN()
+
+**Tiling** is a popular technique to create backgrounds made up of tiles.  It
+takes up little memory compared to a full bit-mapped background.  Here's an
+example that draws random tiles:
+
+    void drawframe(BITMAP *source, BITMAP *dest,
+        int x, int y, int width, int height,
+        int startx, int starty, int columns, int frame) {
+      int framex = startx + (frame % columns) * width;
+      int framey = starty + (frame / columns) * height;
+      masked_blit(source,dest,framex,framey,x,y,width,height);
+    }
+    // ...
+    scroll = create_bitmap(1600, 1200);
+    tiles = load_bitmap("tiles.bmp", NULL);
+    for (tiley=0; tiley < scroll->h; tiley+=TILEH) {
+      for (tilex=0; tilex < scroll->w; tilex+=TILEW) {
+        n = rand() % TILES;
+        drawframe(tiles, scroll, tilex, tiley, TILEW+1, TILEH+1,
+          0, 0, COLS, n);
+      } 
+    }
+
+You can save a game level using an array to represent the world.  For example:
+
+    int map[MAPW*MAPH] = {
+      0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+      0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,
+      0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0,
+      0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+    };
+
+In this case, `2` represents grass and `0` represents stone.
 
 Using Datafiles to Store Game Resources
 =======================================
 
-Playing Movies and Cut Scenes
-=============================
+Allegro has support for datafiles to store game resources with encryption
+and compression.  They're similar to ZIP archive files in that they can contain
+multiple files of different types.  It uses the LZSS compression algorithm.
 
+    typedef struct DATAFILE {
+      void *dat;
+      int type;
+      long size;
+      void *prop;
+    } DATAFILE;
+
+Here's example usage:
+
+    DATAFILE *data = load_datafile("game.dat");
+    draw_sprite(screen, data[PLAYER_SPRITE].dat, x, y);
+
+Allegro comes with a `dat` script that can be used to manually compress your
+data into a datafile.
+
+    dat -a -t BMP -bpp 16 test.dat back.bmp
+    dat -l test.dat
+
+The `load_datafile` loads a datafile into memory and returns a pointer.  If
+encrypted, use the `packfile_password` function to set the key.  Use the
+`unload_datafile` function to free memory.  You can also use
+`load_datafile_object` to load a specific object instead of an array.  This
+has the equivalent `unload_datafile_object`.
 Introduction to Artificial Intelligence
 =======================================
 
-Multi-Threading
-===============
+There are several sub-fields within AI.  This section is a brief introduction.
 
-Publishing Your Game
-====================
+**Expert systems** solve problems usually solved by specialized humans.  For
+example, it could ask you a set of true/false questions to determine an answer.
+It uses a knowledge tree to determine that answer.
+
+**Fuzzy logic** expands on that by providing values in between true and false.
+The return value is usually also fuzzy.
+
+**Genetic algorithms** use something similar to real-life heredity in biology.
+The steps are:
+
+1. pick population and set initial values
+2. order values into a flat bit vector
+3. calculate fitness of each member of population
+4. keep only two with highest fitness
+5. mate two to form a child
+
+**Neural networks** imitate the workings of a brain.
+
+**Deterministic algorithms** is a game technique that uses predetermined
+behaviors of objects in relation to the universe problem.  For example, you can
+randomly move an object left or right.  Or make a guard run towards an intruder
+if the intruder is within vision.
+
+Harbour mentions **finite state machines** as a great pattern to use within
+your game implementations.
+
