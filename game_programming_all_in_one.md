@@ -671,6 +671,35 @@ There are also more specialized versions of blitting:
 Introduction to Sprite Programming
 ==================================
 
+Game sprites came from the mythical sprite - a tiny, flying creature like a
+classical fairy but more mischievous.
+
+The first function you'll use is `draw_sprite` that draws the sprite image using
+transparency.  Allegro uses the color pink `(255, 0, 255)` to define
+transparency in an image:
+
+    void draw_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y)
+
+This draws the entire sprite, since there's no source coordinates.  A better
+way to do this is to store all frames into a single image.  Also, you may want
+to use `set_gfx_mode` to set a 16-bit color mode instead of the default 8-bit
+so transparency works correctly.
+
+To draw transformed sprites:
+
+    void stretch_sprite(BITMAP *bmp,BITMAP *sprite,int x,int y,int w,int h)
+    void draw_sprite_v_flip(BITMAP *bmp, BITMAP *sprite, int x, int y)
+    void draw_sprite_h_flip(BITMAP *bmp, BITMAP *sprite, int x, int y)
+    void draw_sprite_vh_flip(BITMAP *bmp, BITMAP *sprite, int x, int y)
+    void rotate_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y, fixed angle)
+    void pivot_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y,
+      int cx, int cy, fixed angle)
+
+Drawing a semi-transparent sprite requires setting the alpha blender:
+
+    void set_alpha_blender()
+    void draw_trans_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y)
+
 Sprite Animation
 ================
 
