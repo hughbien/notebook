@@ -703,6 +703,108 @@ Drawing a semi-transparent sprite requires setting the alpha blender:
 Sprite Animation
 ================
 
+Allegro 4 doesn't actually have built-in functions to handle sprite sheets or
+sprite animation.  It has low-level sprite routines from which you can build
+your own sprite handler.  In this chapter, Harbour shows us how to build one.
+
+Here's a program that animates a cat given six image files:
+
+    #include <stdlib.h>
+    #include <stdio.h>
+    #include <allegro.h> 
+
+    #define WHITE makecol(255,255,255)
+    #define BLACK makecol(0,0,0)
+
+    BITMAP *kitty[7];
+    char s[20];
+    int curframe=0, framedelay=5, framecount=0;
+    int x=100, y=200, n;
+
+    int main(void) {
+      // initialize the program
+      allegro_init();
+      install_keyboard();
+      install_timer();
+      set_color_depth(16);
+      set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0, 0);
+      textout_ex(screen, font, "AnimSprite Program (ESC to quit)",
+        0, 0, WHITE, 0);
+      
+      // load the animated sprite
+      for (n=0; n<6; n++) {
+        sprintf(s,"cat%d.bmp",n+1);
+        kitty[n] = load_bitmap(s, NULL);
+      }
+
+      // main loop
+      while (!keypressed()) {
+        // erase the sprite
+        rectfill(screen, x, y, x+kitty[0]->w, y+kitty[0]->h, BLACK);
+
+        // update the position
+        x += 5;
+        if (x > SCREEN_W - kitty[0]->w) x = 0;
+        
+        // update the frame
+        if (framecount++ > framedelay) {
+          framecount = 0;
+          curframe++;
+          if (curframe > 5) curframe = 0;
+        }
+
+        acquire_screen();
+        draw_sprite(screen, kitty[curframe], x, y);
+        release_screen();
+        rest(10);
+      }
+
+      allegro_exit();
+      return 0;
+    }
+    END_OF_MAIN()
+
+`framedelay` and `framewcount` work together to create a smooth animation.
+You can't just switch the bitmap on every loop, otherwise it'd be too fast of
+an animation.
+
+Next, Harbour walks us through creating a sprite handler starting with the
+`SPRITE` struct and `updatesprite` function:
+
+    typedef struct SPRITE {
+      int x,y;                          // sprite position
+      int width,height;                 // size of sprite
+      int xspeed,yspeed;                // how many pixels to move
+      int xdelay,ydelay;
+      int xcount,ycount;
+      int curframe,maxframe,animdir;
+      int framecount,framedelay;        // animation variables
+    } SPRITE;
+
+    void updatesprite(SPRITE *spr) {
+      //update x position
+      if (++spr->xcount > spr->xdelay) {
+        spr->xcount = 0;
+        spr->x += spr->xspeed;
+      }
+      //update y position
+      if (++spr->ycount > spr->ydelay) {
+        spr->ycount = 0;
+        spr->y += spr->yspeed;
+      }
+      //update frame based on animdir
+      if (++spr->framecount > spr->framedelay) {
+        spr->framecount = 0;
+        if (spr->animdir == -1) {
+          if (--spr->curframe < 0)
+            spr->curframe = spr->maxframe;
+        } else if (spr->animdir == 1) {
+          if (++spr->curframe > spr->maxframe)
+            spr->curframe = 0;
+        }
+      }
+    }
+
 Advanced Sprite Programming
 ===========================
 
