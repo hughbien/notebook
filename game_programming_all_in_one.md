@@ -865,6 +865,25 @@ reduce the bounding box by a certain amount.
 Programming the Perfect Game Loop
 =================================
 
+So far we've been using `rest` to delay our game.  Allegro has much better
+timing features.  Like other features, it needs to be activated:
+
+    int install_timer();
+    void remove_timer(); // optional, happens at allegro_exit
+
+We've use `rest` before:
+
+    void rest(long milliseconds);
+    void rest_callback(long milliseconds, void (*callback)());
+
+Interrupt handlers are used to run functions at specific intervals.
+
+    int install_int(void (*proc)(), int milliseconds)
+    void remove_int(void (*proc)())  // optional, happens at allegro_exit
+
+Harbour recommends you use interrupt routines to set flags instead of any work
+that requires real processing since timing is crucial.
+
 Programming Tile-Based Scrolling Backgrounds
 ============================================
 
