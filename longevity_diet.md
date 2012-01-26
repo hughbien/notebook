@@ -154,8 +154,64 @@ because they steal electrons from molecules causing a domino effect.
 
 Your Life, Your Decision
 ========================
+
+It may not be worth giving up the pleasures of food to extend your youthful
+life.  It's your decision.  Keep in mind that there are no absolutes, you can
+still eat anything you want in moderation.
+
+CR should not be attempted if you are pregnant, not fully grown, have a history
+of eating disorders, or have not consulted a health-care professional.
+
+There are three ways to implement CR:
+
+1. weight watching
+2. calorie counting
+3. measuring health markers
+
+For weight watching, you should have a **set point** which is the weight your
+body naturally wants to be at given no exercise and allowing yourself to eat
+whatever you want.  Implementing CR should result in losing 10%-25% of that
+weight.
+
+Calorie counting is just what it sounds like, keep a diary of the food you eat.
+First, stick with the same amount of calories but replace the food so it's
+healthier (more veggies and nutrient-rich).  Then slowly reduce your calories.
+
 The Longevity Diet as a Way of Life
 ===================================
+
+You can mix and match what you eat as long as you get a variety of veggies
+and nutrient-rich foods.  You can eat whenever you want, do whatever fits your
+schedule best.  Don't reduce calories immediately, it needs to be a gradual
+change.  Focus on veggies and fruits and think of it as a rainbow:
+
+* blue - blueberries
+* purple - red cabbage, black olives, grapes, plums, blackberries, eggplants
+* red - beets, tomatoes, red peppers, red onions, apples, cherries, watermelon,
+  strawberries, rasberries
+* orange - carrots, melons, oranges, tangerines, peaches, apricots
+* yellow - corn, bananas, lemons, grapefruit, pineapple
+* green - cabbage, lettuce, bok choy, broccoli, sprouts, kale, spinach
+* white - cauliflower, garlic
+
+Plants will form the bulk of your diet.  Aim for the good fats like
+monounsaturated fats instead of saturated fats.  Fatty food should include more
+omega-3 like virgin olive oil and flaxseed oil.
+
+Your priorities are:
+
+1. reduce intake of calories
+2. eat enough protein for body weight and level of CR
+3. get adequate amounts of omega-3 fatty acids
+4. eliminate processed foods from diet
+
+You can do it in steps:
+
+1. eliminate all junk food and empty calories
+2. start introducing more veggies and fruits to your diet
+3. make sure you have all the nutrients required
+4. avoid sugars
+
 Your Daily Food Diary
 =====================
 Parenting the Longevity Diet Lifestyle
