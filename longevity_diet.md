@@ -106,6 +106,52 @@ Some basic guidelines to follow:
 
 Your Calories, Your Life
 ========================
+
+This chapter covers the current theories of aging and how CR might effect it.
+The current recommended calories for moderately active men of average size is
+2500/day.  For women it's 2000/day.
+
+Both aging and how CR affects it are all theories.
+
+**Disposable Soma** - disposable body - this theory says individuals are
+disposable so long as the species can survive.  On CR, you're tricking your body
+into thinking food is scarce.  It begins to act differently in order to survive.
+For a species, if food is scarce it makes sense that individuals must remain
+youthful longer so that reproduction can occur at a later stage (thus waiting
+until food is more available).
+
+**Antagonistic Pleiotropy** - some genes are beneficial to use early in our
+lives but antagonistic later on.  IGF-1 helps us grow early but accelerates
+aging later.  Cell senescence is required to prevent cancer but could cause use
+to grow older.
+
+**Rate of living** - the faster you live the sooner you'll die.  Humans on CR
+use their body's energy more efficiently.
+
+**Immunological** - similar to antagonistic pleiotropy, some antibodies in your
+body attack parts of it.  These tend to multiply with age.  CR reduces the
+amount of this autoantibodies.
+
+**Neuroendocrine** - network of brain cells, hormones, and glands govern the
+homeostasis of your body.  Over time, the hypothalamus gets damaged and
+regulates hormone less effectively.  Animals on CR tend to retain their youthful
+hormone regulation longer.
+
+**Cellular Senescence** - most cells divide less than fifty times by the time we
+die due to the hayflick limit and perhaps telomeres.  Animals on CR experience
+less telomere shortening during DNA replication.
+
+**Wear and Tear** - the general theory that your system gets damaged overtime
+as we use it causing aging.
+
+**Glycemic** - we have a lot of glucose floating in our system.  Too much fuel
+causes collateral damage.  Glucose molecules spontaneously binds to amino acids
+in proteins, changing its structure and functions becoming advanced glycation
+end-products (AGEs).  CR lowers average levels of circulating glucose.
+
+**Free Radical** - this theory says free radicals cause havoc in our systems
+because they steal electrons from molecules causing a domino effect.
+
 Your Life, Your Decision
 ========================
 The Longevity Diet as a Way of Life
