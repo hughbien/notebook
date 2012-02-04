@@ -317,5 +317,43 @@ to this.  Chronic stress decreases the body's ability to heal.
 
 Optimal Living from a Few Veteran Practitioners
 ===============================================
+
+This chapter includes practitioners' stories about why they do CR and how it
+is different from other diets.  CR doesn't have a set amount of rules, it's up
+to you to learn about nutrition and how to effectively pack in nutrients to
+a small amount of calories.  It's also more of a lifestyle change for a
+more youthful/longer life instead of weight loss.
+
 Recipes
 =======
+
+This chapter includes a few recipes.
+
+Veggies Primavera:
+
+* 1 pound packaged raw, cut, mixed veggies (150 calories)
+* choose one of the following: fish, turkey leg, chicken breast, chickpeas,
+  edamame, tofu for protein
+* select a sauce: extra-virgin olive oil, balsamic vinegar with herbs
+
+Pesto:
+
+* fresh is better but commercial is easier
+* 3 cloves garlic peeled
+* 1 bunch of fresh basil or half/half basil/arugula
+* 1 tablespoon olive oil
+* 4 tablespoons parmesan cheese
+
+Indian Masala Sauce:
+
+* 1 tablespoon olive or coconut oil
+* 2 cloves garlic minced
+* 2 teaspoons grated fresh ginger
+* 1 onion, minced
+* 1 jalepeno or serrano chile
+* 1/2 teaspoon ground cumin
+* 1/2 teaspoon ground coriander
+* 1/2 cup plain nonfat or soy yogurt
+
+A huge chunk of the book is made up of recipes, but it's pretty easy to come up
+with your own as long as you know the basics of nutrition.
