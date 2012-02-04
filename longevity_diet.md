@@ -214,12 +214,107 @@ You can do it in steps:
 
 Your Daily Food Diary
 =====================
+
+Your food diary will include nutrient/caloric intake but will also have extra
+meanings/circumstances like what caused splurges.  This way, you can keep track
+and get rid of the root cause.
+
+The categories your food belongs to are:
+
+* vegetables and fruits
+* whole grains
+* protein
+* omega-3
+* fats
+* calcium
+* enriched foods and sweets
+* miscellaneous
+
+This chapter includes a ton of examples from CR dieters.  Here's an example
+day:
+
+* walnuts, almonds, peanuts
+* avocado slice, whole wheat toast, hummus spread
+* apple/carrot juice
+* steamed broccoli, red pepper, kale, tomato squash, sweet potato, onions,
+  cauliflower, tomato juice, tofu
+* toasted almonds, black tea
+
+Here's another example day:
+
+* smoothie with soymilk, yogurt, banana, strawberries
+* almonds, tea
+* broccoli, cauliflower, carrot, zucchini, spinach, mushrooms, celery, red
+  pepper, tomato, purple cabbage, cucumber, olive oil, hummus, avocado,
+  whole wheat toast
+* lentils with spices, peas, carrots, and red wine
+
 Parenting the Longevity Diet Lifestyle
 ======================================
+
+The steps to implement any lifestyle change are:
+
+1. believe in evidence
+2. cultivate that it will work for you
+3. make a plan
+4. trial-and-error implementation
+5. stay on board or revert back
+
+This chapter just includes some tips on how to stick with CR.  Some tips
+includes making a contract with yourself, setting a specific length trial
+period, and learning as much as possible about nutrition.
+
 Monitoring the Longevity Diet Lifestyle
 =======================================
+
+Eating treats is usually due to "triggers" and not hunger.  For example,
+your kids are microwaving an aromatic pizza or everyone is getting some popcorn
+at the movie theaters.  If hunger actually strikes, try snacking on fruit
+or veggies.  Breaking the longevity diet is usually due to poor habits and
+not hunger.  Recognize the poor behavior and fix it.  The authors call this
+a warrior.
+
+On the flip side, if the beginning of the book was interesting you're probably
+a health nut who wants to learn more about nutrition.  The authors call this
+an explorer.  Don't purchase and bring home anything you shouldn't eat.
+
+After watching what you eat (less processed foods, more whole foods) the next
+step is to watch your weight.  Perhaps once or twice a week.
+
+It's the ratio of nutrients to calories that's important.  It's about optimal
+nutrients with restricted calories.  If you prefer foods with low energy
+density, your plate will be full with veggies, whole grains, and a little bit
+of protein.  You could also have smaller portions with lots of proteins.
+
+Some people fast, for instance one of the authors fast one day a week.  This
+becomes her most productive day since she doesn't have to worry about food.
+It shaves off ~1000 calories off her weekly average.
+
 The Longevity Diet and Exercise
 ===============================
+
+Exercise adds life to your years but not years to your life.  It can lower
+blood pressure, lower cholesterol, improve metabolism, improve bone density,
+and reduce stress.  It improves the average life span but doesn't extend maximum
+life span (or at least there have been no studies that proved it yet).  In fact,
+some studies have shown that exercise has no effect on the maximum life span.
+
+Aerobics is good for the heart and brain.  While it doesn't slow down the
+aging process, it does reduce the risks of getting many diseases.  Aerobic
+fitness is about getting oxygen to your muscles.  A strong heart is able to
+pump more oxygen-rich blood with each beat.  Weaker hearts must beat faster
+and work harder.
+
+Overdoing it will actually hurt your body, leading to damaged joints/bones.
+The authors recommend not going over 3 times a week with twenty minute sets.
+
+Regular exercise reduces your resting metabolic rate.  This is the minimum
+number of calories you need to eat while you are doing absolutely nothing.  This
+accounts for 70% of the calories needed.  The author recommends yoga.
+
+Less stress leads the better health.  The authors dedicate an entire section
+to this.  Chronic stress decreases the body's ability to heal.
+
 Optimal Living from a Few Veteran Practitioners
 ===============================================
 Recipes
