@@ -94,6 +94,48 @@ Use `Filters -> Enhance -> Red Eye Removal` to remove red eyes.
 Introduction to Layers
 ======================
 
+An image is made up of multiple layers, each on top of another.  If a layer
+is completely opaque, it will cover all layers underneath it.  Use the Layers
+Dialog at `File -> Dialogs -> Layers` or `Ctrl-L` to access them.
+
+Some tools automatically create a new layer for you to work with, like the
+Text tool.  Some tools require you to select a layer before interacting with
+your image, like the Move tool.
+
+GIMP comes with a few effects for layers.  Drop shadows are available at
+`Filters -> Light and Shadow -> Drop Shadow...`.  GIMP creates a whole new layer
+that contains the drop shadow.  This is useful, because you can re-run the
+effect with different variables.  Use the eye button in the Layers dialog to
+toggle visibility and try out different parameters.
+
+The chain link icon in the Layers dialog lets you link several layers together.
+This is useful if layers need to stick together - like a drop shadow and its
+subject.
+
+When you copy/paste, GIMP creates a new "Floating Layer".  This is a historical
+artifact that will be removed in future versions.  Click the "New Layer"
+button to create a normal layer from the floating one.
+
+You can select multiple layers by holding down the Shift key while clicking
+them.  Use the Align tool to align multiple layers.
+
+The Layer Dialog has many useful features:
+
+* Layer Mode - the blending mode for the current layer
+* Opacity - what % is transparent
+* Keep Transparent - lock transparency so you can't draw on transparent
+  portions of the layer
+* Layers List - contains each layer
+* Visibility Eye - toggles visibility
+* Chain Link - locks two layers together
+* Preview - preview of each layer
+* Masks - hide portions of the layer
+
+You can even right-click a layer for a context menu and more actions.  For
+example, a useful one is "Add Alpha Channel" which adds a transparency channel
+to the current layer.  That way, erasing leaves transparency instead of just
+plain white.
+
 Drawing
 =======
 
