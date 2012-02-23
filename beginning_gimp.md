@@ -240,6 +240,35 @@ The tool will create a selection for you, hit Enter to accept.
 Erasing and Touching Up
 =======================
 
+Dodge/burn are terms from film photography.  By exposing certain parts for a
+shorter/longer time, you can get better details in light/dark areas.
+
+The Dodge/Burn tool starts in dodge by default.  There are three modes: Shadows,
+Midtones, and Highlights.  By default it's Midtones which works well in most
+cases.  If you want to brighten a very dark area, use Shadows.  This lets you
+be a little sloppy with the brushing (it will only affect very dark areas).
+
+Opacity makes the effect more subtle.  Other configurations you can adjust are
+Fade Out, Jitter, and Exposure (for strength).  Make sure you use one giant
+stroke - the tool won't re-dodge an area if you highlight over it during a
+single stroke.
+
+Burning is the opposite.  Unfortunately for digital cameras, these areas are
+usually so saturated they only record white.  That means Burning can only be
+used for areas that are a little brighter.
+
+The Smudge Tool drags a color and smudges it across your stroke.  This is useful
+for smudging out unwanted objects in photos.
+
+The Clone Tool can be used for similar cases but gives greater control.  Instead
+of a stroke, you set a clone source and then paint onto the destination.  Choose
+a source by holding down the Ctrl key.
+
+The Heal Tool is similar to cloning, but it combines texture from the source
+layer with color/lighting of the destination.
+
+The Blur/Sharpen tool is like a mini blur/sharpen filter via brush.
+
 Filters and Effects
 ===================
 
