@@ -310,6 +310,38 @@ useful for creating ready-to-use buttons, logos, and images.
 Color
 =====
 
+This chapter includes a review on color (RGB, CYMK, additive vs subtractive)
+and color depth (8-bit or 256 colors, 24-bit or 8-bit per channel, 32-bit
+includes alpha channel).
+
+HSV stands for Hue, Saturation, and Value.  GIMP uses 0 to 360 to represent
+hue for degrees.  Saturation ranges from 0 to 100.  Value is the brightness.
+
+A quick way to adjust color is via `Colors -> Hue-Saturation`.  Another way
+which deals with shadows/highlights is `Colors -> Color Balance`.
+
+For greatest control on adjust color, use Levels or Curves.
+
+To change a photo to black/white, use `Image -> Mode` or `Colors -> Desaturate`.
+
+`Image -> Mode  -> Decompose` or `Filters -> Colors -> Decompose` will let you
+see your image in different channels.  Remember the human eye is most sensitive
+to the color green.  Decomposing is particular useful for creating selections.
+For example, get the blue channel with a Threshold and QuickMask to select it.
+
+`Colors -> Channel Mixer` gives complete control over colors and luminosity.
+
+Some popular effects for photos:
+
+* "old style" via `Filters -> Decor -> Old Photo` or
+  `Script-Fu -> Decor -> Old Photo`
+* `Colors -> Colorize` then choose a Sepia tone
+* Add a new layer with fill color #a28a65, change its mode to Color
+
+If you need to set thresholds (for example, make a picture completely black and
+white), use `Colors -> Threshold`.  This works great for scanned books where
+there's usually a shadow near the binding.
+
 Advanced Drawing
 ================
 
