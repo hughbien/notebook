@@ -169,6 +169,74 @@ You can also fill with gradients using the Gradient Fill tool.
 Selection
 =========
 
+To toggle your selection, use `View -> Show/Hide Selection` or `Ctrl-T`.  The
+Select menu has a lot of actions, like All or None (`Ctrl-A` and `Shift-Ctrl-A`)
+that are useful.  `Select -> Invert` to invert your selection.  There's also
+`Select -> Float` which is similar to copy/paste, except it keeps the pasted
+layer in the exact same location.
+
+Also in the Select menu, you can:
+
+* By Color - create a selection by color matching
+* From Path - turn a vector path into a selection
+* Selection Editor - edits your current selection
+* Feather - makes edges fuzzier
+* Sharpen - does the reverse
+* Shrink and Grow
+* Border - replaces a selection with a new one that follows the border
+* Rounded Rectangle - to round off selections
+* To Path - converts a selection to a path
+
+Moving from the center of a selection will move the selection boundaries.
+Moving from the edge will change the boundaries.  Dragging with Ctrl and Alt
+pressed will float and move the selection.
+
+The Magic Wand tool lets you select by similarly colored regions that are
+touching.
+
+You can create a path and turn it into a selection using the Bezier Path tool.
+It works best if you're zoomed in a lot.  Keep adding points by clicking, when
+you're done Ctrl-Click on the initial point to close the path.  Hit Enter to
+create a selection.  When you're creating a path, click and drag a point to
+create a curve.
+
+There are three modes with the Bezier Path tool: Design, Edit, and Move.  By
+default you're in Design - which is for adding new nodes.  Switch to Edit to
+add/delete points.  Check the Polygonal box if you want to toggle the handles
+on new points.  Remove a point by Shift-clicking on it in Edit mode.
+
+The Intelligent Scissors tool works like Bezier Path tool, except it uses the
+image's colors as a guide similar to the Magic Wand.
+
+Every selection tool has four modes: Replace, Add, Intersect, Subtract.  Use
+these to add/delete from your selection.
+
+QuickMask lets you use painting tools to make your selections.  It can be turned
+on by pressing the small button at the bottom-left corner of the image window.
+Paint with white to select, paint with black to hide.  Use gray for fuzzy
+selections.
+
+Romero walks us through a neat trick to blur out the background of a photo.
+He uses Curves to darken the background while keeping the foreground at the
+same lighting.  Then he selects the foreground and Gaussian Blurs the
+background.
+
+You can save your selection as a channel - channels are just black/white images
+that represent an aspect like QuickMask.  Save a selection with
+`Select -> Save to Channel`.  Right click a channel and use
+`Channel to Selection` to convert it back to a selection.
+
+A Layer Mask is sort of like a permanent QuickMask.  It represents the alpha
+channel of a layer.  Right click a layer and use `Add Layer Mask` to get
+started.  You can use `Edit Layer Mask` in the context menu to toggle between
+editing the actual layer and the mask.  `Show Layer Mask` shows you the mask
+at full size.
+
+SIOX or Simple Interactive Object Extraction is a new tool for automated
+foreground extraction.  First, draw an outline around the object.  Next, draw
+on the object you want to extract.  Stay away from the parts you don't want.
+The tool will create a selection for you, hit Enter to accept.
+
 Erasing and Touching Up
 =======================
 
