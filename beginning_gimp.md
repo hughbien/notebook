@@ -412,5 +412,15 @@ Grain Merge is great for adding texture to an image.
 Plug-ins and Scripting
 ======================
 
-Additional Topics
-=================
+GIMP's architecture makes it easy to add plug-ins and scripts.  A plug-in uses
+the C language and compiles with GIMP whereas scripts don't need to be compiled
+in.
+
+See `Xtns -> Plug-in Browser` for the plug-ins already installed.  This is also
+useful to search for functionality you might not already know exists.
+
+To find other plug-ins, you can search through GIMP's official plug-in registry
+at <http://registry.gimp.org> or just do a Google search.
+
+You can write GIMP scripts in any scripting language.  GIMP has its own language
+called Script-Fu which is a dialect of Scheme.
