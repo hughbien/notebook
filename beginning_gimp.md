@@ -272,6 +272,41 @@ The Blur/Sharpen tool is like a mini blur/sharpen filter via brush.
 Filters and Effects
 ===================
 
+GIMP's effects are located in the image window's `Filter` menu or the Toolbox
+window's `Xtns` menu.  Filters operate on the existing image and Xtns will
+create new images.
+
+Most filters are implemented via GIMP plug-ins.  Whereas tools can respond to
+clicks in the editor, plug-ins can only be configured via their own dialog.
+
+Whenever you run a filter, a new action item appears in the Filter menu called
+`Repeat Last`.  This does exactly what it sounds like.  `Re-show Last` will
+re-open the filter's dialog.  `Reset all Filters` will reset all dialogs.
+
+Here's a quick overview of some filters:
+
+* Gaussian Blur - simplest blur
+* Motion Blur - blurs in a single direction
+* Selective Gaussian Blur - gaussian blur that keeps edges sharp
+* Tileable Blur - blur that can later be combined for tiles
+* Sharpen - for sharpening images
+* Unsharp Mask - advanced sharpening
+* Antialias - makes jagged edges smoother
+* Despeckle - removes noise from images
+* Destripe - removes vertical lines left by scanners
+* NL Filter - combination of smoothing, despeckle, and destripe
+* Distort - category of filters creating fun effects
+* Light Effects - category of filters dealing with light and shadows
+* Noise - adds noise to image
+* Edge Detection - creates outlines from images
+* Aristic - category which turns photos into artworks
+* GIMPressionist - crown jewel of filters, includes large amount of options
+  for many artistic effects
+* Cloud - adds cloud pattern
+
+The Xtns menu has many scripts to create new images.  This is especially
+useful for creating ready-to-use buttons, logos, and images.
+
 Color
 =====
 
