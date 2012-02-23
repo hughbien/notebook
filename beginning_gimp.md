@@ -345,6 +345,41 @@ there's usually a shadow near the binding.
 Advanced Drawing
 ================
 
+Some Layer Mask tricks:
+
+* you can use a gradient from white to black to fade out a layer
+* make a selection, feather it, change to a layer mask to get a faded out mask
+* make it fuzzier with a Gaussian Blur on the mask
+
+GIMP has several blend modes for layers:
+
+* addition - adds color of both pixels
+* subtract - removes color of front pixel from back pixel
+* difference - absolute value of subtraction
+* multiply - generally makes the image darker
+* divide - generally makes the image white out
+* burn/overlay - similar to multiply
+* dodge/screen - similar to divide
+* hard light - combination of multiply and screen
+* soft light - tends to soften edges and dim colors
+* darken/lighten - shows only the darker/lighter of two pixels
+* grain extract - gives desaturated look
+* grain merge - adds texture to the image
+* hue/saturation/value - only takes one of the HSV from the front pixel, the
+  other two are taken from the back pixel
+* color - takes hue/saturation from front, keeps brightness from back
+
+The easiest way to create a brush in GIMP is to copy the image and access it
+via "Clipboard brush" in the Brush dialog.  Brushes can be grayscale or
+colored.  A brush is saved with the .GBR file extension.  If you save a GIMP
+file with multiple layers with the .GIH file extension, it becomes an animated
+brush with each frame represented by a layer.
+
+GIMP comes with its own built-in patterns.  You can create your own patterns
+the same way you can create a brush.  The easiest is to create a "Clipboard
+Pattern".  `Filters -> Map -> Make Seamless` is a useful filter for creating
+your own patterns.
+
 Advanced Composition
 ====================
 
