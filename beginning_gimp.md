@@ -139,6 +139,33 @@ plain white.
 Drawing
 =======
 
+The first rule of drawing is to create a new layer.  Add one with a name,
+width/height, and transparent fill type.
+
+The Pencil tool lets you draw sharp-edged lines.  You can even set a brush size
+so the stroke is thicker.  Use `File -> Dialogs -> Brushes` for more options.
+If you edit a brush, it becomes a parametric brush.  You can adjust its radius,
+hardness, aspect ratio, angle, and spacing.  Drawing also lets you set various
+modes: dissolve adds randomness, behind draws behind anything already present,
+color erase matches the current brush color and erases it.  Use the brush tool
+for a soft-edged stroke.  The Airbrush tool is for fuzzier edges.  The Ink Pen
+tool imitates a fountain pen.
+
+The Eraser tool is like the Pencil tool, except it erases what's on the current
+layer.  You can configure it to be soft or hard edged.
+
+GIMP doesn't have shape tools, but you can make any selection and fill it or
+stroke it.  After making a selection, choose `Edit -> Stroke Selection`.  You
+can also use any line drawing tool.  Use `Edit -> Fill with FG Color` to fill
+your selection.  For complicated selections, use the Bucket Fill tool.
+
+You can even fill with patterns.  A pattern is just a special type of image
+that's usually tile-able.  GIMP can help with this via
+`Filters -> Map -> Make Seamless`.  An even more advanced plugin called
+Resynthesizer does an even better job.
+
+You can also fill with gradients using the Gradient Fill tool.
+
 Selection
 =========
 
