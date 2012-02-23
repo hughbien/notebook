@@ -383,6 +383,32 @@ your own patterns.
 Advanced Composition
 ====================
 
+Romero shows us how to change the color of a car:
+
+1. select the parts of the photo you want to colorize
+2. copy the selection and paste into a floating layer
+3. now fill the layer with the color you want
+4. experiment with layer modes, in this case Color will work nicely
+5. this works with two-tone colors or gradients also
+6. some modes look strange at first, experiment with the opacity
+
+This technique loses details easily, like the fur on a squirrel.  In that case,
+you can keep the texture by using Grain Extract or Grain Merge modes.
+
+Layer modes can be used to improve photos also.  To brighten a dark photo,
+duplicate it and change the duplicated layer's mode to Screen.  Adjust the
+opacity until it pleases you.
+
+Self-composing with Overlay or Hard Light will turn a flat image into one with
+more bright colors.  Overlay or Burn works well to see through fog or haze.  You
+can even stack multiple layers with Overlay.
+
+If you're compositing two images - like texture onto an original image -
+Soft Light works very well.  Overlay is good if the bottom layer is dark.  Use
+Screen for a lighter effect.
+
+Grain Merge is great for adding texture to an image.
+
 Plug-ins and Scripting
 ======================
 
