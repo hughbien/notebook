@@ -96,3 +96,34 @@ In summary, the general algorithm for evolutionary approaches is:
 
 Designing Evolutionary Algorithms
 =================================
+
+When designing evolutionary algorithms, you'll have to utilize specific
+knowledge about the problem space.
+
+The first thing to consider is how to represent solutions with data structures
+we can work with.  For example, the TSP we used a vector of numbers representing
+cities.
+
+Some data structures to use as representations:
+
+* fixed-length vectors of symbols
+* permutations
+* finite state machines
+* symbolic expressions
+
+When determining an evaluation function, remember that the optimum solution(s)
+should be given the optimum evaluation(s).  In practice, it's difficult to come
+up with a perfect evaluation function.  A good feature is that small variations
+should engender the resulting evaluation.
+
+Selection methods can be stochastic or deterministic.  Deterministic selections
+will always eliminate the same individuals given the same population, it's also
+usually faster.  Usually, `mu` represents the number of parents and `lambda`
+represents the number of offspring.  An example deterministic is choosing the
+top-N of the generation.  An example of stochastic is random tournaments.
+
+The straightforward approach for initialization is randomly fill given the
+possible space.  The author recommends biasing the initialization towards the
+direction of better solutions to save time (another reason why you need to have
+deep knowledge of the problem space).  Use a grid pattern so random
+initialization doesn't produce clusters.
