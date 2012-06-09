@@ -613,6 +613,123 @@ systems.
 Clojure
 =======
 
+Clojure is a Lisp dialect on the JVM.  Lisp is a language of lists and uses its
+own data structures to express code (called "data as code").  This is ideal for
+metaprogramming.
+
+The primary dialects of Lisp are Common Lisp and Scheme.  Scheme/Clojure belong
+to the family of lisp-1 where functions/variables occupy the same namespace.
+Common Lisp comes from lisp-2, where functions/variables reside different
+namespaces.
+
+Tate uses the `leiningen` tool to manage Clojure/Java configurations.
+
+    $ lein new seven-languages
+    $ cd seven-languages
+    $ lein repl
+    user=> (println "Give me some Clojure!")
+    Give me some Clojure!
+    nil
+    user=> (* 10 10)
+    100
+    user => (= 1 1.0)
+    true
+    user => (< 1 2)
+    true
+    user => (class true)
+    java.lang.Boolean
+    user => (if (> 1 2)
+      (println "True it is.")
+      (println "It is false."))
+    It is false.
+    nil
+
+`0` and `''` are true but `nil` is false.
+
+Some common containers are lists, vectors, sets, and maps.  In Clojure, lists
+are used for code while vectors are used for data:
+
+    (list 1 2 3)
+    '(1 2 3)
+
+    [:hutt :wookie :ewok]
+    ([:hutt :wookie :ewok] 2)  ; :ewok
+
+    #{:x-wing :y-wing :tie-fighter} ; sets
+
+    {:chewie :wookie :lea :human} ; maps
+    (def mentors {:darth-vader "obi wan", :luke "yoda"})
+    (mentors :luke) ; "yoda"
+
+Functions are defined using `defn`:
+
+    (defn optional-doc-string [params] body)
+    (defn force-it [] (str "Use the force," "Luke."))
+
+Variable assignment is called **binding** and works via the `def` keyword.
+
+    (def line [[0 0] [10 20]])
+
+Functions are just data and can be passed around as arguments.
+
+    user=> (def people ["Lea", "Han Solo"])
+    user=> (count "Lea")
+    3
+    user=> (map count people)
+    (3 8)
+
+Some other useful functions which take functions as arguments:
+
+* `apply` applies a function to argument list
+* `filter` filters a list for a condition
+
+Here's an example of recursion to evaluate the size of a vector:
+
+    (defn size [v]
+      (if (empty? v)
+           0
+           (inc (size (rest v)))))
+
+This will grow the stack until all memory is exhausted.  Tail recursion
+optimization gets around this but must be explicit in Clojure by using `loop`
+or `recur`.
+
+    (loop [x x-initial-value, y y-initial-value] (do-something-with x y))
+
+Most languages execute parameters first and then puts it on the call stack.
+Macros get around this problem.  Tate implements `unless` so `(unless test body)`
+translates to `(if (not test) body)`.
+
+Clojure executes in two stages: macro expansion then running.  Some macros
+you've already used are `;` and `'`.
+
+    (defmacro unless [test body]
+      (list 'if (list 'not test) body))
+
+The substitutions occur without executing them.
+
+Clojure uses STM (software transactional memory) to deal with concurrency.  This
+uses multiple versions of data to maintain consistency and integrity.  Changing
+state must be done within scope of a transaction.
+
+    user=> (def movie (ref "Star Wars"))
+    user=> movie
+    #<Ref@...: "Star Wars">
+    user=> (deref movie)
+    "Star Wars"
+    user=> @movie
+    "Star Wars"
+    user=> (alter movie str ": The Empire Strikes Back")
+    IllegalStateException: No transaction running
+    user=> (dosync (alter movie str": The Empire Strikes Back"))
+    "Star Wars: The Empire Strikes Back"
+
+Use `ref-set` instead of `alter` to change the initial value.  Use atoms
+for thread safety of a single reference.
+
+Clojure's core strengths are that it is a Lisp, it's on the JVM, and it has a
+good concurrency approach.
+
 Haskell
 =======
 
