@@ -455,6 +455,161 @@ and bridges.
 Erlang
 ======
 
+> Few languages have the mystique of Erlang, the concurrency language that
+> makes hard things easy and easy things hard.
+
+Erlang's virtual machine is called **BEAM** which is efficient but lacks simple
+syntax.  Erlang stands for Ericsson Language but also shares its name with Agner
+Karup Erlang, a mathematician behind telephone network analysis.
+
+Erlang was built for concurrency and is very stable.  There are no threads,
+instead it uses lightweight processes.  The implementation is different than
+Scala, but it still uses the actor model.
+
+It's entirely functional.  Get started with the REPL via `erl`:
+
+    1> % This is a comment
+    1> 2 + 2.
+    2> 2 + 2.0.  % 4.0, there's some coercion
+    3> "string".
+    4> [1, 2, 3]. % lists are heterogeneous
+    5> [72, 97, 32, 72, 97, 32, 72, 97].  % "Ha Ha Ha"
+    6> {one, two, three}  % tuples are fixed-length lists
+
+**Atoms** start with lowercase.  Variables start with an uppercase:
+
+    Var = 1.
+
+Variables are also immutable, you can't reassign `Var`.
+
+Erlang's pattern matching is similar to Prolog's:
+
+    1> [Head | Tail] = [1, 2, 3].
+    2> Head.
+    1
+    3> Tail.
+    [2, 3]
+
+You can even do this at the bit level using `<<` and `>>`:
+
+    <<A:3, B:3, C:5, D:5>> = All.
+
+Erlang is dynamically typed.  Let's make some functions in the file `basic.erl`:
+
+    -module(basic).
+    -export([mirror/1]).  % export function mirror, /1 means 1 parameter
+
+    mirror(Anything) -> Anything.
+
+Now run the REPL, to execute your module:
+
+    c(basic).
+    basic:mirror(smiling_mug).
+
+Pattern matching works on function arguments also:
+
+    number(one)   -> 1;
+    number(two)   -> 2;
+    number(three) -> 3.
+
+This will work with atoms one, two, and three.  It will error on four.
+
+    fact(0) -> 1;
+    fact(N) -> N * fact(N - 1).
+
+    fib(0) -> 1;
+    fib(1) -> 1;
+    fib(N) -> fib(N - 1) + fib(N - 2);
+
+Here's some control structures for handling branches:
+
+    Animal = "dog".
+    case Animal of
+      "dog" -> underdog;
+      "cat" => thundercat;
+      _ -> something_else
+    end.
+
+    if
+      ProgramsTerminated > 0 ->
+        success;
+      ProgramsTerminated < 0 ->
+        error;
+      true -> confused
+    end.
+
+There's anonymous functions:
+
+    Negate = fun(I) -> -I end.
+
+Concurrency works with these primitives:
+
+* `!` for sending a message
+* `spawn` to spawn processes
+* `receive` to receive messages
+
+    -module(translate).
+    -export([loop/0]).
+
+    loop() ->
+      receive
+        "casa" ->
+          io:format("house~n"),
+          loop();
+        "blanca" ->
+          io:format("white~n"),
+          loop();
+        _ ->
+          io:format("I Don't understand.~n"),
+          loop();
+      end.
+
+Let's spawn them:
+
+    1> c(translate).
+    2> Pid = spawn(fun translate:loop/0).  % fun for function
+
+Erlang has built in support for spawning remote functions also.  In this case,
+we get a process ID back which you can view on your OS.
+
+    3> Pid ! "casa".
+    "house"
+    "casa"
+    4> Pid ! "blanca".
+    "white"
+    "blanca"
+    5> Pid ! "loco".
+    "I don't understand."
+    "loco"
+
+For remote services, you'd spawn and send with:
+
+    spawn(Node, function)
+    node@server ! message
+
+Erlang has support for linking processes.  This increases reliability.  When one
+process dies, it will send an exit signal to its linked twin.
+
+    -module(coroner).
+    -export([loop/0]).
+
+    loop() ->
+      process_flag(trap_exit, true),
+      receive
+        {monitor, Process} ->
+          link(Process),
+          io:format("Monitoring process.~n"),
+          loop();
+        {'EXIT', From, Reason} ->
+          io:format("The shooter ~p died with reason ~p.", [From, Reason]),
+          io:format("start another one.~n),
+          loop()
+      end.
+
+Erlang's strengths are its concurrency and fault tolerance.  It has a
+lightweight share-nothing model.  OTP has many libraries for building enterprise
+systems.
+
 Clojure
 =======
 
