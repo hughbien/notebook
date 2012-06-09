@@ -733,6 +733,122 @@ good concurrency approach.
 Haskell
 =======
 
-Wrap-Up
-=======
+Haskell is a pure functional language with powerful features.  The most popular
+compiler is probably GHC or Glasgow Haskell Compiler.  Use the REPL with `ghci`.
 
+    > 4
+    > 4 * 5 + 1
+    > "hello"
+    > "hello" ++ "world"
+    > ['a', 'b']
+    > (4 + 5) == 9
+    > (5 + 5) /= 10
+
+Haskell has significant whitespace.
+
+    > if (5 == 5) then "true" else "false"
+
+It's strongly typed, so only boolean expressions are allowed for if tests.
+Binding works with the `let` keyword.  This binds variables and functions.
+
+    > let x = 10
+    > let double x = x * 2
+    > double 2
+    4
+
+Put this into `double.hs`:
+
+    module Main where
+        
+        double x = x + x
+
+Now load it with `ghci` via `:load double.hs`.  Haskell does a good job of
+inferring types, but you can do it explicitly:
+
+    double :: Integer -> Integer
+    double x = x + x
+
+Use `:t` to query about types as in `:t double`.  As with other languages, you
+can use pattern matching to implement factorials:
+
+    factorial :: Integer -> Integer
+    factorial 0 = 1
+    factorial x = x * factorial (x - 1)
+
+Guards use `|`:
+
+    factorial x
+      | x > 1 = x * factorial (x - 1)
+      | otherwise = 1
+
+Let's play with lists:
+
+    let (h:t) = [1, 2, 3, 4]
+    > h
+    1
+    > t
+    [2, 3, 4]
+
+Some pattern matching functions for lists:
+
+    module Main where
+      size [] = 0
+      size (h:t) = 1 + size t
+
+      prod [] = 1
+      prod (h:t) = h * prod t
+
+The `:` operator is used heavily for list construction/deconstruction:
+
+    > 1:[2, 3]
+    [1,2,3]
+
+Lists are homogeneous.  Haskell supports ranges `[1..4]`.  It also supports list
+comprehension:
+
+    > [x * 2 | x <- [1, 2, 3], x /= 4]
+    [2, 4, 6]
+
+Anonymous functions have the form `(\param1 .. paramn -> function_body).`
+
+    > (\x -> x ++ " captain.") "Logical ,"
+    "Logical, captain."
+    > map (\x -> x * x) [1, 2, 3]
+    [1, 4, 9]
+
+Haskell uses lazy evaluation.
+
+Its strongest feature is the type system.  It's static but uses inference so
+the programmer doesn't have to work hard.  Define your own type with `data`:
+
+    data Boolean = True | False
+    data Suit = Spades | Hearts
+    data Rank = Ten | Jack | Queen | King | Ace
+
+Haskell will have a tough time showing these values, use `deriving (Show)` to
+remedy it:
+
+    data Suit = Spades | Hearts deriving (Show)
+    type Card = (Rank, Suit)
+
+**Monads** lets use compose functions with specific properties.  It lets you
+deal with the no state aspect of pure functional languages by simulating state.
+
+Monads are made up of a type constructor, return function, and bind function.
+
+    module Main where
+      data Position t = Position t deriving (Show)
+
+      stagger (Position d) = Poosition (d + 2)
+      crawl (Position d) = Position (d + 1)
+
+      rtn x = x
+      x >>== f = f x
+
+Now a pirate hunting for treasure looks like this:
+
+    treasureMap pos = pos >>==
+                      stagger >>==
+                      stagger >>==
+                      crawl >>==
+                      rtn
