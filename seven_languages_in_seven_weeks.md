@@ -196,8 +196,119 @@ Loops can be done like:
     for(i, 1, 11, i println);
     for(i, 1, 11, 2, i println); # optional increment
 
+Io has operators, to see it use `OperatorTable` in the REPL.  This is another
+object.  You can add operators too:
+
+    OperatorTable addOperator("xor", 11)
+    true xor := method(bool, if(bool, false, true))
+    false xor := method(bool, if(bool, true, false))
+
+Everything in Io are messages and Io provides reflection.  A message is made up
+of the `sender`, `target`, and `arguments`.  `call` gives you access to this
+meta information.
+
+Io is especially suited for DSLs since you can redefine any operators or
+symbols.  For example, a "map" DSL of names to numbers:
+
+    OperatorTable addAssignOperator(":", "atPutNumber")
+    curlyBrackets := method(
+      r := Map clone
+      call message arguments foreach(arg,
+        r doMessage(arg))
+      r
+    )
+    Map atPutNumber := method(
+      self atPut(
+        call evalArgAt(0) asMutable removePrefix("\"") removeSuffix("\""),
+        call evalArgAt(1))
+    )
+
+Io also serves the concurrency niche.  Prefixing a method with `@@` will
+initiate it in its own thread (asynchronous methods).
+
 Prolog
 ======
+
+> You'll get astounding answers only if you know how to ask the questions.
+> Think Rain Man.
+
+Whereas Ruby and Io are imperative languages, Prolog is a declarative one.
+Imperative languages are recipes where you throw together ingredients and
+describe a step-by-step process.  Declarative languages lets you throw facts
+and references, the language will figure things out on its own.
+
+The building blocks of Prolog:
+
+* **Facts** are assertions about the world
+* **Rules** are inferences about facts
+* **Query** is a question about the world
+
+Facts/rules go into a **knowledge base** efficient for queries.  If a word
+begins with a lowercase, it's an **atom** (like a Ruby symbol).  A **variable**
+starts with an uppercase or underscore.  Let's start with this knowledge base.
+The first three lines are facts, the last statement is a rule.
+
+    likes(wallace, cheese).
+    likes(grommit, cheese).
+    likes(wendolene, sheep).
+
+    friend(X, Y) :- \+(X = Y), likes(X, Z), likes(Y, Z).
+
+Put this into a `friends.pl` file.  Load it uses `gprolog` and enter 
+`['friends']`.  Now ask questions in the REPL `likes(wallace, sheep).` or
+`likes(grommit, cheese).`.  Things get more interesting with:
+
+    | ?- friend(wallace, wallace).
+    | ?- friend(grommit, wallace).
+
+In our rule earlier, `\+` is a logical negation so we make sure `X != Y`.
+Another example the author lists out facts about food types and their flavors:
+
+    food_type(..name.., ..category..).
+    flavor(..flavor.., ..category..).
+    food_flavor(X, Y) :- food_type(X, Z), flavor(Y, Z).
+
+Now you can ask questions like:
+
+    food_type(What, meat).
+    What = spam ? ;
+    What = sauage ? ;
+    no
+
+The `What` keyword meant we asked Prolog to find some food that were meat.  It
+can infer which are sweet also:
+
+    flavor(sweet, What).
+
+Prolog's equivalent of variable assignment is called **unification** which
+makes two structures identical.
+
+    cat(lion).
+    cat(tiger).
+
+    dorothy(X, Y, Z) :- X = lion, Y = tiger, Z = bear.
+    twin_cats(X, Y) :- cat(X), cat(Y).
+
+`=` means unify to make both sides the same.  It's similar to `==` also.
+
+    | ?- dorothy(lion, tiger, bear).
+    yes
+    | ?- dorothy(One, Two, Three).
+    One = lion
+    Three = bear
+    Two = tiger
+    yes
+
+Lists have variable lengths and tuples have fixed lengths.  A list is specified
+like `[1, 2, 3]` and a tuple like `(1, 2, 3)`.  You can construct lists in
+several ways:
+
+    (A, B, C) = (1, 2, 3).
+    [1, 2, 3] = [X, Y, Z].
+    [a, b, c] = [Head|Tail]
+
+The last binds `Head` to `a` and `Tail` to `[b,c]`.  The special identifier
+`_` is a wildcard that will bind with anything.
 
 Scala
 =====
