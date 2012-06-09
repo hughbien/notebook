@@ -313,6 +313,145 @@ The last binds `Head` to `a` and `Tail` to `[b,c]`.  The special identifier
 Scala
 =====
 
+Scala is a hybrid of OOP and functional paradigms.  It's built on top of JVM.
+Tate points out mutable state from OOP is a huge problem for concurrency.  Scala
+doesn't eliminate mutable state completely, but gives you the option to.
+
+Everything is an object:
+
+    scala> println("Hello, surreal world")
+    scala> 1 + 1
+    scala> (1).+(1)
+    scala> "abc" + 4
+    scala> 4 * "abc"
+    ... error ...
+
+It uses type inference most of the time but is actually strongly typed at
+compile time.
+
+Values are assigned like `val a = 1`.  Variables are assigned like `var b = 2`.
+Values are immutable whereas variables are mutable.
+
+`Nil` is Scala's null and is just an empty list.  Nils and numbers are not
+booleans so the compiler will complain if you use them for if statements.
+
+Functions are defined like:
+
+    def functionname {
+      /* function body */
+    }
+
+Scala supports ranges and tuples.  `val range = 0 until 10` is a range.  You
+can also do `(0 to 10) by 5`.  Tuples use parentheses `("Elvis", "Presley")`.
+Classes look like:
+
+    class Person(firstName: String, lastName: String)
+    class Compass {
+      val directions = List("north", "east", "south", "west")
+      def direction() = directions(bearing)
+      def inform(turnDirection: String) {
+        print("Turning " + turnDirection + ". Now bearing " + direction)
+      }
+    }
+    class Employee(override val first: String,
+                            val last: String,
+                            val number: Int) extends Person(first, last) {
+      /* ... */
+    }
+
+You can see the flexibility in the syntax above.  Many portions are optional.
+
+    val myCompass = new Compass
+    myCompass.inform("right")
+    myCompass.direction
+
+Constructors are implemented with the special method `this` and you can have
+multiple constructors with varying arguments like Java.
+
+Singletons are created using the `object` keyword:
+
+    object TrueRing {
+      def rule = println("To rule them all")
+    }
+    TrueRing.rule
+
+Scala has **traits** which are similar to Ruby's modules:
+
+    trait Nice {
+      def greet() = println("Howdily doodily.")
+    }
+    class Character(override val name:String) extends Person(name) with Nice
+    val flanders = new Character("Ned")
+    flanders.greet
+
+Scala can infer the return type but you can also specify it:
+
+    def double(x:Int):Int = x * 2
+
+Lists are created like `List(1, 2, 3)`.  If you mix data types Scala will use
+the lowest common denominator **Any**.  Use `()` instead of `[]` to access
+items in the list.  You can also create a `Set` which has no order.  Maps are
+created like:
+
+    Map(0 -> "zero", 1 -> "one", 2 -> "two")
+    val map = new HashMap[Int, String]
+    map += 4 -> "four"
+    map += 8 -> "eight"
+    map(4)
+
+Lists implement the `foreach` method which takes a code block as its argument:
+
+    list.foreach(hobbit => println(hobbit))
+
+Scala implements pattern matching which conditionally executes code based on
+pieces of data.  The simplest form is match/case like switch/case:
+
+    chore match {
+      case "clean dishes" => "scrub, dry"
+      case "cook dinner" => "chop, sizzle"
+      case _ => "whine, complain"
+    }
+
+    n match {
+      case 0 => 1
+      case x if x > 0 => factorial(n - 1) * n /* notice the guard */
+    }
+
+Scala uses actors and message passing for concurrency.  Actors have pools of
+threads/queues.  You send a message to an actor to place an object on its queue.
+
+    import scala.actors._
+    import scala.actors.Actor._
+
+    case object Poke
+    case object Feed
+
+    class Kid() extends Actor {
+      def act() {
+        loop {
+          react {
+            case Poke => {
+              println("Ow, quit it...")
+            }
+            case Feed => {
+              println("Gurgle, burp...")
+            }
+          }
+        }
+      }
+    }
+
+    val bart = new Kid().start
+    val lisa = new Kid().start
+    bart ! Poke
+    lisa ! Poke
+    bart ! Feed
+    lisa ! Feed
+
+Wrapping up, Scala supports OOP/functional paradigms and employs static/strong
+typing.  Its core strengths are concurrency, strong libraries from Java, DSLs,
+and bridges.
+
 Erlang
 ======
 
