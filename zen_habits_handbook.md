@@ -74,11 +74,58 @@ Productivity
 ============
 
 **Purpose Your Day: Most Important Tasks**
+
+Your MIT is the task you most want or need to get done today.  In Leo's case,
+he has three MITs everyday which he does first thing in the morning.  Get them
+out of the way and feel accomplished for the rest of the day.
+
 **Focus on the Big Rocks**
+
+The Big Rocks are what you want to get done most this week.  Leo suggests
+getting these out of the way early in the days.  Then fill in the rest of the
+day with sand/pebbles - the smaller tasks that need to get done but aren't as
+important.
+
 **Clear Out Your Inbox**
+
+This is the same concept as Inbox Zero, delete your email as they come in.
+
+Don't check email first thing in the morning.  When you do, dispose of it right
+away.  Have only one folder: "Archive".
+
 **Clear Your Desk**
+
+Have a clear desk except for the one thing you're working on.
+
+Take everything on/in your desk and process them: trash it, delegate it,
+file it, do it.  Do this daily to keep your desk clear.
+
 **Become an Early Riser**
+
+Leo has a habit of waking up at 4:30AM every morning.  This has a few benefits:
+
+1. Let's you greet the day
+2. Let's you have a slow start instead of a morning rush
+3. Quietude
+4. Enjoy the sunrise
+5. Have time for breakfast
+6. Get exercise
+7. Productive due to no distractions
+8. Goal time
+9. Easier commute
+10. Easier early appointments
+
 **Become Motivated When You're in a Slump**
+
+Some things to help during a slump:
+
+1. Have _One Goal_
+2. Find inspiration
+3. Get excited from your inspiration and _One Goal_
+4. Post your goal and commit publicly
+5. Think about it daily
+6. Get support
+7. Think about benefits instead of difficulties
 
 Happiness
 =========
