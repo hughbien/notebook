@@ -131,9 +131,109 @@ Happiness
 =========
 
 **Cultivate Compassion in Your Life**
+
+> Compassion is an emotion that is a sense of shared suffering, most often
+> combined with a desire to alleviate or reduce suffering of another.
+
+> Compassion differs from other forms of helpful or humane behavior in that its
+> focus is primarily on the alleviation of suffering.
+
+1. Have a morning ritual, be happy that you're alive and state your goals to
+   be compassionate.
+2. Practice empathy.  Imagine the pain others are suffering.
+3. Practice commonalities.  Imagine what you have in common with others instead
+   of what's different.
+4. Practice relief.  After imagining inflicting suffering of others onto
+   yourself, reflect on how happy you would be to alleviate it.
+5. Practice kindness.  Do something kind to relieve the suffering of others.
+6. Practice for those who mistreat us.  Imagine what suffering they went through
+   when they mistreated us.  Imagine the background of that person.  Imagine
+   the commonalities you have.  Be kind to them.
+7. Have an evening ritual, think about those you've met and how you've connected
+   with them.  Did you help or hinder?
+
 **Escape Materialism**
+
+Money can't buy you love or happiness.  Some tips to escape materialism:
+
+- limit television
+- eschew the news
+- limit internet reading
+- give up magazines for books
+- don't go to the mall or department stores
+- monitor your urges
+- use a 30-day list
+- declutter
+- find other forms of entertainment
+- buy used
+
 **Practical Tips for Living the Golden Rule**
+
+Treat others as you want to be treated.
+
+1. Practice empathy
+2. Practice compassion
+3. Think about how you would want to be treated
+4. Be friendly
+5. Be helpful
+6. Listen to others
+7. Overcome prejudice
+8. Stop criticism
+9. Rise above retaliation
+10. Be the change you want to see in the world
+
 **Accept Criticism with Grace and Appreciation**
+
+Stop your first reaction to criticism.  Take a breath and give it a bit of
+thought.
+
+Look for the positive within the criticism.  Is it advice that you should listen
+to?
+
+Thank the critic for good advice or for his/her time.
+
+Now learn from the criticism and become a better person.
+
 **Have Faith in Humanity and Restore Kindness**
+
+Anonymity has created a society which is mean sometimes.  We're mean in our
+cars in traffic and we're mean on online boards.
+
+Leo has faith in humanity though.  There are people out there who do random
+acts of kindness just to be nice.  Try to pay it forward.
+
 **Boost Your Self-Confidence**
+
+Some tips:
+
+1. Groom yourself
+2. Dress nicely
+3. Photoshop your self-image
+4. Think positive
+5. Kill negative thoughts
+6. Be kind and generous
+7. Be prepared
+8. Know your principles and live by them
+9. Focus on solutions
+10. Smile
+11. Volunteer
+12. Be grateful
+13. Exercise
+14. Empower yourself with knowledge
+
 **Live Your Life Consciously**
+
+Living consciously means controlling life, thinking about decisions, and not
+settling.
+
+It's simple: be conscious and think about everything you do.  Make conscious
+choices instead of doing without thinking.
+
+Some more tips:
+
+1. Reflect on your life once in a while
+2. At least once a year, review life's goals and relationships
+3. Consider your impact on the world
+4. Consider real costs of stuff
+5. Review how you spend your time
+6. Explore yourself
