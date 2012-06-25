@@ -191,8 +191,98 @@ Configuration is done in YAML and the files are stored in a central location.
 Working With Text and Buffers
 =============================
 
+Some tmux commands:
+
+* `C-b [` to enter copy mode
+* `C-b ]` pastes current buffer contents
+* `C-b =` lists paste buffers and pastes selected buffer
+
+When you're in copy mode, use these keys:
+
+* `Space` to start highlighting
+* `Enter` during highlight to copy
+* `h`, `j`, `k`, `l` to move around
+* `w`, `b` for movement by words
+* `f`, `F` to next/previous occurrence of character
+* `C-b`, `C-f` to go up/down a page
+* `g`, `G` to jump to top/bottom of buffer
+* `?`, `/` to start searching
+
+Some handy tmux commands to use:
+
+* `show-buffer` displays current buffer
+* `capture-pane` to capture entire pane
+* `list-buffers` lists all paste buffers
+* `choose-buffer` lets you choose content
+* `save-buffer [filename]` to save to a file
+
+On Linux, it's useful to get `xclip` which can integrate the command line and
+system clipboards.
+
+    $ sudo apt-get install xclip
+
+Now some bindings to work with xclip:
+
+    bind C-c run "tmux save-buffer - | xclip -i -sel clipboard"
+    bind C-v run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
+
 Pair Programming with tmux
 ==========================
 
+You can create a new user account on a computer for others to ssh in and share
+a tmux session.  You can also use tmux sockets for a second user to connect
+to your tmux.  The third way is to setup a cheap third party machine to share.
+
+If you create a new user, just create a session and have that user attach it:
+
+    ted123$ tmux new-session -s pairing
+    barney$ tmux attach -t pairing
+
+You can also create grouped sessions so each user can independently create
+windows and stay on their own:
+
+    ted123$ tmux new-session -s groupedsession
+    barney$ tmux new-session -t groupedsession -s mysession
+
+Tmux works with sockets:
+
+    ted123$ tmux -S /var/tmux/pairing
+    barney$ tmux -S /var/tmux/pairing attach
+
 Workflows
 =========
+
+* `C-b !` turn a pane into a new window
+* `join-pane -s 1` joins window #1 into current window
+* `join-pane -s 1.0` joins window #1, pane #0 into current window
+* `move-window -s sessionname:1 -t newsession` moves windows
+
+Some tmux commands lets you execute shell commands also:
+
+    $ tmux new-sesion -s servers -d "ssh deploy@burns"
+    $ tmux split-window -v "ssh dba@smithers"
+    $ tmux attach -t editor
+
+When sessions are created this way, they exit when the process ends.  Use
+these keys to move between sessions:
+
+* `C-b (` move left
+* `C-b )` move right
+* `C-b s` list of sessions
+
+When you're done with a session:
+
+    $ tmux kill-session -t sessionname
+
+Set the default shell:
+
+    set -g default-command /bin/zsh
+    set -g default-shell /bin/zsh
+
+Or run tmux by default by sticking this at the end of `.bashrc` or `.zshrc`:
+
+    if [[ "$TERM" != "screen-256color" ]]
+    then
+      tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+      exit
+    fi
