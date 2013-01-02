@@ -419,3 +419,97 @@ You can use any `Sinatra::Application` as Rack middleware.
 Modular Applications
 ====================
 
+Before, we just `require 'sinatra/base'` and were able to make a Sinatra
+application.  For modular applications, it's common practice to create your own
+subclass of `Sinatra::Base`.  Some reasons to do this:
+
+* avoid polluting the Object namespace
+* ship your app as a gem
+* allow combining multiple apps under a single process
+* use apps as middleware
+
+    require 'sinatra/base'
+
+    class MyApp < Sinatra::Base
+      get '/' do
+        'Hello from MyApp!'
+      end
+    end
+
+    MyApp.run! if __FILE__ == $0
+
+To use it with rackup:
+
+    require './myapp'
+    run MyApp
+
+We've used `set` and `configure` before to configure settings.  These settings
+are available via the `settings` method.  `enable` and `disable` are syntatic
+sugar for setting an option to true or false.  `settings` is actually just a
+shortcut to the current application class.  Actually, creating new settings will
+just add instance new methods to the current application class.
+
+    configure :development, :test do
+      enable :admin_access
+    end
+
+`configure` accepts environment switches.  This is controlled via the
+`environment` setting or the `RACK_ENV` environment variable.
+
+Since settings are just methods, subclassing an application will inherit its
+settings.  It will also inherit its routes, middleware, error handlers,
+extensions, and so on.
+
+Rack also lets you mount applications on different paths with the `map` method.
+
+    map('/example') { run MyExampleApplication }
+
+Rack will remove the prefixed route (`/example` in this case) and store it in
+`env['SCRIPT_NAME']`.  From the Sinatra application's point of view, there will
+not be `/example`.
+
+You can even create anonymous Sinatra applications in your `config.ru`:
+
+    app = Sinatra.new do
+      get('/') { 'Hello World!' }
+    end
+    run app
+
+You can start chaining applications, just like how middleware can be chained:
+
+    class Foo < Sinatra::Base
+      get '/foo' { 'foo' }
+    end
+
+    class Bar < Sinatra::Base
+      get '/bar' { 'bar' }
+      use Foo
+    end
+
+`Rack::Cascade` can be used in the same fashion (pretend the line `use Foo`
+was removed):
+
+    run Rack::Cascade, [Foo, Bar]
+
+The normal Rack response is a method of three items.  Rack also accepts other
+formats:
+
+* `[200,  {'Content-Type' => 'text/plain'}, ['ok']]`
+* `[418,  "I'm a teapot"]` no headers and just a string for body
+
+`halt` accepts the format returned as Rack responses:
+
+    halt [418, "I'm a teapot"]
+
+Since Sinatra applications are Rack applications, they must respond to `call`.
+You can use this in modular applications:
+
+    class Foo < Sinatra::Base
+      # ...
+    end
+
+    class Bar < Sinatra::Base
+      get('/') { Foo.call(env) }
+    end
+
+    Bar.run!
