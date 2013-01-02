@@ -280,8 +280,142 @@ path.
 A Peek Behind the Curtain
 =========================
 
+Sinatra uses some magic to handle `self`, which evaluates differently depending
+on whether you're in the `Object` namespace or within a routing block:
+
+    require 'sinatra'
+
+    outer_self = self
+    get '/' do
+      content_type :txt
+      "outer self: #{outer_self},\n inner self: #{self}"
+    end
+
+    $ curl "localhost:4567/"
+    ...
+    outer self: main,
+    inner self: #<Sinatra::Application:0x0010cd8f0>
+
+`Sinatra::Application` inherits from `Sinatra::Base`.  There's also the
+`Sinatra::Delegator` mixin.  Methods like `get` and `post` are defined twice,
+once in the Delegator mixin and another in Base.  The Delegator mixin just
+delegates the call to Application.  The mixin is what gets mixed into the Object
+namespace.  An app can be maded without mixing into the Object namespace:
+
+    require 'sinatra/base'
+
+    Sinatra::Application.get('/') { 'hi' }
+    Sinatra::Application.run!
+
+Sinatra apps can be extended with extensions and helpers.  Extensions exist in
+the Object namespace only.  Helpers exist within route blocks and views:
+
+    # an extension
+    module Sinatra
+      module PostGet
+        def post_get(route, &block)
+          get(route, &block)
+          post(route, &block)
+        end
+      end
+
+      register PostGet
+    end
+
+    # a helper
+    module Sinatra
+      module LinkHelper
+        def link(name)
+          case name
+          when :about then '/about'
+          when :index then '/index'
+          else "/page/#{name}"
+        end
+      end
+
+      helpers LinkHelper
+    end
+
+    # or use helpers with a block
+    helpers do
+      def link(name)
+        # ...
+      end
+    end
+
+[Rack](http://rack.rubyforge.org) is a protocol that specifies how web servers
+interact with web applications.  At its core, it specifies how the application
+object (aka **endpoint**) responds to the method `call`.  The server (aka
+**handler**) calls the method with one parameter, a hash with all relevant
+request information such as HTTP verb, path requested, headers, etc...  The
+return value should be an array with 3 items: status code, hash of response
+headers, body object which should behave like an array of strings.
+
+Here's a sample Rack application:
+
+    module MySinatra
+      class Application
+        def call(env)
+          headers = {'Content-Type' => 'text/html'}
+          if env['PATH_INFO'] == '/'
+            status, body = 200, 'hi'
+          else
+            status, body = 404, "Sinatra doesn't know this ditty!"
+          end
+          headers['Content-Length'] = body.length.to_s
+          [status, headers, [body]]
+        end
+      end
+    end
+
+    require 'thin'
+    Thin::Server.start MySinatra::Application, 4567
+
+These low level variables are available in your Sinatra route blocks via:
+
+* `env`
+* `request`
+* `response`
+
+Rack supports chaining filters and routers in front of your application called
+`middleware`.  Middleware can modify requests, the env hash, the response, or
+even skip endpoints.
+
+Stick this into `config.ru` the run `rackup -p 4567 -s thin`:
+
+    MyApp = proc do |env|
+      [200, {'Content-Type' => 'text/plain'}, ['ok']]
+    end
+
+    class MyMiddleware
+      def initialize(app)
+        @app = app
+      end
+
+      def call(env)
+        if env['PATH_INFO'] == '/'
+          @app.call(env)
+        else
+          [404, {'Content-Type' => 'text/plain'}, ['not ok']]
+        end
+      end
+    end
+
+    # actual configuration
+    use MyMiddleware
+    run MyApp
+
+Sinatra ships with a `use` method that works like rackup's.
+
+    require 'sinatra'
+    require 'rack'
+
+    use Rack::Runtime # middleware that sets 'X-Runtime' header
+
+    get('/') { 'hello world!' }
+
+You can use any `Sinatra::Application` as Rack middleware.
+
 Modular Applications
 ====================
 
-Hands On: Your Own Blog Engine
-==============================
