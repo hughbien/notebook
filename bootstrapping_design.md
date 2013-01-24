@@ -18,7 +18,8 @@ Drysdale warns us not to be creative.  It reminds me of that scene in Hitch,
 where Hitch teaches his customer how to dance.  Just sway side to side, that's
 your safe zone.  That's the same advice from the author, stay in the safe zone!
 
-## Layout
+Layout
+======
 
 Organize elements into related groups, then work each group into the layout.
 **Use convention.**  A ton of sites use the standard main column with sidebar
@@ -32,7 +33,8 @@ Consider using a **grid** like 960.gs.  Basic grids are best, don't over do it
 with too many columns.  Don't stick to the grid if it looks bad, feel free to
 break free once in a while.
 
-## Visual Hierarchy
+Visual Hierarchy
+================
 
 You want to maintain an order of importance amongst elements of a design.
 You're basically the reader's tour guide.  Start the path with a few important
@@ -49,7 +51,8 @@ To create prominence amongst elements, use variations of:
 Contrast is your friend for establishing hierarchy.  Either make it stand out
 a lot, or don't differ it at all.
 
-## Proximity & Space
+Proximity & Space
+=================
 
 Proximity and space affects the design's professionalism.  Elements that are
 close together are related in:
@@ -66,7 +69,8 @@ Drysdale gives an example where a blog post header, byline, date, and body are
 all evenly spaced out.  This is bad.  The header/byline/date should be close
 to each other because they're meta-data.  The body should be further away.
 
-## Typography
+Typography
+==========
 
 There's a ton of theory/foundation on typography.  Ignore it for now, you just
 need to know the basics for a good design.
@@ -122,7 +126,8 @@ Some fonts that the author recommends:
 * Skolar
 * Adelle
 
-## Color
+Color
+=====
 
 Color is relative to its surroundings.  A shade of blue will look blue-er when
 it's surrounded by a contrasting green as opposed to a different shade of blue.
@@ -143,7 +148,8 @@ Gradients actually use the same hue, but with differing brightness.  You can do
 this in Photoshop by using a single color and applying a gradient blend mode
 from white to black.  Then adjust the opacity.
 
-## Process
+Process
+=======
 
 Your new process:
 
@@ -155,7 +161,8 @@ Your new process:
    recorded data (analytics, AB tests, and user interviews)
 6. Repeat as necessary
 
-## Stealing
+Stealing
+========
 
 Drysdale recommends copying one characteristic from multiple sites/apps you
 like.  Get inspiration for fonts on one site, colors on another, layout on a
@@ -174,7 +181,8 @@ But be warned!  Never copy:
 * graphics (don't steal them, if license is ambiguous then ask)
 * fonts (don't steal them, license them)
 
-## Tips
+Tips
+====
 
 For logos, just try writing your brand in multiple fonts and different colors.
 Try a lot of variations until one clicks.
@@ -195,7 +203,8 @@ Some easy wins:
 * show feedback on user action
 * use visual cues to indicate action (red for bad, green for good)
 
-## Evaluating
+Evaluating
+==========
 
 When you look over your design, make sure it passes these tests:
 
