@@ -11,8 +11,8 @@ time, more control, or more freedom.  It usually involves getting the big four:
 3. Income you want
 4. Lifestyle you want
 
-Master the Mental Game
-======================
+1. Master the Mental Game
+=========================
 
 In the face of difficulty, **goals will guide you through the storm**.  Setting
 goals works, so write them down and you'll be more likely to succeed.  Do this:
@@ -36,8 +36,8 @@ Living by your standards means you'll feel within control.  You control your
 business, not your clients.  Acknowledge obstacles and consciously decide that
 they won't stop you.
 
-Simplify the Process of Getting Clients
-=======================================
+2. Simplify the Process of Getting Clients
+==========================================
 
 The authors' Master Marketing Formula:
 
@@ -47,8 +47,8 @@ The authors' Master Marketing Formula:
 4. Close the sale
 5. Nurture "not today" prospects
 
-Create Your Amazing Buzz Piece
-==============================
+3. Create Your Amazing Buzz Piece
+=================================
 
 A buzz piece is a valuable information piece, usually in the form of a special
 report or guide, that's easily downloaded.  Create one and use it to establish
@@ -65,8 +65,8 @@ potential clients as a freebie.  Use it to market yourself on your website.
 Buzz pieces must be related to what you do and prospects must want the
 information in it.  It has to be valuable.
 
-Employ High-Impact Prospecting Tactics
-======================================
+4. Employ High-Impact Prospecting Tactics
+=========================================
 
 There are four quadrants for prospecting tactics.
 
@@ -89,8 +89,8 @@ valuable content, prospective clients will find you.  Tweet out valuable content
 more prospective clients will follow you.  Blog valuable articles, prospective
 clients will subscribe to your blog.
 
-Cultivate Repeat and Referral Business
-======================================
+5. Cultivate Repeat and Referral Business
+=========================================
 
 Repeat and referral business means your business comes to you.
 
@@ -112,8 +112,8 @@ Happy clients want to give you additional work.  To make sure clients are happy:
 4. Be flexible.
 5. Thank clients frequently.
 
-Nurture Prospects Perpetually
-=============================
+6. Nurture Prospects Perpetually
+================================
 
 By staying in touch with prospects, you'll stay on their radar and become the
 first person they think of when they require a service.  These prospects are
@@ -139,8 +139,8 @@ Content to create includes:
 9. Videos and podcasts
 10. Helpful tools
 
-Price Your Services for Success
-===============================
+7. Price Your Services for Success
+==================================
 
 The authors suggest pricing by project instead of by hourly rate for several
 reasons:
@@ -193,8 +193,8 @@ get a lower price from you.  You can always negotiate:
 * ask for more time to get the project done
 * offer volume discount
 
-Bring Focus to Your Freelance Business
-======================================
+8. Bring Focus to Your Freelance Business
+=========================================
 
 Determine your area of focus.  Without focus:
 
@@ -211,8 +211,8 @@ To figure out your focus, use the DIP technique:
 2. Identify the market.  Do the companies in this market need your service?
 3. Position yourself in that market.
 
-Boost Your Productivity - Without Perspiration!
-===============================================
+9. Boost Your Productivity - Without Perspiration!
+==================================================
 
 This chapter is full of productivity tips:
 
@@ -223,8 +223,8 @@ This chapter is full of productivity tips:
 * Give projects some incubation time.
 * Hire out and outsource work.
 
-Construct Your Own Work-Life Reality
-====================================
+10. Construct Your Own Work-Life Reality
+========================================
 
 Freelancers can create their own work-life reality that fits our unique
 circumstances.
@@ -246,8 +246,8 @@ Some tips:
    hours.  Don't answer phones calls outside non-business hours.
 7. Exercise!
 
-Create Alternative Streams of Income
-====================================
+11. Create Alternative Streams of Income
+========================================
 
 There's a limit to how much income a freelance can make the traditional way.
 You can raise the ceiling using passive income.  Some tips:
@@ -258,8 +258,8 @@ You can raise the ceiling using passive income.  Some tips:
 * Use affiliate programs.
 * Start teaching your expertise.
 
-Live and Work in the Wealthy Triangle
-=====================================
+12. Live and Work in the Wealthy Triangle
+=========================================
 
 The authors show us a time-income curve which are inversely correlated.  Earning
 more money means less free time.  Freeing up more time means earning less money.
