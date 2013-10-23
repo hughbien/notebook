@@ -97,7 +97,7 @@ your design will just break on smaller/larger resolutions.  You can use media
 queries to change your layout accordingly (for example, turning a two-column
 layout into a single-column).
 
-Media queries is a CSS3 feature born from meida types.  You've seen media
+Media queries is a CSS3 feature born from media types.  You've seen media
 types before.  They're especially handy for print stylesheets:
 
     <link rel="stylesheet" href="..." media="all" />
