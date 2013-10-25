@@ -442,7 +442,7 @@ Some common operations for matrices are:
 * `A %*% B` for matrix multiplication
 * `diag(n)` for n by n diagonal (identity) matrix
 
-By default, matrix column/row names are numeric indeces.  You can give useful
+By default, matrix column/row names are numeric indices.  You can give useful
 names instead with the `rownames()` and `colnames()` functions.
 
     > rownames(mat) <- c("rowname1", "rowname2", ...)
