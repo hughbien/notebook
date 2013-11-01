@@ -300,7 +300,7 @@ on whether you're in the `Object` namespace or within a routing block:
 `Sinatra::Delegator` mixin.  Methods like `get` and `post` are defined twice,
 once in the Delegator mixin and another in Base.  The Delegator mixin just
 delegates the call to Application.  The mixin is what gets mixed into the Object
-namespace.  An app can be maded without mixing into the Object namespace:
+namespace.  An app can be made without mixing into the Object namespace:
 
     require 'sinatra/base'
 
