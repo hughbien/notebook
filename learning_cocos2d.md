@@ -25,7 +25,7 @@ Now let's make a "Hello, World!" application using Cocos2D:
 
 1. Launch Xcode and select File > New Project
 2. Choose Cocos2D template
-3. Name th eproject CCHelloWorld
+3. Name the project CCHelloWorld
 4. In the Scheme dropdown, select the project and iOS simulator
 5. Click Run
 
