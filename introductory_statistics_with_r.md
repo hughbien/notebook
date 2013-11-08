@@ -469,7 +469,7 @@ You can specify cutpoints with `breaks=n` where `n` is the number of bars.
     > hist(age.acc, breaks=brk)
 
 You can also plot the empirical cumulative distribution or change it to a qqplot
-with a builtin function:
+with a built-in function:
 
     > n <- length(x)
     > plot(sort(x), (1:n)/n, type="s", ylim=c(0,1))  # type s is step function
