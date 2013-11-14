@@ -114,7 +114,7 @@ Absolute units are:
 
 
 ### Percentages
-Percantage values are always relative to another value, eg. a property of an
+Percentage values are always relative to another value, eg. a property of an
 ancestor element or the width of a containing block.
 
     p { line-height: 120% } /* 120% of font-size */
