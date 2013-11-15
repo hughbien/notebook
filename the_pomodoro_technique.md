@@ -51,7 +51,7 @@ Start a Pomodoro.  When time is up, mark an X next to the task.  Each X
 signifies one Pomodoro spent on the task.  You can't fit multiple tasks into
 a single Pomodoro and you cannot extend the minutes in a Pomodoro.  Every four
 Pomodori, take a longer break.  When the task is finished - cross it off.  If
-you finish before the Pomodoro is over - practice overlearning.  At the end of
+you finish before the Pomodoro is over - practice over-learning.  At the end of
 the day, make notes in your Records Sheet (# of Pomodori for types of tasks,
 interruptions, # of Pomodori total, etc...)
 
