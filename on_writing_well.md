@@ -270,7 +270,7 @@ Zinsser suggests avoiding one form: "I'd", "he'd", "we'd" because they can mean
 "I had" or "I would".
 
 ### That and Which
-Always use "that" unless it makes your meaning ambiguous.  "Which" servers
+Always use "that" unless it makes your meaning ambiguous.  "Which" serves
 for identification:
 
     Take the shoes that are in the closet.
