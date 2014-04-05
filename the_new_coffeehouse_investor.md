@@ -29,6 +29,12 @@ The "Coffeehouse Portfolio" from the website (with index funds) is:
 * 10% VGTSX: International
 * 10% VGSIX: REITS
 
+There's also a simpler, 3-fund portfolio:
+
+* 33% VBMFX: Fixed Income
+* 34% VTSMX: US Stock
+* 33% VGTSX: International Stock
+
 The Coffeehouse Investor
 ========================
 
