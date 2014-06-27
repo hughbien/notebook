@@ -209,18 +209,220 @@ Chef's defaults for cookbook and runlist locations.  Think of a cookbook as a co
 
 ## Using Chef with Tools
 
-This chapter covers on how to aid your infrastructure code using common tools: Ruby and VirtualBox.
-Along the way, you'll learn about `chef-client`, nodes, and running chef server.
+This chapter covers on how to aid your infrastructure code using common tools: Ruby, VirtualBox,
+Vagrant.  Along the way, you'll learn about `chef-client`, roles, nodes, and running chef server.
 
 ### Ruby
 
-1. Create Opscode community login and setup account
+1. Create Opscode community login and setup account: <http://community.opscode.com/>
+
+    # will give you 3 files: example.pem, validation.pem, knife.rb
+    $ mv *.pem knife.rb chef-repo/.chef/
+
 2. Download `knife.rb` configuration file and setup local environment
+
+    $ knife configure client /tmp
+    ...
+    Writing client.rb
+    Writing validation.pem
+
+3. Run `chef-client` with `dna.json` file and upload cookbooks to Chef server
+
+    $ sudo chef-client -j .chef/dna.json
+    ... Missing Cookbooks: irc, git ...
+    $ knife cookbook upload -a
+    $ sudo chef-client -j .chef/dna.json
+
+4. Download `chruby`, `ark`, and `ruby_build` cookbooks into `chef-repo` and upload to Chef server
+
+    $ knife cookbook site download chruby # do same for ark, ruby_build
+    $ tar xvf *.gz -C ~/chef-repo/cookbooks
+    $ knife cookbook upload {ark,ruby_build,chruby}
+
+5. Create a `role` and upload to Hosted Chef
+
+    # in developer.rb
+    name "developer"
+    description "For Developer machines"
+    run_list(
+      "recipe[irc]",
+      "recipe[git]",
+      "recipe[chruby::system]"
+    )
+
+    default_attributes(...)
+
+    $ knife role from file developer.rb # uploads to Chef server
+
+6. Update the node's run list
+
+    $ knife node edit ubuntu
+    $ knife node edit centos
+    $ knife node show centos -r
+    romanesco:
+      run_list: role[developer]
+
+7. Run `chef-client` and verify user has Ruby installed
+
+    $ sudo chef-client
+    ... install packages ...
+    $ ruby --version
+    ruby 1.9.3p429
 
 ### VirtualBox
 
+1. Install Chef Rubygem
+
+    $ gem install chef
+
+2. Install VirtualBox cookbook
+
+    $ cd
+    $ knife cookbook site download virtualbox
+    $ tar xzvf virtualbox*gz -C chef-repo/cookbooks
+
+3. Resolve dependencies and cookbooks, upload cookbooks to Chef server
+
+    $ cd ~/chef-repo
+    $ knife cookbook site download apt
+    $ tar xzvf apt*gz -C chef-repo/cookbooks
+    $ knife cookbook upload {apt,virtualbox}
+
+4. Update `developer.rb` to add VirtualBox, upload role to Chef server
+
+    # added to developer.rb run_list
+    "recipe[virtualbox]"
+
+    $ knife role from file roles/developer.rb
+
+5. Run `chef-client`
+6. Verify VirtualBox with `vboxmanage list vms`
+
+### Vagrant
+
+1. Install `vagrant` cookbook
+
+    $ cd
+    $ knife cookbook site download vagrant
+    $ tar xzvf vagrant*gz -C chef-repo/cookbooks
+
+2. Create a role for platform and configure download URL
+
+    # in roles/debian.rb
+    name "debian"
+    description "Attributes specific to Debian platform family"
+    run_list()
+
+    default_attributes(
+      "vagrant" => {
+        "url" => "http://files.vagrantup.com/packages/7e400d00a3c5a0fdf2809c8b5001a035415a607b"
+      }
+    )
+
+3. Add `vagrant` recipe to run list for developer role, upload to Chef server
+
+    # added to developer.rb run_list
+    "recipe[vagrant]"
+
+    $ knife role show developer
+    $ knife node show ubuntu -r
+
+    $ knife role from file roles/{debian,developer}.rb
+    $ knife cookbook upload vagrant
+
+4. Run `chef-client`
+5. Add Vagrant box called `opscode-centos-6.4-yourarch`, initialize it
+
+    $ vagrant box add opscode-centos-6.4-x86_64 https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
+    $ mkdir /tmp/vagrant-example
+    $ cd /tmp/vagrant-examle
+    $ vagrant init opscode-centos-6.4-x86_64
+
+6. Launch Vagrant box and connect to it
+
+    $ vagrant up
+    $ vagrant ssh
+
+7. Destroy, recreate, and reconnect
+
 ## An Introduction to TDD and BDD
+
+This chapter convinces you to use TDD/BDD for your code.  TDD is based on the cycle: Red, Green,
+Refactor.  Its benefits include:
+
+1. Preventing scope from growing
+2. Reveals design problems
+3. Builds trust
+4. Helps programmers get into a rhythm
+
+Whereas TDD helps programmers write correct code, BDD helps developers solve business problems.  It
+helps to write code that matters.
 
 ## A Test-Driven Infrastructure Framework
 
+Test-driven infrastructure should be MASCOT:
+
+* Mainstream
+* Automated
+* Side effect aware
+* Continuously integrated
+* Outside-in
+* Test-first
+
+The loop for developing infrastructure code becomes:
+
+* writing tests
+* running tests
+* provisioning machines
+* feedback
+
 ## Test-Driven Infrastructure: A Recommended Toolchain
+
+This chapter covers the toolset which can be used for TDD and a brief overview of each.
+
+### Berkshelf
+
+Berkshelf is similar to Bundler, except it resolves dependencies for Chef cookbooks.  It also aims
+to simplify the workflow required to interact with a Chef server (less knife commands).
+
+    $ gem install berkshelf
+    $ berks help
+    $ cd cookbooks/irc
+    $ berks init
+    $ berks install
+
+    $ berks configure # create a new Berkshelf configuration file
+    $ berks upload [COOKBOOKS] # upload cookbook to Chef Server
+    $ berks apply ENVIRONMENT # apply cookbooks to Chef environment
+
+### Test Kitchen
+
+It isn't for writing tests, but provides a framework for verifying the state of a node.
+
+    $ gem install test-kitchen
+    $ kitchen
+
+Use Test Kitchen to:
+
+* create - brings instance into existence and boots it
+* converge - installs Chef and sandbox for testing
+* setup - sets up for test harnesses
+* verify - runs any test suites that have been written
+* destroy - destroys instance and returns host into clean state
+
+### Chefspec
+
+The purest, fastest, and most lightweight unit testing approach.
+
+    $ gem install chefspec
+    $ knife cookbook create_specs netcat -o .
+    $ cat netcat/spec/default_spec.rb
+    require 'chefspec'
+    
+    describe 'netcat::default' do
+      let(:chef_run) { ChefSpec::ChefRunner.new.converge 'netcat::default' }
+      it 'should do something' do
+        pending 'Your recipe examples go here.'
+      end
+    end
+    $ rspec
