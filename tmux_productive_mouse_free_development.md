@@ -1,12 +1,10 @@
-Tmux: Productive Mouse-Free Development
-=======================================
+# Tmux: Productive Mouse-Free Development
 
-This is a short handbook on [tmux](http://tmux.sourceforge.net) by Brian Hogan.
-These notes are mostly just cheat sheets that cover the commands on Linux.  You
-can always grab a full cheat sheet in tmux with `C-b ?`.
+This is a short handbook on [tmux](http://tmux.sourceforge.net) by Brian Hogan. These notes are
+mostly just cheat sheets that cover the commands on Linux. You can always grab a full cheat sheet in
+tmux with `C-b ?`.
 
-Learning The Basics
-===================
+# Learning The Basics
 
 Install tmux using your OS's package manager.
 
@@ -19,18 +17,15 @@ Start and quit tmux is easy:
     $ tmux
     $ exit
 
-Tmux works with **sesions**, **windows**, and **panes**.  A session is usually
-tied to a project but you can create sessions for anything.  A window is like
-a terminal tab.  Windows can have multiple panes on them, for example have an
-editor running on the left and a REPL on the right.
+Tmux works with **sesions**, **windows**, and **panes**. A session is usually tied to a project but
+you can create sessions for anything. A window is like a terminal tab. Windows can have multiple
+panes on them, for example have an editor running on the left and a REPL on the right.
 
 For working with sessions:
 
-* `tmux new-session` creates new session without name, shorcut is `tmux new` or
-  just `tmux`
+* `tmux new-session` creates new session without name, shorcut is `tmux new` or just `tmux`
 * `tmux new -s development` creates seeion called "development"
-* `tmux new -s development -n editor` creates session and names first window
-  "editor"
+* `tmux new -s development -n editor` creates session and names first window "editor"
 * `tmux attach -t development` attaches session named development
 
 Keyboard shortcuts that are used often:
@@ -49,40 +44,36 @@ Keyboard shortcuts that are used often:
 * `C-b x` closes current pane
 * `C-b Space` cycles through pane layouts
 
-Configuring tmux
-================
+# Configuring tmux
 
-When tmux starts, it reads `~/.tmux.conf` for configuration.  You can
-automatically run commands or bind/unbind keys.
+When tmux starts, it reads `~/.tmux.conf` for configuration. You can automatically run commands or
+bind/unbind keys.
 
 * `set -g [setting] [value]` to globally set settings
 * `set -g prefix C-a` sets new key combo for Prefix key
 * `setw -g [setting] [value]` to set a window setting
 * `source-file [file]` to load a coniguration file
 * `bind [key] [command]` to bind a key to run a command
-* `bind -r [key] [command]` to bind a repeatable command where the Prefix only
-  has to be hit once
+* `bind -r [key] [command]` to bind a repeatable command where the Prefix only has to be hit once
 * `set -g repeat-time [ms]` how long tmux waits for repeated combos
 * `unbind [key]` to unbind a key combo
 * `display [text]` displays text on status line
 
 Use `C-b ?` to see what commands exist.
 
-A useful setting is to set the base index to 1 for windows, otherwise the first
-window is 0: `set -g base-index 1`.  Do the same with panes
-`setw -g pane-base-index 1`.
+A useful setting is to set the base index to 1 for windows, otherwise the first window is 0: `set -g
+base-index 1`. Do the same with panes `setw -g pane-base-index 1`.
 
-Bind a shortcut to refresh your config:
-`bind r source-file ~/.tmux.conf \; display "Reloaded!"`.  You can run multiple
-commands by splitting them with `\;`.
+Bind a shortcut to refresh your config: `bind r source-file ~/.tmux.conf \; display "Reloaded!"`.
+You can run multiple commands by splitting them with `\;`.
 
-Make sure your session is working with 256 colors.  To test it:
+Make sure your session is working with 256 colors. To test it:
 
     $ wget http://www.vim.org/scripts/download_script.php?src_id=4568 -O colortest
     $ perl colortest -w
 
-And validate that each line is a different color.  To configure your terminal,
-add this line to your `.bashrc` or `.zshrc`:
+And validate that each line is a different color. To configure your terminal, add this line to your
+`.bashrc` or `.zshrc`:
 
     [ -z "$TMUX" ] && export TERM=xterm-256-color
 
@@ -90,8 +81,8 @@ Then add this to `.tmux.conf`:
 
     set -g default-terminal "screen-256color"
 
-Tmux lets you configure the UI, from colors to adding to the status bar.  Run
-this script to figure out which colors you have:
+Tmux lets you configure the UI, from colors to adding to the status bar. Run this script to figure
+out which colors you have:
 
     for i in {0..255} ; do
       printf "\x1b[38;5;${i}mcolour${i}\n"
@@ -145,11 +136,10 @@ For example on attributes:
 
     set -g status-left "#[fg=green]Session: #S #[fg=yellow]#I"
 
-Scripting Customized tmux Environments
-======================================
+# Scripting Customized tmux Environments
 
-This chapter is all about setting up tmux so projects are tied to sessions
-and resuming a project should be as easy as a single command.
+This chapter is all about setting up tmux so projects are tied to sessions and resuming a project
+should be as easy as a single command.
 
 Here's an example script:
 
@@ -168,17 +158,15 @@ Here's an example script:
     fi
     tmux attach -t development
 
-Stick that into an executable file like `~/development` and run it to start your
-editor and REPL.
+Stick that into an executable file like `~/development` and run it to start your editor and REPL.
 
-Instead of a shell script, you can stick it into a `app.conf` file and have
-tmux execute it.  Just remove all the `tmux` prefixes and add
-`source-file ~/.tmux.conf` at the top.  To run it:
+Instead of a shell script, you can stick it into a `app.conf` file and have tmux execute it. Just
+remove all the `tmux` prefixes and add `source-file ~/.tmux.conf` at the top. To run it:
 
     $ tmux -f app.conf attach
 
-`tmuxinator` provides a nicer way to do this for each of your projects.
-Configuration is done in YAML and the files are stored in a central location.
+`tmuxinator` provides a nicer way to do this for each of your projects. Configuration is done in
+YAML and the files are stored in a central location.
 
     $ gem install tmuxinator
     $ tmuxinator open development
@@ -188,8 +176,7 @@ Configuration is done in YAML and the files are stored in a central location.
     $ tmuxinator open devproject
     # ... lets you do further edits ...
 
-Working With Text and Buffers
-=============================
+# Working With Text and Buffers
 
 Some tmux commands:
 
@@ -216,8 +203,7 @@ Some handy tmux commands to use:
 * `choose-buffer` lets you choose content
 * `save-buffer [filename]` to save to a file
 
-On Linux, it's useful to get `xclip` which can integrate the command line and
-system clipboards.
+On Linux, it's useful to get `xclip` which can integrate the command line and system clipboards.
 
     $ sudo apt-get install xclip
 
@@ -226,20 +212,19 @@ Now some bindings to work with xclip:
     bind C-c run "tmux save-buffer - | xclip -i -sel clipboard"
     bind C-v run "tmux set-buffer \"$(xclip -o -sel clipboard)\"; tmux paste-buffer"
 
-Pair Programming with tmux
-==========================
+# Pair Programming with tmux
 
-You can create a new user account on a computer for others to ssh in and share
-a tmux session.  You can also use tmux sockets for a second user to connect
-to your tmux.  The third way is to setup a cheap third party machine to share.
+You can create a new user account on a computer for others to ssh in and share a tmux session. You
+can also use tmux sockets for a second user to connect to your tmux. The third way is to setup a
+cheap third party machine to share.
 
 If you create a new user, just create a session and have that user attach it:
 
     ted123$ tmux new-session -s pairing
     barney$ tmux attach -t pairing
 
-You can also create grouped sessions so each user can independently create
-windows and stay on their own:
+You can also create grouped sessions so each user can independently create windows and stay on their
+own:
 
     ted123$ tmux new-session -s groupedsession
     barney$ tmux new-session -t groupedsession -s mysession
@@ -249,8 +234,7 @@ Tmux works with sockets:
     ted123$ tmux -S /var/tmux/pairing
     barney$ tmux -S /var/tmux/pairing attach
 
-Workflows
-=========
+# Workflows
 
 * `C-b !` turn a pane into a new window
 * `join-pane -s 1` joins window #1 into current window
@@ -263,8 +247,8 @@ Some tmux commands lets you execute shell commands also:
     $ tmux split-window -v "ssh dba@smithers"
     $ tmux attach -t editor
 
-When sessions are created this way, they exit when the process ends.  Use
-these keys to move between sessions:
+When sessions are created this way, they exit when the process ends. Use these keys to move between
+sessions:
 
 * `C-b (` move left
 * `C-b )` move right

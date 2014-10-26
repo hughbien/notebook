@@ -14,15 +14,15 @@ Writing is valuable:
 Only two factors determine if your book will be successful: does it teach a skill others use to make
 money and do those people gather/communicate online?
 
-To finish writing your book, be consistent by establishing a writing habit.  Write ~1,000 words a
+To finish writing your book, be consistent by establishing a writing habit. Write ~1,000 words a
 everyday.
 
-To overcome writer's block, lower your standards.  Write like you talk, then go back and refine
-later on.
+To overcome writer's block, lower your standards. Write like you talk, then go back and refine later
+on.
 
 # Basic Marketing
 
-Teach everything you know as a form of marketing.  People will listen and you'll build an audience.
+Teach everything you know as a form of marketing. People will listen and you'll build an audience.
 
 Other tactics include:
 
@@ -43,7 +43,7 @@ How much writing goes into a book?
 * 3 launch and update emails at 500 words each
 * ~3 posts on your own site at 3,000+ words
 
-At the low-end, that's 37,500 words.  At 1,000 words non-edited, that's only 37 days (realistically
+At the low-end, that's 37,500 words. At 1,000 words non-edited, that's only 37 days (realistically
 you'll want to double that amount for editing.)
 
 Some tips for writing:
@@ -64,9 +64,9 @@ Nathan Barry used 3x packages for his recent book:
 * The Complete Package ($169)
 
 The last package includes video tutorials, Photoshop files, code samples, and additional training
-materials.  Price high and deliver on value.
+materials. Price high and deliver on value.
 
-The same material can be presented in different media for more value.  Some examples:
+The same material can be presented in different media for more value. Some examples:
 
 * short video tips
 * video interviews
@@ -77,7 +77,7 @@ The same material can be presented in different media for more value.  Some exam
 * video lessons
 * photoshop files
 
-Labels matter.  Guides/courses are perceived to be worth more than books.  Use these labels:
+Labels matter. Guides/courses are perceived to be worth more than books. Use these labels:
 
 * courses
 * guides
@@ -89,14 +89,14 @@ Labels matter.  Guides/courses are perceived to be worth more than books.  Use t
 
 Do not take the "write it and sales will come" approach.
 
-Instead, build your audience and mailing list.  Drip out content to keep in touch with your
-audience.  On launch day, send out a time-limited discount for being a fan.
+Instead, build your audience and mailing list. Drip out content to keep in touch with your audience.
+On launch day, send out a time-limited discount for being a fan.
 
 To build your audience, you'll need to do guest posts for other related audiences.
 
-Getting guest posts is a combination of relationships and content.  Build your relationships with
+Getting guest posts is a combination of relationships and content. Build your relationships with
 other authors over time by subscribing to their content, leaving comments/suggestions, and sending
-helpful messages.  Eventually approach them with an offer to guest post.
+helpful messages. Eventually approach them with an offer to guest post.
 
 Other strategies include: affiliates, sending preview copies out, gathering testimonials, giveaways.
 
@@ -117,7 +117,7 @@ Some tips/elements for the sales page:
 
 # E-Commerce
 
-Nathan Barry advocates self publishing and selling on your own site.  That way, you can communicate
+Nathan Barry advocates self publishing and selling on your own site. That way, you can communicate
 directly with your customers.
 
 Other alternatives include: Amazon and iBooks Store.
@@ -134,7 +134,7 @@ Launch sequence:
 4. Send a launch email to your mailing list
 5. Contact your friends and ask them to share your sales page
 
-Consider adding a drip sequence email to your sales page.  Nathan's design email sequence:
+Consider adding a drip sequence email to your sales page. Nathan's design email sequence:
 
 1. Trimming down features
 2. Learning to wireframe
@@ -149,5 +149,5 @@ Consider adding a drip sequence email to your sales page.  Nathan's design email
 
 **Start before you feel ready.**
 
-You may not feel qualified now, but if you don't start you'll never become that expert.  This one
+You may not feel qualified now, but if you don't start you'll never become that expert. This one
 habit will change everything.

@@ -33,7 +33,7 @@ Failure is just a step along the way to success.
 Be willing to pick yourself up after a failure. Keep trying until you win. It's a reliable approach
 to achieve most goals.
 
-What distinguishes successful people from others?  They didn't stop.
+What distinguishes successful people from others? They didn't stop.
 
 # On Confidence
 
@@ -41,7 +41,7 @@ Confidence means knowing our value, but being aware of how much you have left to
 Ignorance is a temporary affliction - fix it by asking questions.
 
 Confidence also means sticking with your beliefs - until there's enough evidence provided to the
-contrary, after which you'd be confident enough to change your beliefs. 
+contrary, after which you'd be confident enough to change your beliefs.
 
 Also means no need to prove yourself, enjoying what you have, but striving for more.
 
@@ -113,5 +113,5 @@ identifying yourself with the brands you own.
 Lifespeki is Icelandic for "the practical philosophy by which one lives their life".
 
 It's good to have a philosophy - a framework to make decisions by. But don't just blindly follow
-someone's already established philosophy. Build your own!  Continually improve it as time goes on.
+someone's already established philosophy. Build your own! Continually improve it as time goes on.
 Live by the ideals and concepts that you see fit for yourself.

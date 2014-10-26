@@ -6,8 +6,8 @@ How to start a location and time independent business by Colin Wright.
 
 **What's a freedom business?**
 
-A business that earns its owner money and time.  You build it to create personal freedom for
-yourself and to support your ideal lifestyle.
+A business that earns its owner money and time. You build it to create personal freedom for yourself
+and to support your ideal lifestyle.
 
 **Who should start one?**
 
@@ -19,7 +19,7 @@ Some examples:
 
 **Why start one?**
 
-They enable freedom.  No location commitment means you can travel or stay at home.  No appointments
+They enable freedom. No location commitment means you can travel or stay at home. No appointments
 means you can fill your day with other activities.
 
 **Where to run one?**
@@ -67,7 +67,7 @@ Regarding bootstrapping vs investment:
 * the parallel business could be services based since that's easier to start/run (think freelancing)
 
 If you build multiple businesses with modularity, you can increase the value of each one by sharing
-resources, customers, and promotional efforts.  Think about how Amazon started with selling books
+resources, customers, and promotional efforts. Think about how Amazon started with selling books
 online, then all ecommerce items, then server solutions, and now video.
 
 Some tips for running businesses:
@@ -85,10 +85,10 @@ Some resources:
 
 # Freedom Business Models
 
-**Publishing** builds an audience as a form of promotion.  Not everyone in the audience will be a
-customer.  Consider setting up a blog, writing ebooks, or newsletters.
+**Publishing** builds an audience as a form of promotion. Not everyone in the audience will be a
+customer. Consider setting up a blog, writing ebooks, or newsletters.
 
-**Videos** is another form a publishing.  You can create valuable information or promote other
+**Videos** is another form a publishing. You can create valuable information or promote other
 people's products.
 
 **Music** can be distributed through marketplaces or via your own website.
@@ -96,14 +96,14 @@ people's products.
 **Games & Apps** can be done for a specific platform/marketplace or cross-platform.
 
 **Services & Consulting** have a major downside in that it's not inherently decoupled from your
-time.  But you can use it to bootstrap another business.
+time. But you can use it to bootstrap another business.
 
 **Membership** if you can build an audience and provide them with consistent value, distributed via:
 publishing, forums, and other resources.
 
-**Affiliate** business sell other people's products for a percentage.  See <http://cj.com>.
+**Affiliate** business sell other people's products for a percentage. See <http://cj.com>.
 
-**E-Commerce** sells physical products and delivers them to customers.  Try to outsource/automate as
+**E-Commerce** sells physical products and delivers them to customers. Try to outsource/automate as
 much as possible.
 
 Whatever route you take, they'll do better if you have a home base for fans to contact you with.

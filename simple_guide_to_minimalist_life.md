@@ -31,7 +31,7 @@ The steps to take to reach these goals are:
 
 # Contentedness & Simplifying What You Do
 
-It's not enough to strip clutter - it will come back unless you're content.  You must realize that
+It's not enough to strip clutter - it will come back unless you're content. You must realize that
 **you already have enough**: food, water, basic clothing, shelter, and loved ones. That's all you
 really need. Stop buying the non necessities. Learn to be happy by doing instead of owning. Be
 content.
@@ -65,8 +65,7 @@ clutter. Clutter is poison. Some simple rules to remove clutter:
 1. If you haven't used in in 6-12 months, toss it.
 2. Don't hold on to things, consider renting it instead.
 3. Take a picture for memories.
-4. If you can't throw it away, create a maybe box. If it stays in the box for
-  a year, throw it out.
+4. If you can't throw it away, create a maybe box. If it stays in the box for a year, throw it out.
 
 Leo recommends getting started with one area at a time. Don't try to tackle the entire house at
 once.
@@ -127,7 +126,7 @@ How to eat less:
 
 Leo advocates eating food closest to its natural state. Raw food is good, but it doesn't necessarily
 have to be raw. Some suggestions are fruits, veggies, nuts, legumes, natural nut butters, nut oils,
-whole grains, and lean proteins.  Shoot for 90% of the time.
+whole grains, and lean proteins. Shoot for 90% of the time.
 
 **Cook for yourself to save money and be healthier!** Some simple recipes:
 
@@ -142,7 +141,7 @@ whole grains, and lean proteins.  Shoot for 90% of the time.
 Note to self: check out the longevity diet (restricted caloric intake) and fast 5 diet.
 
 Minimalist fitness focuses on working out less with less equipment. Start out with walking if you've
-been inactive. Slowly upgrade to a walk-run or jog-run.  The key is to get active. Use your
+been inactive. Slowly upgrade to a walk-run or jog-run. The key is to get active. Use your
 bodyweight instead of gym equipment:
 
 * pull-ups

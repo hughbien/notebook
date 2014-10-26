@@ -1,7 +1,6 @@
-Swift Programming Language
-==========================
+# Swift Programming Language
 
-Swift is the new programming language used for iOS and OS X applications.  This guide is by Apple.
+Swift is the new programming language used for iOS and OS X applications. This guide is by Apple.
 
 ## The Basics
 
@@ -24,28 +23,28 @@ Comments are specified with `//` or `/* ... */`, nested multiline comments are e
     /* nested */
     ending comment*/
 
-Semicolons are optional, most example code is written without it.  You can use it to combine
-multiple statements into one line though:
+Semicolons are optional, most example code is written without it. You can use it to combine multiple
+statements into one line though:
 
     let message = "Hello!"; println(message)
 
-Integers are whole numbers, can be signed/unsigned in 8,16,32,64 bit forms.  Example types are
-`UInt8` or `Int32`.  Bounds are specified like `UInt8.min` or `Int32.max`.  `Int` defaults to
-current 32 or 64 bit platform.  You'll usually want `Int` or `UInt`.
+Integers are whole numbers, can be signed/unsigned in 8,16,32,64 bit forms. Example types are
+`UInt8` or `Int32`. Bounds are specified like `UInt8.min` or `Int32.max`. `Int` defaults to current
+32 or 64 bit platform. You'll usually want `Int` or `UInt`.
 
 Floats are numbers with fractional components and can be stored with: `Double` for 64-bit floating
 point number or `Float` for 32-bit.
 
 Numeric literals can be inferred with prefixes: no prefix is decimal, `0b` for binary, `0o` for
-octal, `0x` for hex.  Suffixes can be `e` or `p` meaning `*10^n` or `*2^n`.  So `1.25e2` means
-`1.25 * 10^2` and `15p2` means `15 * 2^2`.
+octal, `0x` for hex. Suffixes can be `e` or `p` meaning `*10^n` or `*2^n`. So `1.25e2` means `1.25 *
+10^2` and `15p2` means `15 * 2^2`.
 
 Define type aliases with `typealias` keyword:
 
     typealias AudioSample = UInt16
     var maxAmp = AudioSample.min
 
-Bool types represent boolean values: `true` and `false`.  They're useful with `if` statements:
+Bool types represent boolean values: `true` and `false`. They're useful with `if` statements:
 
     if turnipsAreDelicious {
         // ...
@@ -64,25 +63,25 @@ Tuples accept naming too:
     println("The status code is \(http200Status.statusCode)")
 
 Optionals can be used when value may not be present and is specified with a suffix `?` like `Int?`.
-They can be used in `if` statements like booleans.  Use the suffix `!` to force unwrap the
-optional's underlying value.  A common pattern is optional binding:
+They can be used in `if` statements like booleans. Use the suffix `!` to force unwrap the optional's
+underlying value. A common pattern is optional binding:
 
     if let actualNum = possibleNum.toInt() {
         // ... use actualNum ..
     }
 
-`nil` is the empty value for Swift and can be assigned to optional constants/variables.  It's also
+`nil` is the empty value for Swift and can be assigned to optional constants/variables. It's also
 the default when initializing optional constants/variables.
 
-Implicitly unwrapped optionals are declared using `!` suffix.  They're used like optionals but
+Implicitly unwrapped optionals are declared using `!` suffix. They're used like optionals but
 already have a value.
 
 Assertions are made with `assert()`.
 
 ## Basic Operators
 
-Swift's basic operators are similar to C's, except modulus is allowed on floating point numbers
-and Swift includes range operators (`..` and `...`).
+Swift's basic operators are similar to C's, except modulus is allowed on floating point numbers and
+Swift includes range operators (`..` and `...`).
 
 There are 3x categories: unary/prefix/postfix, binary/infix, and ternary.
 
@@ -102,11 +101,11 @@ There are 3x categories: unary/prefix/postfix, binary/infix, and ternary.
 
 ## Strings and Characters
 
-String literals are placed in double quotes, `"Some string literal value"`.  Use a backslash to
-escape characters.  Use `\()` for string interpolation.
+String literals are placed in double quotes, `"Some string literal value"`. Use a backslash to
+escape characters. Use `\()` for string interpolation.
 
-Strings are value types and are passed as values to methods.  Strings/characters can be concatenated
-with `+`.  Specify a character like so:
+Strings are value types and are passed as values to methods. Strings/characters can be concatenated
+with `+`. Specify a character like so:
 
     let character1: Character = "!"
 
@@ -167,12 +166,12 @@ Useful methods, properties, etc:
 * `var d = [Int: String]()` declare/initializes empty dictionary
 * `d = [:]` resets to empty dictionary if type can be inferred
 
-A KeyType must be hashable (conforms to `Hashable` protocol) to be used as a key.  All of Swift's
+A KeyType must be hashable (conforms to `Hashable` protocol) to be used as a key. All of Swift's
 basic types are hashable.
 
 ## Control Flow
 
-There's the standard `for-condition-increment` loop found in C.  There's also the new `for-in` loop
+There's the standard `for-condition-increment` loop found in C. There's also the new `for-in` loop
 for iterating over collections:
 
     for index in 1...5 {
@@ -185,9 +184,9 @@ Swift also implements the `while` and `do while` loops found in C.
 
 `if`, `else if`, and `else` are also all implemented.
 
-`switch` is implemented but differs a bit.  Swift uses type checking to make sure the statement is
-exhaustive or contains a `default`.  There is no implicit fall through.  Multiple matches are
-separated with a comma.  You can also use range or tuple matching.  With tuple matching, use an
+`switch` is implemented but differs a bit. Swift uses type checking to make sure the statement is
+exhaustive or contains a `default`. There is no implicit fall through. Multiple matches are
+separated with a comma. You can also use range or tuple matching. With tuple matching, use an
 underscore to denote any possible value.
 
 Value binding can be used in switches:
@@ -228,7 +227,7 @@ Function declarations look like:
         return "Hello, " + firstName + " " + lastName + "!"
     }
 
-Specify a tuple as the return value to return multiple values.  Swift can infer the tuple keys:
+Specify a tuple as the return value to return multiple values. Swift can infer the tuple keys:
 
     func abc() -> (a: Int, b: Int, c: Int) {
         // ...
@@ -256,8 +255,8 @@ Variadic parameters can be specified with `...`:
       // numbers is a [Double] array
     }
 
-Parameters are constants by default, use `var` to make them variables.  Note that it's still not
-passed by reference.  To do that, use `inout` and `&`:
+Parameters are constants by default, use `var` to make them variables. Note that it's still not
+passed by reference. To do that, use `inout` and `&`:
 
     func someFunction(var string: String) { }
     func someFunction(inout a: Int) { }
@@ -276,7 +275,7 @@ The function type is specified by its parameter types and return type:
       return addTwoInts
     }
 
-Functions can be nested.  Scoping follows the same rules as local variables.
+Functions can be nested. Scoping follows the same rules as local variables.
 
 ## Closures
 
@@ -377,7 +376,7 @@ Use `toRaw()` and `fromRaw()` to transform values.
 ## Classes and Structures
 
 Classes and structures are very similar: they both have properties, methods, initializers, or
-protocol conformation.  Classes have additional capabilities: inheritance, type casting,
+protocol conformation. Classes have additional capabilities: inheritance, type casting,
 deinitializers, and reference counting.
 
     class SomeClass {
@@ -391,13 +390,13 @@ deinitializers, and reference counting.
     let someStructure = SomeStructure(someName: "John Doe")
     println("some property: \(someClass.someProperty)")
 
-All structures and enumerations are value types.  Value types are copied in memory when passed
-to methods or re-assigned.  Classes are reference types.  Swift's String, Array, and Dictionary
-are all implemented as structures.
+All structures and enumerations are value types. Value types are copied in memory when passed to
+methods or re-assigned. Classes are reference types. Swift's String, Array, and Dictionary are all
+implemented as structures.
 
 ## Properties
 
-There are instance properties and type properties (aka instance/class properties).  If an instance
+There are instance properties and type properties (aka instance/class properties). If an instance
 was assigned with `let`, those properties cannot be altered.
 
 Swift supports lazy stored properties marked with `@lazy`, which isn't calculated until after
@@ -457,7 +456,7 @@ Instance and class methods both exist for classes, structures, and enumerations:
     }
 
 Apple recommends suffixing method names with parameters by a preposition like `with`, `for`, or
-`by`.  The default behavior of methods are that the first parameter is given a local name but
+`by`. The default behavior of methods are that the first parameter is given a local name but
 remaining parameters are given a local/global parameter name:
 
     class Counter {
@@ -469,9 +468,9 @@ remaining parameters are given a local/global parameter name:
 
 Access the current instance with `self`.
 
-By default, structures and enumerations are value types so properties cannot be modified.  A method
-must be prefixed with `mutating` if it does modify any stored properties.  In a mutating method,
-even `self` can be re-assigned.
+By default, structures and enumerations are value types so properties cannot be modified. A method
+must be prefixed with `mutating` if it does modify any stored properties. In a mutating method, even
+`self` can be re-assigned.
 
 Type methods are prefixed with `class` for classes and `static` for structures:
 
@@ -483,7 +482,7 @@ Type methods are prefixed with `class` for classes and `static` for structures:
 
 ## Subscripts
 
-Subscripts are called with `[]` and can take any number of parameters.  The syntax to declare one is:
+Subscripts are called with `[]` and can take any number of parameters. The syntax to declare one is:
 
     subscript(index: Int) -> Int {
         get { }
@@ -492,11 +491,11 @@ Subscripts are called with `[]` and can take any number of parameters.  The synt
 
 ## Inheritance
 
-Subclasses are specified with `:` such as `class Bicycle: Vehicle {}`.  Within methods, use `super`
+Subclasses are specified with `:` such as `class Bicycle: Vehicle {}`. Within methods, use `super`
 to access the superclass's self.
 
 When overriding an instance method, class method, instance property, or subscript use the prefix
-`override`.  You'd override a property to add your own custom getters/setters or observers.
+`override`. You'd override a property to add your own custom getters/setters or observers.
 
 To prevent overrides, use the `@final` prefix keyword.
 
@@ -508,18 +507,18 @@ Initializers are defined with the `init` keyword and work just like method defin
         someProperty = aProperty
     }
 
-Although if external parameter names are explicitly defined, they must be used when initializing.
-If they're implicitly defined, they're optional to use.
+Although if external parameter names are explicitly defined, they must be used when initializing. If
+they're implicitly defined, they're optional to use.
 
 During `init`, event constant property values defined with `let` can be assigned to.
 
 Structures get a default initializer with all of its properties as parameters, called a memberwise
 initializer.
 
-You can define multiple initializers using different parameters.  An initializer can also delegate
-to other initializers to keep things DRY.  A designated initializer is one that fully initializes a
-class, usually there's one per class.  Convenience initializers are secondary and eventually call
-the designated initializer.  Designated initializers may call a superclass initializer.  Convenience
+You can define multiple initializers using different parameters. An initializer can also delegate to
+other initializers to keep things DRY. A designated initializer is one that fully initializes a
+class, usually there's one per class. Convenience initializers are secondary and eventually call the
+designated initializer. Designated initializers may call a superclass initializer. Convenience
 initializers are prefixed with `convenience`.
 
 ## Deinitialization
@@ -534,8 +533,8 @@ They're called automatically and you're not allowed to directly call it yourself
 
 ## Automatic Referencing Counting
 
-Swift uses ARC for memory management.  All references are strong by default, so you'll need to
-explicitly mark weak references to prevent retain cycles.  A weak reference is prefixed with `weak`:
+Swift uses ARC for memory management. All references are strong by default, so you'll need to
+explicitly mark weak references to prevent retain cycles. A weak reference is prefixed with `weak`:
 
     class Person {
         var apartment: Apartment?
@@ -547,9 +546,9 @@ explicitly mark weak references to prevent retain cycles.  A weak reference is p
 Once both person and apartment strong references are set to nil, both instances will be garbage
 collected.
 
-There's also unowned references which are assumed to always hold a value.  In the above example,
-an apartment may or may not have a tenant so it was appropriate to use `weak`.  In the below example,
-a credit card must always be associated with a customer, so we'll use `unowned`:
+There's also unowned references which are assumed to always hold a value. In the above example, an
+apartment may or may not have a tenant so it was appropriate to use `weak`. In the below example, a
+credit card must always be associated with a customer, so we'll use `unowned`:
 
     class Customer {
         var card: CreditCard?
@@ -561,8 +560,7 @@ a credit card must always be associated with a customer, so we'll use `unowned`:
 Once customer strong references are set to nil, both instances will be garbage collected.
 
 A strong reference cycle can also occur if a closure is assigned to an instance property and the
-closure captures `self`.  Closures are reference types.  Swift solves this with closure capture
-lists.
+closure captures `self`. Closures are reference types. Swift solves this with closure capture lists.
 
 Place a capture list before a closure's parameter list:
 
@@ -581,7 +579,7 @@ If the parameter list and return type are inferred or there's no parameter list:
 ## Optional Chaining
 
 Optional chaining uses `?` between an optional value and its property/method instead of `!` forced
-unwrap.  The difference is that optional chaining fails gracefully whereas the forced unwrap triggers
+unwrap. The difference is that optional chaining fails gracefully whereas the forced unwrap triggers
 a runtime error.
 
     class Person {
@@ -594,14 +592,14 @@ a runtime error.
     let roomCount = john.residence!.numberOfRooms // runtime error
     let roomCount = john.residence?.numberOfRooms // nil as inferred Int?
 
-This works for methods and subscripts also.  It can be chained:
+This works for methods and subscripts also. It can be chained:
 
     john.residence?.address?.street
 
 ## Type Casting
 
-Type casting is done with `is` and `as` operators.  It can be done to make sure types conform to
-certain protocols or inherit from certain parent classes.  In these examples, Movie and Song inherit
+Type casting is done with `is` and `as` operators. It can be done to make sure types conform to
+certain protocols or inherit from certain parent classes. In these examples, Movie and Song inherit
 from MediaItem.
 
     var mediaItem: MediaItem
@@ -612,8 +610,8 @@ from MediaItem.
         // ...
     }
 
-You can downcast types using `as` or `as?`.  The question mark form returns an optional value and
-should be used when you're not sure if type conversion will succeed.  `as` will trigger a runtime
+You can downcast types using `as` or `as?`. The question mark form returns an optional value and
+should be used when you're not sure if type conversion will succeed. `as` will trigger a runtime
 error if there's a type mismatch.
 
     if let movie = item as? Movie {
@@ -623,12 +621,12 @@ error if there's a type mismatch.
     }
 
 Swift provides `Any` and `AnyObject` to refer to any instance of any type at all except functions
-and an instance of any class type (eg use `Any` for integers or enums too).  Working with Cocoa APIs
+and an instance of any class type (eg use `Any` for integers or enums too). Working with Cocoa APIs
 will usually use Any/AnyObject since collections in Objective-C don't require a type.
 
 ## Nested Types
 
-Swift lets you nest types.  This is common for enumerations, utility classes, etc...
+Swift lets you nest types. This is common for enumerations, utility classes, etc...
 
     struct BlackJackCard {
         enum Suit: Character {
@@ -647,19 +645,19 @@ Extensions adds behavior to existing classes like categories in Objective-C.
 
 ## Protocols
 
-Protocols are like interfaces in Java.  A class is said to adopt or conform to a protocol.
+Protocols are like interfaces in Java. A class is said to adopt or conform to a protocol.
 
     protocol SomeProtocol {
         // ... definitions go here ...
     }
 
-Protocols only have definitions, no implementations.  On the structure/class side:
+Protocols only have definitions, no implementations. On the structure/class side:
 
     structure SomeStructure: SomeProtocol, SomeProtocol2 {
         // ...
     }
 
-Protocols can require any number of properties/methods.  Getters/setters can also be specified as
+Protocols can require any number of properties/methods. Getters/setters can also be specified as
 required:
 
     protocol SomeProtocol {
@@ -676,8 +674,8 @@ Defined protocols becomes a type that you can use anywhere else a type is expect
 
 Extensions work well with protocols to extend existing types to conform to a specific protocol.
 
-You can also define optional requirements (oxymoron?) prefixed with `@optional`.  These can be called
-using optional chaining such as `someOptionalMethod?(someArgument)`.  This can only be used if the
+You can also define optional requirements (oxymoron?) prefixed with `@optional`. These can be called
+using optional chaining such as `someOptionalMethod?(someArgument)`. This can only be used if the
 entire protocol is marked with `@objc`.
 
 ## Generics
@@ -698,7 +696,7 @@ The function above can be made more flexible with generics:
         b = temporaryA
     }
 
-You can constrain type placeholders like `<T: SomeClass>`.  Generics can also be used with class
+You can constrain type placeholders like `<T: SomeClass>`. Generics can also be used with class
 definitions.
 
     class SomeClass<T: SomeType, U: SomeProtocol> {

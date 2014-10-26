@@ -1,20 +1,17 @@
-Learning Cocos2D
-================
+# Learning Cocos2D
 
-This book is a hands-on guide to making 2D iOS games using Cocos2D, Box2D, and
-Chipmunk by Rod Strougo and Ray Wenderlich.
+This book is a hands-on guide to making 2D iOS games using Cocos2D, Box2D, and Chipmunk by Rod
+Strougo and Ray Wenderlich.
 
-These notes won't include the full guide.  I'll try to highlight the important
-aspects of Cocos2D without the full game code.  Also, I'm only reading the
-chapters on Cocos2D and a quick introduction to the Box2D physics engine.
+These notes won't include the full guide. I'll try to highlight the important aspects of Cocos2D
+without the full game code. Also, I'm only reading the chapters on Cocos2D and a quick introduction
+to the Box2D physics engine.
 
-Purchase the book here: <http://cocos2dbook.com/book/>.  It's good!
+Purchase the book here: <http://cocos2dbook.com/book/>. It's good!
 
-Hello, Cocos2D
-==============
+# Hello, Cocos2D
 
-**Cocos2D** is a 2D game engine for iOS, you can get it at
-<http://www.cocos2d-iphone.org>.
+**Cocos2D** is a 2D game engine for iOS, you can get it at <http://www.cocos2d-iphone.org>.
 
 1. Download cocos2d and unzip the download
 2. `cd cocos2d-iphone`
@@ -31,15 +28,15 @@ Now let's make a "Hello, World!" application using Cocos2D:
 
 Let's render an image:
 
-1. Drag the SpaceCargoShip directory from the provided resources into the
-   CCHelloWorld project.  Select "Copy items into destination group's folder".
+1. Drag the SpaceCargoShip directory from the provided resources into the CCHelloWorld project.
+   Select "Copy items into destination group's folder".
 2. Open HelloWorldScene.m and add these lines to the init method:
 
     CCSprite *spaceCargoShip = [CCSprite spriteWithFile:@"SpaceCargoShip.png"];
     [spaceCargoShip setPosition:ccp(size.width/2, size.height/2)];
     [self addChild:spaceCargoShip];
 
-Click run to see the space ship.  Move the ship around with this code:
+Click run to see the space ship. Move the ship around with this code:
 
     id moveAction = [CCMoveTo actionWithDuration:5.0f
                                         position:ccp(0, size.height/2)];
@@ -48,12 +45,12 @@ Click run to see the space ship.  Move the ship around with this code:
 Cocos2D games are made up of a few components:
 
 * `CCDirector` - director runs the scenes
-* `CCScenes` - one scene gets run at a time, for example one with a menu and
-  the next with some gameplay
-* `CCLayer` - each scene consists of one or more layers composited on top of
-  one another.  For example: one background and another for characters
-* `CCSprite` - layers have sprites which are objects displayed on screen, like
-  a single character or paddles and a ball.
+* `CCScenes` - one scene gets run at a time, for example one with a menu and the next with some
+  gameplay
+* `CCLayer` - each scene consists of one or more layers composited on top of one another. For
+  example: one background and another for characters
+* `CCSprite` - layers have sprites which are objects displayed on screen, like a single character or
+  paddles and a ball.
 
 Cocos2D objects have a shorthand method called `node`:
 
@@ -61,19 +58,17 @@ Cocos2D objects have a shorthand method called `node`:
     // equivalent to...
     [[[CCScene alloc] init] autorelease];
 
-Hello, Space Viking
-===================
+# Hello, Space Viking
 
 Let's make a new Space Viking game:
 
 1. Open Xcode and "Create a New Xcode Project"
 2. Choose Cocos2d template
 3. Enter "Space Viking" as name of product and Create
-4. Download the resources at
-   <http://www.informit.com/store/product.aspx?isbn=9780321735621>.
-5. Drag the Images directory into the SpaceViking project and choose
-   "Copy items into destination group's folder".  Choosing this option makes
-   a hard copy in your project instead of using a link to existing files
+4. Download the resources at <http://www.informit.com/store/product.aspx?isbn=9780321735621>.
+5. Drag the Images directory into the SpaceViking project and choose "Copy items into destination
+   group's folder". Choosing this option makes a hard copy in your project instead of using a link
+   to existing files
 
 Let's make a background:
 
@@ -99,13 +94,12 @@ Let's make a background:
       return self;
     }
 
-Cocos2D includes utility functions `convertToGL` and `convertToUI` to deal with
-UIKit's coordinate system (origin at upper left) and OpenGL ES coordinate system
-(origin at bottom left).  Cocos2D uses OpenGL ES coordinate system.
+Cocos2D includes utility functions `convertToGL` and `convertToUI` to deal with UIKit's coordinate
+system (origin at upper left) and OpenGL ES coordinate system (origin at bottom left). Cocos2D uses
+OpenGL ES coordinate system.
 
-Create a GameplayLayer class that subclasses CCLayer.  We're going to add a
-viking to the scene.  Add a `CCSprite *vikingSprite` instance variable in the
-interface:
+Create a GameplayLayer class that subclasses CCLayer. We're going to add a viking to the scene. Add
+a `CCSprite *vikingSprite` instance variable in the interface:
 
     // GameplayLayer.m
     - (id) init {
@@ -124,9 +118,8 @@ interface:
       return self;
     }
 
-Now we have a background and viking layer.  We need to connect these layers to
-a scene and connect that scene to the director.  Create the GameScene class and
-have it inherit CCScene:
+Now we have a background and viking layer. We need to connect these layers to a scene and connect
+that scene to the director. Create the GameScene class and have it inherit CCScene:
 
     // GameScene.m
     - (id) init {
@@ -137,17 +130,15 @@ have it inherit CCScene:
       return self;
     }
 
-Open SpaceVikingAppDelegate.m.  We need to use our scene instead of the default
-HelloWorldScene:
+Open SpaceVikingAppDelegate.m. We need to use our scene instead of the default HelloWorldScene:
 
 1. `#import "GameScene.h"` add this near the top
 2. Uncomment the section to enable iPhone 4 retina display
 3. Change the call to `[HelloWorld scene]` to `[GameScene scene]`
 
-At this point we've rendered a viking and the background.  Let's add movement.
-The author uses an open source joystick class called SneakyInput.  Right-click
-the project, select 'Add > Files', select the JoystickClasses directory, and
-add (make sure "copy items into destination" is checked).
+At this point we've rendered a viking and the background. Let's add movement. The author uses an
+open source joystick class called SneakyInput. Right-click the project, select 'Add > Files', select
+the JoystickClasses directory, and add (make sure "copy items into destination" is checked).
 
 You'll need to add some imports and instance variables to GameplayLayer:
 
@@ -228,8 +219,8 @@ GameplayLayer needs to initialize the joystick and buttons:
       [self addChild:attackButtonBase]; 
     }
 
-Add an `applyJoystick` method which will be called everytime the viking position
-gets updated for the joystick movement:
+Add an `applyJoystick` method which will be called everytime the viking position gets updated for
+the joystick movement:
 
     - (void) applyJoystick:(SneakyJoystick *)aJoystick 
                     toNode:(CCNode *)tempNode 
@@ -247,8 +238,8 @@ gets updated for the joystick movement:
       } 
     } 
 
-Cocos2D automatically calls an update method before each time the viking is
-rendered.  At 60fps, that's 60 times per second:
+Cocos2D automatically calls an update method before each time the viking is rendered. At 60fps,
+that's 60 times per second:
 
     - (void) update:(ccTime)deltaTime { 
       [self applyJoystick:leftJoystick 
@@ -256,28 +247,28 @@ rendered.  At 60fps, that's 60 times per second:
              forTimeDelta:deltaTime];
     }
 
-We'll need to schedule the update method to be called along with initializing
-the joystick/buttons.  Do this inside the init method:
+We'll need to schedule the update method to be called along with initializing the joystick/buttons.
+Do this inside the init method:
 
     [self initJoystickAndButtons];
     [self scheduleUpdate];
 
-A quick note about performance.  If you have too many sprites and textures,
-your game will slow down.  Batch them with `CCSpriteBatchNode`.  It will reduce
-the number of calls to OpenGL ES.  This uses a **texture atlas or sprite sheet**.
+A quick note about performance. If you have too many sprites and textures, your game will slow down.
+Batch them with `CCSpriteBatchNode`. It will reduce the number of calls to OpenGL ES. This uses a
+**texture atlas or sprite sheet**.
 
-Images are best stored in power-of-two increments, otherwise you're wasting
-space.  Instead of a 129x129 image, try to pack images together and sprite
-them in 256x256.  It's another advantage of using a texture atlas.
+Images are best stored in power-of-two increments, otherwise you're wasting space. Instead of a
+129x129 image, try to pack images together and sprite them in 256x256. It's another advantage of
+using a texture atlas.
 
 Two tools for creating texture atlas are:
 
 * Zwoptex <http://zwoptexapp.com>
 * TexturePacker <http://texturepacker.com>
 
-Use any of the two tools to create a packed PNG image and corresponding plist
-file.  Add the PNG and plist files to your project, there should be an
-additional one for retina display with an extra "-hd".  Here's example code:
+Use any of the two tools to create a packed PNG image and corresponding plist file. Add the PNG and
+plist files to your project, there should be an additional one for retina display with an extra
+"-hd". Here's example code:
 
     CCSpriteBatchNode *chapter2SpriteBatchNode;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -297,15 +288,14 @@ additional one for retina display with an extra "-hd".  Here's example code:
     [vikingSprite
       setPosition:CGPointMake(screenSize.width/2, screenSize.height*0.17f)];
 
-Make sure GAME_AUTOROTATION is defined in GameConfig.h to perform better on
-iPhone 3G and older devices:
+Make sure GAME_AUTOROTATION is defined in GameConfig.h to perform better on iPhone 3G and older
+devices:
 
     #define GAME_AUTOROTATION kGameAutorotationCCDirector
 
-Introduction to Cocos2D Animation and Actions
-=============================================
+# Introduction to Cocos2D Animation and Actions
 
-All animations are single image frames being switched in/out.  The two steps:
+All animations are single image frames being switched in/out. The two steps:
 
 1. Create a CCAnimation to specify frames (images/textures)
 2. Create a CCAnimate action and run it on a sprite
@@ -326,8 +316,7 @@ All animations are single image frames being switched in/out.  The two steps:
       [CCRepeatForever actionWithAction:robotAnimationAction];
     [animatingRobot runAction:repeatRobotAnimation]; 
 
-Animating with a CCSpriteBatchNode is a bit different for retrieving the
-sprites:
+Animating with a CCSpriteBatchNode is a bit different for retrieving the sprites:
 
     CCAnimation *exampleAnim = [CCAnimation animation];
     [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]
@@ -337,9 +326,9 @@ sprites:
     [exampleAnim addFrame:[[CCSpriteFrameCache sharedSpriteFrameCache]
         spriteFrameByName:@"sv_anim_4.png"]];
 
-CCAnimationCache lets you store/retrieve sprite animations as needed which is
-very useful for games with a lot of similar animations.  It's a cache, so you'll
-need to check if your animation is present or not:
+CCAnimationCache lets you store/retrieve sprite animations as needed which is very useful for games
+with a lot of similar animations. It's a cache, so you'll need to check if your animation is present
+or not:
 
     CCAnimationCache cache = [CCAnimationCache sharedAnimationCache];
     [cache addAnimation:animation name:@"AnimationName"];
@@ -351,7 +340,7 @@ CCAction lets you move, transform, transition your nodes:
       [CCMoveBy actionWithDuration:2.0f position:ccp(200.0f, 0.0f)];
     [vikingSprite runAction:moveAction];  // all CCNodes have this method
 
-Animations are a special type of actions.  Here are common ones:
+Animations are a special type of actions. Here are common ones:
 
 * CCAnimate
 * CCJumpBy
@@ -359,20 +348,17 @@ Animations are a special type of actions.  Here are common ones:
 * CCSequence - combine two or more actions together
 * CCSpawn - two or more starting at the same time
 
-Animations get cumbersome if you wrote all this code.  Cocos2d lets you store
-animation in property list files along with sprite frames.
+Animations get cumbersome if you wrote all this code. Cocos2d lets you store animation in property
+list files along with sprite frames.
 
-The authors suggest organizing your code around a GameObject, the root of all
-objects in your game.  It will inherit from CCSprite.  GameCharacter will be
-characters in your game and include methods for dealing with bounding boxes,
-health, and states.
+The authors suggest organizing your code around a GameObject, the root of all objects in your game.
+It will inherit from CCSprite. GameCharacter will be characters in your game and include methods for
+dealing with bounding boxes, health, and states.
 
-In addition to the root classes, the authors setup a "Constants.h" and
-"CommonProtocols.h" that include all of the constants, enums, and common
-protocols of the game.
+In addition to the root classes, the authors setup a "Constants.h" and "CommonProtocols.h" that
+include all of the constants, enums, and common protocols of the game.
 
-GameObject will be our root class for all objects in the game.  It inherits
-from CCSprite:
+GameObject will be our root class for all objects in the game. It inherits from CCSprite:
 
     // GameObject.h
     @interface GameObject : CCSprite {
@@ -405,12 +391,12 @@ from CCSprite:
     }
     // ... other methods do CCLog(@"Should have inherited...") ...
 
-`adjustedBoundingBox` takes into account transparent pixels for collisions,
-so you'll be able to override the sprite's default bounding box.  In Cocos2D,
-bounding boxes are called **axis-aligned bounding boxes or AABB**.
+`adjustedBoundingBox` takes into account transparent pixels for collisions, so you'll be able to
+override the sprite's default bounding box. In Cocos2D, bounding boxes are called **axis-aligned
+bounding boxes or AABB**.
 
-The GameCharacter class provides a state machine brain, health, a check to
-make sure it's on screen, and more:
+The GameCharacter class provides a state machine brain, health, a check to make sure it's on screen,
+and more:
 
     // GameCharacter.h
     @interface GameCharacter : GameObject {
@@ -444,15 +430,13 @@ make sure it's on screen, and more:
     }
     @end 
 
-The method `checkAndClampSpritePosition` makes sure the character stays on the
-screen.  Cocos2D uses a point system.  On the retina display, 1 point = 2 pixels.
-On the non-retina, 1 point = 1 pixel.
+The method `checkAndClampSpritePosition` makes sure the character stays on the screen. Cocos2D uses
+a point system. On the retina display, 1 point = 2 pixels. On the non-retina, 1 point = 1 pixel.
 
-Simple Collision Detection and the First Enemy
-==============================================
+# Simple Collision Detection and the First Enemy
 
-Let's make an enemy for the viking and have it do battle.  Make a RadarDish
-class with these animation properties:
+Let's make an enemy for the viking and have it do battle. Make a RadarDish class with these
+animation properties:
 
     // RadarDish.h, use @property (nonatomic, retain)
     CCAnimation *tiltingAnim;
@@ -500,9 +484,8 @@ RadarDish should override the changeState method:
       if (action != nil) { [self runAction:action]; }
     } 
 
-RadarDish can be shown as spawning, idle, taking damage, or dead.  Each state
-has a different animation.  The method updateStateWithDeltaTime will change
-the RadarDish state.
+RadarDish can be shown as spawning, idle, taking damage, or dead. Each state has a different
+animation. The method updateStateWithDeltaTime will change the RadarDish state.
 
     - (void) updateStateWithDeltaTime:(ccTime)deltaTime
                  andListOfGameObjects:(CCArray*)listOfGameObjects {
@@ -527,14 +510,12 @@ the RadarDish state.
       }
     } 
 
-This method determines which state the RadarDish is in.  RadarDish should have
-an init method which sets each animation along with health and other instance
-variables.
+This method determines which state the RadarDish is in. RadarDish should have an init method which
+sets each animation along with health and other instance variables.
 
-The Viking class will be similar.  It will inherit from GameCharacter and have
-a standing, breathing, and walking animation for both itself and the
-mallet.  It will also have a crouching, standing up, and jumping animation.
-Finally, it should have a punching, damage, and death animation.  Each one can
+The Viking class will be similar. It will inherit from GameCharacter and have a standing, breathing,
+and walking animation for both itself and the mallet. It will also have a crouching, standing up,
+and jumping animation. Finally, it should have a punching, damage, and death animation. Each one can
 be stored as a property.
 
 An interesting part of the Viking class is joystick application:
@@ -549,10 +530,9 @@ An interesting part of the Viking class is joystick application:
       self.flipX = oldPosition.x > newPosition.x;
     }
 
-Flipping the viking via a vertical access so that when he moves in a direction,
-he will look in that same direction.  Cocos2D includes function for flipping
-pixels (`flipX` and `flipY`) so you don't have to create separate images for
-each version of an image.
+Flipping the viking via a vertical access so that when he moves in a direction, he will look in that
+same direction. Cocos2D includes function for flipping pixels (`flipX` and `flipY`) so you don't
+have to create separate images for each version of an image.
 
 The updateStateWithDeltaTime:andListOfGameObjects: is a bit more complicated:
 
@@ -659,22 +639,20 @@ The bounding box for the viking:
       return vikingBoundingBox;
     } 
 
-The updateStateWithDeltaTime method checks for collisions with other objects via
-intersection of bounding boxes.  It also checks the current state of the viking.
-Using this informations, it determines the new state for the Viking.
+The updateStateWithDeltaTime method checks for collisions with other objects via intersection of
+bounding boxes. It also checks the current state of the viking. Using this informations, it
+determines the new state for the Viking.
 
 The adjustedBoundingBox method takes into account transparent pixels.
 
-The Viking class should also include an init method which initializes all of
-its animations and stores them in instance variables.
+The Viking class should also include an init method which initializes all of its animations and
+stores them in instance variables.
 
-Now GameplayLayer needs to load RadarDish and Viking onto itself.  Add an
-instance variable:
+Now GameplayLayer needs to load RadarDish and Viking onto itself. Add an instance variable:
 
     CCSpriteBatchNode *sceneSpriteBatchNode;
 
-This will hold all of the game layer's nodes.  We'll need to delegate the
-calls to update:
+This will hold all of the game layer's nodes. We'll need to delegate the calls to update:
 
     - (void) update:(CCTime)deltaTime {
       CCArray *listOfGameObjects = [sceneSpriteBatchNode children];
@@ -683,8 +661,8 @@ calls to update:
                       andListOfGameObjects:listOfGameObjects];
     }
 
-You can move the creation code into GameplayerLayer's init method or use a
-helper method.  Here's what the initialization code looks like:
+You can move the creation code into GameplayerLayer's init method or use a helper method. Here's
+what the initialization code looks like:
 
     [[CCSpriteFrameCache sharedSpriteFrameCache]
       addSpriteFramesWithFile:@"scene1atlasiPhone.plist"];
@@ -710,15 +688,13 @@ helper method.  Here's what the initialization code looks like:
                   withZValue:10];
     [self scheduleUpdate]; 
 
-More Actions, Effects, and Cocos2D Scheduler
-============================================
+# More Actions, Effects, and Cocos2D Scheduler
 
-Let's make a Mallet power-up.  Make a Mallet class with one instance variable:
+Let's make a Mallet power-up. Make a Mallet class with one instance variable:
 
     @property (nonatomic, retain) CCAnimation *malletAnim;
 
-It inherits from GameObject.  The init method will setup the animation and other
-instance variables:
+It inherits from GameObject. The init method will setup the animation and other instance variables:
 
     - (id) init {
       if (!(self = [super init])) return;
@@ -731,8 +707,8 @@ instance variables:
       return self;
     }
 
-The changeState: method is pretty simple, it will start animating on spawn or it
-will remove itself when used up:
+The changeState: method is pretty simple, it will start animating on spawn or it will remove itself
+when used up:
 
     - (void)changeState:(CharacterStates)newState {
       if (newState == kStateSpawning) {
@@ -744,8 +720,8 @@ will remove itself when used up:
       }
     }
 
-The updateStateWithDeltaTime: method will make sure the mallet is either on the
-ground or falling towards the ground:
+The updateStateWithDeltaTime: method will make sure the mallet is either on the ground or falling
+towards the ground:
 
     - (void)updateStateWithDeltaTime:(ccTime)deltaTime
                 andListOfGameObjects:(CCArray *)listOfGameObjects {
@@ -755,13 +731,12 @@ ground or falling towards the ground:
       }
     }
 
-The health power-up is almost the exact same code.  Except its gameObjectType
-is different and uses a different sprite/animation (a sandwich!).
+The health power-up is almost the exact same code. Except its gameObjectType is different and uses a
+different sprite/animation (a sandwich!).
 
-Now we'll add a SpaceCargoShip which goes back and forth.  When it nears the
-Viking, it will drop a power up.  There are no animations, it'll use basic
-move actions.  The delegate knows how to create the power ups.  It will have two
-instance variables:
+Now we'll add a SpaceCargoShip which goes back and forth. When it nears the Viking, it will drop a
+power up. There are no animations, it'll use basic move actions. The delegate knows how to create
+the power ups. It will have two instance variables:
 
     BOOL hasDroppedMallet;
     id <GameplayLayerDelegate> delegate;
@@ -802,8 +777,8 @@ The init method starts the action:
       return self;
     }
 
-This sequence of movements works really well for background objects in your
-games.  The dropCargo method does just what it says:
+This sequence of movements works really well for background objects in your games. The dropCargo
+method does just what it says:
 
     - (void) dropCargo {
       [delegate createObjectOfType:(hasDroppedMallet ? kPowerUpTypeHealth : kPowerUpTypeMallet)
@@ -813,20 +788,18 @@ games.  The dropCargo method does just what it says:
       hasDroppedMallet = YES;
     }
 
-The EnemyRobot class has more animations: robotWalkingAnim, raisePhaserAnim,
-shootPhaserAnim, lowerPhaserAnim, torsoHitAnim, headHitAnim, and robotDeathAnim.
-It also has a few states: spawning, idle, walking, attacking, taking damage,
-and dead.  It uses some special CCActions:
+The EnemyRobot class has more animations: robotWalkingAnim, raisePhaserAnim, shootPhaserAnim,
+lowerPhaserAnim, torsoHitAnim, headHitAnim, and robotDeathAnim. It also has a few states: spawning,
+idle, walking, attacking, taking damage, and dead. It uses some special CCActions:
 
 * CCCallFunc - wrap a method to work with CCAction
 * CCCallFuncN - passes current node
 * CCCallFuncND - passes current node and data pointer
 
-Cocos2D has built in support for effects.  They're packaged as normal actions.
-Effects act on the OpenGL ES frame buffer object (FBO) first before it gets
-sent to the GPU for processing and onscreen display.  You can apply it to a
-single CCSprite, all of a CCSpriteBatchNode sprites, or to a CCLayer (everything
-on that layer):
+Cocos2D has built in support for effects. They're packaged as normal actions. Effects act on the
+OpenGL ES frame buffer object (FBO) first before it gets sent to the GPU for processing and onscreen
+display. You can apply it to a single CCSprite, all of a CCSpriteBatchNode sprites, or to a CCLayer
+(everything on that layer):
 
     id wavesAction = [CCWaves actionWithWaves:5
                                     amplitude:20
@@ -838,8 +811,7 @@ on that layer):
     // ...
     [backgroundImage runAction:[CCStopGrid action]];
 
-Text, Fonts, and the Written Word
-=================================
+# Text, Fonts, and the Written Word
 
 CCLabelTTF lets you display text with minimal setup and code:
 
@@ -847,8 +819,8 @@ CCLabelTTF lets you display text with minimal setup and code:
                                            fontName:@"Market Felt"
                                            fontSize:64];
 
-Under the hoods, CCLabelTTF uses CCTexture2D to make an image from text.
-You can use the CCLabelTTF object like any other CCNode.
+Under the hoods, CCLabelTTF uses CCTexture2D to make an image from text. You can use the CCLabelTTF
+object like any other CCNode.
 
     [label setPosition:ccp(screenSize.width/2, screenSize.height/2)];
     [self addChild:label];
@@ -857,40 +829,37 @@ You can use the CCLabelTTF object like any other CCNode.
       [CCFadeOut actionWithDuration:2.0f],
       nil]];
 
-CCNodes have anchor points for positioning and alignment.  The default anchor
-point is in the center.  The origin (0, 0) is the bottom left corner.
-Point (1, 1) is the top right corner.  Anchoring uses the range 0 to 1.
+CCNodes have anchor points for positioning and alignment. The default anchor point is in the center.
+The origin (0, 0) is the bottom left corner. Point (1, 1) is the top right corner. Anchoring uses
+the range 0 to 1.
 
     [label setAnchorPoint:ccp(0, 0)]; // bottom left
     [label setAnchorPoint:ccp(0, 1)]; // top left
     [label setAnchorPoint:ccp(1, 0)]; // bottom right
     [label setAnchorPoint:ccp(1, 1)]; // top right
 
-Anchor points are also used for rotations.  If you change the anchor point for
-positioning, it also affects rotations.
+Anchor points are also used for rotations. If you change the anchor point for positioning, it also
+affects rotations.
 
-CCLabelBMFont (BM = bitmapped) can be used to render your own custom fonts.
-A bitmapped font atlas is an image containing all characters you want to
-display.  Cocos2D supports the `fnt` file format for fonts.  You can use the
-apps Hiero or Glyph Designer to create font files.
+CCLabelBMFont (BM = bitmapped) can be used to render your own custom fonts. A bitmapped font atlas
+is an image containing all characters you want to display. Cocos2D supports the `fnt` file format
+for fonts. You can use the apps Hiero or Glyph Designer to create font files.
 
     CCLabelBMFont *label = [CCLabelBMFont labelWithString:@"Game Start"
                                                   fntFile:@"Font.fnt"];
 
 Overlaying your game with text labels is very useful for debugging.
 
-Main Menu, Level Completed, Credits Screen
-==========================================
+# Main Menu, Level Completed, Credits Screen
 
-A game is made up of scenes.  So far, we've made a GameScene.  We'll also make:
+A game is made up of scenes. So far, we've made a GameScene. We'll also make:
 
 * MainMenuScene
 * LevelCompleteScene
 * OptionsScene
 * CreditsScene
 
-We'll also make a GameManager singleton which tells the director which scene
-to display.
+We'll also make a GameManager singleton which tells the director which scene to display.
 
     @interface GameManager : NSObject {
       BOOL isMusicON;
@@ -907,10 +876,10 @@ to display.
     - (void) openSiteWithLinkType:(LinkTypes)linkTypeToOpen;
     @end
 
-There are two enums here: SceneTypes and LinkTypes (think URL links to the
-developer's website and more).  The sharedGameManager method just returns a
-singleton GameManager.  alloc is overidden to prevent more than one game manager
-being allocated (using NSAssert).  init just sets all the initial variables.
+There are two enums here: SceneTypes and LinkTypes (think URL links to the developer's website and
+more). The sharedGameManager method just returns a singleton GameManager. alloc is overidden to
+prevent more than one game manager being allocated (using NSAssert). init just sets all the initial
+variables.
 
     static GameManager *_sharedGameManager;
     + (id) alloc {
@@ -922,8 +891,8 @@ being allocated (using NSAssert).  init just sets all the initial variables.
       }
     }
 
-The runSceneWithID method checks the validity of the sceneID and then tells
-CCDirector to switch scenes:
+The runSceneWithID method checks the validity of the sceneID and then tells CCDirector to switch
+scenes:
 
     switch (sceneID) {
       // ...
@@ -940,7 +909,7 @@ CCDirector to switch scenes:
 
 Cocos2D has a built in menu system:
 
-* CCMenu has menu list items, buttons, and toggles.  Gets added to CCLayer.
+* CCMenu has menu list items, buttons, and toggles. Gets added to CCLayer.
 * CCMenuAtlasFont is a bitmapped font atlas class for text strings/buttons.
 * CCMenuItemFont is a menu item that displays text.
 * CCMenuItemImage for normal/hover/active images.
@@ -958,8 +927,8 @@ And MainMenuLayer has two menus:
     CCMenu *mainMenu;
     CCMenu *sceneSelectMenu;
 
-It also includes some private methods: buyBook, showOptions, and playScene:.
-playScene: takes a CCMenuItemFont.
+It also includes some private methods: buyBook, showOptions, and playScene:. playScene: takes a
+CCMenuItemFont.
 
     - (void) playScene:(CCMenuItemFont *)itemPassedIn {
       if ([itemPassedIn tag] == 1) {
@@ -997,9 +966,9 @@ The methods displayMainMenu and displaySceneSelection are used for rendering.
       [self addChild:mainMenu z:0 tag:kMainMenuTagValue];
     }
 
-Buttons use a target/selector for their action on click, just like AppKit.
-The method displaySceneSelection does the same thing, it constructs a menu and
-shows it.  The cleanup and addChild is similar.
+Buttons use a target/selector for their action on click, just like AppKit. The method
+displaySceneSelection does the same thing, it constructs a menu and shows it. The cleanup and
+addChild is similar.
 
     - (void) displaySceneSelection {
       if (mainMenu != nil) {
@@ -1016,9 +985,9 @@ MainMenuLayer should initialize with an image background:
     [self addChild:background];
     [self displayMainMenu];
 
-The intro, credits, level complete, and options menu are setup the same way.
-Layers have a property called `isTouchEnabled`, if it's set to `YES` then
-they will receive `ccTouchesBegan:withEvent:` messages.
+The intro, credits, level complete, and options menu are setup the same way. Layers have a property
+called `isTouchEnabled`, if it's set to `YES` then they will receive `ccTouchesBegan:withEvent:`
+messages.
 
     self.isTouchEnabled = YES;
     // ...
@@ -1027,13 +996,11 @@ they will receive `ccTouchesBegan:withEvent:` messages.
       [[GameManager sharedGameManager] runSceneWithID:kGameLevel1];
     }
 
-Pump Up the Volume!
-===================
+# Pump Up the Volume!
 
-Apple provides AVAudioPlayer and OpenAL.  AVAudioPlayer is quick and simple
-while OpenAL is low-level but provides greater control.  Cocos2D comes with
-CocosDenshion, a wrapper around both frameworks.  CocosDenshion uses the `CD`
-namespace.  You'll be using CocosDenshion's SimpleAudioEngine API.
+Apple provides AVAudioPlayer and OpenAL. AVAudioPlayer is quick and simple while OpenAL is low-level
+but provides greater control. Cocos2D comes with CocosDenshion, a wrapper around both frameworks.
+CocosDenshion uses the `CD` namespace. You'll be using CocosDenshion's SimpleAudioEngine API.
 
 Be sure to copy sound files into your project.
 
@@ -1066,9 +1033,9 @@ The Space Viking game has a few constants and macros related to sound.
     // Physics Escape Level
     #define BACKGROUND_TRACK_ESCAPE @"EscapeTheFutureV3.mp3" 
 
-The authors keep their sound effect filenames in a plist file.  Music tends to
-be the second biggest asset to deal with in games.  You don't want to tie up
-the UI thread while loading music into memory.  Loading it asynchronously helps.
+The authors keep their sound effect filenames in a plist file. Music tends to be the second biggest
+asset to deal with in games. You don't want to tie up the UI thread while loading music into memory.
+Loading it asynchronously helps.
 
     // GameplayLayer.h
     #import "SimpleAudioEngine.h"
@@ -1096,9 +1063,8 @@ To load a sound effect, play it, then unload it:
     [soundEngine stopEffect:@"soundname.wav"];
     [soundEngine unloadEffect:@"soundname.wav"];
 
-Use NSOperationQueue to initialize audio in background threads.  CocosDenshion
-is not designed to be thread safe, so don't attempt to load and play audio
-at the same time.
+Use NSOperationQueue to initialize audio in background threads. CocosDenshion is not designed to be
+thread safe, so don't attempt to load and play audio at the same time.
 
     - (void) setupAudioEngine {
       if (hasAudioBeenInitialized) return;
@@ -1132,12 +1098,12 @@ at the same time.
       }
     }
 
-Whenever you change scenes, be sure the preload the sounds for that scene.  Then
-use the `playEffect:` method to actually play the sound.  When you change out
-of the scene, use `unloadEffect:`.
+Whenever you change scenes, be sure the preload the sounds for that scene. Then use the
+`playEffect:` method to actually play the sound. When you change out of the scene, use
+`unloadEffect:`.
 
-There are equivalents for background music.  Just stopping the background music
-will release the resource.
+There are equivalents for background music. Just stopping the background music will release the
+resource.
 
     [soundEngine preloadBackgroundMusic:@"music.wav"];
     [soundEngine playBackgroundMusic:@"music.wav"];
@@ -1153,8 +1119,7 @@ For easy background threads, use performSelectorInBackground.
 
 For more control, use SimpleAudioEngine's `playEffect:pitch:pan:gain:`.
 
-When the World Gets Bigger: Adding Scrolling
-============================================
+# When the World Gets Bigger: Adding Scrolling
 
 Add a getDimensionsOfCurrentScene method to GameManager.
 
@@ -1167,20 +1132,18 @@ Add a getDimensionsOfCurrentScene method to GameManager.
       }
     }
 
-We'll be making the second level larger than the rest.  You'll need to update
+We'll be making the second level larger than the rest. You'll need to update
 checkAndClampSpritePosition methods.
 
-Without scrolling, your character will just move offscreen.  We'll need to
-scroll the world as your character moves through it.  The SpaceViking projects
-includes a directory called ParallaxBackgrounds.  Import it.  Parallax scrolling
-just scrolls a background at a different rate than the foreground - causing
-an illusion of depth.
+Without scrolling, your character will just move offscreen. We'll need to scroll the world as your
+character moves through it. The SpaceViking projects includes a directory called
+ParallaxBackgrounds. Import it. Parallax scrolling just scrolls a background at a different rate
+than the foreground - causing an illusion of depth.
 
-Create a GameScene2 class that subclsses CCScene.  We'll also split the layers.
-There's a GameControlLayer for the joystick and buttons, since these will
-never move.  The GameplayScrollingLayer is where all the action will be.
-Finally, the StaticBackgroundLayer will just be a static background that doens't
-move for depth.
+Create a GameScene2 class that subclsses CCScene. We'll also split the layers. There's a
+GameControlLayer for the joystick and buttons, since these will never move. The
+GameplayScrollingLayer is where all the action will be. Finally, the StaticBackgroundLayer will just
+be a static background that doens't move for depth.
 
     @interface GameScene2 : CCScene {
       GameControlLayer *controlLayer;
@@ -1204,17 +1167,14 @@ move for depth.
     }
     @end
 
-The method `connectControlsWithJoystick:andJumpButton:andAttackButton` is used
-so the scrolling layer has access to the joystick/buttons.  It needs this
-information for scrolling.
+The method `connectControlsWithJoystick:andJumpButton:andAttackButton` is used so the scrolling
+layer has access to the joystick/buttons. It needs this information for scrolling.
 
-The StaticBackgroundLayer just renders a simple static image as the background.
-The GameControlLayer should initialize the joystick and buttons as we've done
-previously.
+The StaticBackgroundLayer just renders a simple static image as the background. The GameControlLayer
+should initialize the joystick and buttons as we've done previously.
 
-First, let's create a simple scrolling layer with a background that's twice
-as long as the screen.  Then we'll add a parallax node and scroll with a
-TileMap layer.
+First, let's create a simple scrolling layer with a background that's twice as long as the screen.
+Then we'll add a parallax node and scroll with a TileMap layer.
 
     @interface GameplayScrollingLayer : CCLayer {
       CCSpriteBatchNode *sceneSpriteBatchNode;
@@ -1225,8 +1185,8 @@ TileMap layer.
                            andJumpButton:(SneakyButton *)jumpButton
                          andAttackButton:(SneakyButton *)attackButon;
 
-The connection method just connects the various buttons to our viking.  We'll
-add the method addScrollingBackground which adds the long background.
+The connection method just connects the various buttons to our viking. We'll add the method
+addScrollingBackground which adds the long background.
 
     - (void)addScrollingBackground {
       CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -1239,8 +1199,8 @@ add the method addScrollingBackground which adds the long background.
       [self addChild:scrollingBackground];
     }
 
-The method was pretty simple, just adding a new sprite as a background.  The
-init method will add a sprite to the cache and allocate a new viking.
+The method was pretty simple, just adding a new sprite as a background. The init method will add a
+sprite to the cache and allocate a new viking.
 
     - (id) init {
       if (!(self = [super init])) return;
@@ -1266,8 +1226,7 @@ init method will add a sprite to the cache and allocate a new viking.
       return self;
     }
 
-The adjustLayer method will move the background layer appropriately whenever
-the viking moves.
+The adjustLayer method will move the background layer appropriately whenever the viking moves.
 
     - (void) adjustLayer {
       Viking *viking = (Viking *) [sceneSpriteBatchNode getChildByTag:kVikingSpriteTagValue];
@@ -1282,20 +1241,17 @@ the viking moves.
       }
     }
 
-If the viking is more than halfway across the screen and less than half a
-screen from the end of the level, the layer gets scrolled.  The update: method
-for this layer should call adjustLayer.
+If the viking is more than halfway across the screen and less than half a screen from the end of the
+level, the layer gets scrolled. The update: method for this layer should call adjustLayer.
 
-Cocos2D has a built in action called CCFollow which can follow any CCNode
-and can be used for layer scrolling.  Unfortunately, it works in both the
-X and Y axes, so we couldn't use it.
+Cocos2D has a built in action called CCFollow which can follow any CCNode and can be used for layer
+scrolling. Unfortunately, it works in both the X and Y axes, so we couldn't use it.
 
     id followAction = [CCFollow actionWithTarget:playerCharacter];
     [layer runAction:followAction];
 
-To give more depth to the game, you can have multiple background layers
-scrolling at different rates (known as Parallax Layers).  Backgrounds that are
-closer to the player will scroll faster.
+To give more depth to the game, you can have multiple background layers scrolling at different rates
+(known as Parallax Layers). Backgrounds that are closer to the player will scroll faster.
 
     - (void) addScrollingBackgroundWithParallax {
       CGSize screenSize = [[CCDirector sharedDirector] winSize];
@@ -1324,20 +1280,20 @@ closer to the player will scroll faster.
       [self addChild:parallaxNode z:10];
     }
 
-Now switch addScrollingBackground with our new parallax background method.  It
-works by using ratios and offsets for each background.
+Now switch addScrollingBackground with our new parallax background method. It works by using ratios
+and offsets for each background.
 
-Now we're going to make a cut scene with an infinite scrolling background of
-clouds.  We'll have 25 clouds moving right to left at random speeds.  When they
-go offscreen on the left, we'll reposition them on the right side.
+Now we're going to make a cut scene with an infinite scrolling background of clouds. We'll have 25
+clouds moving right to left at random speeds. When they go offscreen on the left, we'll reposition
+them on the right side.
 
     @interface PlatformScrollingLayer : CCLayer {
       CCSpriteBatchNode *scrollingBatchNode;
     }
     @end
 
-There will be 6 different clouds in the same texture atlas.  CCSpriteBatchNode
-will include all 25 clouds, the viking, and the background layer.
+There will be 6 different clouds in the same texture atlas. CCSpriteBatchNode will include all 25
+clouds, the viking, and the background layer.
 
     @interface PlatformScrollingLayer (Private)
     - (void) resetCloudWithNode:(id)node;
@@ -1365,8 +1321,7 @@ The init method initializes the batch node and calls other methods.
       return self;
     }
 
-The createStaticBackground method is simple and just adds a background node to
-the screen.
+The createStaticBackground method is simple and just adds a background node to the screen.
 
     - (void) createStaticBackground {
       CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -1386,8 +1341,8 @@ The createCloud method creates a cloud using a random tile from our sprite.
       [self resetCloudWithNode:cloudSprite];
     }
 
-resetCloudWithNode is used to reset the cloud's position to the right and use
-a CCMove action to move it left.
+resetCloudWithNode is used to reset the cloud's position to the right and use a CCMove action to
+move it left.
 
     - (void) resetCloudWitihNode:(id)node {
       CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -1411,8 +1366,8 @@ a CCMove action to move it left.
       [scrollingBatchNode reorderChild:cloud z:newZOrder];
     }
 
-Finally, the createVikingAndPlatform method is used to add the viking
-and his platform to the screen.
+Finally, the createVikingAndPlatform method is used to add the viking and his platform to the
+screen.
 
     - (void) createVikingAndPlatform {
       CGSize screenSize = [CCDirector sharedDirector].winSize;
@@ -1426,12 +1381,11 @@ and his platform to the screen.
       [scrollingBatchNode addChild:viking z:nextZValue];
     }
 
-Basic Game Physics: Adding Realism with Box2D
-=============================================
+# Basic Game Physics: Adding Realism with Box2D
 
-Game physics lets you add more realism to your game for collisions, bouncing,
-collapsing, or falling.  Box2D is a physics library integrated with Cocos2D.
-You tell Box2D where to initially place your objects and it does the rest.
+Game physics lets you add more realism to your game for collisions, bouncing, collapsing, or
+falling. Box2D is a physics library integrated with Cocos2D. You tell Box2D where to initially place
+your objects and it does the rest.
 
 For this example, we're going to add a see-saw to the game as a puzzle.
 
@@ -1461,26 +1415,23 @@ For this example, we're going to add a see-saw to the game as a puzzle.
     }
     @end
 
-When you created your project, you can choose the Cocos2D Application template
-with Box2D.  We didn't, so we'll have to manually add them.  Just download
-Box2D from the website and add them to the libs folder of your project.  Be sure
-to copy items into destination folder.  Next, click on your project settings.
-Go to Build Settings for All/Combined projects.  Look for Search Paths >
-Header Search Paths.  Add a new entry and add the libs directory.
+When you created your project, you can choose the Cocos2D Application template with Box2D. We
+didn't, so we'll have to manually add them. Just download Box2D from the website and add them to the
+libs folder of your project. Be sure to copy items into destination folder. Next, click on your
+project settings. Go to Build Settings for All/Combined projects. Look for Search Paths > Header
+Search Paths. Add a new entry and add the libs directory.
 
-Box2D uses C++, so you'll need to use Objective-C++ instead.  Just rename
-your file extensions to `.mm` instead of `.m` and Xcode will know how to handle
-it.
+Box2D uses C++, so you'll need to use Objective-C++ instead. Just rename your file extensions to
+`.mm` instead of `.m` and Xcode will know how to handle it.
 
-Box2D is optimized to work with meters, kilograms, and seconds.  Objects of
-length between 0.1 and 10 meters are optimized for.  A good conversion between
-Cocos2D coordinate system and Box2D is 100px = 1 meter for our viking game.
-Each game will have its own good ratio value (it depends on the size of your
-sprites!)
+Box2D is optimized to work with meters, kilograms, and seconds. Objects of length between 0.1 and 10
+meters are optimized for. A good conversion between Cocos2D coordinate system and Box2D is 100px = 1
+meter for our viking game. Each game will have its own good ratio value (it depends on the size of
+your sprites!)
 
     #define PTM_RATIO 100.0
 
-That's for the iPad.  What about iPhone?
+That's for the iPad. What about iPhone?
 
     #define PTM_RATIO ((UI_USER_INTERFACE_IDIOM() == \
                         UIUserInterfaceIdiomPad) ? 100.0 : 50.0)
@@ -1502,11 +1453,11 @@ Now add this to PuzzleLayer:
       world = new b2World(gravity, doSleep);
     }
 
-`-10.0f` is a downwards 10 meters/second^2 gravity which is close the the actual
-9.8 m/s^2 acceleration of the real world.
+`-10.0f` is a downwards 10 meters/second^2 gravity which is close the the actual 9.8 m/s^2
+acceleration of the real world.
 
-Since we're using C++, we have to be sure to deallocate our initialized world
-when we're done with it.
+Since we're using C++, we have to be sure to deallocate our initialized world when we're done with
+it.
 
     - (void) dealloc {
       if (world) {
@@ -1518,8 +1469,8 @@ when we're done with it.
 
 Box2D's jargon:
 
-* body - each individual object in Box2D world.  It's a rigid world, so bodies
-  don't squish when they collide.
+* body - each individual object in Box2D world. It's a rigid world, so bodies don't squish when they
+  collide.
 * fixture - the pieces that make up a body.
 * body definition - specification for properties of a body
 * dynamic body - Box2D handles the movement
@@ -1543,8 +1494,8 @@ Let's create a box in PuzzleLayer.
       body->CreateFixture(&fixtureDef);
     }
 
-The Box2D body is there, but nothing actually gets rendered.  Use Box2D's
-debugging capabilities to draw something quickly.
+The Box2D body is there, but nothing actually gets rendered. Use Box2D's debugging capabilities to
+draw something quickly.
 
     - (void) setupDebugDraw {
       debugDraw = new GLESDebugDraw(

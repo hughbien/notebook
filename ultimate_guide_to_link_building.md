@@ -6,9 +6,9 @@ Guide to build links to your website to increase traffic by Eric Ward.
 
 **Useful content gets linked.**
 
-Make your site link worthy.  A magic store can add searchable database of tricks, biographies of
-magicians, glossary of magical terms, or directory of magicians.  Add rich/relevant content to
-generate links.  Useful content gets linked, products don't.
+Make your site link worthy. A magic store can add searchable database of tricks, biographies of
+magicians, glossary of magical terms, or directory of magicians. Add rich/relevant content to
+generate links. Useful content gets linked, products don't.
 
 ## Link Building Campaign Design
 
@@ -22,7 +22,7 @@ Design a sustainable link building campaign so the links won't stop when the cam
 
 ## Linkable Assets
 
-**What kind of linkable assets can you create?**  Make a list.  Common linkable assets include:
+**What kind of linkable assets can you create?** Make a list. Common linkable assets include:
 
 * free apps/tools
 * products/services to give away or donations/contests/review
@@ -32,16 +32,16 @@ Design a sustainable link building campaign so the links won't stop when the cam
 * job listings, events, coupons
 * consistent publishing via blog, video, podcast, PDFs, Twitter, etc...
 
-Check out your competitors linkable assets with: LinkInsight, Ahrefs.com, MajesticSEO.com, or
-Open Site Explorer.  Or use <http://search.twitter.com>.
+Check out your competitors linkable assets with: LinkInsight, Ahrefs.com, MajesticSEO.com, or Open
+Site Explorer. Or use <http://search.twitter.com>.
 
 ## Link Opportunity Types
 
-**What are the types of websites and pages likely to link to your assets?**  Brainstorm
-opportunities for each linkable asset in your list.
+**What are the types of websites and pages likely to link to your assets?** Brainstorm opportunities
+for each linkable asset in your list.
 
 For example, if you have a thought leader CEO: guest posts, blogs in your space can do interviews,
-comments on industry blogs, etc...  Have 50x free dog grooming products to give out?  Look for 
+comments on industry blogs, etc... Have 50x free dog grooming products to give out? Look for
 pet-related charities with thank you pages for donors, bloggers who review products, dog info sites
 featuring videos, youtubers who do reviews, bloggers who would like to run prizes, etc...
 
@@ -57,8 +57,8 @@ Common opportunities include:
 
 ## Link Opportunity Analysis for Keyword Space
 
-**What are the big head keywords for your space?**  Whereas assets can target long tail keywords,
-opportunities should use big head keywords.  For example "dog blogs".
+**What are the big head keywords for your space?** Whereas assets can target long tail keywords,
+opportunities should use big head keywords. For example "dog blogs".
 
 Gather a list of your big head keywords and search for:
 
@@ -88,8 +88,8 @@ Also gather curators, listings, guest opportunities:
 * BHK list
 * list of BHK
 
-Think about other keywords to use besides big head keywords.  For example, think about products in
-your space which can be reviewed: "dog grooming brush review".  Search for that and see what sites
+Think about other keywords to use besides big head keywords. For example, think about products in
+your space which can be reviewed: "dog grooming brush review". Search for that and see what sites
 could possibly link to you.
 
 Some advance search operators to use:
@@ -106,13 +106,13 @@ Some advance search operators to use:
 ## Automating Link Prospecting with RSS
 
 Once you have a list of keywords to search for link opportunities, you can automate searches so
-you'll get a fresh list of search results over time.  Use Google Alerts, Technorati Search Query RSS,
+you'll get a fresh list of search results over time. Use Google Alerts, Technorati Search Query RSS,
 Google Blog Search, or Trackur.
 
 ## List Scrape Prospecting for Link Builders
 
-Sometimes it's easier to use the works of curators.  Search for "lists" that authors have already
-assembled in your space for prospects.  Search for:
+Sometimes it's easier to use the works of curators. Search for "lists" that authors have already
+assembled in your space for prospects. Search for:
 
 * list of [institution]s
 * list of U.S. [institution]s
@@ -161,7 +161,7 @@ Qualify these link prospects with:
 Some tactics for building relationships with others:
 
 **Preciprocation** - promote other's good content before asking for links, your audience will trust
-you as a curator and the content creator will notice you.  You can do this by:
+you as a curator and the content creator will notice you. You can do this by:
 
 * linking to them in your posts, articles, tweets, shares, etc...
 * asking for promotion after a while
@@ -207,8 +207,8 @@ Some tips:
 
 ## Bulk Outreach and Link Building
 
-Build lists of relevant prospects and contact information.  Create an offer to get prospects to
-respond.  For example: if I could find a list of hospitals, what can I offer them?
+Build lists of relevant prospects and contact information. Create an offer to get prospects to
+respond. For example: if I could find a list of hospitals, what can I offer them?
 
 Some example offers:
 

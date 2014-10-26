@@ -14,15 +14,15 @@ A habit is made up of: a cue, routine, and reward. To create a habit:
 
 Example: I want to go to the gym every day.
 
-Step 1: I'll leave my running shoes by the door. Or set a phone alarm at 7PM every day. Or I'll
-find an exercise buddy to call. You can use one or multiple cues.
+Step 1: I'll leave my running shoes by the door. Or set a phone alarm at 7PM every day. Or I'll find
+an exercise buddy to call. You can use one or multiple cues.
 
 Step 2: After going to the gym, I'll reward myself with a piece of chocolate. Or I'll spend 30
 minutes on Facebook. Or I'll watch an episode of Game of Thrones.
 
-Step 3: Over the next week, I'll test out different cue/reward combinations. 7PM -> gym -> chocolate.
-Shoes -> gym -> TV. Eventually, I find out that around 7PM, I'll start craving for an episode of
-Game of Thrones! That's a new habit loop that will stick with me.
+Step 3: Over the next week, I'll test out different cue/reward combinations. 7PM -> gym ->
+chocolate. Shoes -> gym -> TV. Eventually, I find out that around 7PM, I'll start craving for an
+episode of Game of Thrones! That's a new habit loop that will stick with me.
 
 Step 4: I'll write down this new habit (studies show writing it down will help make it sticky).
 
@@ -75,12 +75,12 @@ offer suggestions and feedback with greater communication.
 
 # How Target Knows What You Want Before You Do
 
-Consumers form habits around which products they buy: they stick to the same brand, same store,
-same products.
+Consumers form habits around which products they buy: they stick to the same brand, same store, same
+products.
 
 Companies try to get consumers to pick their brand. Data mining is used to predict what customers
-want before they need it. Target knows which customers will be pregnant before they're even pregnant,
-then advertisements for pregnancy products are sent to them.
+want before they need it. Target knows which customers will be pregnant before they're even
+pregnant, then advertisements for pregnancy products are sent to them.
 
 # Social Connections and Habits
 
@@ -98,8 +98,8 @@ persists - the activity will always persist even against free will.
 McDonalds does their best to make every restaurant the same. Same decoration, same behavior from
 employees, same taste, same architecture, same layout. This creates multiple cues for their
 customers - who become addicted to fast food. Studies have shown that a single change can collapse
-the habit. A customer who goes to McDonalds weekly will stop their habit if the location ever
-closes down.
+the habit. A customer who goes to McDonalds weekly will stop their habit if the location ever closes
+down.
 
 Habits are used by casinos to create addicted gamblers. Cues are all over the casino: alcohol,
 sounds, and lights. The brain develops the habit, even if you don't want it. This ends up creating

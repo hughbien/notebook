@@ -1,12 +1,11 @@
-Developing Backbone.js Applications
-===================================
+# Developing Backbone.js Applications
 
 An introduction to Backbone.js by Addy Osmani.
 
 # Introduction
 
-This chapter introduces what MVC is (Model-View-Controller pattern) and how Backbone is a
-MV* framework.  Some reasons to use Backbone:
+This chapter introduces what MVC is (Model-View-Controller pattern) and how Backbone is a MV*
+framework. Some reasons to use Backbone:
 
 * it provides minimal set of data structuring and UI primitives
 * it scales well
@@ -16,7 +15,7 @@ MV* framework.  Some reasons to use Backbone:
 
 Features of Backbone:
 
-* contains these core components: model, collection, view, router.  This makes up the MV*
+* contains these core components: model, collection, view, router. This makes up the MV*
 * supports event-driven communication between models/views
 * supports data bindings via events or KVO (via separate library)
 * offers support for RESTful interfaces
@@ -100,11 +99,11 @@ Collections are an array of models:
     TodosCollection.on("add", function(todo) { ... });
     TodosCollection.on("remove", function(todo) { ... });
 
-Note that there's also `once`, `listenTo`, and `listenToOnce` for event binding.  Besides
-adding/removing, you can also reset/refresh entire collections at once.  Reset doesn't fire any add
-or remove events.  A single reset event is fired instead.  Use `trigger` to manually fire events.
+Note that there's also `once`, `listenTo`, and `listenToOnce` for event binding. Besides
+adding/removing, you can also reset/refresh entire collections at once. Reset doesn't fire any add
+or remove events. A single reset event is fired instead. Use `trigger` to manually fire events.
 
-Collections also inherit most of Underscore's methods.  See `underscore.js`'s api for more details.
+Collections also inherit most of Underscore's methods. See `underscore.js`'s api for more details.
 
 To interact with a backend:
 
@@ -118,7 +117,7 @@ To interact with a backend:
     todo.destroy(); // sends HTTP DELETE
     todo.save({a: 1}, {patch: true}); // sends HTTP PATCH with partial attributes
 
-This uses Backbone.Sync API which in turn uses jQuery's $.ajax().  If your server doesn't support
+This uses Backbone.Sync API which in turn uses jQuery's $.ajax(). If your server doesn't support
 PUT/DELETE methods or application/json requests, you can turn them off:
 
     Backbone.emulateHTTP = false;
@@ -128,7 +127,7 @@ All fetch, save, create, destroy methods delegate to `Backbone.sync`, which can 
 
     Backbone.sync = function(method, model, options) { ... }
 
-Views contain presentation logic of model's data to user.  Binding `render()` to a model's `change()`
+Views contain presentation logic of model's data to user. Binding `render()` to a model's `change()`
 event is the same as 2-way binding.
 
     var TodoView = Backbone.View.extend({
@@ -167,15 +166,15 @@ event is the same as 2-way binding.
     var todoView = new TodoView();
     console.log(todoView.el); // logs <li></li>
 
-Views can also have an optional `tagName` and `className`.  If the element already exists on the
-page, set the `el` property to its selector like `el: '#footer'`.  Properties can be passed in
-during construction like: `new TodosView({el: $('#footer')})`.
+Views can also have an optional `tagName` and `className`. If the element already exists on the
+page, set the `el` property to its selector like `el: '#footer'`. Properties can be passed in during
+construction like: `new TodosView({el: $('#footer')})`.
 
-Backbone Views cache the jQuery element as `$el`.  In this case it's `todoView.$el`.
+Backbone Views cache the jQuery element as `$el`. In this case it's `todoView.$el`.
 `todoView.$(selector)` is equivalent to `$(todoView.el).find(selector)`.
 
-`render()` is what gets called when Views render its element.  Returning `this` is useful for
-making views re-usable later on:
+`render()` is what gets called when Views render its element. Returning `this` is useful for making
+views re-usable later on:
 
     render: function() {
       this.$el.html(this.model.toJSON());
@@ -212,7 +211,7 @@ To programmatically trigger route changes:
 # Modular Development
 
 Modules may be arriving via the ES6 modules proposal, but until them there's AMD and RequireJS.
-RequireJS implements the Asynchronous Module Definition Specification.  Its format looks like:
+RequireJS implements the Asynchronous Module Definition Specification. Its format looks like:
 
     define(
       module_id
@@ -258,7 +257,7 @@ So your file containing a model would use:
 
 # Jasmine, QUnit, and SinonJS
 
-Jasmine offers BDD for your front-end code.  An example spec:
+Jasmine offers BDD for your front-end code. An example spec:
 
     describe('Something', function() {
       var number = 1;
@@ -281,7 +280,7 @@ QUnit is another testing framework that is composed of three files:
 2. `qunit.js` for the test framework
 3. `qunit.css` for styling results
 
-All can be downloaded via the QUnit website.  Here's an example HTML file:
+All can be downloaded via the QUnit website. Here's an example HTML file:
 
     <!DOCTYPE html>
     <html>
@@ -322,7 +321,7 @@ A basic test looks like:
       ok(!false, 'the test succeeds');
     });
 
-To test DOM elements, create a `<div id="qunit-fixture"></div>` element in your HTML.  This element
+To test DOM elements, create a `<div id="qunit-fixture"></div>` element in your HTML. This element
 is automatically reset after each test.
 
 SinonJS is a mocking/stubbing/spy library that's useful for creating fake API servers that our

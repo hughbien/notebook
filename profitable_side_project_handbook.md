@@ -1,10 +1,8 @@
-The Profitable Side Project Handbook
-====================================
+# The Profitable Side Project Handbook
 
 Practice advice and inspiration to help build a profitable side project, by Rachel Andrew.
 
-Why Side Projects?
-==================
+# Why Side Projects?
 
 Side projects are about more than just the money:
 
@@ -12,11 +10,11 @@ Side projects are about more than just the money:
 * have total control on a project
 * possibility of growing and freeing you from your main gig (freelancing, consulting, FTE)
 
-Dreaming small is underrated.  Develop something small, launch it, and grow it slowly.  If it
-provides real value, it will generate revenue.  Develop something small means developing an MVP
-that people are happy to buy.
+Dreaming small is underrated. Develop something small, launch it, and grow it slowly. If it provides
+real value, it will generate revenue. Develop something small means developing an MVP that people
+are happy to buy.
 
-This book is more about the infrastructure than the product.  You'll need to implement: revenue
+This book is more about the infrastructure than the product. You'll need to implement: revenue
 strategy, sales software, marketing channels, branding, support systems, and more.
 
 Action steps:
@@ -24,8 +22,7 @@ Action steps:
 1. Imagine it's one year from launch, how do you define a successful one year mark for your product?
 2. What features can your remove to make it simpler/quicker to launch?
 
-Your Product
-============
+# Your Product
 
 Some labels that can apply to your product:
 
@@ -39,8 +36,7 @@ Pros and cons of SAAS:
 + control the environment (easier to debug problems when you run the server)
 + easier customer support (since you have the customer's data on hand)
 + control of the customer (you've got their email/info, easier to market and run A/B tests)
-- you're in charge of uptime
-- costs more to maintain
+- you're in charge of uptime - costs more to maintain
 
 Pros and cons of one-off purchases:
 
@@ -54,23 +50,22 @@ Pros and cons of plugins, themes, and add-ons:
 
 + marketing is easier since there's usually already an established channel or marketplace
 + great first step towards product portfolio
-- usually sold at a smaller price
-- marketplace competition can be tough
+- usually sold at a smaller price - marketplace competition can be tough
 
-Andrew brings up putting your main product on hold and developing a small product first.  A small
-product can get out the door quicker and gives you experience creating/selling products.  Some
-examples are: ebooks, plugins, or themes.  An added bonus is that you'll be building up your
-audience.  Perhaps customers who purchase your ebook may be interested in related software you'll
+Andrew brings up putting your main product on hold and developing a small product first. A small
+product can get out the door quicker and gives you experience creating/selling products. Some
+examples are: ebooks, plugins, or themes. An added bonus is that you'll be building up your
+audience. Perhaps customers who purchase your ebook may be interested in related software you'll
 release later down the line.
 
-There's also the concierge approach - a product/service hybrid.  Think about those PSD slicing
-services.  It's a service underneath the covers, but customers purchase it like a product.  You can
-also add a concierge service onto an SaaS or package it with an ebook.  Some ebooks offer tiered
+There's also the concierge approach - a product/service hybrid. Think about those PSD slicing
+services. It's a service underneath the covers, but customers purchase it like a product. You can
+also add a concierge service onto an SaaS or package it with an ebook. Some ebooks offer tiered
 packages, where the highest tier includes a 1-hour consultation.
 
-Validate your idea before running away with it.  Talk to people, ask questions, and create a landing
-page to capture emails.  Andrew suggests sticking with a market that you're a part of.  Web
-developer?  Consider making products for other developers.
+Validate your idea before running away with it. Talk to people, ask questions, and create a landing
+page to capture emails. Andrew suggests sticking with a market that you're a part of. Web developer?
+Consider making products for other developers.
 
 Action steps:
 
@@ -78,10 +73,9 @@ Action steps:
 2. Find 5 people who would be ideal customers
 3. Setup meetings and find out more about the problems and run ideas past them
 
-Productivity
-============
+# Productivity
 
-It's tough working on side projects since most of your time is already focused on your job.  This
+It's tough working on side projects since most of your time is already focused on your job. This
 chapter is filled with some tips.
 
 The Cascading To Do List by Brian Casel:
@@ -97,7 +91,7 @@ Some other tools/techniques mentioned are:
 * Productivity software like Basecamp and OmniFocus
 * Pomodoro Technique
 
-Pomodoro Technique happens to be my favorite productivity tool.  See my notes in this same directory.
+Pomodoro Technique happens to be my favorite productivity tool. See my notes in this same directory.
 
 Have you considered outsourcing?
 
@@ -113,8 +107,7 @@ Action steps:
 4. List areas where you can outsource to bring in skills you don't have
 5. List areas where you can outsource to gain more time (like bookkeeping)
 
-Pricing
-=======
+# Pricing
 
 Andrew discusses how they determined the pricing for their own product, Perch:
 
@@ -126,28 +119,27 @@ Andrew discusses how they determined the pricing for their own product, Perch:
 5. Determined actual cost of license, keeping ideal customer in mind opted for no more than a single
    hourly rate of a freelancer so he/she can absorb the costs into the project
 
-Is your product saving money?  Is it getting more money into your customer's pockets?  Is your
-customer a business that makes a good amount of money?  Here are some more pricing options:
+Is your product saving money? Is it getting more money into your customer's pockets? Is your
+customer a business that makes a good amount of money? Here are some more pricing options:
 
-1. Freemium - free core with limits.  Pay to lift limits.
+1. Freemium - free core with limits. Pay to lift limits.
 2. Tiered subscription pricing
 3. Per seat pricing
 4. Pay as you go
 
-Think about the customer acquisition costs and lifetime value of a customer.  You'll have to spend
-money for advertisements and marketing to acquire customers.  You want the LTV to be higher than
+Think about the customer acquisition costs and lifetime value of a customer. You'll have to spend
+money for advertisements and marketing to acquire customers. You want the LTV to be higher than
 customer acquisition to make profits.
 
 Action steps:
 
 1. Decide on your ideal customer
 2. List possible pricing methods
-3. Research competition: what pricing model, what's their ideal customer, what are people saying about
-   their pricing on Facebook/Twitter
+3. Research competition: what pricing model, what's their ideal customer, what are people saying
+   about their pricing on Facebook/Twitter
 4. Begin a spreadsheet with the costs of selling your product
 
-The Practicalities of Selling Products Online
-=============================================
+# The Practicalities of Selling Products Online
 
 Some different options for selling your products online:
 
@@ -157,8 +149,8 @@ Some different options for selling your products online:
 4. Stripe - just as easy as PayPal to setup, great UI and API
 
 No matter what you choose, make sure the customer knows the credit card charge is coming from you!
-The name on their bill will be your company name or your name, not your products name.  You'll
-have to brand your website correctly - otherwise you'll get a lot of chargebacks.
+The name on their bill will be your company name or your name, not your products name. You'll have
+to brand your website correctly - otherwise you'll get a lot of chargebacks.
 
 In this chapter, hosting is also discussed:
 
@@ -167,11 +159,11 @@ In this chapter, hosting is also discussed:
 3. Dedicated - this is unusual to use from the start since you pay for unnecessary resources
 4. Cloud hosting - also a popular choice with ability to scale up/down quickly
 
-Remember to keep your user's data safe, even if you're storing limited data.  You don't want to
-leak out their email addresses.  Also be sure to backup your data and run server monitoring.
+Remember to keep your user's data safe, even if you're storing limited data. You don't want to leak
+out their email addresses. Also be sure to backup your data and run server monitoring.
 
-Gather information about visitors and keep track of conversion rates.  You'll want to track the
-conversion funnel to see where it leaks.  Don't get carried away with analytics at first, just make
+Gather information about visitors and keep track of conversion rates. You'll want to track the
+conversion funnel to see where it leaks. Don't get carried away with analytics at first, just make
 sure you have analytics setup for now.
 
 Action steps:
@@ -181,18 +173,17 @@ Action steps:
 3. Research hosting options
 4. Sign up for analytics service and add to your landing page
 
-Identity and Brand
-==================
+# Identity and Brand
 
-Andrew's product, Perch, has a strong visual identity using an illustrated bird as its mascot.
-They wanted Perch to be fun and the illustration reflects that.
+Andrew's product, Perch, has a strong visual identity using an illustrated bird as its mascot. They
+wanted Perch to be fun and the illustration reflects that.
 
-If you aren't a designer, think about outsourcing your identity and brand.  If you can't afford it,
-learn about visual hierarchy and simple design principles from books.  Brian Casel says the biggest
-mistake people make on their product home page is having too many things compete for attention.  Stay
+If you aren't a designer, think about outsourcing your identity and brand. If you can't afford it,
+learn about visual hierarchy and simple design principles from books. Brian Casel says the biggest
+mistake people make on their product home page is having too many things compete for attention. Stay
 focused on a single pain/problem.
 
-You can also achieve a strong identity through voice - via copywriting.  Advice from Joanna Wiebe:
+You can also achieve a strong identity through voice - via copywriting. Advice from Joanna Wiebe:
 
 1. Let copy lead design
 2. Have one goal per page
@@ -218,13 +209,12 @@ Action steps:
 3. Put together a document detailing your identity and tone
 4. Talk to potential customers and take note in their interests/problems, reflect it in headlines
 
-Setting Up for Support
-======================
+# Setting Up for Support
 
-Use support as a form of marketing.  Make customers happy and they'll tell their friends.
+Use support as a form of marketing. Make customers happy and they'll tell their friends.
 
-Helping your customer will give you firsthand experience with their pains and frustrations.  It
-gives you feedback to make your product better.  Use support as product research.
+Helping your customer will give you firsthand experience with their pains and frustrations. It gives
+you feedback to make your product better. Use support as product research.
 
 Some tools for support include:
 
@@ -234,10 +224,10 @@ Some tools for support include:
 4. Consider using a public forum for scaling
 5. Consider using social media like Twitter or Facebook (not always viable)
 
-Be responsive to pre-sales support.  If you provide good customer support before users are customers,
+Be responsive to pre-sales support. If you provide good customer support before users are customers,
 they'll convert.
 
-You'll also have to deal with difficult people.  Just ignore nasty comments and answer any legitimate
+You'll also have to deal with difficult people. Just ignore nasty comments and answer any legitimate
 support questions.
 
 Action steps:
@@ -246,17 +236,16 @@ Action steps:
 2. Find a 3rd party help desk
 3. Check out how your competition is handling support
 
-Planning a Launch
-=================
+# Planning a Launch
 
 Always setup a pre-launch page where potential customers can sign up with their emails for more
-information.  Do this before you start developing.  Joanna Wiebe has some tips for copy:
+information. Do this before you start developing. Joanna Wiebe has some tips for copy:
 
 1. Write the headline or your visitor (don't worry about making it too short)
 2. Don't hide your personality, be natural
 3. Don't ask for too many fields on email sign up
-4. Don't use "Submit" or "Sign Up" as CTA button text, use something frictionless that completes
-   the phrase "I want to..." like "Be the First to Try [ProductName]"
+4. Don't use "Submit" or "Sign Up" as CTA button text, use something frictionless that completes the
+   phrase "I want to..." like "Be the First to Try [ProductName]"
 5. It's not one-way, collect data from prospective users
 6. Drive a drip campaign and keep in contact with your potential customers!
 
@@ -278,22 +267,21 @@ Action steps:
 4. Ask your list and other followers to help spread the word
 5. Decide whether product is best suited for big launch or slow launch
 
-We Launched! Now What?
-======================
+# We Launched! Now What?
 
-After launching, your customers will have plenty of feature requests.  Here are some tips:
+After launching, your customers will have plenty of feature requests. Here are some tips:
 
 1. Never put a date on anything
 2. Collect use cases, don't implement specific features for individual customers
 3. Solve customer problems (don't just mindlessly implement all requests)
-4. Protect the core product use case.  It's your vision!  Make sure it works for your IDEAL customer,
+4. Protect the core product use case. It's your vision! Make sure it works for your IDEAL customer,
    not single specific ones
 5. Make frequent small releases
 6. Don't be led astray by the vocal minority
 
 Some tips on marketing your product:
 
-1. Content marketing is great but requires a lot of work to create content.  Think about what content
+1. Content marketing is great but requires a lot of work to create content. Think about what content
    would attract your ideal customers.
 2. Consider outsourcing content marketing if you hate writing
 3. Consider sponsorship

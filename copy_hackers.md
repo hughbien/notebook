@@ -1,11 +1,9 @@
-Copy Hackers, Books 1-4
-=======================
+# Copy Hackers, Books 1-4
 
-Joanna Wiebe writes this concise series on how to write copy for the web.  Each
-book is short and includes tips/instructions.
+Joanna Wiebe writes this concise series on how to write copy for the web. Each book is short and
+includes tips/instructions.
 
-1: Where Stellar Messages Come From
-===================================
+# 1: Where Stellar Messages Come From
 
 ## Messaging Strategy and Know Your Customers
 
@@ -22,7 +20,7 @@ Some principles to follow include:
 * clarity > cleverness
 * all visitors can be persuaded
 
-Know your customers before you write a word.  Know:
+Know your customers before you write a word. Know:
 
 * what you want to say
 * how to say what you want
@@ -38,7 +36,7 @@ You can figure this out by:
 
 ## Write Copy for 20-35% of Visitors, Not 100% of Them
 
-**Focus on niches**, it's easier to convert.  Examples:
+**Focus on niches**, it's easier to convert. Examples:
 
 * CampaignMonitor - Email marketing software for designers and their clients
 * CollegeBudget - Student-only deals, delivered daily
@@ -46,27 +44,24 @@ You can figure this out by:
 
 ## Document Your Features/Benefits
 
-Address what your user wants first, follow up with how your product satisfies
-those wants (aka benefit first, feature second).  Example:
+Address what your user wants first, follow up with how your product satisfies those wants (aka
+benefit first, feature second). Example:
 
-Feature - light switch on a lamp.  Benefit - You can easily fill a room with
-light.
+Feature - light switch on a lamp. Benefit - You can easily fill a room with light.
 
-Wiebe suggests we document all of our features in a table with 5 columns:
-features, unique to us, customer pain solved, benefits, priority.  In your
-copy, turn features into benefits.
+Wiebe suggests we document all of our features in a table with 5 columns: features, unique to us,
+customer pain solved, benefits, priority. In your copy, turn features into benefits.
 
-Be specific about your benefits/features.  Summaries aren't noticeable or
-memorable.  They work in pairs, always support a benefit with a feature and
-vice versa.
+Be specific about your benefits/features. Summaries aren't noticeable or memorable. They work in
+pairs, always support a benefit with a feature and vice versa.
 
 Show, don't tell.
 
 ## Let Customers/Competitors Craft Your Message
 
 * Use keywords your visitors want to see (keyword research tools)
-* Do a competitor content audit to understand existing messages (focus on
-  value propositions, benefits highlighted, primary call to actions)
+* Do a competitor content audit to understand existing messages (focus on value propositions,
+  benefits highlighted, primary call to actions)
 
 ## Always Have a Simple Messaging Hierarchy
 
@@ -84,8 +79,7 @@ Show, don't tell.
 7. Most important decision is how to position your product/service
 8. When writing feels difficult, you're doing it right
 
-2: Formatting and The Essentials of Web Writing
-===============================================
+# 2: Formatting and The Essentials of Web Writing
 
 ## Format Copy to Be Scanned
 
@@ -161,82 +155,66 @@ Some facts:
 3. Copy is king on the web
 4. Write for a 6th grader
 5. Use lists and short paragraphs
-6. Use the active voice, not the passive ("starvation causes death" not
-   "death is caused by starvation")
+6. Use the active voice, not the passive ("starvation causes death" not "death is caused by
+   starvation")
 
-3: Headlines, Subheads, and Value Propositions
-==============================================
+# 3: Headlines, Subheads, and Value Propositions
 
 ## Why Headlines Are Important
 
 * Headline is the most important copy on the page
 * Its job is to stop visitors in their tracks
 
-Write the headline before anything else.  It must:
+Write the headline before anything else. It must:
 
 * match visitor expectation
 * intrigue the visitor
 * communicate clearly
 * get to the visitor's point
 
-Pair the headline with a subhead.  Headline draws visitor in, subhead holds
-their attention, builds on headline, and compels them to continue.
+Pair the headline with a subhead. Headline draws visitor in, subhead holds their attention, builds
+on headline, and compels them to continue.
 
-**Do not just match your headline to the generic navigation link, like
-"Features" or "How it Works".**
+**Do not just match your headline to the generic navigation link, like "Features" or "How it
+Works".**
 
-## Attention Grabbing Headlines 
+## Attention Grabbing Headlines
 
 1. Make an almost unbelievable promise or claim that you can back up
-2. Give a time limit -
-   "How to build memory in 4 short weeks"
-3. Stomp just 1 objection to smithereens (most common or curious) -
-   "Is this the world's easiest yoga?"
-4. Be unexpected -
-   "Doing taxes is easier than ever"
-5. Tap into something powerfully emotional -
-   "Why models stay young till sixty!"
-6. Use trigger words: instantly, worth, one and only, while you sleep,
-   #1, the reason, feel, yes you really can.
+2. Give a time limit - "How to build memory in 4 short weeks"
+3. Stomp just 1 objection to smithereens (most common or curious) - "Is this the world's easiest
+   yoga?"
+4. Be unexpected - "Doing taxes is easier than ever"
+5. Tap into something powerfully emotional - "Why models stay young till sixty!"
+6. Use trigger words: instantly, worth, one and only, while you sleep, #1, the reason, feel, yes you
+   really can.
 
 ## Formulas To Write Headlines That Get Read
 
-**OR ELSE PROMISE**
-Highly desirable thing + time limit + consequence of not being delivered:
-"Your dream house blueprints in 7 days or they're free"
+**OR ELSE PROMISE** Highly desirable thing + time limit + consequence of not being delivered: "Your
+dream house blueprints in 7 days or they're free"
 
-**OBJECTION STOMPER**
-Now + highly desirable thing + even if objection:
-"Now you can build an iPhone app even if you're not a programmer"
+**OBJECTION STOMPER** Now + highly desirable thing + even if objection: "Now you can build an iPhone
+app even if you're not a programmer"
 
-**HOW TO**
-How to + verb/noun + benefit:
-"How to support customers 7x faster with Gizmojo"
+**HOW TO** How to + verb/noun + benefit: "How to support customers 7x faster with Gizmojo"
 
-**QUANTITIES**
-Numeral + noun(s) + verb + object OR verb + numeral + noun:
-"Get 1,000+ New Twitter Followers"
+**QUANTITIES** Numeral + noun(s) + verb + object OR verb + numeral + noun: "Get 1,000+ New Twitter
+Followers"
 
-**LISTS**
-Numeral + pronoun? + noun + problem:
-"7 signs you're trapped in a contract"
+**LISTS** Numeral + pronoun? + noun + problem: "7 signs you're trapped in a contract"
 
-**WHY, WHEN, OR HOW**
-Why/when/how + statement of great intrigue:
-"Why SEO is no longer a mystery"
+**WHY, WHEN, OR HOW** Why/when/how + statement of great intrigue: "Why SEO is no longer a mystery"
 
-**NO HOLDS BARRED**
-The + adjective + way + desirable but difficult thing:
-"The lightning fast, easy way to run a free background check"
+**NO HOLDS BARRED** The + adjective + way + desirable but difficult thing: "The lightning fast, easy
+way to run a free background check"
 
-**SIMILE**
-Do X + like + Y:
-"Save money like scrooge"
+**SIMILE** Do X + like + Y: "Save money like scrooge"
 
 ## Subheads
 
-Two types of subheads: supporting text below a headline and small headlines
-introducing sections later in the page.
+Two types of subheads: supporting text below a headline and small headlines introducing sections
+later in the page.
 
 To support headlines:
 
@@ -271,8 +249,7 @@ To use as smaller headlines:
 * state in single, succinct, meaningful and clear statement
 * be memorable
 
-4: Buttons and Click Worthy Calls to Action
-===========================================
+# 4: Buttons and Click Worthy Calls to Action
 
 ## Good Call To Actions
 
@@ -294,8 +271,7 @@ Principles of high performing button copy:
 3. Be specific with word choice
 4. Add a benefit or point of value if possible
 5. Consider page you're driving them to, consider its headline (transition well)
-6. Suggest instant gratification (tack on "Today", "Now", "Instantly", or
-   "In Seconds")
+6. Suggest instant gratification (tack on "Today", "Now", "Instantly", or "In Seconds")
 
 A good general example: **Sign Up for Free**
 
@@ -307,16 +283,15 @@ A better specific example: **Get Your Feed Now**
 
 Copy for buttons fall into five categories:
 
-1. Transactional: add to cart, available in the app store, buy now,
-   buy now & save, buy now and save $5, buy now with 1 click, download now,
-   download it free, download the free trial, get instance access now,
-   get started, try it free
-2. Informational: browser our store, email joe the sales guy, find out more,
-   get details, learn more, see pricing, visit our store, watch the demo
-3. Sign up: create my account, get notified, get started, sign me up, sign up,
-   sign up for free, notify me when you're live
-4. Social: add your comment, comment now, follow us on twitter, get the rss feed,
-   join the discussion, sign up for the newsletter
+1. Transactional: add to cart, available in the app store, buy now, buy now & save, buy now and save
+   $5, buy now with 1 click, download now, download it free, download the free trial, get instance
+   access now, get started, try it free
+2. Informational: browser our store, email joe the sales guy, find out more, get details, learn
+   more, see pricing, visit our store, watch the demo
+3. Sign up: create my account, get notified, get started, sign me up, sign up, sign up for free,
+   notify me when you're live
+4. Social: add your comment, comment now, follow us on twitter, get the rss feed, join the
+   discussion, sign up for the newsletter
 5. Corporate (company, including about, hiring, contact, and PR)
 
 For multi-line buttons, here's what to include on the second line:
@@ -347,17 +322,15 @@ Address these issues before the CTA.
 
 ## Before Click, Reduce Their Anxiety And Increase Love
 
-* Align design with your offering.  Amazon looks cheap on purpose.  Apple looks
-  elegant on purpose.
+* Align design with your offering. Amazon looks cheap on purpose. Apple looks elegant on purpose.
 * People are more afraid of losing than gaining
-* Have credibility indicators like how long you've been around, an about page,
-  etc...
+* Have credibility indicators like how long you've been around, an about page, etc...
 * Do basic research on visitor/consumer anxieties
 * Neutralize anxieties with copy near your CTAs (example: lock icon)
 
 ## Click Triggers
 
-These succinct phrases near CTAs will improve conversions.  Simple ones:
+These succinct phrases near CTAs will improve conversions. Simple ones:
 
 * Fast Sign Up
 * No Account Required
@@ -380,14 +353,14 @@ These succinct phrases near CTAs will improve conversions.  Simple ones:
 
 There are also aggressive click triggers like:
 
-* Absolutely Zero Risk!  We offer a full, no-questions-asked refund - and you
-  have a whopping 90 days to request it.
-* 1 on 1 Help from Judy!  We'll assign you a team of specialists that you can
-  call on for help any day of the week.
+* Absolutely Zero Risk! We offer a full, no-questions-asked refund - and you have a whopping 90 days
+  to request it.
+* 1 on 1 Help from Judy! We'll assign you a team of specialists that you can call on for help any
+  day of the week.
 * We always ship via FedEx overnight - for just $4.
 
-Click triggers neutralizes anxiety.  PR mentions, credibility factors,
-testimonials are all click triggers.  Put them near CTAs.
+Click triggers neutralizes anxiety. PR mentions, credibility factors, testimonials are all click
+triggers. Put them near CTAs.
 
 ## Getting People To Fill In Sign-Up Fields And Watch Demos
 

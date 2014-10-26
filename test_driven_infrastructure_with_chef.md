@@ -1,5 +1,4 @@
-Test Driven Infrastructure with Chef
-====================================
+# Test Driven Infrastructure with Chef
 
 An introduction to automated infrastructure and how to apply test driven techniques to
 infrastructure, by Stephen Nelson-Smith.
@@ -44,7 +43,7 @@ Chef is a framework, tool, and API:
 
 **Chef is simply an API, an index, and a dependency resolver.**
 
-A huge advantage of using Chef is the community that supports it.  There are pre-existing recipes
+A huge advantage of using Chef is the community that supports it. There are pre-existing recipes
 that can do the heavy lifting for you.
 
 ### Use Chef to Install User on Local Machine via `chef-apply`
@@ -150,9 +149,9 @@ that can do the heavy lifting for you.
 
 11. Login as "tdi" and launch your IRC client
 
-We created an IRC recipe in `irc/recipes/default.rb`, which installed a user and irssi package
-along with some configuration.  We used the `--config` and `--override-runlist` to override
-Chef's defaults for cookbook and runlist locations.  Think of a cookbook as a collection of recipes.
+We created an IRC recipe in `irc/recipes/default.rb`, which installed a user and irssi package along
+with some configuration. We used the `--config` and `--override-runlist` to override Chef's defaults
+for cookbook and runlist locations. Think of a cookbook as a collection of recipes.
 
 ### Install Git with Nodes and Cookbook Dependencies
 
@@ -210,7 +209,7 @@ Chef's defaults for cookbook and runlist locations.  Think of a cookbook as a co
 ## Using Chef with Tools
 
 This chapter covers on how to aid your infrastructure code using common tools: Ruby, VirtualBox,
-Vagrant.  Along the way, you'll learn about `chef-client`, roles, nodes, and running chef server.
+Vagrant. Along the way, you'll learn about `chef-client`, roles, nodes, and running chef server.
 
 ### Ruby
 
@@ -347,15 +346,15 @@ Vagrant.  Along the way, you'll learn about `chef-client`, roles, nodes, and run
 
 ## An Introduction to TDD and BDD
 
-This chapter convinces you to use TDD/BDD for your code.  TDD is based on the cycle: Red, Green,
-Refactor.  Its benefits include:
+This chapter convinces you to use TDD/BDD for your code. TDD is based on the cycle: Red, Green,
+Refactor. Its benefits include:
 
 1. Preventing scope from growing
 2. Reveals design problems
 3. Builds trust
 4. Helps programmers get into a rhythm
 
-Whereas TDD helps programmers write correct code, BDD helps developers solve business problems.  It
+Whereas TDD helps programmers write correct code, BDD helps developers solve business problems. It
 helps to write code that matters.
 
 ## A Test-Driven Infrastructure Framework
@@ -382,8 +381,8 @@ This chapter covers the toolset which can be used for TDD and a brief overview o
 
 ### Berkshelf
 
-Berkshelf is similar to Bundler, except it resolves dependencies for Chef cookbooks.  It also aims
-to simplify the workflow required to interact with a Chef server (less knife commands).
+Berkshelf is similar to Bundler, except it resolves dependencies for Chef cookbooks. It also aims to
+simplify the workflow required to interact with a Chef server (less knife commands).
 
     $ gem install berkshelf
     $ berks help

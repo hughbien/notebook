@@ -1,54 +1,42 @@
-Zen Habits: Handbook for Life
-=============================
+# Zen Habits: Handbook for Life
 
-Leo Babauta of [Zen Habits](http://zenhabits.com) fame put together this
-collection of best articles.  It's about living simply, being productive, and
-being happy.  I think this made a great companion to "Guide to the Good Life:
-The Ancient Art of Stoic Joy".
+Leo Babauta of [Zen Habits](http://zenhabits.com) fame put together this collection of best
+articles. It's about living simply, being productive, and being happy. I think this made a great
+companion to "Guide to the Good Life: The Ancient Art of Stoic Joy".
 
-Simplicity
-==========
+# Simplicity
 
 **Decluttering**
 
-Simplify the physical things in life by decluttering your home.  Take everything
-out of the shelf/drawer and sort it through three piles: trash, give away, keep.
-Try to be merciless.
+Simplify the physical things in life by decluttering your home. Take everything out of the
+shelf/drawer and sort it through three piles: trash, give away, keep. Try to be merciless.
 
 **Single-tasking**
 
-Don't juggle (tasks) like the Ringling Bros.  Multi-tasking is less efficient
-and more complicated.
+Don't juggle (tasks) like the Ringling Bros. Multi-tasking is less efficient and more complicated.
 
-Instead, work on your most important tasks first thing in the morning.  Turn off
-distractions like the internet or cell phones.  Focus but take breaks every now
-and then.
+Instead, work on your most important tasks first thing in the morning. Turn off distractions like
+the internet or cell phones. Focus but take breaks every now and then.
 
 **Edit Your Commitments**
 
-Edit your life - cut out everything that's not necessary to make it more
-meaningful.
+Edit your life - cut out everything that's not necessary to make it more meaningful.
 
-List out all the commitments you have.  Now ask yourself if it's important,
-if it will further your life goals, is it in line with your priorities?
+List out all the commitments you have. Now ask yourself if it's important, if it will further your
+life goals, is it in line with your priorities?
 
-Some common categories: work, side work, family, kids, civic, religious,
-hobbies, home, and online.
+Some common categories: work, side work, family, kids, civic, religious, hobbies, home, and online.
 
 Take time to edit your commitments to greatly simplify your life.
 
 **Eliminate All but the Essentials**
 
-You've got a long list of projects and tasks that will never be done.  Identify
-the essential and eliminate the rest.
+You've got a long list of projects and tasks that will never be done. Identify the essential and
+eliminate the rest.
 
-- eliminate tasks and projects
-- know what's essential
-- simplify your commitments
-- simplify your information streams (RSS, newspapers, TV, blogs, etc...)
-- identify and accomplish the big rocks
-- go for biggest values instead of quantity
-- batch small tasks
+- eliminate tasks and projects - know what's essential - simplify your commitments - simplify your
+information streams (RSS, newspapers, TV, blogs, etc...) - identify and accomplish the big rocks -
+go for biggest values instead of quantity - batch small tasks
 
 **Declutter Your Mind**
 
@@ -70,39 +58,37 @@ Some tips for decluttering the mind:
 14. single-task
 15. get a load off (talk to friends)
 
-Productivity
-============
+# Productivity
 
 **Purpose Your Day: Most Important Tasks**
 
-Your MIT is the task you most want or need to get done today.  In Leo's case,
-he has three MITs everyday which he does first thing in the morning.  Get them
-out of the way and feel accomplished for the rest of the day.
+Your MIT is the task you most want or need to get done today. In Leo's case, he has three MITs
+everyday which he does first thing in the morning. Get them out of the way and feel accomplished for
+the rest of the day.
 
 **Focus on the Big Rocks**
 
-The Big Rocks are what you want to get done most this week.  Leo suggests
-getting these out of the way early in the days.  Then fill in the rest of the
-day with sand/pebbles - the smaller tasks that need to get done but aren't as
-important.
+The Big Rocks are what you want to get done most this week. Leo suggests getting these out of the
+way early in the days. Then fill in the rest of the day with sand/pebbles - the smaller tasks that
+need to get done but aren't as important.
 
 **Clear Out Your Inbox**
 
 This is the same concept as Inbox Zero, delete your email as they come in.
 
-Don't check email first thing in the morning.  When you do, dispose of it right
-away.  Have only one folder: "Archive".
+Don't check email first thing in the morning. When you do, dispose of it right away. Have only one
+folder: "Archive".
 
 **Clear Your Desk**
 
 Have a clear desk except for the one thing you're working on.
 
-Take everything on/in your desk and process them: trash it, delegate it,
-file it, do it.  Do this daily to keep your desk clear.
+Take everything on/in your desk and process them: trash it, delegate it, file it, do it. Do this
+daily to keep your desk clear.
 
 **Become an Early Riser**
 
-Leo has a habit of waking up at 4:30AM every morning.  This has a few benefits:
+Leo has a habit of waking up at 4:30AM every morning. This has a few benefits:
 
 1. Let's you greet the day
 2. Let's you have a slow start instead of a morning rush
@@ -127,8 +113,7 @@ Some things to help during a slump:
 6. Get support
 7. Think about benefits instead of difficulties
 
-Happiness
-=========
+# Happiness
 
 **Cultivate Compassion in Your Life**
 
@@ -138,34 +123,24 @@ Happiness
 > Compassion differs from other forms of helpful or humane behavior in that its
 > focus is primarily on the alleviation of suffering.
 
-1. Have a morning ritual, be happy that you're alive and state your goals to
-   be compassionate.
-2. Practice empathy.  Imagine the pain others are suffering.
-3. Practice commonalities.  Imagine what you have in common with others instead
-   of what's different.
-4. Practice relief.  After imagining inflicting suffering of others onto
-   yourself, reflect on how happy you would be to alleviate it.
-5. Practice kindness.  Do something kind to relieve the suffering of others.
-6. Practice for those who mistreat us.  Imagine what suffering they went through
-   when they mistreated us.  Imagine the background of that person.  Imagine
-   the commonalities you have.  Be kind to them.
-7. Have an evening ritual, think about those you've met and how you've connected
-   with them.  Did you help or hinder?
+1. Have a morning ritual, be happy that you're alive and state your goals to be compassionate.
+2. Practice empathy. Imagine the pain others are suffering.
+3. Practice commonalities. Imagine what you have in common with others instead of what's different.
+4. Practice relief. After imagining inflicting suffering of others onto yourself, reflect on how
+   happy you would be to alleviate it.
+5. Practice kindness. Do something kind to relieve the suffering of others.
+6. Practice for those who mistreat us. Imagine what suffering they went through when they mistreated
+   us. Imagine the background of that person. Imagine the commonalities you have. Be kind to them.
+7. Have an evening ritual, think about those you've met and how you've connected with them. Did you
+   help or hinder?
 
 **Escape Materialism**
 
-Money can't buy you love or happiness.  Some tips to escape materialism:
+Money can't buy you love or happiness. Some tips to escape materialism:
 
-- limit television
-- eschew the news
-- limit internet reading
-- give up magazines for books
-- don't go to the mall or department stores
-- monitor your urges
-- use a 30-day list
-- declutter
-- find other forms of entertainment
-- buy used
+- limit television - eschew the news - limit internet reading - give up magazines for books - don't
+go to the mall or department stores - monitor your urges - use a 30-day list - declutter - find
+other forms of entertainment - buy used
 
 **Practical Tips for Living the Golden Rule**
 
@@ -184,11 +159,9 @@ Treat others as you want to be treated.
 
 **Accept Criticism with Grace and Appreciation**
 
-Stop your first reaction to criticism.  Take a breath and give it a bit of
-thought.
+Stop your first reaction to criticism. Take a breath and give it a bit of thought.
 
-Look for the positive within the criticism.  Is it advice that you should listen
-to?
+Look for the positive within the criticism. Is it advice that you should listen to?
 
 Thank the critic for good advice or for his/her time.
 
@@ -196,11 +169,11 @@ Now learn from the criticism and become a better person.
 
 **Have Faith in Humanity and Restore Kindness**
 
-Anonymity has created a society which is mean sometimes.  We're mean in our
-cars in traffic and we're mean on online boards.
+Anonymity has created a society which is mean sometimes. We're mean in our cars in traffic and we're
+mean on online boards.
 
-Leo has faith in humanity though.  There are people out there who do random
-acts of kindness just to be nice.  Try to pay it forward.
+Leo has faith in humanity though. There are people out there who do random acts of kindness just to
+be nice. Try to pay it forward.
 
 **Boost Your Self-Confidence**
 
@@ -223,11 +196,10 @@ Some tips:
 
 **Live Your Life Consciously**
 
-Living consciously means controlling life, thinking about decisions, and not
-settling.
+Living consciously means controlling life, thinking about decisions, and not settling.
 
-It's simple: be conscious and think about everything you do.  Make conscious
-choices instead of doing without thinking.
+It's simple: be conscious and think about everything you do. Make conscious choices instead of doing
+without thinking.
 
 Some more tips:
 

@@ -1,74 +1,62 @@
-Game Programming All in One
-===========================
+# Game Programming All in One
 
-By Jonathan S. Harbour, this book covers 2D game programming using the cross
-platform Allegro framework with the C language.  The sample code uses Allegro 4,
-which is outdated.  Allegro 5 has a new, backwards-incompatible API.  Since the
-example code uses an old version of Allegro, I'll skim through it to learn
-general ideas instead of taking precise notes.
+By Jonathan S. Harbour, this book covers 2D game programming using the cross platform Allegro
+framework with the C language. The sample code uses Allegro 4, which is outdated. Allegro 5 has a
+new, backwards-incompatible API. Since the example code uses an old version of Allegro, I'll skim
+through it to learn general ideas instead of taking precise notes.
 
-Demystifying Game Development
-=============================
+# Demystifying Game Development
 
-This chapter is an overview of game development - it doesn't include anything
-technical.
+This chapter is an overview of game development - it doesn't include anything technical.
 
-Harbour says the game industry employs millions of workers, most are specialized
-in their own fields.  All of this is for entertainment.
+Harbour says the game industry employs millions of workers, most are specialized in their own
+fields. All of this is for entertainment.
 
-There's little difference between programming for a particular console or a PC,
-it's all based on C or C++.  The console SDKs include libraries that you link
-into your program.  Many companies now produce the same games for multiple
+There's little difference between programming for a particular console or a PC, it's all based on C
+or C++. The console SDKs include libraries that you link into your program. Many companies now
+produce the same games for multiple platforms.
+
+2D games are not dead, what sets them apart are fantastic gameplay. It's best to find a niche and
+use it to develop a great game.
+
+This book focuses on the Allegro game library, originally developed by Shawn Hargreaves for the
+Atari ST. Allegro abstracts the operating system so your code can compile on any supported
 platforms.
 
-2D games are not dead, what sets them apart are fantastic gameplay.  It's best
-to find a niche and use it to develop a great game.
+# Getting Started with the Allegro Game Library
 
-This book focuses on the Allegro game library, originally developed by Shawn
-Hargreaves for the Atari ST.  Allegro abstracts the operating system so your
-code can compile on any supported platforms.
+Download Allegro from <http://alleg.sourceforge.net/>. Install instructions for your OS should be on
+there also. Learn how to compile Allegro programs here:
+<http://wiki.allegro.cc/index.php?title=Compiling_Allegro_Programs>.
 
-Getting Started with the Allegro Game Library
-=============================================
-
-Download Allegro from <http://alleg.sourceforge.net/>.  Install instructions
-for your OS should be on there also.  Learn how to compile Allegro programs
-here: <http://wiki.allegro.cc/index.php?title=Compiling_Allegro_Programs>.
-
-Harbour gives us a step-by-step guide on setting up several C++ IDEs with
-Allegro.  He then gives us an example program to compile to make sure everything
-works.
+Harbour gives us a step-by-step guide on setting up several C++ IDEs with Allegro. He then gives us
+an example program to compile to make sure everything works.
 
 The first function used is:
 
     int allegro_init();
 
-This initializes the library and sets the `allegro_id` information which
-contains information like what version of Allegro you're using:
+This initializes the library and sets the `allegro_id` information which contains information like
+what version of Allegro you're using:
 
     extern char allegro_id[];
 
-At the end of the main function, use `allegro_exit()` to exit allegro.  After
-the main function, the macro `END_OF_MAIN()` is required for cleanup.  You
-can print out system information with:
+At the end of the main function, use `allegro_exit()` to exit allegro. After the main function, the
+macro `END_OF_MAIN()` is required for cleanup. You can print out system information with:
 
     extern char allegro_id[];
     printf(Allegro version = %s\n", allegro_id);
 
-2D Vector Graphics Programming
-==============================
+# 2D Vector Graphics Programming
 
-A **graphics primitive** is a function that draws a geometric shape.  Video
-cards were designed to render geometric primitives with special effects.  It
-renders triangles made up of vertices.  
+A **graphics primitive** is a function that draws a geometric shape. Video cards were designed to
+render geometric primitives with special effects. It renders triangles made up of vertices.
 
-**Blit** means bit-block transfer, a method of transferring a chunk of memory -
-usually from system memory to the video card.  The **pixel** is the smallest
-element on a screen.
+**Blit** means bit-block transfer, a method of transferring a chunk of memory - usually from system
+memory to the video card. The **pixel** is the smallest element on a screen.
 
-`allegro_init` creates a global screen pointer called `screen`.  It uses
-double buffering (render one screen on the monitor, another off-screen, and
-switch between them).
+`allegro_init` creates a global screen pointer called `screen`. It uses double buffering (render one
+screen on the monitor, another off-screen, and switch between them).
 
 The following program initializes full-screen video mode with Allegro 4:
 
@@ -92,10 +80,9 @@ The following program initializes full-screen video mode with Allegro 4:
     }
     END_OF_MAIN()
 
-`set_gfx_mode` detects the current computer's graphics settings and sets the
-program's window.  `allegro_message` can be used for an alert box.
-`allegro_error` is a global variable containing the most recent error message.
-`textprintf` displays text in any video mode.
+`set_gfx_mode` detects the current computer's graphics settings and sets the program's window.
+`allegro_message` can be used for an alert box. `allegro_error` is a global variable containing the
+most recent error message. `textprintf` displays text in any video mode.
 
 The next program draws text to the screen:
 
@@ -175,8 +162,7 @@ Draw circles and ellipses with:
     void ellipse(BITMAP *bmp, int x, int y, int rx, int ry, int color)
     void ellipsefill(BITMAP *bmp, int x, int y, int rx, int ry, int color)
 
-These each have their own callback facility, just prefix each function with
-`do_`.
+These each have their own callback facility, just prefix each function with `do_`.
 
 The `spline` function draws curves based on four (x,y) input points:
 
@@ -203,8 +189,7 @@ There are three functions for primary text output:
     void textout_right_ex(BITMAP *bmp, const FONT *f, const char *s,
                           int x, int y, int color, int bg)
 
-Each of these have a `printf`-like equivalent.  These take a format string
-and variable arguments:
+Each of these have a `printf`-like equivalent. These take a format string and variable arguments:
 
     void textprintf_ex(BITMAP *bmp, const FONT *f, int x, int y, 
                        int color, int bg, const char *fmt, ...);
@@ -213,11 +198,10 @@ and variable arguments:
     void textprintf_right_ex(BITMAP *bmp, const FONT *f, int x, int y, 
                              int color, int bg, const char *fmt, ...);
 
-Writing Your First Allegro Game
-===============================
+# Writing Your First Allegro Game
 
-The first example game in this book is "Tank War", a two-player game on a single
-screen.  The tanks are a series of rectangles:
+The first example game in this book is "Tank War", a two-player game on a single screen. The tanks
+are a series of rectangles:
 
     void drawtank(int num) {
       int x = tanks[num].x;
@@ -264,9 +248,8 @@ screen.  The tanks are a series of rectangles:
       rectfill(screen, left, top, right, bottom, 0);
     }
 
-The projectiles from tanks are also small rectangles.  `fireweapon` is used
-to draw the bullet in the correct direction.  It looks at the pixels in front
-to determine if it's a hit or to keep moving it.
+The projectiles from tanks are also small rectangles. `fireweapon` is used to draw the bullet in the
+correct direction. It looks at the pixels in front to determine if it's a hit or to keep moving it.
 
     void fireweapon(int num) {
       int x = tanks[num].x;
@@ -348,8 +331,7 @@ The `updatebullet` actually updates the bullet's rendering on the screen.
       }
     }
 
-There's an array called `key` that stores values of keys pressed.  We'll use
-this to move the tanks.
+There's an array called `key` that stores values of keys pressed. We'll use this to move the tanks.
 
     void getinput() {
       //hit ESC to quit if (key[KEY_ESC])
@@ -398,15 +380,14 @@ The structs that define the tanks and bullets are located in the header.
       int xspd, yspd;
     } bullets[2];
 
-Getting Input from the Player
-=============================
+# Getting Input from the Player
 
 To start detecting keyboard input, you'll need to initialize Allegro:
 
     int install_keyboard();
 
-The `allegro_exit` function will handle uninitializing it, but if you need to
-do so before the exit is called use:
+The `allegro_exit` function will handle uninitializing it, but if you need to do so before the exit
+is called use:
 
     void remove_keyboard();
 
@@ -414,8 +395,7 @@ Allegro keeps track of keys pressed in a global variable:
 
     extern volatile char key[KEY_MAX];
 
-Check Allegro's `keyboard.h` for constants of each key on the keyboard.  A
-few examples are:
+Check Allegro's `keyboard.h` for constants of each key on the keyboard. A few examples are:
 
 * `KEY_UP`
 * `KEY_DOWN`
@@ -430,15 +410,14 @@ The typical game loop is:
       // do some stuff
     }
 
-Besides using the `key` variable, you can also use buffered keyboard input which
-reads input via ASCII code.
+Besides using the `key` variable, you can also use buffered keyboard input which reads input via
+ASCII code.
 
     int readkey();                // returns next ASCII code or waits
     int ureadkey(int *scancode);  // returns next Unicode key or waits
 
-The ASCII code is actually a two-byte integer value, the low byte is the ASCII
-code that changes depending on modifier keys and the high byte is the scan
-code regardless of modifier keys.
+The ASCII code is actually a two-byte integer value, the low byte is the ASCII code that changes
+depending on modifier keys and the high byte is the scan code regardless of modifier keys.
 
 For demos, you can simulate key presses using:
 
@@ -458,8 +437,7 @@ The current mouse position is available via:
     extern volatile int mouse_z;  // wheel
     extern volatile int mouse_b;  // mouse button
 
-`mouse_b` is just packed bits.  Use bit masks to detect which button was
-pressed:
+`mouse_b` is just packed bits. Use bit masks to detect which button was pressed:
 
     mouse_b & 1; // left button
     mouse_b & 2; // right button
@@ -476,23 +454,21 @@ You can personalize the mouse cursor with:
     void set_mouse_range(int x1, int y1, int x2, int y2);
     void set_mouse_speed(int xspeed, int yspeed);
 
-Mastering the Audible Realm
-===========================
+# Mastering the Audible Realm
 
-The first thing to do is detect digital sound drivers.  This function returns
-zero if none are available or the maximum number of voices a driver can
-provide:
+The first thing to do is detect digital sound drivers. This function returns zero if none are
+available or the maximum number of voices a driver can provide:
 
     int detect_digi_driver(int driver_id)
 
-You then need to reserve digital and Midi sound drivers.  If you reserve too
-many, the quality will drop.  Pass `-1` to restore voice setting to default:
+You then need to reserve digital and Midi sound drivers. If you reserve too many, the quality will
+drop. Pass `-1` to restore voice setting to default:
 
     void reserve_voices(int digi_voices, int midi_voices)
 
-You can control the volume per voice.  Pass `-1` to reset, use `0` for maximum
-volume without distortion.  Use `1` when panning, each time you increase the
-parameter by one the sound of each voice is halved.
+You can control the volume per voice. Pass `-1` to reset, use `0` for maximum volume without
+distortion. Use `1` when panning, each time you increase the parameter by one the sound of each
+voice is halved.
 
     void set_volume_per_voice(int scale)
 
@@ -500,16 +476,14 @@ After configuring the sound system, Allegro can initialize it with:
 
     int install_sound(int digi, int midi, const char *cfg_path)
 
-For `digi` the default is `DIGI_AUTODETECT`, for `midi` the default is
-`MIDI_AUTODETECT`.
+For `digi` the default is `DIGI_AUTODETECT`, for `midi` the default is `MIDI_AUTODETECT`.
 
 If you ever need to disable sound use:
 
     void remove_sound()
 
-This gets called by default when Allegro exits.  The `set_volume` function
-lets you set volume from 0 to 255.  Use `-1` for one parameter to leave it
-unchanged:
+This gets called by default when Allegro exits. The `set_volume` function lets you set volume from 0
+to 255. Use `-1` for one parameter to leave it unchanged:
 
     void set_volume(int digi_volume, int midi_volume)
 
@@ -558,30 +532,28 @@ You can also control the voice volume, pitch, and panning:
     void voice_sweep_pan(int voice, int time, int endpan)
     void voice_stop_pan_sweep(int voice)
 
-MIDI music uses different functions.  It uses the struct `midi`:
+MIDI music uses different functions. It uses the struct `midi`:
 
     int get_midi_length(MIDI *midi)
     int play_midi(MIDI *MIDI, int loop)
     void midi_pause()
     void midi_resume()
 
-Basic Bitmap Handling and Blitting
-==================================
+# Basic Bitmap Handling and Blitting
 
-A sprite is a animated, moving object that usually interacts with the player -
-or it could be the player.  Usually you draw it using a graphic editing tool
-like Photoshop, save it in a file, then load that image with Allegro.
+A sprite is a animated, moving object that usually interacts with the player - or it could be the
+player. Usually you draw it using a graphic editing tool like Photoshop, save it in a file, then
+load that image with Allegro.
 
     BITMAP *tank = create_bitmap(32, 32);
     clear_bitmap(tank);
     putpixel(tank, 16, 16, 15);
     blit(tank, screen, 0, 0, 0, 0, 32, 32);
 
-`create_bitmap` allocates memory for the bitmap of `32x32` size.  `clear_bitmap`
-actually clears the memory space.  The `putpixel` function was used previously
-with `screen` to draw directly to the screen.  In this case, we want to draw
-on the new bitmap instead.  **Blit** stands for bit-block transfer (copying
-memory from one location to another).
+`create_bitmap` allocates memory for the bitmap of `32x32` size. `clear_bitmap` actually clears the
+memory space. The `putpixel` function was used previously with `screen` to draw directly to the
+screen. In this case, we want to draw on the new bitmap instead. **Blit** stands for bit-block
+transfer (copying memory from one location to another).
 
 Here's the bitmap structure:
 
@@ -601,20 +573,18 @@ Here's the bitmap structure:
       ZERO_SIZE_ARRAY(unsigned char *, line);
     } BITMAP;
 
-If your artwork is in a certain color depth, you may want to call
-`set_color_depth` after `set_gfx_mode` in the initialization code.  Or you can
-use `create_bitmap_ex` whose first parameter is the color depth.  You can get
-the color depth with `bitmap_clor_depth(BITMAP *bmp)`.  There's also an
-alternative to `clear_bitmap`, `clear_to_color(BITMAP *bitmap, int color)`.
+If your artwork is in a certain color depth, you may want to call `set_color_depth` after
+`set_gfx_mode` in the initialization code. Or you can use `create_bitmap_ex` whose first parameter
+is the color depth. You can get the color depth with `bitmap_clor_depth(BITMAP *bmp)`. There's also
+an alternative to `clear_bitmap`, `clear_to_color(BITMAP *bitmap, int color)`.
 
-You can create sub-bitmaps that shares memory with a parent bitmap.  Any changes
-to the sub-bitmap will be visible on the parent (and the reverse is true):
+You can create sub-bitmaps that shares memory with a parent bitmap. Any changes to the sub-bitmap
+will be visible on the parent (and the reverse is true):
 
     BITMAP *create_sub_bitmap(BITMAP *parent, int x, int y, int w, int h);
 
-Anything that goes beyond the boundaries of the sub bitmap will not be drawn.
-This is especially useful for the `screen` for windowing effects like scrolling
-backgrounds.
+Anything that goes beyond the boundaries of the sub bitmap will not be drawn. This is especially
+useful for the `screen` for windowing effects like scrolling backgrounds.
 
 When you're done with a bitmap, you want to free its memory with:
 
@@ -630,8 +600,8 @@ Some functions to retrieve information for bitmaps:
     int is_screen_bitmap(BITMAP *bmp);
     int is_video_bitmap(BITMAP *bmp);
 
-Bitmaps are actually automatically locked/unlocked every time you draw on it.
-It can be a bottleneck.  Instead, you can do it manually:
+Bitmaps are actually automatically locked/unlocked every time you draw on it. It can be a
+bottleneck. Instead, you can do it manually:
 
     void acquire_bitmap(BITMAP *bmp);
     void release_bitmap(BITMAP *bmp);
@@ -642,8 +612,8 @@ You can clip a bitmap so it never draws beyond a boundary:
 
     void set_clip(BITMAP *bitmap, int x1, int y1, int x2, int y2);
 
-Turn it off by giving all zeros for coordinates.  By default, a bitmap is
-clipped to its created size.
+Turn it off by giving all zeros for coordinates. By default, a bitmap is clipped to its created
+size.
 
 You can load a bitmap from disk after saving it as an optimization:
 
@@ -668,22 +638,19 @@ There are also more specialized versions of blitting:
 * `masked_blit` for copying only solid pixels
 * `masked_stretch_blit` for both
 
-Introduction to Sprite Programming
-==================================
+# Introduction to Sprite Programming
 
-Game sprites came from the mythical sprite - a tiny, flying creature like a
-classical fairy but more mischievous.
+Game sprites came from the mythical sprite - a tiny, flying creature like a classical fairy but more
+mischievous.
 
-The first function you'll use is `draw_sprite` that draws the sprite image using
-transparency.  Allegro uses the color pink `(255, 0, 255)` to define
-transparency in an image:
+The first function you'll use is `draw_sprite` that draws the sprite image using transparency.
+Allegro uses the color pink `(255, 0, 255)` to define transparency in an image:
 
     void draw_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y)
 
-This draws the entire sprite, since there's no source coordinates.  A better
-way to do this is to store all frames into a single image.  Also, you may want
-to use `set_gfx_mode` to set a 16-bit color mode instead of the default 8-bit
-so transparency works correctly.
+This draws the entire sprite, since there's no source coordinates. A better way to do this is to
+store all frames into a single image. Also, you may want to use `set_gfx_mode` to set a 16-bit color
+mode instead of the default 8-bit so transparency works correctly.
 
 To draw transformed sprites:
 
@@ -700,12 +667,11 @@ Drawing a semi-transparent sprite requires setting the alpha blender:
     void set_alpha_blender()
     void draw_trans_sprite(BITMAP *bmp, BITMAP *sprite, int x, int y)
 
-Sprite Animation
-================
+# Sprite Animation
 
-Allegro 4 doesn't actually have built-in functions to handle sprite sheets or
-sprite animation.  It has low-level sprite routines from which you can build
-your own sprite handler.  In this chapter, Harbour shows us how to build one.
+Allegro 4 doesn't actually have built-in functions to handle sprite sheets or sprite animation. It
+has low-level sprite routines from which you can build your own sprite handler. In this chapter,
+Harbour shows us how to build one.
 
 Here's a program that animates a cat given six image files:
 
@@ -764,12 +730,11 @@ Here's a program that animates a cat given six image files:
     }
     END_OF_MAIN()
 
-`framedelay` and `framewcount` work together to create a smooth animation.
-You can't just switch the bitmap on every loop, otherwise it'd be too fast of
-an animation.
+`framedelay` and `framewcount` work together to create a smooth animation. You can't just switch the
+bitmap on every loop, otherwise it'd be too fast of an animation.
 
-Next, Harbour walks us through creating a sprite handler starting with the
-`SPRITE` struct and `updatesprite` function:
+Next, Harbour walks us through creating a sprite handler starting with the `SPRITE` struct and
+`updatesprite` function:
 
     typedef struct SPRITE {
       int x,y;                          // sprite position
@@ -805,15 +770,14 @@ Next, Harbour walks us through creating a sprite handler starting with the
       }
     }
 
-Now, we need to learn how to store all frames into a single image.  Here's the
-sprite tile algorithm:
+Now, we need to learn how to store all frames into a single image. Here's the sprite tile algorithm:
 
     int x = startx + (frame % columns) * width;
     int y = starty + (frame / columns) * height;
 
-Usually `startx` and `starty` are zero.  If you decide to cache all animations
-into a single file, you can use `startx` and `starty` to initialize the starting
-positions.  Here's the function that can grab a single frame out of an image:
+Usually `startx` and `starty` are zero. If you decide to cache all animations into a single file,
+you can use `startx` and `starty` to initialize the starting positions. Here's the function that can
+grab a single frame out of an image:
 
     BITMAP *grabframe(BITMAP *source, int width, int height,
       int startx, int starty, int columns, int frame) {
@@ -824,14 +788,12 @@ positions.  Here's the function that can grab a single frame out of an image:
       return temp;
     }
 
-Note that it's up to the caller to destroy the bitmap after it's no longer
-needed.
+Note that it's up to the caller to destroy the bitmap after it's no longer needed.
 
-Advanced Sprite Programming
-===========================
+# Advanced Sprite Programming
 
-Allegro can use run-length encoding or RLE to compress sprite images.  These
-sprites cannot be flipped, rotated, or copied into.
+Allegro can use run-length encoding or RLE to compress sprite images. These sprites cannot be
+flipped, rotated, or copied into.
 
     RLE_SPRITE *get_rle_sprite(BITMAP *bitmap);
     void destroy_rle_sprite(RLE_SPRITE *sprite);
@@ -841,32 +803,29 @@ sprites cannot be flipped, rotated, or copied into.
     void draw_lit_rle_sprite(BITMAP *bmp, const RLE_SPRITE *sprite,
       int x, int y, int color);
 
-Compiled sprites actually store the machine code instructions to draw a
-specific image onto a bitmap, significantly improving speed.  They take up more
-memory than standard or compressed sprites.
+Compiled sprites actually store the machine code instructions to draw a specific image onto a
+bitmap, significantly improving speed. They take up more memory than standard or compressed sprites.
 
     COMPILED_SPRITE *get_compiled_sprite(BITMAP *bitmap, int planar);
     void destroy_compiled_sprite(COMPILED_SPRITE *sprite);
     void draw_compiled_sprite(BITMAP *bmp, const COMPILED_SPRITE *sprite,
       int x, int y);
 
-The easiest and most efficient collision detection is to compare bounding
-rectangles of two objects.  Keep these boundaries lean - they may even be
-smaller than the actual image to improve accuracy.
+The easiest and most efficient collision detection is to compare bounding rectangles of two objects.
+Keep these boundaries lean - they may even be smaller than the actual image to improve accuracy.
 
     int inside(int x, int y, int left, int top, int right, int bottom) {
       return x > left && x < right && y > top && y < bottom;
     }
 
-Harbour then creates a function which calls `inside` four times and takes two
-sprites as input.  There's an alternative which uses a `border` parameter to
-reduce the bounding box by a certain amount.
+Harbour then creates a function which calls `inside` four times and takes two sprites as input.
+There's an alternative which uses a `border` parameter to reduce the bounding box by a certain
+amount.
 
-Programming the Perfect Game Loop
-=================================
+# Programming the Perfect Game Loop
 
-So far we've been using `rest` to delay our game.  Allegro has much better
-timing features.  Like other features, it needs to be activated:
+So far we've been using `rest` to delay our game. Allegro has much better timing features. Like
+other features, it needs to be activated:
 
     int install_timer();
     void remove_timer(); // optional, happens at allegro_exit
@@ -881,14 +840,12 @@ Interrupt handlers are used to run functions at specific intervals.
     int install_int(void (*proc)(), int milliseconds)
     void remove_int(void (*proc)())  // optional, happens at allegro_exit
 
-Harbour recommends you use interrupt routines to set flags instead of any work
-that requires real processing since timing is crucial.
+Harbour recommends you use interrupt routines to set flags instead of any work that requires real
+processing since timing is crucial.
 
-Programming Tile-Based Scrolling Backgrounds
-============================================
+# Programming Tile-Based Scrolling Backgrounds
 
-Here's an example program that uses the arrow keys to scroll around the game
-world:
+Here's an example program that uses the arrow keys to scroll around the game world:
 
     #include <stdlib.h>
     #include "allegro.h"
@@ -940,9 +897,8 @@ world:
     }
     END_OF_MAIN()
 
-**Tiling** is a popular technique to create backgrounds made up of tiles.  It
-takes up little memory compared to a full bit-mapped background.  Here's an
-example that draws random tiles:
+**Tiling** is a popular technique to create backgrounds made up of tiles. It takes up little memory
+compared to a full bit-mapped background. Here's an example that draws random tiles:
 
     void drawframe(BITMAP *source, BITMAP *dest,
         int x, int y, int width, int height,
@@ -962,7 +918,7 @@ example that draws random tiles:
       } 
     }
 
-You can save a game level using an array to represent the world.  For example:
+You can save a game level using an array to represent the world. For example:
 
     int map[MAPW*MAPH] = {
       0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -973,12 +929,11 @@ You can save a game level using an array to represent the world.  For example:
 
 In this case, `2` represents grass and `0` represents stone.
 
-Using Datafiles to Store Game Resources
-=======================================
+# Using Datafiles to Store Game Resources
 
-Allegro has support for datafiles to store game resources with encryption
-and compression.  They're similar to ZIP archive files in that they can contain
-multiple files of different types.  It uses the LZSS compression algorithm.
+Allegro has support for datafiles to store game resources with encryption and compression. They're
+similar to ZIP archive files in that they can contain multiple files of different types. It uses the
+LZSS compression algorithm.
 
     typedef struct DATAFILE {
       void *dat;
@@ -992,31 +947,27 @@ Here's example usage:
     DATAFILE *data = load_datafile("game.dat");
     draw_sprite(screen, data[PLAYER_SPRITE].dat, x, y);
 
-Allegro comes with a `dat` script that can be used to manually compress your
-data into a datafile.
+Allegro comes with a `dat` script that can be used to manually compress your data into a datafile.
 
     dat -a -t BMP -bpp 16 test.dat back.bmp
     dat -l test.dat
 
-The `load_datafile` loads a datafile into memory and returns a pointer.  If
-encrypted, use the `packfile_password` function to set the key.  Use the
-`unload_datafile` function to free memory.  You can also use
-`load_datafile_object` to load a specific object instead of an array.  This
-has the equivalent `unload_datafile_object`.
-Introduction to Artificial Intelligence
-=======================================
+The `load_datafile` loads a datafile into memory and returns a pointer. If encrypted, use the
+`packfile_password` function to set the key. Use the `unload_datafile` function to free memory. You
+can also use `load_datafile_object` to load a specific object instead of an array. This has the
+equivalent `unload_datafile_object`.
+# Introduction to Artificial Intelligence
 
-There are several sub-fields within AI.  This section is a brief introduction.
+There are several sub-fields within AI. This section is a brief introduction.
 
-**Expert systems** solve problems usually solved by specialized humans.  For
-example, it could ask you a set of true/false questions to determine an answer.
-It uses a knowledge tree to determine that answer.
+**Expert systems** solve problems usually solved by specialized humans. For example, it could ask
+you a set of true/false questions to determine an answer. It uses a knowledge tree to determine that
+answer.
 
-**Fuzzy logic** expands on that by providing values in between true and false.
-The return value is usually also fuzzy.
+**Fuzzy logic** expands on that by providing values in between true and false. The return value is
+usually also fuzzy.
 
-**Genetic algorithms** use something similar to real-life heredity in biology.
-The steps are:
+**Genetic algorithms** use something similar to real-life heredity in biology. The steps are:
 
 1. pick population and set initial values
 2. order values into a flat bit vector
@@ -1026,11 +977,9 @@ The steps are:
 
 **Neural networks** imitate the workings of a brain.
 
-**Deterministic algorithms** is a game technique that uses predetermined
-behaviors of objects in relation to the universe problem.  For example, you can
-randomly move an object left or right.  Or make a guard run towards an intruder
-if the intruder is within vision.
+**Deterministic algorithms** is a game technique that uses predetermined behaviors of objects in
+relation to the universe problem. For example, you can randomly move an object left or right. Or
+make a guard run towards an intruder if the intruder is within vision.
 
-Harbour mentions **finite state machines** as a great pattern to use within
-your game implementations.
-
+Harbour mentions **finite state machines** as a great pattern to use within your game
+implementations.

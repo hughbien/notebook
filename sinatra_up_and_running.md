@@ -1,28 +1,24 @@
-Sinatra: Up and Running
-=======================
+# Sinatra: Up and Running
 
-A short and concise guide on creating a web app or service using the Sinatra
-library by Alan Harris and Konstantin Haase.
+A short and concise guide on creating a web app or service using the Sinatra library by Alan Harris
+and Konstantin Haase.
 
-Taking the Stage
-================
+# Taking the Stage
 
-Sinatra is a minimalistic DSL for making websites, web services, and web apps in
-Ruby.  It is not a framework.  It does not implement MVC.
+Sinatra is a minimalistic DSL for making websites, web services, and web apps in Ruby. It is not a
+framework. It does not implement MVC.
 
-You can build Sinatra apps in two modes: **classic** and **modular**.  Classic
-mode is simpler, but it adds methods to the Object namespace and won't work
-well if you ship the app in a gem.  Modular mode works well for shipping whole
-apps in gems or combining multiple Sinatra apps.
+You can build Sinatra apps in two modes: **classic** and **modular**. Classic mode is simpler, but
+it adds methods to the Object namespace and won't work well if you ship the app in a gem. Modular
+mode works well for shipping whole apps in gems or combining multiple Sinatra apps.
 
 Install with:
 
     $ gem install sinatra
     $ gem install thin
 
-The Thin webserver is recommended for running Sinatra apps.  If Thin isn't
-there, Sinatra will try to use Mongrel.  If there's no Mongrel, it will default
-to WEBrick.
+The Thin webserver is recommended for running Sinatra apps. If Thin isn't there, Sinatra will try to
+use Mongrel. If there's no Mongrel, it will default to WEBrick.
 
 A full application in classic mode looks like this:
 
@@ -32,12 +28,12 @@ A full application in classic mode looks like this:
       "Hello, world!"
     end
 
-Save that into `server.rb` and run it with `ruby server.rb`.  Open it by going
-to `http://localhost:4567`.
+Save that into `server.rb` and run it with `ruby server.rb`. Open it by going to
+`http://localhost:4567`.
 
-Sinatra wraps around Rack, which is a modular interface to multiple webservers.
-The developer gets a nice DSL to work with.  Routes are written like
-`verb "route" do...` and get matched in a top-down order.
+Sinatra wraps around Rack, which is a modular interface to multiple webservers. The developer gets a
+nice DSL to work with. Routes are written like `verb "route" do...` and get matched in a top-down
+order.
 
 If you do a `POST`, you'll get a 404 back:
 
@@ -75,11 +71,10 @@ Now just run it with `ruby game.rb` and you can make throws like this:
     $ curl "localhost:4567/throw/paper"
     $ curl "localhost:4567/throw/scissors"
 
-Fundamentals
-============
+# Fundamentals
 
-This chapter starts out with some HTTP fundamentals.  See
-`http_the_definitive_guide.md` for more details.
+This chapter starts out with some HTTP fundamentals. See `http_the_definitive_guide.md` for more
+details.
 
 Routes are commonly defined like:
 
@@ -113,8 +108,7 @@ Parameters in routes are specified with a colon and accessed with `params`:
       "Hello, #{params[:name]}"
     end
 
-Data from POST, PUT, or PATCH request bodies or URL query string can also be
-accessed via `params`.
+Data from POST, PUT, or PATCH request bodies or URL query string can also be accessed via `params`.
 
 The splat character can be used as a greedy match:
 
@@ -130,9 +124,9 @@ Regular expressions may also be used:
       "You got caught!"
     end
 
-You can halt a request with `halt` which takes a response code.  You can `pass`
-a request to the next matching route.  You can also `redirect` which defaults to
-a temporary redirect (use 301 for permanent, defaults to 302).
+You can halt a request with `halt` which takes a response code. You can `pass` a request to the next
+matching route. You can also `redirect` which defaults to a temporary redirect (use 301 for
+permanent, defaults to 302).
 
     get '/halt' do
       halt(500) if some_condition
@@ -150,14 +144,13 @@ a temporary redirect (use 301 for permanent, defaults to 302).
       redirect 'http://www.google.com', 301
     end
 
-Sinatra uses the `public` subdirectory for static files.  If you have the file
-`static.html` in it, the route `/static.html` will automatically direct you to
-the file.  It will even override any `get "/static.html"` in your app.
-Configure this directory like:
+Sinatra uses the `public` subdirectory for static files. If you have the file `static.html` in it,
+the route `/static.html` will automatically direct you to the file. It will even override any `get
+"/static.html"` in your app. Configure this directory like:
 
     set :public_folder, File.dirname(__FILE__) + '/your_custom_location'
 
-Sinatra can use inline or external templates.  Here's an example of inline:
+Sinatra can use inline or external templates. Here's an example of inline:
 
     get '/index' do
       erb :index
@@ -171,13 +164,12 @@ Sinatra can use inline or external templates.  Here's an example of inline:
       ...
     </html>
 
-For external templates, put the HTML into a file `views/index.erb`.  You can
-change the default subfolder using the `set :views` option.  Some built in
-templating engines are: Erb, Haml, and Erubis.  Data can be passed into views
-by assigning and using instance variables.
+For external templates, put the HTML into a file `views/index.erb`. You can change the default
+subfolder using the `set :views` option. Some built in templating engines are: Erb, Haml, and
+Erubis. Data can be passed into views by assigning and using instance variables.
 
-You can also use before/after filters.  Without a parameter, they'll work on
-all requests.  They also accept route parameters just like the HTTP verbs.
+You can also use before/after filters. Without a parameter, they'll work on all requests. They also
+accept route parameters just like the HTTP verbs.
 
     before do
       puts "Before all requests."
@@ -266,22 +258,19 @@ Cookie based sessions look like this:
       redirect '/fetch'
     end
 
-Session based cookies are cleared automatically when the browser closes.  To
-use persistent cookies:
+Session based cookies are cleared automatically when the browser closes. To use persistent cookies:
 
     response.set_cookie 'foo', 'bar'
     request.cookies['foo']
     response.delete_cookie 'foo'
     response.set_cookie 'foo', :value => 'bar', :path => '/'
 
-Attachments can be sent downstream via `attachment` method which accepts a file
-path.
+Attachments can be sent downstream via `attachment` method which accepts a file path.
 
-A Peek Behind the Curtain
-=========================
+# A Peek Behind the Curtain
 
-Sinatra uses some magic to handle `self`, which evaluates differently depending
-on whether you're in the `Object` namespace or within a routing block:
+Sinatra uses some magic to handle `self`, which evaluates differently depending on whether you're in
+the `Object` namespace or within a routing block:
 
     require 'sinatra'
 
@@ -296,19 +285,18 @@ on whether you're in the `Object` namespace or within a routing block:
     outer self: main,
     inner self: #<Sinatra::Application:0x0010cd8f0>
 
-`Sinatra::Application` inherits from `Sinatra::Base`.  There's also the
-`Sinatra::Delegator` mixin.  Methods like `get` and `post` are defined twice,
-once in the Delegator mixin and another in Base.  The Delegator mixin just
-delegates the call to Application.  The mixin is what gets mixed into the Object
-namespace.  An app can be made without mixing into the Object namespace:
+`Sinatra::Application` inherits from `Sinatra::Base`. There's also the `Sinatra::Delegator` mixin.
+Methods like `get` and `post` are defined twice, once in the Delegator mixin and another in Base.
+The Delegator mixin just delegates the call to Application. The mixin is what gets mixed into the
+Object namespace. An app can be made without mixing into the Object namespace:
 
     require 'sinatra/base'
 
     Sinatra::Application.get('/') { 'hi' }
     Sinatra::Application.run!
 
-Sinatra apps can be extended with extensions and helpers.  Extensions exist in
-the Object namespace only.  Helpers exist within route blocks and views:
+Sinatra apps can be extended with extensions and helpers. Extensions exist in the Object namespace
+only. Helpers exist within route blocks and views:
 
     # an extension
     module Sinatra
@@ -343,13 +331,12 @@ the Object namespace only.  Helpers exist within route blocks and views:
       end
     end
 
-[Rack](http://rack.rubyforge.org) is a protocol that specifies how web servers
-interact with web applications.  At its core, it specifies how the application
-object (aka **endpoint**) responds to the method `call`.  The server (aka
-**handler**) calls the method with one parameter, a hash with all relevant
-request information such as HTTP verb, path requested, headers, etc...  The
-return value should be an array with 3 items: status code, hash of response
-headers, body object which should behave like an array of strings.
+[Rack](http://rack.rubyforge.org) is a protocol that specifies how web servers interact with web
+applications. At its core, it specifies how the application object (aka **endpoint**) responds to
+the method `call`. The server (aka **handler**) calls the method with one parameter, a hash with all
+relevant request information such as HTTP verb, path requested, headers, etc... The return value
+should be an array with 3 items: status code, hash of response headers, body object which should
+behave like an array of strings.
 
 Here's a sample Rack application:
 
@@ -377,9 +364,8 @@ These low level variables are available in your Sinatra route blocks via:
 * `request`
 * `response`
 
-Rack supports chaining filters and routers in front of your application called
-`middleware`.  Middleware can modify requests, the env hash, the response, or
-even skip endpoints.
+Rack supports chaining filters and routers in front of your application called `middleware`.
+Middleware can modify requests, the env hash, the response, or even skip endpoints.
 
 Stick this into `config.ru` the run `rackup -p 4567 -s thin`:
 
@@ -416,12 +402,11 @@ Sinatra ships with a `use` method that works like rackup's.
 
 You can use any `Sinatra::Application` as Rack middleware.
 
-Modular Applications
-====================
+# Modular Applications
 
-Before, we just `require 'sinatra/base'` and were able to make a Sinatra
-application.  For modular applications, it's common practice to create your own
-subclass of `Sinatra::Base`.  Some reasons to do this:
+Before, we just `require 'sinatra/base'` and were able to make a Sinatra application. For modular
+applications, it's common practice to create your own subclass of `Sinatra::Base`. Some reasons to
+do this:
 
 * avoid polluting the Object namespace
 * ship your app as a gem
@@ -443,30 +428,27 @@ To use it with rackup:
     require './myapp'
     run MyApp
 
-We've used `set` and `configure` before to configure settings.  These settings
-are available via the `settings` method.  `enable` and `disable` are syntatic
-sugar for setting an option to true or false.  `settings` is actually just a
-shortcut to the current application class.  Actually, creating new settings will
-just add instance new methods to the current application class.
+We've used `set` and `configure` before to configure settings. These settings are available via the
+`settings` method. `enable` and `disable` are syntatic sugar for setting an option to true or false.
+`settings` is actually just a shortcut to the current application class. Actually, creating new
+settings will just add instance new methods to the current application class.
 
     configure :development, :test do
       enable :admin_access
     end
 
-`configure` accepts environment switches.  This is controlled via the
-`environment` setting or the `RACK_ENV` environment variable.
+`configure` accepts environment switches. This is controlled via the `environment` setting or the
+`RACK_ENV` environment variable.
 
-Since settings are just methods, subclassing an application will inherit its
-settings.  It will also inherit its routes, middleware, error handlers,
-extensions, and so on.
+Since settings are just methods, subclassing an application will inherit its settings. It will also
+inherit its routes, middleware, error handlers, extensions, and so on.
 
 Rack also lets you mount applications on different paths with the `map` method.
 
     map('/example') { run MyExampleApplication }
 
-Rack will remove the prefixed route (`/example` in this case) and store it in
-`env['SCRIPT_NAME']`.  From the Sinatra application's point of view, there will
-not be `/example`.
+Rack will remove the prefixed route (`/example` in this case) and store it in `env['SCRIPT_NAME']`.
+From the Sinatra application's point of view, there will not be `/example`.
 
 You can even create anonymous Sinatra applications in your `config.ru`:
 
@@ -486,23 +468,21 @@ You can start chaining applications, just like how middleware can be chained:
       use Foo
     end
 
-`Rack::Cascade` can be used in the same fashion (pretend the line `use Foo`
-was removed):
+`Rack::Cascade` can be used in the same fashion (pretend the line `use Foo` was removed):
 
     run Rack::Cascade, [Foo, Bar]
 
-The normal Rack response is a method of three items.  Rack also accepts other
-formats:
+The normal Rack response is a method of three items. Rack also accepts other formats:
 
-* `[200,  {'Content-Type' => 'text/plain'}, ['ok']]`
-* `[418,  "I'm a teapot"]` no headers and just a string for body
+* `[200, {'Content-Type' => 'text/plain'}, ['ok']]`
+* `[418, "I'm a teapot"]` no headers and just a string for body
 
 `halt` accepts the format returned as Rack responses:
 
     halt [418, "I'm a teapot"]
 
-Since Sinatra applications are Rack applications, they must respond to `call`.
-You can use this in modular applications:
+Since Sinatra applications are Rack applications, they must respond to `call`. You can use this in
+modular applications:
 
     class Foo < Sinatra::Base
       # ...

@@ -1,24 +1,20 @@
-Learning the vi and Vim Editors
-===============================
+# Learning the vi and Vim Editors
 
-A detailed guide to using Vi and Vim by Arnold Robbins.  These notes are a
-quick summary of each chapter.
+A detailed guide to using Vi and Vim by Arnold Robbins. These notes are a quick summary of each
+chapter.
 
-The vi Text Editor
-==================
+# The vi Text Editor
 
-vi is short for visual editor.  It has an insert mode and a command mode.
-Commands are case sensitive, not echoed, and do not required an "Enter".
+vi is short for visual editor. It has an insert mode and a command mode. Commands are case
+sensitive, not echoed, and do not required an "Enter".
 
-When you open a file, vi copies it into a buffer and displays it for editing.
-Saving copies the buffer contents back into the disk.  Use the `vi` command
-to open a file for editing.
+When you open a file, vi copies it into a buffer and displays it for editing. Saving copies the
+buffer contents back into the disk. Use the `vi` command to open a file for editing.
 
     $ vi practice
 
-Hit `i` to enter insert mode.  Hit `esc` to enter command mode.  Quit vi by
-typing `:q` and hitting enter.  Commands prefixed with a colon are ex
-commands.
+Hit `i` to enter insert mode. Hit `esc` to enter command mode. Quit vi by typing `:q` and hitting
+enter. Commands prefixed with a colon are ex commands.
 
 * `:w` writes a file
 * `:wq` writes and quits
@@ -26,11 +22,10 @@ commands.
 * `:e!` wipes edits and returns to original file
 * `:q!` wipes edits and quits
 
-Simple Editing
-==============
+# Simple Editing
 
-The most important keystrokes let you enter insert and command mode: `i` and
-`esc`.  In command mode, you can move the cursor via:
+The most important keystrokes let you enter insert and command mode: `i` and `esc`. In command mode,
+you can move the cursor via:
 
 * `h, j, k, l` for left, down, up, right one space
 * `0` moves to beginning of line
@@ -61,10 +56,8 @@ Some simple edit commands:
 * `d` followed by a movement to delete up to next position
 * `D` to delete to end of the line
 * `dd` to delete entire line
-* `y`, `yy`, `Y` works like delete, but "yanks" or "copies" characters without
-  deleting them
-* `p` or `P` to "put" or "paste" yanked or deleted characters before or after
-  the cursor
+* `y`, `yy`, `Y` works like delete, but "yanks" or "copies" characters without deleting them
+* `p` or `P` to "put" or "paste" yanked or deleted characters before or after the cursor
 * `J` joins two lines together
 * number prefixing edit commands for multiples (`4dd` deletes 4 lines)
 
@@ -79,19 +72,15 @@ Repeating, undoing, and redoing commands:
 
 * `.` repeats your last command
 * `u` undos your last command in case you made an error
-* `U` undos commands on the same line (once you move off of it, you can no
-  longer use uppercase U.
+* `U` undos commands on the same line (once you move off of it, you can no longer use uppercase U.
 * `Ctrl-R` redo and undone operation
 
-Moving Around in a Hurry
-========================
+# Moving Around in a Hurry
 
-This chapter covers movement by screen, text blocks, search patterns, and
-line numbers.
+This chapter covers movement by screen, text blocks, search patterns, and line numbers.
 
-In normal mode, hitting `enter` will continue to move the cursor down one line.
-Once it hits the bottom line, it will scroll your file.  Some more efficient
-ways of scrolling:
+In normal mode, hitting `enter` will continue to move the cursor down one line. Once it hits the
+bottom line, it will scroll your file. Some more efficient ways of scrolling:
 
 * `^F` and `^B` scroll forward/backward one screen
 * `^D` and `^U` scroll forward/backward half screen
@@ -102,10 +91,10 @@ You can also reposition the current screen without moving the cursor using `z`:
 * `zEnter` moves current line to top of screen
 * `z.` moves current line to middle of screen
 * `z-` moves current line to bottom of screen
-* Numeric prefix to use that line number instead of current (`20z.` moves
-  cursor to line 20 and puts it in middle of screen)
+* Numeric prefix to use that line number instead of current (`20z.` moves cursor to line 20 and puts
+  it in middle of screen)
 
-Use `^L` to redraw the current screen.  You can move within a screen:
+Use `^L` to redraw the current screen. You can move within a screen:
 
 * `H` move to top line on screen
 * `M` move to middle line on screen
@@ -116,7 +105,7 @@ Some handy movement commands are:
 
 * `^` moves to first nonblank character of current line
 * `n|` moves to column n of current line
-* `e` or `E`  moves to end of word with or without punctuation
+* `e` or `E` moves to end of word with or without punctuation
 * `(` or `)` moves to beginning or end of sentence
 * `{` or `}` moves to beginning or end of paragraph
 * `[[` or `]]` moves to beginning or end of section
@@ -126,8 +115,8 @@ Use `/` to move by searches:
 * `/pattern` will look for "pattern"
 * `?pattern` to search backwards
 * `n` or `N` to repeat searches forwards/backwards
-* searching is a movement command that works with other commands (`d?move`
-  deletes from the cursor to "move" pattern)
+* searching is a movement command that works with other commands (`d?move` deletes from the cursor
+  to "move" pattern)
 
 You can limit your search to the current line also:
 
@@ -136,14 +125,13 @@ You can limit your search to the current line also:
 * `;` or `,` repeats command in same/opposite direction
 * use numeric prefixes to skip occurrences
 
-Use `^G` to see current line number and column number.  Use a number prefix and
-`G` to go to a specific line number.
+Use `^G` to see current line number and column number. Use a number prefix and `G` to go to a
+specific line number.
 
-Beyond the Basics
-=================
+# Beyond the Basics
 
-This chapter includes extra options when starting vi, using registers for copy
-and deletes, and marking places within a file.
+This chapter includes extra options when starting vi, using registers for copy and deletes, and
+marking places within a file.
 
 Some options when starting vi:
 
@@ -153,9 +141,8 @@ Some options when starting vi:
 * `vi -R file` or `view file` for readonly
 * `vi -r` or `vi -r file` to recover a file from a previous cash
 
-Vi lets you place yanks into registers identified by letters, so you can paste
-more than just the last deletion/yank.  Vi remembers the last nine deletions
-using numbered buffers or registers.
+Vi lets you place yanks into registers identified by letters, so you can paste more than just the
+last deletion/yank. Vi remembers the last nine deletions using numbered buffers or registers.
 
 * `"2p` will paste the second-to-last deletion
 * `"1pu.u.u` etc... will cycle through your registers
@@ -175,11 +162,10 @@ You can mark your place in a file with `m`:
 * `''` moves to beginning of line of last mark or move
 * `:marks` to see a list of all current marks
 
-Introducing the ex Editor
-=========================
+# Introducing the ex Editor
 
-ex is a line editor underlaying vi.  Back then, programmers would print a single
-line to view it and edit.
+ex is a line editor underlaying vi. Back then, programmers would print a single line to view it and
+edit.
 
     $ ex practice
     "practice" 6 lines, 320 characters
@@ -196,40 +182,38 @@ Some ex commands you can use for editing:
 * `:d` deletes lines
 * `:m` moves lines
 * `:co` or `:t` copies lines
-* commands work on whatever line the cursor is on.  You can also prefix it with
-  a single line number of line range (`:5d` deletes line 5, `:5,10d` deletes
-  lines 5 to 10).  You can also specify using search patterns.
+* commands work on whatever line the cursor is on. You can also prefix it with a single line number
+  of line range (`:5d` deletes line 5, `:5,10d` deletes lines 5 to 10). You can also specify using
+  search patterns.
 
 Some examples:
 
 * `160,224m23` moves lines 160-224 to follow line 23
 * `23,29co100` yanks lines 23-29 and pastes them after 100
 
-Toggle line numbers with `:set number` and `:set nonumber`.  Print out lines
-with a range followed by `#` like `:1,10#`.
+Toggle line numbers with `:set number` and `:set nonumber`. Print out lines with a range followed by
+`#` like `:1,10#`.
 
 Some special symbols you can use when specifying ranges:
 
 * `.` represents the current line
 * `$` represents the last line of the file
 * `%` is the entire file
-* `+` and `-` are numeric operators that can be performed on line numbers or
-  symbols (`.,.+20` means next 20 lines).  The dot is optional and considered
-  default.
-* `/pattern/` is valid for ranges (`/pattern1/,/pattern2/+2` goes from the first
-  pattern to the second plus two lines)
-* Use `;` instead of `,` to switch the current line relative to the starting
-  location (`100;+5` means lines 100 to 105)
+* `+` and `-` are numeric operators that can be performed on line numbers or symbols (`.,.+20` means
+  next 20 lines). The dot is optional and considered default.
+* `/pattern/` is valid for ranges (`/pattern1/,/pattern2/+2` goes from the first pattern to the
+  second plus two lines)
+* Use `;` instead of `,` to switch the current line relative to the starting location (`100;+5`
+  means lines 100 to 105)
 
-You may only want to effect lines that include a pattern or does not include
-a pattern:
+You may only want to effect lines that include a pattern or does not include a pattern:
 
 * `:g/pattern/` are all lines including pattern
 * `:g!/pattern/` are all lines not including the pattern
 * `:60,124g/pattern/` all lines including pattern within lines 60-124
 
-Ex commands can be combined with a vertical bar `|`.  It works like the Unix
-semi-colon.  Ranges need to be specified for each command.
+Ex commands can be combined with a vertical bar `|`. It works like the Unix semi-colon. Ranges need
+to be specified for each command.
 
 Some common ex commands to saving, reading, and quitting:
 
@@ -242,23 +226,21 @@ Some common ex commands to saving, reading, and quitting:
 * `:read filename` or `:r filename` reads a file into the buffer
 * `:e filename` opens the file in a new buffer
 * `:e!` resets the current file
-* `%` represents the current filename in a command (`:w %.new` saves a new
-  file with extension ".new")
+* `%` represents the current filename in a command (`:w %.new` saves a new file with extension
+  ".new")
 * `:e #` or `:b #` or `^^` switches back and forth between two buffers
 * `:ls` to list current buffers
-* `:b` followed by a number to switch buffers.  You can also use a filename.
-  This works great with `tab` for autocompletion.
+* `:b` followed by a number to switch buffers. You can also use a filename. This works great with
+  `tab` for autocompletion.
 
-Global Replacement
-==================
+# Global Replacement
 
 The substitution command has this syntax:
 
     :s/old/new/
 
-This works on the current line and works on the first occurrence of the 'old'
-pattern.  Use the `g` option which stands for global to affect all patterns of
-'old' in the current line:
+This works on the current line and works on the first occurrence of the 'old' pattern. Use the `g`
+option which stands for global to affect all patterns of 'old' in the current line:
 
     :s/old/new/g
 
@@ -267,22 +249,21 @@ This command can be prefixed with a range:
     :1,$s/old/new/g
     :%s/old/new/g
 
-For Vim, I like to use `V` to enter visual mode and highlight the lines I'd
-like to change.  Then just hit `:` and enter the substitution command to affect
-only those lines.
+For Vim, I like to use `V` to enter visual mode and highlight the lines I'd like to change. Then
+just hit `:` and enter the substitution command to affect only those lines.
 
 The `c` option lets you confirm substitutions:
 
     :%s/old/new/gc
 
-Just hit 'y' and enter to confirm.  Hit enter to skip.
+Just hit 'y' and enter to confirm. Hit enter to skip.
 
 Using the range prefix is useful for context sensitive replacements:
 
     :g/condition/s/old/new/g
 
-vi uses the same pattern matching rules as grep, sed, and awk.  This can be
-used with the `:s`, `:g`, `/`, and `?` commands:
+vi uses the same pattern matching rules as grep, sed, and awk. This can be used with the `:s`, `:g`,
+`/`, and `?` commands:
 
 * `.` matches any single character except a newline
 * `*` matches zero or more of previous character
@@ -291,12 +272,12 @@ used with the `:s`, `:g`, `/`, and `?` commands:
 * `\` escapes special characters
 * `[]` for character sets
 * `[^]` inverse character set
-* `\(\)` saves pattern for later use in replacement (use `\n` where 'n' is the
-  number for replacement)
+* `\(\)` saves pattern for later use in replacement (use `\n` where 'n' is the number for
+  replacement)
 * `\<` or `\>` for beginning of end of word
 * `~` last search
-* `[::]`, `[..]`, `[==]` can be used for character sets, multicharacter
-  sequences, and locale searches
+* `[::]`, `[..]`, `[==]` can be used for character sets, multicharacter sequences, and locale
+  searches
 
 Some special characters to use in the replacement string:
 
@@ -308,8 +289,7 @@ Some special characters to use in the replacement string:
 * `\u` and `\l` changes next character to uppercase/lowercase
 * `\U` and `\L` for all proceeding characters until a `\e` or `\E` reached
 
-Advanced Editing
-================
+# Advanced Editing
 
 `ex` uses the `:set` command to set and unset options:
 
@@ -321,17 +301,16 @@ Advanced Editing
 * `:set all` will show all available options
 * `:set` shows currently set options
 
-Use the file `~/.vimrc` or `~/.exrc` to set common options every time vi starts.
-An example file:
+Use the file `~/.vimrc` or `~/.exrc` to set common options every time vi starts. An example file:
 
     " comments start with double quotes
     set nowrapscan 
     set wrapmargin=7
     set sections=SeAhBhChDh
 
-Put `set exrc` in your `~/.exrc` to read an additional `.exrc` file in the
-current working directory for further configuration.  You can manually include
-configuration files using the `:so config.file` command.
+Put `set exrc` in your `~/.exrc` to read an additional `.exrc` file in the current working directory
+for further configuration. You can manually include configuration files using the `:so config.file`
+command.
 
 Some useful options:
 
@@ -339,32 +318,29 @@ Some useful options:
 * `ignorecase` to ignore casing in searches
 * `wrapscan` to search above and below current position
 * `magic` to enable or disable special characters in searches
-* `autoindent`, `showmatch`, `tabstop`, `shiftwidth`, `number`, and `list`
-  may be useful for programmers
+* `autoindent`, `showmatch`, `tabstop`, `shiftwidth`, `number`, and `list` may be useful for
+  programmers
 * `autowrite` will automatically save to disk when you switch buffers
 
 You can execute Unix commands from vi:
 
     :!command
 
-If you want to just access the shell temporarily, use `:sh` and then exit the
-shell to return to vi.  You can also use Unix suspension.  `Ctrl-Z` to suspend
-the current vi job.  Use `fg` to return it back later.  If you have multiple
-jobs suspended, use `%jobid`.  To get the list of currently suspended jobs, use
-`jobs`.
+If you want to just access the shell temporarily, use `:sh` and then exit the shell to return to vi.
+You can also use Unix suspension. `Ctrl-Z` to suspend the current vi job. Use `fg` to return it back
+later. If you have multiple jobs suspended, use `%jobid`. To get the list of currently suspended
+jobs, use `jobs`.
 
-vi can read the results of a command into the editor or send the contents of
-a file to a command:
+vi can read the results of a command into the editor or send the contents of a file to a command:
 
 * `:r !date` read in the date command
 * `:96,99!sort` sort lines 96-99
 * use `V` to enter visual mode, then use the range with a command to send it
 * you can also hit `!` first, then use a movement, then type a command
 
-vi supports text abbreviations in insert mode via `:ab abbr phrase`.  Whenever
-you type "abbr" followed by a nonalphanumeric character in insert mode, it will
-expand to "phrase".  Use `:unab abbr` to unabbreviate.  Use `:ab` alone to
-list all abbreviations.
+vi supports text abbreviations in insert mode via `:ab abbr phrase`. Whenever you type "abbr"
+followed by a nonalphanumeric character in insert mode, it will expand to "phrase". Use `:unab abbr`
+to unabbreviate. Use `:ab` alone to list all abbreviations.
 
 You can map your own key sequences to more complex sequences:
 
@@ -372,26 +348,23 @@ You can map your own key sequences to more complex sequences:
 * `:unmap x` disables the map
 * `:map` list currently mapped sequences
 
-Vim has the convention of the "leader" key for users to define their own
-shortcuts.  I usually set mine to comma:
+Vim has the convention of the "leader" key for users to define their own shortcuts. I usually set
+mine to comma:
 
     let mapleader = ','
     map <leader>p :!git push<CR>
 
-Some other friendly keys to start maps with are `g, K, q, ^A, ^K, ^O, ^W, ^X, _,
-*, \, and =`.  You can also map function keys via `#1`, `#2`, etc...  If you're
-unsure about what a key translate to in text, run vi and start the `:map ` ex
-command.  Hit the key you wan to map, ex will translate the escaped sequence
-for you.
+Some other friendly keys to start maps with are `g, K, q, ^A, ^K, ^O, ^W, ^X, _, *, \, and =`. You
+can also map function keys via `#1`, `#2`, etc... If you're unsure about what a key translate to in
+text, run vi and start the `:map ` ex command. Hit the key you wan to map, ex will translate the
+escaped sequence for you.
 
-Use `map!` instead of `map` to override existing maps and also have it apply
-to insert mode.  Your shortcut key sequence will now invoke the command instead
-of inserting characters to your document.
+Use `map!` instead of `map` to override existing maps and also have it apply to insert mode. Your
+shortcut key sequence will now invoke the command instead of inserting characters to your document.
 
-vi has a feature called "@-Functions" which let you hold commands into the
-copy/paste registers.  Just enter a vi command (either in normal mode or ex
-command) into your text, cut it into a register, then execute via `@buffer`.
-For example:
+vi has a feature called "@-Functions" which let you hold commands into the copy/paste registers.
+Just enter a vi command (either in normal mode or ex command) into your text, cut it into a
+register, then execute via `@buffer`. For example:
 
 1. type `cwgadfly^[`
 2. `"gdd` to cut command into buffer g
@@ -400,38 +373,32 @@ For example:
 
 Some tips for editing source code:
 
-* with autoindent enabled, Ctrl-T and Ctrl-D will add/remove a level of
-  indentation in insert mode
+* with autoindent enabled, Ctrl-T and Ctrl-D will add/remove a level of indentation in insert mode
 * when over a bracket, hit `%` to jump to corresponding bracket
-* vi supports ctags.  Use the ctags command to generate one then use `:tag name`
-  to jump to a tag.  Or use `^]` while the cursor is over an identifier.
+* vi supports ctags. Use the ctags command to generate one then use `:tag name` to jump to a tag. Or
+  use `^]` while the cursor is over an identifier.
 
-Vim (vi Improved): An Introduction
-==================================
+# Vim (vi Improved): An Introduction
 
-Vim stands for "vi improved" and is an implementation/extension of vi written
-by Bram Moolenaar.  It has become so popular that the words vi and vim are
-almost synonymous.  Many systems ship with the command `vi` as a soft link to
-vim.
+Vim stands for "vi improved" and is an implementation/extension of vi written by Bram Moolenaar. It
+has become so popular that the words vi and vim are almost synonymous. Many systems ship with the
+command `vi` as a soft link to vim.
 
-Vim adds features like syntax extensions, autocompletion, GUIs, scripting,
-plugins, session context, and more.  Use `:set compatible` to switch back and
-forth between vim and vi modes.  If you don't already have it, you get download
-it from <http://www.vim.org>.
+Vim adds features like syntax extensions, autocompletion, GUIs, scripting, plugins, session context,
+and more. Use `:set compatible` to switch back and forth between vim and vi modes. If you don't
+already have it, you get download it from <http://www.vim.org>.
 
-Major Vim Improvements over vi
-==============================
+# Major Vim Improvements over vi
 
-Some of the major features of vim includes built-in help, initialization,
-motion commands, extended regular expressions, extended undos, and customizing
-the executable.
+Some of the major features of vim includes built-in help, initialization, motion commands, extended
+regular expressions, extended undos, and customizing the executable.
 
 To use the help system:
 
 * `:help` starts off with basic instructions
 * `:help topic` get the help page for a specific topic
-* `:help t<tab>` to autocomplete/search through topics.  Vim lets you `<tab>`
-  through any ex commands and arguments for context sensitive autocompletion.
+* `:help t<tab>` to autocomplete/search through topics. Vim lets you `<tab>` through any ex commands
+  and arguments for context sensitive autocompletion.
 
 Vim has some extra startup and initialization options:
 
@@ -454,8 +421,8 @@ The initialization process for vim is:
 2. Runs user `vimrc` file in `$HOME/.vimrc`
 3. If `exrc` option is set, runs `.exrc` file
 
-Most people customize vim via their `vimrc` file.  For ex commands, the initial
-colons may be left off.  Some relevant environment variables for vim are:
+Most people customize vim via their `vimrc` file. For ex commands, the initial colons may be left
+off. Some relevant environment variables for vim are:
 
 * `SHELL` or `COMSPEC` is the shell vim uses for shell commands
 * `TERM` tells vim which terminal to use, usually never needs to be set
@@ -469,11 +436,11 @@ Vim provides some new motion commands:
 
 * `n%` will go to the nth percent line in the file
 * `:go n` will go to the nth character in the file
-* `v` or `V` enters visual mode, where you can select text to act upon later.
-  Movement is by characters or lines.
+* `v` or `V` enters visual mode, where you can select text to act upon later. Movement is by
+  characters or lines.
 
-Vim also provides extended regular expressions for searches.  See
-`:help regular-expressions` for a full list.  Here is a summary:
+Vim also provides extended regular expressions for searches. See `:help regular-expressions` for a
+full list. Here is a summary:
 
 * `\|` for an OR as in `house\|home`
 * `\+` for one or more of preceding character
@@ -482,20 +449,17 @@ Vim also provides extended regular expressions for searches.  See
 * `\{n}` n preceding characters exactly
 * `\{n,}` at least n of preceding character
 * `\,m}` matches 0 to m of preceding character
-* negatives values may be used to match as few as possible instead of as most
-  as possible
+* negatives values may be used to match as few as possible instead of as most as possible
 * `\s` or `\S` for any whitespace or inverse
 * `\r` for carriage returns
 
-Multiple Windows in Vim
-=======================
+# Multiple Windows in Vim
 
 Some ways to start editing with multiple windows:
 
 * use the `-o` or `-O` options when starting vim with multiple filenames
 * use the `:split filename` or `:vsplit filename` commands
-* using the `:split` or `:vsplit` without a filename will split the current
-  document
+* using the `:split` or `:vsplit` without a filename will split the current document
 * use `^Ws` or `^WS` to split the current file
 
 The `split` commands has a few arguments of its own:
@@ -507,8 +471,7 @@ The `split` commands has a few arguments of its own:
 * cmd is an ex command to run on opening the new window
 * file is the filename to split
 
-Moving your cursor from one window to another uses commands prefixed with
-`^W`:
+Moving your cursor from one window to another uses commands prefixed with `^W`:
 
 * `^W-down`, `^W-j`, `^W-^J` to move to the next window down
 * `^W-up`, `^W-k`, `^W-^K` to move to the next window up
@@ -520,20 +483,19 @@ Moving your cursor from one window to another uses commands prefixed with
 * `^W-p`, `^W-^P` move cursor to previous window
 * `^W-r` and `^W-R` rotates window placements clockwise or counter clockwise
 * `^W-x` and `^W-X` swaps current window with next, can be prefixed with count
-* use `^W-` with `K, J, H, or L` to move the current window a direction and
-  occupy the full width or height
+* use `^W-` with `K, J, H, or L` to move the current window a direction and occupy the full width or
+  height
 * `^W-=` to resize all windows to be equal sizes
 * `^W-+` and `^W--` adds or subtracts a row to the window size
 * `^W-<` and `^W->` adds or subtracts a column
 * `^W-|` maximizes the window size
 * `:resize n` to manually set a size
 * `^W-q` or `:q` to quit the current window
-* `^W-c` or `:hide` to close the current window, sets the hidden option on the
-  buffer
+* `^W-c` or `:hide` to close the current window, sets the hidden option on the buffer
 * `^W-o` or `:only` to close all windows except this one
 
-Vim uses buffers to handle multiple windows.  Use `:ls` or `:buffers` or
-`:files` to get a list of current buffers.  Some status indicators:
+Vim uses buffers to handle multiple windows. Use `:ls` or `:buffers` or `:files` to get a list of
+current buffers. Some status indicators:
 
 * `u` means the buffer is unlisted (use `:ls!` to show it)
 * `%` is the current buffer in the window
@@ -546,8 +508,8 @@ Vim uses buffers to handle multiple windows.  Use `:ls` or `:buffers` or
 
 Vim has a few special buffers:
 
-* quickfix used to hold compile/debug errors.  Can be viewed with the commands
-  `:cwindow` or `:lwindow`
+* quickfix used to hold compile/debug errors. Can be viewed with the commands `:cwindow` or
+  `:lwindow`
 * help for the built-in documentation
 * directory which lets you move around in a directory
 * scratch is an expendable buffer for general purposes
@@ -559,23 +521,19 @@ When working with buffers, these commands are handy:
 * `:ls`, `:files`, `:buffers` list buffers, add `!` to view special ones
 * `:badd file` add file to buffer list
 * `:bdel`, `:bdelete` will remove buffer from buffer list
-* `:b number`, `:b filename` or the longer version `:buffer arg` to edit a
-  file.  Use tab for autocompletion of filename.  Prefix with `s` to open in
-  a new window
-* `:bn`, `:bnext`, `:bp`, `:bprev` edits the next/previous buffer.  Takes
-  a count argument.
-* `:bN`, `:bNext`, `:bP`, `:bPrev` will move active buffer next or previous.
-  Takes a count argument.
+* `:b number`, `:b filename` or the longer version `:buffer arg` to edit a file. Use tab for
+  autocompletion of filename. Prefix with `s` to open in a new window
+* `:bn`, `:bnext`, `:bp`, `:bprev` edits the next/previous buffer. Takes a count argument.
+* `:bN`, `:bNext`, `:bP`, `:bPrev` will move active buffer next or previous. Takes a count argument.
 
-Vim Scripts
-===========
+# Vim Scripts
 
 Robbins starts off with color scheme customization:
 
     colorscheme desert
 
-Stick that into your `.vimrc` to update your colorscheme.  Use the command
-`:colorscheme <tab>` to toggle available colorschemes.
+Stick that into your `.vimrc` to update your colorscheme. Use the command `:colorscheme <tab>` to
+toggle available colorschemes.
 
 Vim has conditional constructs:
 
@@ -591,8 +549,8 @@ Vim also supports the ternary operator:
 
     cond ? expr 1 : expr 2
 
-Vim variables can be set using `let varname = "value"`.  Variables are prefixed
-with a letter and a colon.  Each letter has some significance:
+Vim variables can be set using `let varname = "value"`. Variables are prefixed with a letter and a
+colon. Each letter has some significance:
 
 * `b:` variable for single vim buffer
 * `w:` for single vim window
@@ -618,9 +576,8 @@ Let's look at our first program:
     echo "setting color scheme to" . colorScheme
     colorscheme colorScheme
 
-The last line will produce an error because `colorScheme` will be mistaken for
-a literal (there's no colorscheme by that name).  Instead, change the line to
-use `execute`:
+The last line will produce an error because `colorScheme` will be mistaken for a literal (there's no
+colorscheme by that name). Instead, change the line to use `execute`:
 
     execute "colorscheme " . colorScheme
 
@@ -636,7 +593,7 @@ And arrays:
     let g:Favcolorschemes = ["darkblue", "morning", "shine", "evening"]
     g:Favcolorschemes[0]
 
-Vim uses autocommands to execute commands on certain events.  Some events are:
+Vim uses autocommands to execute commands on certain events. Some events are:
 
 * BufNewFile - triggered when editing a new file
 * BufReadPre - right before vim moves to a new buffer
@@ -651,19 +608,17 @@ The autocmd format is as follows:
 
     autocmd [group] event pattern [nested] command
 
-The events were listed above.  The pattern is the file pattern for which these
-commands should be executed if matched.  The nested flag says whether or not
-this command can be nested with others.  For example:
+The events were listed above. The pattern is the file pattern for which these commands should be
+executed if matched. The nested flag says whether or not this command can be nested with others. For
+example:
 
     autocmd CursorMovedI * call CheckFileType()
 
-Variables prefixed with `&` represents options.  You can check certain options
-such as:
+Variables prefixed with `&` represents options. You can check certain options such as:
 
     if &filetype == ""
 
-Autocommands can be associated with groups for quick referencing and
-dereferencing.
+Autocommands can be associated with groups for quick referencing and dereferencing.
 
     augroup groupname
       autocommand lines
@@ -673,7 +628,7 @@ You can then delete autocommands:
 
     autocmd! [group] [event] [pattern]
 
-A little bit more about variables.  These types are supported:
+A little bit more about variables. These types are supported:
 
 * number
 * string
@@ -681,7 +636,7 @@ A little bit more about variables.  These types are supported:
 * list
 * dictionary
 
-There are a ton of built-in functions to help you with your scripts.  Check out:
+There are a ton of built-in functions to help you with your scripts. Check out:
 
 * `:help usr_41.txt`
 * `:help autocmd`
@@ -689,15 +644,13 @@ There are a ton of built-in functions to help you with your scripts.  Check out:
 * `:help variables`
 * `:help functions`
 
-Vim Enhancements for Programmers
-================================
+# Vim Enhancements for Programmers
 
-Vim has a lot of features for programmers: folding, auto indenting, keyword
-and dictionary word completion, tags, syntax highlighting, quickfix.
+Vim has a lot of features for programmers: folding, auto indenting, keyword and dictionary word
+completion, tags, syntax highlighting, quickfix.
 
-There are six ways of creating folds: manually, indentation, regular
-expressions, syntax, diffs, and predefined markers.  All fold commands are
-prefixed with `z`:
+There are six ways of creating folds: manually, indentation, regular expressions, syntax, diffs, and
+predefined markers. All fold commands are prefixed with `z`:
 
 * `zA` toggle state of folds
 * `zC` close folds
@@ -718,25 +671,21 @@ prefixed with `z`:
 * folding works with visual mode also
 * `:loadview` and `:mkview` to load and save folds
 
-For programming, try `:set foldmethod=syntax`.  Vim will automatically detect
-the correct folds for your source code.
+For programming, try `:set foldmethod=syntax`. Vim will automatically detect the correct folds for
+your source code.
 
-Vim has a few different options for autoindent which can be set like
-`:set autoindent`:
+Vim has a few different options for autoindent which can be set like `:set autoindent`:
 
-* `autoindent` works just like in vi, newlines start indented like the
-  previous line
+* `autoindent` works just like in vi, newlines start indented like the previous line
 * `smartindent` recognizes basic C syntax primitives
 * `cindent` recognizes C syntax almost completely
 * `indentexpr` lets you define your own indent expressions
 
-`smartindent` automatically inserts or removes indents on angle brackets { and
-}, any line proceeding line beginning with keyword contained in `cinwords`, new
-lines preceding closed braces.
+`smartindent` automatically inserts or removes indents on angle brackets { and }, any line
+proceeding line beginning with keyword contained in `cinwords`, new lines preceding closed braces.
 
-`cindent` uses the `cinkeys` to signal reevaluation of indentation, 
-`cinoptions` to define indentation style, and `cinwords` to signal an indent.
-cinkeys is a comma separate list:
+`cindent` uses the `cinkeys` to signal reevaluation of indentation, `cinoptions` to define
+indentation style, and `cinwords` to signal an indent. cinkeys is a comma separate list:
 
     0{,0},0),:,0#,!^X^F,o,O,e
 
@@ -746,8 +695,8 @@ Let's break this apart:
 * `0}` and `0)` mean the same
 * `:` is for C's case statement
 * `0#` another beginning of line context
-* `!^F` exclamation point means the follow character is a trigger to reevaluate
-  indentation.  In this case, `^F` will reevaluate indentation.
+* `!^F` exclamation point means the follow character is a trigger to reevaluate indentation. In this
+  case, `^F` will reevaluate indentation.
 * `o` covers new lines below
 * `O` covers new lines above
 * `e` covers the `else` keyword
@@ -765,13 +714,11 @@ The syntax rules for `cinkeys` are:
 
     let cinwords=if,else,while,do,for,switch
 
-You can turn off auto indentation temporarily when you want to paste in text
-that's already indented.  Use `:set paste` before pasting, then turn it off
-with `:set nopaste`.
+You can turn off auto indentation temporarily when you want to paste in text that's already
+indented. Use `:set paste` before pasting, then turn it off with `:set nopaste`.
 
-Vim has autocompletion commands, each start with `^X`.  For example, to
-autocomplete filenames use `^X-^F`.  Then use `^N` to move next and `^P` to
-move previous.
+Vim has autocompletion commands, each start with `^X`. For example, to autocomplete filenames use
+`^X-^F`. Then use `^N` to move next and `^P` to move previous.
 
 * `^X-^L` tries to complete the whole line by looking through your file history
 * `^X-^N` autocompletes keywords, defined by `iskeyword` option
@@ -783,13 +730,11 @@ move previous.
 * `^X-^D` autocompletes macros (using `#define`)
 * `^X-^V` autocompletes vim commands (for vim scripts)
 * `^X-^U` user customizable function, calls `completefunc`
-* `^X-^O` completion via omni function, user defined function that's filetype
-  specific.
+* `^X-^O` completion via omni function, user defined function that's filetype specific.
 * `^X-^S` spell correcting
-* `^N` combines all previous autcompletes into one, can be customized with the
-  `complete` option
+* `^N` combines all previous autcompletes into one, can be customized with the `complete` option
 
-The `complete` option can customize `^N` sources.  It's a comma separated list:
+The `complete` option can customize `^N` sources. It's a comma separated list:
 
 * `.` searches current buffer
 * `w` searches other windows
@@ -803,48 +748,42 @@ The `complete` option can customize `^N` sources.  It's a comma separated list:
 * `d` searches current and included files for macros via `#define`
 * `t`, `]` search for tag completion
 
-Vim supports ctags, a Unix program to index source code.  You can generate it
-via `:!ctags *.[ch]`.  To output a custom tagfile, use `:!ctags -f filename *.c`
-and `set tags=filename`.
+Vim supports ctags, a Unix program to index source code. You can generate it via `:!ctags *.[ch]`.
+To output a custom tagfile, use `:!ctags -f filename *.c` and `set tags=filename`.
 
 * `:tag name` to lookup the tag, this works well with tab autocompletion
-* `:tn` and `:tp` to go to the next/prev tag for multiple matches.  Can be
-  prefixed with a count.
+* `:tn` and `:tp` to go to the next/prev tag for multiple matches. Can be prefixed with a count.
 * `:ts [name]` to list all current matches or matches for name
 * `^]` while your cursor is over an identifier to jump to it
-* `^T` or `:pop` to go back to your initial location.  Pop can be prefixed with
-  a count.
+* `^T` or `:pop` to go back to your initial location. Pop can be prefixed with a count.
 
 One of the best features of Vim is syntax highlighting:
 
     :syntax enable
     :syntax on
 
-You can force Vim to use a certain language for syntax highlighting via
-`:set syntax=language`
-One of the best features of Vim is syntax highlighting:
+You can force Vim to use a certain language for syntax highlighting via `:set syntax=language` One
+of the best features of Vim is syntax highlighting:
 
     :syntax enable
     :syntax on
 
-You can force Vim to use a certain language for syntax highlighting via
-`:set syntax=language`.
+You can force Vim to use a certain language for syntax highlighting via `:set syntax=language`.
 
-Vim offers quickfix, an IDE-like edit-compile-debug cycle.  You can use `make`
-from Vim, any compilation errors will end up in a Quickfix List window.  Move
-your cursor over any errors and hit `Enter` to go to it.  Or you can use the
-command `:cnext` or `:cn`.
+Vim offers quickfix, an IDE-like edit-compile-debug cycle. You can use `make` from Vim, any
+compilation errors will end up in a Quickfix List window. Move your cursor over any errors and hit
+`Enter` to go to it. Or you can use the command `:cnext` or `:cn`.
 
 Some additional info about quickfix:
 
 * `makeprg` is the option for your project's make or compile program
 * `:cnext`, `:cprevious` to go to next or previous errors
-* `:colder`, `:cnewer` to load in older or newer error lists.  Takes count.
+* `:colder`, `:cnewer` to load in older or newer error lists. Takes count.
 * `:clist` to list all current errors
-* `errorformat` is an option to integrate the make program's error format with
-  vim.  Use `:help errorformat` for more info.
+* `errorformat` is an option to integrate the make program's error format with vim. Use `:help
+  errorformat` for more info.
 
-Quickfix also works with `vimgrep`.  To find all occurrences of a phrase:
+Quickfix also works with `vimgrep`. To find all occurrences of a phrase:
 
     :vimgrep phrase *.c *.h
 
