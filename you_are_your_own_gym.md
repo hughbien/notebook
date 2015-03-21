@@ -23,7 +23,7 @@ periods of rest. During high intensity exercise, your body oxidizes carbs for en
 Other pros include strengthened tendons/ligaments, increased bone density, repairing muscle tissues,
 building new muscles, and long lasting increased metabolism.
 
-Any effect you week from aerobic activity can be achieved more efficiently with high intensity
+Any effect you get from aerobic activity can be achieved more efficiently with high intensity
 strength training.
 
 # So What Is "Fitness" Anyway?
