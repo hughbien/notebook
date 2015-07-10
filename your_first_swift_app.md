@@ -56,6 +56,40 @@ includes behind the scenes action. See `Info.plist` for metadata about our app.
 
 # Views and Storyboards
 
+Storyboards are used to construct and arrange views/interfaces. Views have a hierarchy, every view
+has a `superview` and an array of `subviews`. Views are positioned via a `frame`, which is a struct
+of type `CGRect`, which is made up of `origin` and `size`. The `origin` is a `CGPoint` with `x` and
+`y` values. The `size` is a `CGSize` with `width` and `height` values.
+
+The `origin` is usually the top left corner of the view. `x` and `y` denotes the distance of the
+view's origin from the superview's origin. `width` and `height` will tell you the view's size.
+
+Open Storyboard and hit `Cmd-Opt-3` for the object library. Drag a button onto the view and open
+the size inspector `Cmd-Opt-5`. Play with the origin/size values. Our view now has a single subview.
+
+Storyboard can also be used to connect our views to code. Open Assistant Editor by clicking the
+middle icon in the top right bar. `Ctrl-click` on the button and drag over to your code, below the
+`didReceiveMemoryWarning` method. Select `Action`, name it `buttonWasPressed`, event should be
+"Touch Up Inside", and choose `Sender` for arguments.
+
+    // ViewController is the target, buttonWasPressed is the action or target action
+    @IBAction func buttonWasPressed(sender: AnyObject) { // sender is our button
+      println("Button was pressed.")
+    }
+
+You may also need a reference to views in your controllers. This is what outlets are for. You can
+`Ctrl-click` and drag any view into your code to create an outlet. Try it with a label:
+
+    @IBOutlet weak var label: UILabel! // weak will be explained in Chapter 7
+
+Both IBActions and IBOutlets do not have compile time safety. If you remove/rename a connection in
+code, be sure to update it in Storyboard also.
+
+    @IBAction func buttonWasPressed(sender: AnyObject) {
+      let date = NSDate()
+      label.text = "Button pressed at \(date)"
+    }
+
 # View Controllers
 
 # UITableView
