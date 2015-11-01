@@ -92,6 +92,78 @@ code, be sure to update it in Storyboard also.
 
 # View Controllers
 
+iOS controllers are "view controllers" and control view hiearchies: it controls a view and all of its
+subviews using outlets.
+
+In Xcode, choose File -> New -> File -> Cocoa Touch -> Cocoa Touch Class. Subclass NSObject and
+name your class TimerModel.
+
+    class TimerModel: NSObject {
+      var coffeeName = ""
+      var duration = 0
+    
+      override var description: String {
+        get {
+          return "TimerModel(\(coffeeName))"
+        }
+      }
+    
+      init(coffeeName: String, duration: Int) {
+        self.coffeeName = coffeeName
+        self.duration = duration
+        super.init()
+      }
+    }
+
+Note the description property can also be written in shorthand since it's read-only:
+
+    override var description: String {
+      return "TimerModel(\(coffeeName))"
+    }
+
+Common functions in UIViewController to override include:
+
+* viewDidLoad()
+* viewWillAppear(animated: Bool)
+* viewWillDisappear(animated: Bool)
+* viewDidAppear(animated: Bool)
+* viewDidDisappear(animated: Bool)
+* viewWillTransitionToSize(: CGSize, coordinator: UIViewControllerTransitionCoordinator!)
+
+In ViewController:
+
+    var timerModel: TimerModel!
+    
+    func setupModel() {
+      timerModel = TimerModel(coffeeName: "Colombian Coffee", duration: 240)
+    }
+    
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      setupModel()
+    }
+    
+    func updateUserInterface() {
+      label.text = timerModel.coffeeName
+    }
+
+`updateUserInterface` isn't being called anywhere yet. Luckily in Swift we can use observers:
+
+    var timerModel: TimerModel! {
+      willSet(newModel) {
+        println("About to change model to \(newModel)")
+      }
+     
+      didSet {
+        updateUserInterface()
+      }
+    }
+
+ViewControllers can also contain other ViewControllers. You'll se this with `UITabBarController`
+and `UINavigationController`. These controllers are used in the iPhone's Clock app and Settings
+app. It's common to put navigation controllers within tab bar controllers, but don't do it the
+other way around. Tab bars sit at a higher level.
+
 # UITableView
 
 # Interactivity
