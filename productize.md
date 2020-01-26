@@ -143,4 +143,3 @@ On your website:
 
 Over time you'll want to systematize your marketing as well. Create standard operating procedures
 for writing guest posts, running PPC ads, and more.
-
