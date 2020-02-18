@@ -1,4 +1,5 @@
 # On Writing Well
+
 On Writing Well by William Zinsser is a craft book that teaches us how to write clearly and
 succinctly. Zinsser mentions how important writing is now, we send emails everyday and communicate
 messages freely. The word processor made good writers better and bad writers worse. Good writers
@@ -7,6 +8,7 @@ would rewrite their sentences, whereas bad writers just kept typing without edit
 # Principles
 
 ## The Transaction
+
 Good writing has an aliveness that keeps the reader reading. The writer's enthusiasm of his field
 would be evident in his writing.
 
@@ -14,6 +16,7 @@ Zinsser calls this the **Personal Transaction** that's the heart of nonfiction w
 material interesting by using language to achieve clarity and strength.
 
 ## Simplicity
+
 Figure out what you're trying to say and write it, clearly. Rewrite. Cut out any fuzz that has
 entered your writing. Do this over and over again.
 
@@ -29,6 +32,7 @@ Which could be much more simple:
 > We're expecting rain.
 
 ## Clutter
+
 Zinsser dedicates another chapter on simplifying. Examples:
 
 * useless prepositions like "free up time" => "free time"
@@ -41,6 +45,7 @@ leaving our voice intact. Eventually, we'll be able to recognize clutter during 
 opposed to the editing step).
 
 ## Style
+
 Don't garnish your prose. The fundamental rule is: be yourself. Relax and write confidently. We
 simplified our writing so your own style can come out. Don't fake it by adding unnecessary
 adjectives/phrases to sound authoritative, be genuine.
@@ -57,6 +62,7 @@ but increasingly brighter clouds every month" because he couldn't commit and say
 better." Have firm conviction.
 
 ## The Audience
+
 "Who am I writing for?" - you're writing for yourself. The writing is for yourself and the reader is
 just tagging along.
 
@@ -73,6 +79,7 @@ From Zinsser:
 > to say it. Its just not me.
 
 ## Words
+
 Choose your words wisely. Get a dictionary and thesaurus. Avoid cliches, especially overused ones.
 
 Read to learn how to write. Learn by imitating. Don't assume that a published article is a good one.
@@ -82,6 +89,7 @@ Readers use sub-vocalization, so be picky about your words and how they sound. P
 rhythm are easier to read.
 
 ## Usage
+
 Good usage consists of using good words if they already exist to express yourself clearly and
 simply.
 
@@ -93,6 +101,7 @@ It's best to use transparent words instead of being opaque to your readers.
 # Methods
 
 ## Unity
+
 Unity is the anchor of good writing. Choose and be consistent for:
 
 * pronouns - first/second/third person
@@ -117,6 +126,7 @@ Make a decision for each unified theme and stick to it. If you discover the wron
 edit the initial parts of your writing.
 
 ## The Lead and the Ending
+
 The most important sentence in an article is the first one. The most important paragraph is the
 first one.
 
@@ -157,12 +167,14 @@ abruptly and/or with humour. His example:
 ## Bits & Pieces
 
 ### Verbs
+
 Use active verbs. Only use passive verbs if there's no comfortable way to use an active verb. Active
 verbs are stronger and connote more meaning in less words.
 
     "Joe saw him" vs "He was seen by Joe"
 
 ### Adverbs
+
 Most adverbs are unnecessary. Most verbs have specific meanings, adding an adverb is just
 repetition.
 
@@ -171,6 +183,7 @@ repetition.
     "... clenched his teeth tightly" - you can't clench loosely
 
 ### Adjectives
+
 Most adjectives are also unnecessary. Nouns already convey what the writer is trying to describe.
 
 "Brown dirt" is redundant. If you live in an area with "red dirt", that's okay to describe.
@@ -182,6 +195,7 @@ Make your adjectives do work that needs to be done. Use adjectives sparsely:
     "The girl was beautiful..." - not all girls are beautiful
 
 ### Little Qualifiers
+
 Good writing is lean and confident. Prune out little qualifiers:
 
 * a bit
@@ -204,6 +218,7 @@ These phrases add clutter to your sentences while taking away your authority.
 Don't be kind of bold, be bold.
 
 ### Punctuation
+
 * Periods aren't used often enough. Good writing is broken up into short sentences. There is no
   minimum length for a sentence.
 * Exclamation points should only be used to achieve a certain effect. These are overused. Instead,
@@ -215,6 +230,7 @@ Don't be kind of bold, be bold.
 * Colon should be used to transition a sentence into a list.
 
 ### Mood Changers
+
 Alert the reader as soon as possible when the mood or time changes. Use these words at the beginning
 of your sentence:
 
@@ -241,6 +257,7 @@ Some words alert readers of time changes:
     "Now I know better."
 
 ### Contractions
+
 Write like you speak. If you normally use a contraction in speech, you should use it in writing. It
 will read more naturally.
 
@@ -248,6 +265,7 @@ Zinsser suggests avoiding one form: "I'd", "he'd", "we'd" because they can mean 
 would".
 
 ### That and Which
+
 Always use "that" unless it makes your meaning ambiguous. "Which" serves for identification:
 
     Take the shoes that are in the closet.
@@ -256,6 +274,7 @@ Always use "that" unless it makes your meaning ambiguous. "Which" serves for ide
 It's common to follow a comma with "which" to denote further meaning.
 
 ### Concept Nouns
+
 Zinsser recommends using active verbs instead of concept nouns. Examples:
 
     The common reaction is incredulous laughter.
@@ -268,12 +287,14 @@ taking place. Use action verbs instead:
     Some people response to the old system by turning cynical.
 
 ### Creeping Nounism
+
 Again, Zinsser recommends using active verbs instead of chaining nouns:
 
     "We have money problem areas" vs "We went broke"
     "We have precipitation activity" vs "It's raining"
 
 ### Overstatement
+
 Don't overstate, let the humor sneak up to the reader.
 
     "The living room looks like an atomic bomb went off."
@@ -281,26 +302,32 @@ Don't overstate, let the humor sneak up to the reader.
 Obviously an atomic bomb did not go off, don't annoy your reader.
 
 ### Credibility
+
 Credibility is fragile. If the reader catches a statement you try to pass off as true, your entire
 article/book will be questioned.
 
 ### Dictation
+
 Dictated sentences tend to be sloppy, pompous, and redundant. If you must dictate for someone else
 to write, make sure you edit your words.
 
 ### Writing is Not a Contest
+
 There is no race. Forget any competition and go at your own pace. Your only contest is with
 yourself.
 
 ### The Subconscious Mind
+
 Your mind is constantly working, even while you're not writing. Take many breaks and let your mind
 recover. Find ideas all around you.
 
 ### The Quickest Fix
+
 The quickest fix for a sentence is to get rid of it entirely. Don't feel locked into using all of
 your writing. If an element isn't working out, get rid of it.
 
 ### Paragraphs
+
 Use short paragraphs to put air around your writing. Reading is easier when paragraphs are short.
 Newspaper article paragraphs should only be 3 to 4 sentences.
 
@@ -308,6 +335,7 @@ But don't make too many paragraphs too short. Don't make a single paragraph be a
 which miss a verb. Many newspaper articles do this and it's confusing to read.
 
 ### Sexism
+
 One of the problems of writing today is the usage of "he-she" pronouns. Don't construct sentences
 which suggest a certain occupation or class can only be male:
 
@@ -321,6 +349,7 @@ sentences and use "they" or "their".
 One of the benefits of informal writing is you can use "you" and "your" instead of "he" and "his".
 
 ### Rewriting
+
 Rewriting is the essence of writing well. Writers never get their first draft perfect. Writing isn't
 a product, it's a process.
 
@@ -333,6 +362,7 @@ clutter, or telling the same thing twice.
 Learn to love the "Delete" key - remove unnecessary words and sentences.
 
 ### Word Processing
+
 Word processors are technology's gift which makes writing (rewriting) much easier. Zinsser used to
 explain how to use them in older editions. Now, he has left those instructions out as it's common
 knowledge.
@@ -340,6 +370,7 @@ knowledge.
 Go Vim!
 
 ### Trust Your Material
+
 There's nothing more interesting than the truth.
 
 Journalists have a phrase: "Color vs fact". Color dresses their writing to make it seem more
@@ -354,12 +385,14 @@ Avoid the phrases "surprisingly", "predictably", and "of course" which put a val
 readers encounter them.
 
 ### Go with Your Interests
+
 No subject is too specialized or too quirky if you can make an honest connection to it. You'll write
 better if you're interested in your subject.
 
 # Forms
 
 ## Nonfiction as Literature
+
 Follow your own path, whether it leads you to write nonfiction about the world you live in or
 fiction.
 
@@ -371,6 +404,7 @@ Go with your interests. Writing well doesn't depend on the subject, as long as i
 the writer.
 
 ## Writing About People: The Interview
+
 Ask questions, get people talking, and learn interesting facts about their lives.
 
 It may be difficult to write about a subject that you're not passionate about, so include the human
@@ -396,6 +430,7 @@ Don't fabricate quotes or mislead the reader. When someone gives you an intervie
 trusting you to tell the truth.
 
 ## Writing About Places: The Travel Article
+
 Travel writing is difficult. Your material isn't as interesting when you get home. Even it's still
 interesting, it may no be interesting at all to the reader if it's too subjective.
 
@@ -414,6 +449,7 @@ don't mention how sandy it is or how seagulls are flying over.
 For inspiration, read Walden by Thoreau.
 
 ## Writing About Yourself: The Memoir
+
 The one subject a writer knows best is him or herself. The most interesting character in a memoir
 will be the author.
 
@@ -425,6 +461,7 @@ Zinsser recommends reading Walden by Thoreau, again.
 You don't need permission to write a memoir. It's the best gift you can give yourself as a writer.
 
 ## Science and Technology
+
 Don't be afraid of writing about science and technology. Writing is just thinking on paper. Writing
 about science and technology is how scientists record what they know.
 
@@ -441,6 +478,7 @@ weave a scientific story around someone else to add a personal touch.
 Any complex subject can be clearly written with only a few technical words.
 
 ## Business Writing: Writing in Your Job
+
 Whatever your job, be yourself when you write (maybe not Lawyers?)
 
 Working at an institution, people write with clutter and long words to sound more important. For
@@ -453,6 +491,7 @@ example:
 Be short, warm, and personal. Be yourself.
 
 ## Humor
+
 Humor is the secret weapon for nonfiction writers. Make people laugh about a serious matter to get
 their attention. Many humorists have affected our society in serious ways: Jules Feiffer, Art
 Buchwald, and Walt Kelly.
@@ -468,6 +507,7 @@ way. Truth and humor should be intertwined.
 # Attitudes
 
 ## The Sound of Your Voice
+
 Don't alter your voice to fit the subject. Develop a single voice for your readers that's enjoyable
 but avoids: breeziness, condescension, and cliches.
 
@@ -480,6 +520,7 @@ but avoids: breeziness, condescension, and cliches.
    while rewriting.
 
 ## Enjoyment, Fear and Confidence
+
 The reader must feel like the writer is having a good time, even if he or she isn't. If you find
 funny material, mix it into your writing. Don't worry about pleasing all of your readers - most will
 find it funny.
@@ -490,6 +531,7 @@ confidence, Zinsser suggests that we right about subjects what interest us and w
 To get interested about subjects, live an interesting life.
 
 ## The Tyranny of the Final Product
+
 We worship the winning result. Gains made along the way are less glamarous: learning, wisdom,
 growth, confidence, and dealing with failure.
 
@@ -508,6 +550,7 @@ never reach it. It all begins with your intentions. Figure out what you want to 
 to write about it, and integrate humanity and integrity into the article.
 
 ## A Writer's Decision
+
 There are hundreds of choices that go into writing an article. Zinsser shows us how he comes to many
 small decisions over the course of writing one article.
 
@@ -515,6 +558,7 @@ A writer has to make his or her own luck. You have to "get on the plane". In thi
 literally means get on a plane to visit different locations and get interesting stories.
 
 ## Write as Well as You Can
+
 Always write as well as you can. Zinsser admired Joe DiMaggio, he always played the best game he
 could. Someone asked him how he did it and Joe replied.
 
