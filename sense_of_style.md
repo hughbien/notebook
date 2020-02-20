@@ -42,6 +42,9 @@ A technique to introduce a topic for conversation is to ask a question.
 
 Minimize abstractions. Don't write about what cannot be seen with the eye unless you have to.
 
+Use classic style. As the writer, you know something about the world. The reader is your equal, but
+does not notice what you notice yet. Point it out to them.
+
 # The Curse Of Knowledge
 
 As a writer, you're writing for someone else who does not know something that you know.
@@ -86,6 +89,9 @@ Replace obese phrases with learner alternatives:
 * "in view of the fact that" vs "since"
 * "it is widely observed that ..." vs "..."
 
+Employ some elements of poetry. Establish rhythm in your prose. Consider using parallel structure -
+two almost identical sentence except one key difference, which highlights the difference even more so.
+
 # Arcs Of Coherence
 
 Ensure that the reader will grasp the topic, get the point, keep track of the players, and see
@@ -98,4 +104,8 @@ Coherence beings with the writer and reader being clear about the topic. Let the
 the topic is as early as possible.
 
 Similar to topics and comments, always write given knowledge before introducing new knowledge.
-Always write light before heavy.
+
+Start strong. "We're going to die, and that makes us the lucky ones." is a terrific leading
+sentence. It's an unpleasant fact followed by paradox.
+
+Always write light before heavy. If you have a complicated phrase, move it to the end of a paragraph.
