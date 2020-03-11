@@ -134,11 +134,81 @@ It works as a great project hub, where it's the center of: pull requests, automa
 reporting, automated push to production. Some things to put in version control besides project code:
 user preferences, dotfiles, editor configuration, Ansible scripts.
 
+*Get into the debugging mindset.* Fix the problem, not the blame. Don't panic. Either watch the user
+reproduce the bug or get exact reproduction steps (including actual vs expected results). Create a
+failing test before fixing code. Add logging/tracing. Remember that system calls isn't broken - it's
+your code that's broken. Consider why this bug wasn't caught earlier and how you can fix the process.
+
+*Learn a text manipulation language.* Like awk, sed, Python, or Ruby. They let you quickly hack up
+utilities or prototype ideas. For example, Ruby was used to build the book: layout, syntax highlighting,
+website update, equations, and index generation.
+
+*Keep a journal.* An engineering daybook is a journal where you can record: what you did, what you
+learned, sketches of ideas, readings, meeting notes, debugging notes, reminders, wild ideas,
+basically anything about work.
+
 # Pragmatic Paranoia
+
+*Design by contract.* Use preconditions (what must be true before routine is called), postconditions
+(what must be true after routine is called), and class invariants (what always must be true). In
+Elixir, use guard clauses. Use assertions if your language doesn't support guard clauses.
+
+*Crash early.* Detect problems as soon as possible and crash early. The alternative is to continue
+with corrupted data, perhaps writing it to a database and entering a non-recoverable state. Have
+supervisor processes which are responsible for managing crashes.
+
+*Use assertions to prevent the impossible.* If something should never happen, add an assertion. Leave
+assertions turned on in production.
+
+*A routine should finish what it starts.* Be symmetric with your routines. For example, if it allocates
+a resource, make sure it deallocates at the end. If it opens a file, make sure it closes the file
+at the end of the routine.
+
+*Take small, deliberate steps -- check for feedback to adjust before proceeding.* Small steps include
+using your REPL to understand APIs and algorithms. Or utilizing unit tests. Or getting feedback from
+user demos before committing to a UI.
 
 # Bend or Break
 
+*Decoupled code is easier to change.* Minimize chains of method calls, globalization, and inheritance.
+**Tell, don't ask.** Encapsulate behavior in the class. For example, don't ask for a calculation of
+a discount and then apply it to an order object. Have a method on the order object that does the
+calculation and state change itself.
+
+*Design responsive architectures.* Responsive architectures are made up of: events, finite state
+machines, observers, publish/subscribe, reactive programming and streams. An event represents the
+availability of information: a UI event or stock quote update. FSMs help untangle messes by
+organizing your code into states and transitions. The observer and pub/sub patterns decouple
+asynchronous events. Reactive programming and streams are extremely helpful for constant flow of
+events, such as UIs.
+
+*Design programs around transforming data.* Programming is about code, but programs are about data.
+Think about how Unix commands can be chained: `find . -type f | xargs wc -l | sort -n | tail -6 `.
+Or how the pipe operator works in Elixir. Don't hoard state, pass it around. In a transformational
+model, don't think of data as being spread out everywhere. Instead data should be a river that flows.
+
+*Don't overuse inheritance.* Inheritance is coupling. A child is coupled to its parent and ancestors.
+Code that uses the child is coupled to all ancestors. Instead consider using: interfaces, protocols,
+delegation, mixins, or traits. Interfaces are great for polymorphism. Delegation works for "has-a"
+relationships whereas "is-a" can be reserved for inheritance. Use mixins to share functionality.
+
+*Parameterize your app by using external configuration.* Common configuration includes: credentials,
+logging, port/ip, environment variables, formatting details, or license keys. Configure these outside
+the main body of code. Consider wrapping your configuration in a thin API.
+
 # Concurrency
+
+*Break temporal coupling.* Look for ways to improve concurrency and parallelism in your application.
+
+*Shared state is incorrect state.* Shared state causes non-atomic updates. You'll have to create
+code to implement mutual exclusions.
+
+*Use actors and processes.* An actor is an independent virtual processor with its own local state.
+A process is a more general purpose virtual processor, implemented by the OS. Actors can be used
+for concurrency without shared state.
+
+*Use the blackboard approach for concurrency.* With this approach, clients don't need to know the
+existence of others. It's a form of laissez faire concurrency.
 
 # While You're Coding
 
