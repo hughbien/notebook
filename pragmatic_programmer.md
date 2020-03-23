@@ -212,6 +212,93 @@ existence of others. It's a form of laissez faire concurrency.
 
 # While You're Coding
 
+*Listen to your instincts.* You've accumulated experience and wisdom as a developer. When you feel
+a nagging doubt or experience reluctance, heed it. Give yourself a little time and space to let your
+brain organize itself. Try externalizing the issue. Embrace playtime. Try prototyping.
+
+*Program deliberately instead of by coincidence.* Don't rely on undocumented errors or boundary
+conditions. Fix phantom patterns, such as a log file that shows intermittent error every 1000 requests,
+and prove the fix with a test. Always be aware of what you're doing. Be able to explain your code
+in detail. Rely on reliable things. Document assumptions. Test your code and assumptions.
+
+*Estimate the order of your algorithms.* Use common sense to determine if your algorithm will fall
+within: simple loops, nested loops, binary chop, divide and conquer, or combinatoric. Use Big O
+notation. Test your estimates with code profilers.
+
+*Refactor early and often.* You should refactor when you've learned something. Don't hesitate to
+change it. Refactor to remove duplication, non-orthogonal design, out-dated knowledge, updated
+usage, improved performance, small scale tests passing. Don't refactor and add functionality at the
+same time. Make sure you have good passing tests first. Take short deliberate steps.
+
+*Write tests.* Testing is more than about finding bugs, testing should also drive design. Tests
+are the first users of your code. Use TDD: decide on a small piece of functionality to add, write
+a test, run test to verify it fails, write smallest about of code to get it to pass, refactor. Do
+it in very small, deliberate cycles. But don't worry about having 100% test coverage, don't make
+redundant tests. Use pre and post conditions.
+
+*Build end-to-end, not top-down or bottom-up.* Top down means starting with the big picture, breaking
+it up into smaller pieces, and implementing those chunks. Bottom up means building the foundation
+for some abstractions, then slowly adding layers until the initial problem is solved. Neither works
+because we don't know what we're doing when we start. Build software incrementally, in small pieces,
+learning about the problem as you go.
+
+*Use property-based testing to validate assumptions.* Code has contracts and invariants. Once those
+are worked out, you can use them to automate testing with property-based testing. This helps asserts
+your inputs and makes you think of your code in terms of invariants and contracts. It's complementary
+to unit testing. You supply contracts about what sort of inputs are allowed and a framework will
+generate random inputs that meet those criteria to ensure output is still correct.
+
+*Minimize attack surfaces.* Code complexity leads to attack vectors, can you make things simpler?
+Never trust data from an external entity, it needs to be sanitized. Keep the number of authorized
+users to an absolute minimum. Don't leak data from output data (eg "Password is used by another
+user") or debugging info. Use the least amount of privilege for the shortest time. Don't let
+processes be signed in as root permanently. Secure application defaults. Encrypt sensitive data.
+Maintain security updates. Don't do crypto yourself, rely on a third party library.
+
+*Name well, rename when needed.* When naming things, consider answering "why?" Instead of naming
+a variable `user`, consider using `customer` or `buyer`. Instead of a method named `deductPercent`,
+use `applyDiscount`. Name things with clarity. Also consider consistency, for example stick with
+camel case or snake case for class names or method names.
+
 # Before the Project
 
+*No one knows exactly what they want.* Programmers help people understand what they want. Requirements
+are learned in a feedback loop. It's a process that goes back and forth between your client and you.
+Work with a user to think like a user. Walk in your client's shoes and your user's shoes.
+
+*Maintain a project glossary.* Users and domain experts will use terms that have specific meaning
+to them. A project glossary is one place that defines those specific terms. All participants in the
+project should use it to ensure consistency.
+
+*When faced with an impossible problem, enumerate all possible avenues.* Find the real constraints
+of the problem. Some solutions may seem impossible but are do-able. Why are you solving this problem?
+What's the benefit of solving it? Are there edge cases you can eliminate? Is there a simpler, related
+problem you can solve?
+
+*Don't go into code alone.* Try pair programming. Then try mob programming that involves more than
+two programmers. Build the code, not your ego. Criticize the code, not the person. Listen and try
+to understand others' viewpoints. Conduct frequent retrospectives to try and improve for the next
+session.
+
+*Agile is how you do things.* Value individuals and interactions over processes and tools, working
+software over documentation, customer collaboration over contract negotiation, responding to change
+over following a plan.
+
 # Pragmatic Projects
+
+*Maintain small, stable teams.* Pragmatic teams are small, under 10-12 members. Schedule time for
+team improvement: system maintenance, process reflection and refinement, new tech experiments,
+learning and skill improvements. Give each member the ability to shine in their own way. Give just
+enough structure to support them.
+
+*Do what works, not what's fashionable.* Figure out what works by trying it out.
+
+*Use version control, regression testing, and full automation.* Use version control to drive builds,
+tests, and releases. Test early, often, and automatically. Do unit testing, integration testing,
+validation and verification, performance testing, saboteur testing, tests coverage. Don't use
+manual procedures.
+
+*Delight your users.* Don't just deliver code. Think about the underlying expectations of value
+in your project. What are your users' expectations?
+
+*Sign your work.* Be proud of your work. You wrote it, stand behind it.
