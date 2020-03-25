@@ -480,8 +480,140 @@ Define a list of procs like `@callbacks = [] of ->`. Then call them like `@callb
 
 # Working with Modules
 
+`require` will search for files on the current path. Subsequent requires for a previously required
+file will do nothing. `require "./part"` searches for part.cr or part/part.cr. Use ".." for the
+parent path. Use `*` for all .cr files in a directory: `require "./dirA/*"`. Double splats work
+too.
+
+When not using the dot prefix. Crystal will look for the files in several spots. First is the
+standard library (/opt/crystal/src on Linux). The second is the lib folder in the current working
+folder.
+
+Use `module` to define namespaces. Top-level methods in modules are prefixed with `.self` just like
+class methods.
+
+```cr
+module Crystals
+  class Rhombic
+    def self.print
+      puts "Hello"
+    end
+  end
+end
+
+Crystals::Rhomic.new
+typeof(Crystals) # => Class
+```
+
+If you don't want to write `def self.` repeatedly, you can use `extend self` in the module
+definition. It's a common idiom. `include` a module to include all of its definitions in the current
+namespace -- also known as mixing in. Modules can include abstract methods, every class that includes
+it must have a specific implementation. Modules are prepended into the ancestor list.
+
+Some built-in modules that are useful:
+
+* Comparable: for `<=>` and `==`
+* Enumerable: for working with `#each` and iterators
+
 # Managing Projects
+
+Use the Crystal tool chain to manage projects, also called shards.
+
+```sh
+crystal init TYPE NAME [DIR]
+```
+
+The type can be `app` or `lib`. The directory is optional.
+
+```sh
+crystal init app proj1
+crystal src/proj1.cr # to run it
+crystal build src/proj1.cr # to build a binary file, proj1
+./proj1
+
+crystal tool format file.cr # to use recommended coding style
+crystal docs # to generate doc/index.html
+crystal spec # run tests
+crystal spec spec/file_spec.cr
+
+crystal shards # installs dependencies
+```
+
+Crystal uses the testing framework `spec`, located in the spec directory.
+
+```cr
+describe Mineral do
+  it "works" do
+    false.should eq(true)
+  end
+end
+```
+
+To use an external library, update the `shard.yml` file and run `crystal shards`. You can see what's
+installed with `shards list`.
+
+Use the `--release` flag when you're ready to deploy your code. You'll get a single binary.
 
 # Advanced Features
 
-# Using Web Frameworks and Shards
+Macros can be used for metaprogramming. It looks like:
+
+```cr
+macro get(*props)
+  {% for prop in props %}
+    def {{prop}}
+      @{{prop}}
+    end
+  {% end %}
+end
+
+class Mineral
+  def initialize(@name : String, @hardness : Float64)
+  end
+
+  get name, hardness
+end
+```
+
+There's also {% if %} and {% else %}. Similar to Ruby's method_missing, there's a macro:
+`macro method_missing(call); # ...; end`. Other macros invoked at compile time include:
+
+* inherited - when a subclass is defined
+* included - when a module is included
+* extended - when a module is extended
+
+When a Crystal program starts, a main fiber executes top level code. A Runtime Fiber Scheduler
+takes care of executing all fibers in the queue. A non-blocking Event Loop fiber is in charge of
+IO. And there's a Garbage Collector fiber to clean up memory.
+
+Fibers communicate via channels:
+
+```cr
+ch = Channel(Int32).new
+
+spawn do
+  puts "start fiber"
+  n = ch.receive # fiber will block if nothing on channel yet
+  puts "fiber received #{n}"
+end
+
+puts "before send"
+ch.send 42
+puts "main has send 42"
+```
+
+`spawn` can also take a method name along with arguments for that method. When working with concurrent
+channels, Crystal has `select` and `when`:
+
+```cr
+loop do
+  select
+  when n1 = ch1.receive
+    puts n1
+  when f1 = ch2.receive
+    puts f1
+  when ch3.receive
+    break
+  end
+end
+```
