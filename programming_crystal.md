@@ -204,11 +204,279 @@ end
 
 # Typing Variables and Controlling the Flow
 
-Crystal is strongly type. 
+Crystal is strongly typed. You can try to convert between types using `to_*` methods:
 
-# Organizing Code in Methods and Procs
+```cr
+"64.34603985".to_i # Runtime error: Invalid Int32
+rate = "64.34603985".to_f
+rate.to_i # => 64
+```
+
+Int32 is the default integer type, even if you use numbers that will fit into Int8. Crystal offers
+integer suffixes of: `i8, i16, i32, i64, u8, u16, u32, u64`.
+
+```cr
+arr = [75, 42, 126]
+typeof(arr) # => Array(Int32)
+
+arr = [75_i8, 42_i8, 126_i8]
+typeof(arr) # => Array(Int8)
+```
+
+The following code will fetch numbers less than 256 and put them into an Array:
+
+```cr
+arr = [] of Int8
+while num = gets # false, nil, and null pointers are considered false
+  num = num.strip
+  if num == "" || num == "stop"
+    break
+  end
+  arr << num.to_i8
+end
+p arr
+```
+
+Exception handling works just like Ruby, via `begin, rescue, else, ensure, end`:
+
+```cr
+begin
+  # some dangerous code
+rescue ex
+  p ex.message
+else
+  # if exception isn't raised
+ensure
+  # always executed
+end
+```
+
+Crystal uses the `ARGV` constant to get arguments from the command line. Elements in this array are
+Strings.
+
+Symbols (`:gold`) can be used as identifiers. Every instance of a given symbol is the same object.
+
+Enums exist to group related values:
+
+```cr
+enum Direction
+  North # value 0
+  East  # value 1
+  South # value 2
+  West  # value 3
+end
+
+Direction::South # South
+Direction::South.value # => 2
+```
+
+Regular expressions use the PCRE syntax via the C library. Patterns are created with the `/pattern`
+syntax or `%r(pattern)`. Use `=~` to determine if a string matches, which will returning the starting
+position of the match or nil. If parenthesis are in your pattern, `$1, $2, ...` will return the
+matched part. Or you can use `String#match` to return a MatchData object.
+
+Other composite types:
+
+* Tuples group related values: `{42, "silver", 'C'}` or `Tuple.new(42, "silver", 'C')`
+* NamedTuples are fixed size hashes with keys known at compile time:
+  `{name: "Crystal", year: 2017}`
+* Sets don't have any order but store unique values: `Set{41, 42, 43}`
+
+Nilable types can be declared like so: `n: Int32 | Nil` or `a : Int32?`. The method `#try` can be
+used to use the variable, the block will return nil if no value exists.
+
+For union types, you won't be able to use a method unless it's implemented in both types. If you're
+sure a variable stores a specific type, use the `#as` method.
+
+```cr
+var1 = rand < 0.5 ? 42 : "Crystal"
+typeof(var1) # => (Int32 | String)
+var1.abs # => Error: undefined method 'abs' for String
+ivar = var1.as(Int32) # => Error, can be either type
+if ivar1 = var1.as?(Int32) # => 42 or nil, or var1.is_a?(Number)
+  p ivar1.abs
+end
+```
+
+`case` is a very flexible construct in Crystal. `when` matchers can use types, methods, or literals:
+
+```cr
+case var1
+when Number
+  # ...
+when .even?
+  # ...
+when 2
+  # ...
+end
+```
 
 # Using Classes and Structs
+
+Here's an example Crystal program:
+
+```cr
+class Mineral
+  getter name : String
+  getter hardness : Float64
+  getter crystal_struct : String
+
+  def initialize(@name, @hardness, @crystal_struct)
+  end
+end
+
+def mineral_with_crystal_struct(crstruct, minerals)
+  minerals.find { |m| m.crystal_struct == cstruct }
+end
+
+def longest_name(minerals)
+  minerals.map { |m| m.name }.max_by { |name| name.size }
+end
+
+minerals = [
+  Mineral.new("gold", 1.0, "cubic"),
+  Mineral.new("topaz", 8.0, "orthorombic"),
+  Mineral.new("apatite", 5.0, "hexagonal")
+]
+
+min = mineral_with_crystal_struct("hexagonal", minerals)
+if min # required to check for Nil, otherwise you'll get a compilation error
+  puts "#{min.crystal_struct} - #{min.name} - #{min.hardness}"
+else
+  puts "No mineral found!"
+end
+
+puts longest_name(minerals)
+```
+
+Types and default values can be assigned in the `#initialize` definition. A property without a type
+must have a default value, or the value must be assigned in the method.
+
+```cr
+getter name, hardness, crystal_struct
+
+def initialize(@name : String = "unknown",
+               @hardness : Float64,
+               @crystal_strct : String)
+end
+```
+
+Generics can be used like:
+
+```cr
+class Mineralg(T)
+  getter name
+
+  def initialize(@name : T)
+  end
+end
+
+Mineralg.new("gold")
+Mineralg.new(42)
+Mineralg(String).new(42) # => Error: no overload matches
+````
+
+Getters use `getter`, setters use `setter`. For both use `property`. Class variables use the `@@`
+prefix. Classes can have a `finalize` method which is called when it's garbage collected, but it's
+a burden on the garbage collector. Only use it to free resources taken by external resources.
+You can re-open classes.
+
+Classes are inherited via `<`, eg `class PDFDocument < Document`. Use `super` in a method definition
+to call the parent class method. Overridden methods may use different argument types. Crystal also
+supports abstract classes:
+
+```cr
+abstract class Shape
+  abstract def area
+  abstract def perim
+end
+
+class Rect < Shape
+  def initialize(@width : Int32, @height : 32)
+  end
+
+  def area
+    @width * @height
+  end
+
+  def perim
+    2 * (@width + @height)
+  end
+end
+
+s = Shape.new # => abstract classes cannot be instantiated
+Rect.new(3, 6).area # => 18
+```
+
+If an abstract method isn't implemented, you'll get a compilation error.
+
+Crystal supports virtual classes, for example:
+
+```cr
+class Document
+end
+
+class PDFDocument < Document
+  def print
+  end
+end
+
+class XMLDocument < Document
+  def print
+  end
+end
+```
+
+Document is a virtual class, indicated as `Document+`. It's equivalent to all types that inherit
+from Document including itself. It's the equivalent to `Document | PDFDocument | XMLDocument`.
+The `print` method cannot be used here, to remove the compilation error just make Document abstract.
+
+Visibility can be restricted using `private` or `protected` prefixing the method definition. Private
+methods cannot have a receiving object, so can only be used in the same class or its descendants.
+Protected methods can only be used if self is of the same type.
+
+Class methods are prefixed with `self.` like `def self.compare`. Note that the Ruby `class << self`
+does not exist in Crystal.
+
+Objects from classes use heap memory and are garbage collected. Structs are allocated in stack
+memory and are passed by value.
+
+```cr
+struct User
+  property name, age
+
+  def initialize(@name : String, @age : Int32)
+  end
+
+  def print
+    puts "#{age} - #{name}"
+  end
+end
+```
+
+Structs work best for immutable data structures, especially when you have a lot of small ones. They
+can only inherit from abstract structs.
+
+Use `crystal tool hierarchy <filename.cr>` to display the entire class hierarchy. Use the `-e`
+flag for a specific fragment: `crystal tool hierarchy -e Document <filename.cr>`.
+
+Types can be given a synonym with `alias` eg `alias PInt32 = Pointer(Int32)`
+
+Use `#to_s(io)` for performance. Creating a lot of strings will clog up the heap. Appending many
+to an IO object won't create intermediate strings:
+
+```cr
+def to_s(io)
+  io << name << ", " << hardness
+end
+io = IO::Memory.new
+to_s(io).to_s
+```
+
+Define your own exceptions: `class CoolException < Exception`. Rescuing exceptions can use pattern
+matching: `rescue ex : CoolException | KeyError`.
+
+Define a list of procs like `@callbacks = [] of ->`. Then call them like `@callbacks.each &.call`.
 
 # Working with Modules
 
