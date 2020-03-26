@@ -54,6 +54,11 @@ The naive approach for chess players to get better would be to just play more ga
 have shown that chess players get better by spending more time analyzing positions. They make it
 better to process large amounts of information more quickly.
 
+For example, using purposeful practice to learn long strings of numbers, a student got frustrated
+when he couldn't remember more. It forced him to come up with the mental representation of a tree
+structure with each number stored on a leaf (he used a heap data structure). Purposeful practice
+sparked his creative insight.
+
 Experts have adapted their brains to create better mental representations, which give them better
 memory or problem solving abilities.
 
@@ -67,6 +72,11 @@ Deliberate practice differs from purposeful practice. It requires a field that's
 with performers that have already attained mastery. Other people have already figured out the best
 practice regimen and utilized it. It requires a teacher who can coach a student, using the current
 best standards.
+
+In the example from the previous section, the student coached another student his heap method for
+memorizing large strings of numbers. The second student was able to acquire the skill and excel at
+a much quicker pace. He eventually ended up developing his own mental representation, but had a
+large head start.
 
 The definition of Deliberate Practice:
 

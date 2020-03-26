@@ -7,26 +7,24 @@ persistent effort. Charles Darwin's younger cousin, Francis Galton had a much hi
 is who we hear about today. To master a skill or field, simply follow the steps of every master that
 came before you.
 
-The phases of mastery are: Apprenticeship, Creative-Active, and Mastery. The steps are:
+The phases of mastery are: Discovery, Apprenticeship, Creative-Active, and Mastery. The steps are:
 
 1. Discover your field - find your inner calling. The main obstacles are boredom, impatience, fear,
    and confusion. You must always apply persistent effort, observing, and learning.
-2. Learn the basic skills - start to gain fluency under an apprenticeship to learn the basics. Start
-   with imitation.
-3. Move from student to practitioner - develop your own style and ideas. Get constant feedback.
-4. Achieve mastery - develop intuition, learn how to break the rules, innovate in your field.
+2. Learn the foundations - start to gain fluency under an apprenticeship to learn the basics. Start
+   with imitation. Learn from a mentor.
+3. Fuse the creative and the active minds - retain your creativity and excitement. Fuse it with your
+   attained skills. Together, you'll develop your own style and ideas.
+4. Fuse your intuition with your rational mind - as you move from student to practitioner, you'll
+   develop better intuition. Together with your rational mind, take on difficult projects to push
+   yourself into mastery.
 
 # Discover Your Calling: The Life's Task
 
 Be careful not to just follow the crowd. You have to recognize your own fascination with a field
-to figure out your inner calling.
-
-Your initial goal shouldn't be immediate success or most money/prestige. Instead, aim for a
-job/opportunity where you can learn as much as possible about your chosen field.
-
-Freddie Roach took an unpaid job at a boxing center to develop his skills. He learned as much as
-possible and eventually earned much more money than if he took an initial paying position. Darwin
-rejected medical school to become an unpaid naturalist. This led him to his theory of evolution.
+to figure out your inner calling. It's better to find a life's task that you're passionate about,
+instead of one that satisfies your ego, need for prestige, large sums of money, or your parents'
+goals.
 
 Three steps to find your calling:
 
@@ -45,7 +43,9 @@ Some tips:
 
 # Submit To Reality: The Ideal Apprenticeship
 
-You'll usually learn as much as possible in an apprenticeship, so seek one out. The goal is to learn,
+There's a lot to learn in your field. Your goal right now should be to learn the basics/foundation.
+
+You'll usually learn as quick as possible in an apprenticeship, so seek one out. The goal is to learn,
 not money or prestige. Choose a place to work that offers the best possibilities of learning. As you
 gain enough proficiency where learning potential is diminished, move on.
 
@@ -102,6 +102,10 @@ Some tips:
 
 # Awaken the Dimensional Mind: The Creative-Active
 
+Think about the child who's excited/open-minded about their field but has no skill versus the
+professor who has plenty of skill but almost no more creativity/excitement. You want to maintain
+your original mind and combine it with your accumulated skills. That power together is the mastery.
+
 Don't think too narrowly. Always ask if there's a better way to solve particular problems -- even
 though you've been training a specific way. Train yourself to make new connections.
 
@@ -146,6 +150,10 @@ Some tips:
 * explore
 
 # Fuse the Intuitive with the Rational: Mastery
+
+We tend to value the rational mind and ignore the intuitive mind. After many years in your field,
+your intuition will develop. Trust it. The intuitive mind is a sacred gift and the rational mind
+is a faithful servant. Use both.
 
 Mastery means responding automatically in high pressure situations and also seeing the big picture.
 It means viewing the high strategic level but also performing perfectly at a low tactical level.
