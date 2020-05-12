@@ -787,18 +787,247 @@ Conforming to the protocol lets the object be used in `for of` loops.
 
 ## Arrays
 
+Arrays are used as tuples and sequences.
+
+```js
+const arr = ["a", "b", "c"];
+arr[0]; // "a"
+arr.length; // 3
+arr.push("d");
+arr; // ["a", "b", "c", "d"]
+arr.length = 1;
+arr; // ["a"]
+[...arr.keys()]; // [0]
+[...arr.entries()]; // [[0,0]] index/value pairs
+
+const iterable = ["b", "c"];
+["a", ...iterable, "d"]; // ["a", "b", "c", "d"]
+```
+
+Iterate over an Array using `for of`. You can usually convert an Array-like object to an Array using
+`Array.from()`.
+
 ## Maps & WeakMaps
+
+To create a Map:
+
+```js
+new Map();
+new Map([
+  [1, "one"],
+  [2, "two"],
+  [3, "three"]
+]);
+new Map()
+  .set(1, "one")
+  .set(2, "two")
+  .set(3, "three");
+```
+
+Copies can be created via `new Map(originalMap)`.
+
+`set()` and `get()` can be used to set/get values. `has()` checks to see if key is present.
+`delete()` removes an entry. `clear()` removes everything. `.size` returns the number of entries.
+`entries()/keys()/values()` returns an iterator.
+
+WeakMaps have the following differences: they're black boxes where value can only be accessed if you
+have the WeakMap and key, keys are weakly held (a key can still be garbage collected).
+
+You can't iterate or loop over keys, values, or entries. You can't compute the size. You can't clear
+it. All WeakMap keys must be objects.
+
+WeakMaps are useful for caches and private data in Classes.
 
 ## Sets & WeakSets
 
+Sets contain arbitrary values and can perform membership checks quickly.
+
+```js
+new Set();
+new Set(["red", "green", "blue"]);
+```
+
+Use `add()` to add an element. `has()` checks for membership. `delete()` removes an element. `.size`
+returns number of elements. `clear()` removes all elements. Sets are iterable. Sets use `===` to
+compare elements, so two objects are never considered equal. Example:
+
+```js
+set.add({});
+set.size; // 1
+set.add({});
+set.size; // 2
+```
+
+Set unions can be done via spreading: `new Set([...a, ...b])`. Intersection can be done via
+filtering: `new Set([...a].filter(x => b.has(x)))`. Difference can also be done via filtering:
+`new Set([...a].filter(x => !b.has(x)))`.
+
+To use `map`, first convert the Set to an array: `[...set].map(x => x * 2)`. Same with filter.
+
+WeakSets are similar to WeakMaps. It's useful to mark/tag objects.
+
 ## Destructuring
+
+Object destructuring lets you batch extract values:
+
+```js
+const address = {
+  street: "Evergreen Terrace",
+  number: "742",
+  city: "Springfield",
+  state: "NT",
+  zip: "49007"
+};
+const { street: s, city: c } = address;
+s; // "Evergreen Terrace"
+c; // "Springfield"
+const { 0: x, 2: y } = ["a", "b", "c"]; // index
+const { street, city } = address; // short-hand
+const { street, ...remaining } = address; // rest
+const { missing, ...remaining } = address; // missing is undefined
+```
+
+Array destructuring works too:
+
+```js
+const [x,y] = ["a", "b"];
+const [, x, y] = ["a", "b", "c"]; // skips "a"
+const [x, y, ...remaining] = ["a", "b", "c", "d"];
+// works with any iterable
+```
+
+You can't destructure null or undefined. You can't Array-destructure non-iterable values.
 
 # Asynchronicity
 
 ## Async Programming
 
+Tasks are functions that are executed sequentially in a single process:
+
+```js
+while (true) {
+  const task = taskQueue.dequeue();
+  task();
+}
+```
+
+The above is an event loop that adds tasks to the queue. We used to use a lot of callbacks in
+JavaScript. Promises are a pattern that makes callbacks easier and is a mechanism for
+async functions:
+
+```js
+dividePromise(12, 3)
+  .then(result => assert.equal(result, 4))
+  .catch(err => assert.fail(err))
+```
+
+Async functions are a better syntax for promises:
+
+```js
+async function main() {
+  try {
+    const result = await dividePromise(12, 3);
+    assert.equal(result, 4);
+  } catch (error) {
+    assert.fail(err);
+  }
+}
+```
+
+By default, JavaScript runs in a single process called the event loop. It sequentially executes
+tasks. Task sources (such as the one taking care of UI events) access the queue. The event loop
+also accesses the queue.
+
+You can avoid blocking the browser by making operations asynchronous. Also perform long computations
+in a separate process via Web Workers. Also take breaks during long computations.
+
+Breaks can be taken via `setTimeout` and `clearTimeout`. JavaScript makes a guarantee: tasks
+are run to completion before next task is executed.
+
+The patterns for async programming are: events, callbacks, and promises. Events are usually callbacks
+assigned to specific identifiers, such as `onsuccess` or `onerror`. The DOM uses this with
+event listeners.
+
 ## Promises
+
+Implementing a promise:
+
+```js
+function addAsync(x, y) {
+  return new Promise(
+    (resolve, reject) => {
+      if (x === undefined || y === undefined) {
+        reject(new Error("Must provide two parameters"));
+      } else {
+        resolve(x + y);
+      }
+    }
+  );
+}
+```
+
+A promise has three states: pending, fulfilled, or rejected. It protects us from race conditions.
+`then()` and `catch()` callbacks are only executed once the promise is settled. It's possible for
+a promise to never be settled.
+
+`Promise.resolve()` creates a fulfilled promise with the given value. `Promise.reject()` creates a
+rejected promise.
+
+`.then()` returns a fresh Promise. It can return a non-promise value (which means success) or
+it can return another Promise. It can throw an error, which can be caught via `.catch()` in a
+chained call. `.catch()` is triggered by rejections. Both always returns Promises.
+
+```js
+asyncFunc1()
+  .then(result1 => { return asyncFunction2() })
+  .then(result2 => { ... })
+  .catch(error => { /* handle error from both thens */ });
+```
 
 ## Async Functions
 
-## Async Iteration
+Promises are the foundation of async functions.
+
+```js
+async function fetchJsonAsync(url) {
+  try {
+    const request = await fetch(url); // async
+    const text = await request.text(); // async
+    return JSON.parse(text); // sync
+  } catch (error) {
+    assert.fail(error);
+  }
+}
+```
+
+Is the same as:
+
+```js
+function fetchJsonViaPromises(url) {
+  return fetch(url)
+    .then(request => request.text()) //async
+    .then(text => JSON.parse(text)) // sync
+    .catch(error => {
+      assert.fail(error);
+    });
+}
+```
+
+Prefix a function call with `await` operator when a value is a Promise. The operator pauses the async
+function and resumes once the Promise is settled. The result of an async function is always a Promise.
+
+```js
+async function func1() {}
+async func2 = async function() {};
+const func3 = async () => {};
+const obj = { async m() {} );
+class MyClass { async m() {} }
+```
+
+Async functions always return a Promise. The return value will be implicitly wrapped. A thrown
+exception will be a rejected Promise. If a Promise is explicitly returned, it will not be wrapped.
+
+Use `Promise.all` if you need to nest async calls.
+
+You don't need to use `await` if you want to fire and forget, for example if you want to start
+an async operation but don't care about the result.
