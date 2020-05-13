@@ -343,34 +343,266 @@ function overloading or dynamic dispatch.
 
 # Generics
 
+TypeScript supports generics or type parameterization.
+
+```ts
+function identity<T>(arg: T): T {
+  return arg;
+}
+let output = identity<string>("myString");
+let output = identity("myString"); // can be inferred
+
+interface GenericIdentityFn {
+  <T>(arg: T): T;
+}
+let myIdentity: GenericIdentityFn = identity;
+
+class GenericNumber<T> {
+  zeroValue: T;
+  add: (x: T, y: T) => T;
+}
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function(x, y) { return x + y; };
+```
+
+Generic types can have constraints also:
+
+```ts
+interface Lengthwise {
+  length: number;
+}
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length);
+  return arg;
+}
+
+function getProperty<T, K extends keyof T>(obj: T, key: K) { // key must exist on obj
+  return obj[key];
+}
+getProperty({ a: 1 }, "a"); // okay
+getProperty({ a: 1 }, "m"); // error
+```
+
 # Enums
 
-# Type Inference
+Enums have number values:
+
+```ts
+enum Direction {
+  Up, // starts with 0, increments by 1; set your own by doing `Up = 1,`
+  Down,
+  Left,
+  Right
+}
+function move(direction: Direction) { ... }
+move(Direction.Up);
+```
+
+Enums can have string values too. They can also be initialized with a constant enum expression,
+a subset of TypeScript that can be evaluated at compile time.
+
+Enum members can also serve as types:
+
+```ts
+enum ShapeKind {
+  Circle,
+  Square
+}
+
+interface Circle {
+  kind: ShapeKind.Circle;
+  radius: number;
+}
+
+interface Square {
+  kind: ShapeKind.Square;
+  sideLength: number;
+}
+```
+
+Use `keyof typeof` to get a Type that represents all Enum keys as strings.
+
+```ts
+type LogLevelStrings = keyof typeof LogLevel;
+```
+
+You can reverse map members with `[]`:
+
+```ts
+enum Enum { A }
+let a = Enum.A;
+let nameOfA = Enum[a];
+```
 
 # Type Compatibility
 
+TypeScript uses structural typing instead of nominal typing. If two different types have the same
+properties/definitions, they're considered compatible.
+
+```ts
+interface Named {
+  name: string;
+}
+class Person {
+  name: string;
+}
+let p: Named;
+p = new Person();
+```
+
+This works for functions too, even if the argument list is a subset of another argument list. This
+is because it's a common pattern in JavaScript to leave off arguments in function calls, such
+as optional callbacks.
+
 # Advanced Types
 
-# Symbols
+Use `&` to intersect two types: `Person & Serializable`
 
-# Iterators and Generators
+Use `|` to union two types: `number | string`
+
+To differentiate between types (eg if a variable can be a number or string) you'll need to
+either cast and check for a property or use type guards:
+
+```ts
+let pet : Fish | Bird = getSmallPet();
+if ((pet as Fish).swim) {
+  (pet as Fish).swim();
+} else if ((pet as Bird).fly) {
+  (pet as Bird).fly();
+}
+
+function isFish(pet: Fish | Bird): pet is Fish { // type predicate, pet is Fish
+  return (pet as Fish).swim !== undefined;
+}
+if (isFish(pet)) {
+  pet.swim();
+} else {
+  pet.fly();
+}
+
+if ("swim" in pet) {
+  pet.swim();
+} else {
+  pet.fly();
+}
+```
+
+You can also use `typeof` or `instanceof`.
+
+Nullable types can be done via adding `| null` to a type. This is handy with optional chaining:
+`let x = foo?.bar.baz();` which returns undefined when it hits null or undefined.
+
+Use `type` for type aliases: `type Name = string;`. They're similar to interfaces, but they don't
+create a new name -- error messages will still use the original type name.
+
+String literals can be types too: `type Easing = "ease-in" | "ease-out" | "ease-in-out";` for
+enum-like behavior. It can also be used to distinguish overloads. This works for numbers too.
+
+Conditional types can be set via the ternary operator: `T extends U ? X : Y`. These can be nested:
+
+```ts
+type TypeName<T> =
+  T extends string ? "string" :
+  T extends number ? "number" :
+  T extends boolean ? "boolean" :
+  T extends undefined ? "undefined" :
+  T extends Function ? "function" :
+  "object";
+type T0 = TypeName<string>; // "string"
+type T1 = TypeName<"a">; // "string"
+type T2 = TypeName<true>; // "boolean"
+```
+
+# Symbols, Iterators, Generators
+
+`symbol` is another primitive type and works just like in JavaScript.
+
+```ts
+let sym1 = Symbol();
+let sym2 = Symbol("key");
+
+const sym = Symbol();
+let obj = {
+  [sym]: "value"
+};
+console.log(obj[sym]); // "value"
+```
+
+Iteration and generation work just like in JavaScript. It looks like type inference works well
+here, so you can mostly leave off type annotations.
 
 # Modules
 
+`import` and `export` work just like in JavaScript. Any declaration can be exported/imported,
+including type aliases or interfaces.
+
+```ts
+// StringValidator.ts
+export interface StringValidator {
+  isAcceptable(s: string): boolean;
+}
+
+// ZipCodeValidator.ts
+import { StringValidator } from "./StringValidator";
+```
+
+You can explicitly import a type with `import type`, although just `import` works too. Using the
+former helps compilers remove it from your production code.
+
 # Namespaces
 
-# Namespaces and Modules
+TypeScript supports namespaces:
 
-# Module Resolution
+```ts
+namespace Validation {
+  export interface StringValidator {
+    isAcceptable(s: string): boolean;
+  }
+}
+
+let validator: Validation.StringValidator;
+```
+
+Namespaces occupy the global namespace. They can span multiple files.
+
+Don't use a namespace if you're writing code for a module. Modules already provide a namespace when
+imported:
+
+```ts
+// shapes.ts
+export namespace Shapes {
+  export class Triangle { ... }
+  export class Square { ... }
+}
+// shapeConsumer.ts
+import * as shapes from "./shapes";
+let t = new shapes.Shapes.Triangle(); // repeating shapes
+```
 
 # Declaration Merging
 
-# Decorators
+Repeated interfaces/namespaces will be merged into one interface/namespace.
 
-# Mixins
+Classes cannot be merged with other classes. Use Mixins instead.
 
-# Triple-Slash Directives
+You can monkey-patch by importing existing objects and then updating them:
 
-# Type Checking JavaScript Files
+```ts
+// observable.ts
+export class Observable<T> { ... }
+// map.ts
+import { Observable } from "./observable";
+Observable.prototype.map = function (f) { ... }
+```
 
 # Utility Types
+
+Some useful utility types, available globally:
+
+* `Partial<T>` - wraps a type and sets all properties to optional
+* `Readonly<T>` - sets all properties to readonly
+* `Pick<T,K>` - pick a set of properties K from T
+* `Omit<T,K>` - omit a set of properties K from T
+* `NonNullable<T>` - removes all null and undefined definitions from properties
+* `Required<T>` - makes all properties of T required
