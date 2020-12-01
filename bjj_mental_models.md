@@ -455,7 +455,7 @@ and berimbolos. In real life: pre-mortems and inverted planning.
 
 **Kuzushi** -
 Break your opponent's balance before attempting a throw or sweep. You want to break your opponent's
-alignment (posture/structure/base).
+alignment (posture/structure/base). It’s not a single attempt, but a constant series of attempts of unbalancing.
 
 **Layers of Guard** -
 Like an onion, the guard has many layers. You pass by peeling the layers back one by one. First get
