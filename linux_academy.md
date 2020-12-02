@@ -114,3 +114,166 @@ to a file but also want to inspect the command's output.
 * `ls | tee mynewfile mynewfile2` print the contents of `ls` to STDOUT, but also write it to two
   different files
 * `tee -a` to append instead of overwriting entire file
+
+# Introduction to Linux Management Tools
+
+## Reviewing System Details Through /proc and /etc/os-release
+
+`/proc` looks like a directory but isn't. It's a psuedo filesystem that contains kernel data.
+It contains primarily read-only, zero-byte files and directories. It doesn't persist between reboots.
+See `man proc` for more details.
+
+* `/proc/version` has Kernel version and build details
+* `/proc/cpuinfo` has CPU model, vendor, specs
+* `/proc/meminfo` has memory utilization, caching, and swap usage
+* `/proc/modules` has Kernel modules currently loaded
+* `modinfo <module>` to see more info about the module
+
+Directories that start with a number are PIDs or process IDs, which contain information about the
+running process.
+
+`/etc/os-release` file contains information about the operating system and distro, such as:
+
+* NAME - distribution name
+* VERSION - release version
+* PRETTY_NAME - full distribution
+* URLs - support, reporting, etc...
+
+## Taking a Look at Processes with ps
+
+PS stands for process status and shows a snapshot of the process activity. It's lightweight and quick.
+
+* `ps` lists out processes tied to current shell
+* `ps -e` displays all active processes in simple format
+* `ps -ef` for full format, shows additional info like user and start time
+* `ps -eF` for extra full format, shows even more like estimated swap size, real memory usage, processor
+* `ps -aux` shows %CPU %MEM and STAT for current state (r for running, s for sleep, c for stop)
+* `ps -aux --sort user` to sort by user owning each process
+* `ps -eo pid,user,start_time,cmd` to display specific columns in this order
+
+## Monitoring Active Processes Using top
+
+Top providers dynamic real-time view of running system.
+
+* `top` starts the dashboard
+* M to sort by memory
+* C to sort by CPU
+* N for PID view
+* R to reverse the current sort
+* x to highlight current column
+* f for the field management view (customize which columns to use)
+* k to bring up kill command (enter PID here to kill it)
+* d to edit refresh rate
+* o or O for searching case insensitive/sensitive (example: COMMAND=sshd or %CPU>0)
+* c to display full command
+* V for forest view of commands
+* u to filter by user
+* W to write out config file to `~/.toprc`
+
+## Monitoring Active Processes Using htop
+
+`htop` providers information like top, but in a friendlier UI.
+
+* `htop` to start dashboard
+* `F6` to change sort columns (or even click on sort by tab or column header)
+* tag a row with spacebar
+* highlight a row and hit `F` to follow it
+* `F2` to customize the dashboard UI
+* `F4` to filter out processes
+
+## Using nmon to Monitor System Performance
+
+`nmon` can be used to monitor multiple parts of your system. It can display realtime info or write
+out static info to a CSV file.
+
+* `sudo apt install nmon` or `sudo yum install nmon` or `sudo dnf install nmon` to install it
+* on redhat, you might need to install `epel-release` first
+* `nmon` to start dashboard
+* h for the help screen, the most important command
+* from the splash screen, use the corresponding letters to view specific dashboards
+
+# Mastering Systemd
+
+## The Purpose of systemd
+
+`launchd` was an inspiration, especially its listening to sockets. A daemon needs to be able to
+access a socket from another daemon before it can start, its dependency. With systemd, all the
+sockets are available at once before daemons are started. One process providers sockets for all
+services -- so there are fewer dependency issues. It also providers extra robustness to the system
+by queueing messages, in case services aren't up and running yet to receive them. 
+
+## systemctl
+
+Stands for System Control. Deals with everything as units, sch as: `session-3.scope` or `user.slice`
+or `dbus.socket`.
+
+For demo purposes, we'll work with the Apache service:
+
+```sh
+$ yum -y install httpd
+$ rpm -ql httpd | grep system
+```
+
+You'll see `httpd.service` and `htcacheclean.service`, service unit files to work with systemd.
+
+`systemctl` is the swiss army knife of systemd, with several subcommands.
+
+* `systemctl status httpd.service` shows status info on a unit
+* `systemctl enable httpd.service` to start service when system boots, it creates a link from the
+  systemd directory to Apache's install directory
+* `systemctl disable httpd.service` to prevent service from starting when system boots, it removes
+  the link from above
+
+If you don't specify which unit you're using (eg `.service`), systemd will assume you're working
+with a service.
+
+Run `systemctl status` by itself to get a complete status report of your machine.
+
+Run `systemctl` by itself to get status of all units on your system.
+
+Besides configuring units, systemctl can also handle single starts/stops:
+
+* `systemctl start httpd.service` to start the service
+* `systemctl stop httpd.service` to stop the service
+* `systemctl help http.service` for documentation
+* `systemctl -H <hostname>` to work with a remote machine
+
+## Introduction to the systemd Journal
+
+It's a binary file that records everything that happens on a system: Kernel log messages, system
+log messages (same as syslog), system services output to stdout and stderr, audit records. Default
+location is at `/run/log/journal/`.
+
+Log is lost on reboot. To persist it:
+
+```sh
+$ mkdir -p /var/log/journal
+$ systemd-tmpfiles --create --prefix /var/log/journal
+```
+
+Take a look at the man page for journal config: `man 5 journald.conf`. Config is at
+`/etc/systemd/journald.conf`.
+
+## journalctl
+
+* `journalctl -r` shows newest entries first
+* `journalctl -e` jumps to end of the page
+* `journalctl -n 100` limits amount of lines specified
+* `journalctl -f` follow journal as entries are added
+* `journalctl -u <unit>` only show specific entries about unit
+* `journalctl -o verbose` displays journal entries with all fields
+* `journalctl -o json-pretty` for data analysis format
+* `echo "Hi there." | systemd-cat` sends output of a command to the journal
+* `journalctl -b` shows entries since last reboot
+* `journalctl --since 2018-02-09 12:28:00` shows entries since this timestamp
+* `journalctl --disk-usage` displays disk usage
+* `journalctl --rotate` rotate journal files
+
+## More systemd Tools
+
+* `systemd-analyze` prints how long it takes for system to boot up
+* `localectl` view/change system's locale and keyboard mapping
+* `timedatectl` view/change time zone and system time
+* `hostnamectl` view/set system's host name
+* `systemd-resolve` allow system to resolve hostnames
+* `systemd-inhibit` prevents system from sleeping/shutting down while command is running
