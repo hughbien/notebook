@@ -277,3 +277,374 @@ Take a look at the man page for journal config: `man 5 journald.conf`. Config is
 * `hostnamectl` view/set system's host name
 * `systemd-resolve` allow system to resolve hostnames
 * `systemd-inhibit` prevents system from sleeping/shutting down while command is running
+
+# NGINX Web Server Deep Dive
+
+## Understanding the Default NGINX Configuration
+
+Nginx comes with a default configuration at `/etc/nginx/nginx.conf`. We'll break these down into
+different sections:
+
+```
+user nginx;
+worker_processes 1;
+
+error_log /var/log/nginx/error.log warn;
+pid       /var/run/nginx.pid;
+```
+
+The `user` directive specifies which user the worker processes should run under. The
+`worker_processes` directive specifies how many worker processes to use. `error_log` sets file where
+errors are logged to. `pid` specifies file that stores the PID of the main process.
+
+```
+events {
+  worker_connections 1024;
+}
+```
+
+Nginx uses curly braces for contexts, some directives only work in contexts. The `events` context
+lets us specify how a worker process should handle connections. The block above specifies maximum
+number of connections a single worker can have open at a time.
+
+```
+http {
+  include      /etc/nginx/mime.types;
+  default_type application/octet-stream;
+
+  log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                  '$status $body_bytes_sent "$http_referer" '
+                  '"$http_user_agent" "$http_x_forwarded_for"';
+  access_log /var/log/nginx/access.log main;
+
+  sendfile    on;
+  #tcp_nopush on;
+
+  keepalive_timeout 65;
+
+  #gzip on;
+
+  include /etc/nginx/conf.d/*.conf;
+}
+```
+
+`include` directive lets you include another file into your configuration. The mime types are
+specified in `/etc/nginx/mime.types`. `default_type` specifies the content type for requests that
+aren't defined in that file.
+
+`log_format` specifies how entires in the log are made. `access_log` specifies where to log request
+info to.
+
+`sendfile` specifies whether or not to use the sendfile system call when delivering content.
+`keepalive_timeout` sets how long to hold onto TCP connection for a client before opening up
+connection for a new client.
+
+The last `include` is the directory that will hold all of our virtual host configs.
+
+## Simple Virtual Host and Serving Static Content
+
+Start by adding the simplest server to `/etc/nginx/conf.d/default.conf`:
+
+```
+server {
+  listen 80 default_server;
+  server_name _;
+  root /usr/share/nginx/html;
+}
+```
+
+Listen to port 80, and tell nginx where our HTML files will be loaded from via `root`.
+Use `server_name` to handle multiple virtual hosts. It's common to use `_` as the default.
+
+Run the command `nginx -t` to verify that our config is valid. Then try reloading nginx and pinging
+the server:
+
+```
+$ systemctl reload nginx
+$ curl localhost
+```
+
+You should see the index.html contents.
+
+Add `/etc/nginx/conf.d/example.com.conf`:
+
+```
+server {
+  listen 80;
+  server_name example.com www.example.com;
+  root /var/www/example.com/html;
+}
+```
+
+Now this server will only respond to requests with the `Host` header set to example.com. Create an
+index.html file in the directory above and reload/curl nginx again to get its contents, this time
+with a Host header `curl --header "Host: www.example.com" localhost`.
+
+## Error Pages
+
+Use the `error_page` directive to set error pages:
+
+```
+server {
+  listen 80 default_server;
+  server_name _;
+  root /usr/share/nginx/html;
+
+  error_page 404 /404.html;
+  error_page 500 501 502 503 504 /50x.html;
+}
+```
+
+## Access Control with HTTP Basic Auth
+
+Use `auth_basic` and `auth_basic_user_file` directives to require basic authentication:
+
+```
+location = /admin.html {
+  auth_basic "Login Required";
+  auth_basic_user_file /etc/nginx/.htpasswd;
+}
+```
+
+Now the admin.html request requires authentication. To generate a password file:
+
+```
+$ yum install -y httpd-tools
+$ htpasswd -c /etc/nginx/.htpasswd admin
+```
+
+Then to test our changes:
+
+```
+$ systemctl reload nginx
+$ curl -u admin:password localhost/admin.html
+```
+
+## Basic NGINX Security: Certificates and Configuring SSL/TLS/HTTPS
+
+To generate a certificate:
+
+```
+$ mkdir /etc/nginx/ssl
+$ openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout /etc/nginx/ssl/private.key \
+  -out /etc/nginx/ssl/public.pem
+```
+
+We'll then add these lines to our server context:
+
+```
+listen 443 ssl;
+
+ssl_certificate /etc/nginx/ssl/public.pem;
+ssl_certificate_key /etc/nginx/ssl/private.key;
+```
+
+When you navigate to your website via the browser, you'll have to click through "Advanced" to tell
+the browser to proceed since our certificate is self-signed. Use the `-k` flag with curl to accept
+insecure certificates.
+
+## NGINX Rewrites: Cleaning Up URLs and Redirecting to HTTPS
+
+Use the `rewrite` rule and `try_files` to clean up URLs in the server context:
+
+```
+rewrite ^(/.*)\.html(\?.*)?$ $1$2 redirect;
+rewrite ^/(.*)/$ /$1 redirect;
+```
+
+The first line redirects any requests such as `/page.html?q=1` to `/page`.
+
+The second line redirects any requests such as `/page/` to `/page`.
+
+```
+location / {
+  try_files $uri/index.html $uri.html $uri/ $uri =404;
+}
+```
+
+The `try_files` directive tells Nginx how to find the correct file to serve. For the request `/page`:
+
+1. try /page/index.html first
+2. then /page.html
+3. then /page/
+4. then /page
+5. serve a 404 response
+
+To redirect all traffic to SSL, split the server contexts into two:
+
+```
+server {
+  listen 80 default_server;
+  server_name _;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl default_server;
+  # ...
+}
+```
+
+## Reverse Proxy
+
+Setup a reverse proxy with `proxy_pass`. Inside the server context:
+
+```
+location / {
+  proxy_pass http://127.0.0.1:3000;
+  proxy_http_version 1.1;
+  proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  proxy_set_header X-Real-IP $remote_addr;
+  proxy_set_header Upgrade $http_upgrade;
+  proxy_set_header Connection "upgrade";
+}
+```
+
+This will proxy requests to port 3000 on localhost, adding some headers for the upstream service.
+
+## Load Balancing
+
+Nginx can act as a load balancer to distribute traffic between multiple instances of the same
+application, using the modules/directives: `http_upstream` and `upstream`
+
+Example service files 1-3, `/etc/systemd/system/web-client{1-3}.service`:
+
+```
+[Unit]
+Description=S3 Photo App Node.js service
+After=network.target photo-filter.target photo-storage.target
+
+[Service]
+Restart=always
+User=nobody
+Group=nobody
+Environment=NODE_ENV=production
+Environment=AWS_ACCESS_KEY_ID=YOUR_AWS_KEY_ID
+Environment=AWS_SECRET_ACCESS_KEY=YOUR_AWS_SECRET_KEY
+Environment=PORT=3100
+ExecStart=/srv/www/s3photoapp/apps/web-client/bin/www
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Start these services with: `systemctl start web-client{1-3}.service`
+
+To load balance traffic between three identical services with Nginx:
+
+```
+upstream photos {
+  server 127.0.0.1:3000;
+  server 127.0.0.1:3100;
+  server 127.0.0.1:3101;
+}
+
+server {
+  listen 80;
+  servre_name photos.example.com;
+
+  client_max_body_size 5m;
+
+  location / {
+    proxy_pass http://photos;
+    proxy_http_version 1.1;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP  $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+  }
+
+  location ~* \.(js|css|png|jpe?g|gif) {
+    root /var/www/photos.example.com;
+  }
+}
+```
+
+The upstream context defines three servers. The proxy_pass directive to proxy traffic to the server
+group. By default, this uses the round robin approach. Other methods include:
+
+* hash - specify a key to map request to server
+* ip_hash - client-server mapping based on client IP address
+* least_conn - requests routed to server with least number of active connections
+
+This can be configured in the upstream context:
+
+```
+upstream photos {
+  least_conn;
+  # hash $request_uri;
+
+  server 127.0.0.1:3000 weight=2;
+  server 127.0.0.1:3100 max_fails=3 fail_timeout=20s;
+  server 127.0.0.1:3101 max_fails=3 fail_timeout=20s;
+}
+```
+
+The `server` directive also takes parameters. The above prioritizes sending traffic to the first
+server. It temporarily removes servers 2/3 from the pool if they suffer 3 failed requests in
+20 seconds. It will remove the server for 20 seconds.
+
+## Logging
+
+Use the directives: `log_format`, `access_log`, `error_log` to configure logs. The two main types
+of logging are access (for everything in general) and errors.
+
+```
+log_format main '$remote_addr - $remote_user [$time_local] "$request" '
+                '$status $body_bytes_sent "$http_referer" '
+                '"$http_user_agent" "$http_x_forwarded_for"';
+access_log /var/log/nginx/access.log main;
+```
+
+The log format is just a string of Nginx variables. It's common to use the `combined` format also:
+
+```
+access_log /var/log/nginx/example.log combined;
+```
+
+The levels of logging are: debug, info, notice, warn, error, crit, alert, emerg.
+
+Nginx supports syslog, which works well with other logging services:
+
+```
+access_log syslog:dev/log combined;
+```
+
+## Performance
+
+Use compression to speed up responses with the `http_gzip` and `http_gunzip` modules:
+
+```
+gzip on;
+gzip_disable msie6;
+gzip_proxied no-cache no-store private expired auth;
+gzip_types text/plain text/css application/x-javascript application/javascript text/xml application/xml application/xml+rss text/javascript image/x-icon image/bmp image/svg+xml;
+gzip_min_length 1024;
+gzip_vary on;
+```
+
+* gzip_disable - don't send compressed responses to older browsers
+* gzip_proxied - only compress responses from proxied servers if we wouldn't normally cache them
+* gzip_types - content types to compress
+* `gzip_min_length` - minimum size of file to compress
+* gzip_vary - adds "Vary: Accept-Encoding" header to tell CDNs to treat compressed/uncompressed versions
+  as two separate entities
+
+If a proxied server sends pre-compressed response, use the `gunzip on;` directive to decompress it.
+
+Use the `worker_processes` and `worker_connections` directives to adjust workers/connections for
+optimal performance. Set `worker_processes` to number of CPUs your server has, or use `auto`:
+
+```
+worker_processes auto;
+```
+
+The default connections is 512, but this is usually too low for modern day servers. Nginx was
+designed to handle 10k connections over a decade ago. Try 2048 to start with, with a four core CPU
+that's 8192 simultaneous connections. If Nginx hits this limit, it will output in error.log.
+
+Utilize keepalives with the directives: `keepalive`, `keepalive_timeout`, `keepalive_requests`.
+
+Enable http2 in the `listen` directive: `listen 443 ssl http2 default_server;`.
