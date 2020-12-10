@@ -109,22 +109,156 @@ cascading failures. Use message systems and queues to stabilize your architectur
 
 ## Introducing Capacity
 
+* performance - measures how fast the system processes a single transaction
+* throughput - describes number of transactions system can process in a given time span
+* scalability - describes how throughput changes under varying loads, adding capacity to the system
+* capacity - maximum throughput a system can sustain while maintaining an acceptable response time
+
+In every system, exactly one constraint determines the system's capacity. The limiting factor or
+bottleneck.
+
 ## Capacity Antipatterns
 
+Resource Pool Contention - a bottleneck arises when more threads require one of the resources than
+are available. Connection pools will start to block the requesting thread. During regular peak loads,
+there should be no contention for resources. Size resource pools to the request thread pool. Watch
+for the blocked threads anti-pattern.
+
+AJAX Overkill - applications are sending too many AJAX requests to load a single page. Avoid needless
+requests (eg throttle autocomplete polling requests). Respect your session architecture so requests
+include a session ID. Minimize size of replies (eg just send back JSON data instead of formatted
+HTML). Increase the size of your web tier.
+
+Overstaying Sessions - expunge sessions at the earliest opportunity. Find the average and standard
+deviation of time between page requests. Keep sessions light, use keys instead of whole objects.
+
+Wasted Space in HTML - bandwidth and CPU are not cheap. The larger the page, the more resources
+it takes up. Omit needless characters. Remove whitespace. Use CSS layout instead of HTML tables
+and spacer images.
+
+Reload Button - make your site so fast that users don't ever want to hit the reload button.
+
+Handcrafted SQL - developer crafted SQL tends to be unpredictable. Minimize handcrafted SQL. If you
+can't get around it, check with a DBA. Verify gains against real production data.
+
+Database Eutrophication - a slow buildup of sludge in your database. Use indexes and partitioning
+to deal with it. Purge unnecessary old data. Keep reports out of production.
+
+Integration Point Latency - expose yourself to latency as seldom as possible.
+
+Cookie Monsters - don't shoot yourself in the foot with HTTP cookies. Browsers keep cookies around
+until their expiration date. Cookies were meant to send small chunks of data. Cookies are sent between
+all user's requests/responses. Serve small cookies and expire them when they're no longer necessary.
+
 ## Capacity Patterns
+
+Pool Connections - pooling eliminates connection setup time. Pool sizing properly is vital. Undersized
+leads to pool contention, oversized causes excess stress on the servers. Monitor calls to connection
+pools to see how long your threads are waiting.
+
+Use Caching Carefully - monitor hit rates to verify the cache has performance gains. Avoid caching
+things that are cheap to generate. Precomputing results can eliminate the need for caching. Be aware
+of stale data. Limit cache sizes and build a flush mechanism.
+
+Precompute Content - if sections of your site have infrequent content changes, it might be best to
+precompute the HTML fragments. Factor the cost of generating content out of individual requests
+and into the deployment process. Or have different triggers for precomputation.
+
+Tune the Garbage Collector - user patterns make a huge difference, tune the garbage collector
+in production.
 
 # General Design Issues
 
 ## Networking
 
+Multihomed Servers - a server with more than one IP address. It exists on several networks
+simultaneously. This improves security and performance.
+
+Virtual IP Addresses - a cluster server is an application that acts like a controller for other
+applications. Suppose an application goes down. The cluster server will notice the lack of regular
+heartbeat and can start up the application on a secondary server. It can take over the virtual
+IP address assigned to the clustered network interface. A Virtual IP address is just an IP
+address that can be moved from one NIC to another as needed.
+
 ## Security
+
+Principle of Least Privileged - mandates that a process should have the lowest level of privilege
+needed to accomplish its task. Don't run it as root.
+
+Configured Passwords - passwords are the Achilles heel of application security. Text files are
+vulnerable. Passwords to production databases should be kept separate from any other configuration
+file. Use password vaulting, which keeps passwords in encrypted files.
 
 ## Availability
 
+Gathering Availability Requirements - without considering cost, the desire us unlimited. We need
+to balance the cost of increasing availability with the revenue loss of downtime.
+
+Documenting Availability Requirements - "The system shall be available 99.9% of the time" is too
+vague. What is the system? What counts as available? Define each variable. How often will the
+monitoring device execute its synthetic transaction? What is the maximum acceptable response time?
+What response indicates a success or failure? How many locations? Will data be recorded?
+
+Load Balancing - building systems for horizontal scaling implies load balancing. Use DNS round
+robins, reverse proxies, hardware load balancers.
+
+Clustering - load balancing doesn't require collaboration between separate servers. Clusters can be
+used for load balancing (active/active). They can also be used for redundancy in case of failure
+(active/passive) meaning one server handles all the load until it fails, then a passive one takes
+over.
+
 ## Administration
+
+Does QA Match Production? - keep them separated. Test for zero, one, or many cases. Buy the equipment
+to match environments as closely as possible.
+
+Configuration Files - keep production configuration properties separate from basic wiring/plumbing
+of the application. They should be separate files. Keep config files in version control. Name
+properties after their function, not just their nature (eg `authenticationServer` instead of
+`hostname`).
+
+Start-up and Shutdown - build a clean start-up sequence and ensure components are started in the
+right order. The sequence must start completely and successfully before the application can accept
+work.
+
+Administrative Interfaces - create an admin UI for your internal team. Don't force them to do things
+manually, through SSH tunnels.
 
 # Operations
 
 ## Transparency
 
+Status Dashboard - keep a status dashboard that makes certain answers to common questions visible.
+For example: how many orders did we take yesterday? How does this compare to same day last year?
+How much disk space did we consume? Use existing software to keep track of lower level metrics:
+memory usage, garbage collection, worker threads, db connection pools, traffic statistics. The
+application itself can have its own metrics: business transactions, number of users, circuit breakers,
+integration points. Use green/yellow/red to signal trouble.
+
+Logging - configure logs to appropriate levels. Above all else, log files are human readable. Messages
+should include an identifier that can be used to trace the transaction.
+
+Monitoring Systems - most run agents on hosts being observed, these agents run periodic observations.
+They may also alert for critical issues. Expose traffic indicators, resource pool health, db health,
+integration point health, and cache health.
+
+Operations Database - logging/monitoring is good for exposing immediate behavior. Operations database
+serves time-oriented views of the system. It accumulates status and metrics from all servers and
+feeds to make up the extended system.
+
+Supporting Processes - if a reporting system sends out a report to dozens of people, but they all
+setup an email rule to ignore it, it's not useful. You still need good processes. What should be
+done for a critical alert? Or for a soft report? Setup standard operating procedures to handle
+critical outages so you know what to do.
+
 ## Adaptation
+
+Adaptation Over Time - systems should change to fit its solution space better over time. Each new
+release is motivated by either new features or fixing defects.
+
+Adaptable Software Design - design software to be adaptable. Use dependency injection, object design,
+XP coding practices, agile databases.
+
+Releases Shouldn't Hurt - make sure deployments don't cost too much. Aside from testing, you can
+also work on: configuration management, documentation, marketing communications, deployment, and
+support. Have zero downtime deployments.
