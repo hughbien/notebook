@@ -230,35 +230,224 @@ arguments into chained functions with an arity of 1:
 λx.λy.t
 ```
 
+The outer function takes an argument `x` but returns the function `λy.t`. It's similar to doing
+something like this in JavaScript:
+
+```js
+(x => y => x + y)(2)(3);  // returns 5
+```
+
 ## Order of Operations
+
+The use of parentheses effects the order of operations. See how the below reduces:
+
+```
+λx.(λy.y x)
+λx.(y[y:=x])
+λx.x
+```
+
+But without the parenthesis, you'll get a different result:
+
+```
+λx.λy.y x
+(λy.y)[x:=x]
+λy.y
+```
 
 ## Church Encoding
 
+In early 1930s, Alonzo Church tried to represent constructs like conditional branches, loops, and
+higher order functions for computation. He created representations for values and operations.
+
+The Church encoding lets us use booleans, numbers, conditionals, loops, and combinators.
+
 ## Booleans
+
+Represent `true` and `false` in Lambda Calculus like:
+
+```
+λx.λy.x
+λx.λy.y
+```
+
+The JavaScript equivalent would be:
+
+```js
+let True = (x => y => x);
+let False = (x => y => y);
+True(true)(false) // returns first value, true
+False(true)(false) // returns second value, false
+```
+
+The if, then, else conditional statement can be represented like:
+
+```
+λx.λy.λz.x y z
+```
+
+The JavaScript equivalent would be:
+
+```js
+let If = (x => y => z => x(y)(z));
+If(True)("TRUE")("oops.."); // TRUE
+If(False)("oops")("FALSE"); // FALSE
+```
 
 ## Numbers
 
+```
+λf.λx.x = 0
+λf.λx.f (x) = 1
+λf.λx.f (f(x)) = 2
+λf.λx.f (f(f(x))) = 3
+```
+
+The first line returns the identity function, it's the equivalent of: `f(y) = (f(x) = x)`. It
+represents zero because there is no reduction being applied.
+
+The second line is the application of the identity function, it represents one. Subsequent lines
+accumulate.
+
+The JavaScript equivalent:
+
+```js
+let calculate = f => f(x => x + 1)(0);
+let zero = f => x => x;
+let one = f => x => f(x);
+let two = f => x => f(f(x));
+let three = f => x => f(f(f(x)));
+calculate(zero) // 0
+calculate(one) // 1
+calculate(two) // 2
+calculate(three) // 3
+```
+
 ## Combinators
+
+A combinator is a high-order function that uses only function application and earlier defined
+combinators to define a result from its arguments. Only lambda expressions and bound variables.
+
+The Omega Combinator can be used to mimic recursion in a programming language:
+
+```
+λx.x (λx.x)
+x[x:= λx.x]
+λx.x
+
+λx.xx (λx.xx)
+x[x:=λx.xx]
+λx.xx λx.xx
+```
+
+The Y Combinator is a recursive, fixed-point combinator that can be used for list iteration:
+
+```
+yf = f(yf) forall f
+```
+
+In Lambda Calculus:
+
+```
+Y=λf.(λx.f(xx))(λx.f(xx))
+```
 
 # Machinery
 
 ## Probability and The Theory of Forms
 
+Around 400BC, Plato said the world we see/experience is only a partial representation of its true
+form, or an abstraction. The real world is hidden from us, beyond our ability to fully perceive it.
+
+The natural world appears to be random events, but a mathematician will take large amounts of these
+events and see them converge to an apparent truth. In 1713, Jacob Bernoulli came up with the Law
+of Large Numbers to prove this. If you flip a coin enough times, the distribution will come closer to
+50/50.
+
 ## Markov Chains
+
+Flipping a coin is a single event, where each event is independent of the result of the previous.
+Does the law of large numbers still hold true for series of events, dependent on the previous?
+
+Andrey Markov proved this to be true in the early 1900s. The Markov chain describes a set of states
+with transition rules, as probabilities. States don't allow for a loop back.
 
 ## Finite State Machine
 
+Sometimes called Finite State Automata. Similar to a Markov chain, it's usually represented as a
+flowchart of states and transitions. Instead of probabilities for transitions, Finite State Machines
+have actions that could include conditions. It's common to use input symbols for transitions too,
+for example reading a string of characters where each character represents one input.
+
+The FSM is an abstract, mathematical model of computation that either accepts or rejects. It can be
+deterministic of non-deterministic. A non-deterministic machine can transition to the next state as
+a result of random choice. If you run a non-deterministic program several times, it could produce
+different results even with the same input.
+
+FSM cannot store state outside the current state. There is no persistence or RAM. We can't calculate
+digits of pi, perform map/reduce operations. But we can parse Regular Expressions.
+
 ## Pushdown Machine
+
+A Pushdown Machine, or Pushdown Automata, is a FSM with a stack data structure that can be used to
+store data. State transitions are decided by: input symbol, current state, and stack symbol.
+
+The stack adds a lot of computing power. You can now sum numbers and do other math operations. But
+there are limitations. For example, if the stack only have five spaces but we have ten states, you'll
+run out of memory.
 
 ## Turing's Machine
 
+In the mid 1930s, Alan Turing published his paper On Computable Numbers. He introduced a machine
+with a read/write head and some tape. The tape has cells, each cell holds a simple symbol, and you
+can move the tape under the head so the machine could read/write.
+
+A machine can take another machine as its input, similar to functions taking functions as arguments.
+You can write a machine to describe the number 4 (M4) and the number 6 (M6), then write a machine
+that takes those two as inputs to multiply (MX). You can even write a machine that accepts the numbers
+and the instructions of MX (a more general universal machine).
+
+> If an algorithm is computable, a Turing Machine can compute it.
+
+Was said by Turing. Similar to Church:
+
+> All total functions are computable.
+
+This became known as the Church-Turing Conjecture.
+
+The Turing Machine has four parts:
+
+1. set of symbols, defined in an alphabet or language the machine can understand (usually 0s and 1s)
+2. infinitely long "tape" which contains a single row of symbols that can be anything
+3. read/write head that reads from the tape and writes back to it
+4. rules for reading/writing from the tape
+
+If you create an instruction set capable of running on a Turing machine, it's "Turing Complete".
+All that's needed is: conditional branching, loops, variables/memory.
+
 ## The Von Neumann Machine
 
-## Automatic Computing Engine
+Initially, computers were very specific devices. The hardware was created specifically to multiply
+numbers. Another machine was made specifically to generate prime numbers. Turing and von Neumann
+wanted to fix this. They decided the instructions could be part of the tape. This is what we call a
+program today.
 
 ## ENIAC and EDVAC
 
+In 1940s, JP Eckert and John Mauchly designed the ENIAC. It was Turing Complete and programmable,
+but required programmers to physically move wires around. In 1943, they improved the design by
+storing the instruction set as a program stored next to the data itself. This machine was called
+the EDVAC.
+
+Von Neumann took interest in the ENIAC and EDVAC. He wrote a paper about the project, detailing
+the idea of a stored-program machine. But he left out Eckert and Mauchly's names on the paper. It
+was soft published by a colleague, so stored programs are now attributed to Von Neumann (incorrectly).
+
 ## Von Neumann Architecture
+
+Von Neumann's machine looks familiar, with parts like: CPU, Memory, input and output. Von Neumann
+abstracted specific computers, so that they could be written as code. Machines now run within
+machines. For example, a calculator runs in a browser which runs on an operating system.
 
 # Big O
 
