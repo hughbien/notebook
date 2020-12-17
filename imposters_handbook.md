@@ -1206,88 +1206,308 @@ For example, a family of algorithms might be how to travel. Exact implementation
 
 ## Coupling and cohesion
 
+Cohesion refers to how related are the functions of each module or class. Do the ideas bond together
+logically? For example, is your user-related code in the `User` class?
+
+Coupling is kind of the opposite. When two objects are coupled, they're too dependent on each other.
+For example, if a `Membership` instance always creates a `User` instance, they're said to be
+tightly coupled.
+
+You want high cohesion with low coupling. Classes/modules should isolate ideas and try not to rely
+on each other too much.
+
 ## Separation of Concerns
+
+Slice up aspects of your application so they don't overlap. They can be sliced up by horizontal
+concerns: user interface, database, business logic. Or even abstract ideas: authentication, logging,
+cryptography.
+
+Ruby on Rails famously suggested the Model View Controller approach as a separation of concerns,
+which decoupled data access and business logic from HTML.
 
 ## YAGNI and DRY
 
+YAGNI - you ain't gonna need it. Developers can prematurely optimize, in terms of building features
+that they probably won't need. Don't fall into this trap. Wait until it's necessary to build out
+a feature.
+
+DRY - don't repeat yourself. Try to have a single source of truth for logic and data.
+
 ## Tell, Don't Ask
+
+OOP design works well if you follow the principle of "Tell, Don't Ask". When using another object,
+the caller should tell the object what to do instead of asking. An example anti-pattern:
+
+```rb
+class Membership
+  def deactivate
+    if user.is_active?
+      user.active = false
+      user.save!
+    elsif user.is_suspended?
+      user.suspend = false
+      user.save!
+    end
+  end
+end
+```
+
+In the case above, we're constantly asking the `User` instance about its status and then performing
+action based on that. Instead, all of this logic should simply be moved to the `User` class, the
+`Membership` class should tell the user what to do.
 
 ## Law of Demeter (or: Principle of Least Knowledge)
 
+You shouldn't have to reach through one object to get to another. An example anti-pattern:
+
+```rb
+db.user.membership.deactivate!
+```
+
+The chain of calls violate the Law of Demeter. You punch a hole through abstraction and introduce
+extremely tight coupling.
+
 ## Dependency Injection
+
+Send dependencies that a class needs through its constructor. This loosens dependencies and inverts
+control, so the caller has more say into which concrete classes to use.
+
+```rb
+class Membership
+  def initialize
+    @user = User.new
+  end
+end # can be re-written as
+class Membership
+  def initialize(user)
+    @user = user
+  end
+end
+```
 
 ## Interface-based Programming
 
+Instead of relying purely on a class type, we can do type checking based on an object's interface.
+In Java and C#, you can describe an object's behavior with `Interface`. In Swift and Elixir, this
+is done via a `Protocol`. This is similar to dynamic duck typing, where it doesn't matter if the
+object isn't a type of Duck -- as long as it quacks.
+
 ## Inversion of Control
+
+Dependency Injection is a type of inversion of control. IoC just means giving more power to the
+caller instead of the implementer. The caller is responsible for creating and injecting all of the
+dependencies that the class will use.
 
 # Functional Programming
 
 ## Immutability
 
+Immutability is a core feature of functional languages. Functions cannot change state. They will
+always return the same value given the same input.
+
+In the case of data structures, a function will create a new object with updated state. For example:
+
+```elixir
+friend = %{name: "Clara"}
+friend = Map.put(friend, :name, "Mike")
+IO.inspect friend #%{name: "Mike"}
+```
+
+In this case, an entire new map is returned by `Map.put`. This isn't horrible for memory because
+Elixir uses a pointer under the covers. Idiomatic Elixir also includes pipes:
+
+```elixir
+%{name: "Clara"} |> Map.put(:name, "Mike") |> IO.inspect
+```
+
 ## Formalizing Data with Structs
+
+Structs provide a foundation for data, similar to classes in object oriented languages:
+
+```elixir
+defmodule Friend do
+  defstruct name: "Clara", age: 0
+end
+defmodule Immutability do
+  def change_name(friend, new_name) do
+    Map.put(friend, :name, new_name)
+  end
+  def get_friend do
+    %Friend{}
+  end
+end
+Immutability.get_friend |> IO.inspect
+```
 
 ## Transforming Data
 
+Transforming data using idiomatic functional programming works very well. Some rules:
+
+1. transform data by passing data through a set of functions
+2. smaller functions are better
+3. treat functions the same as values (eg you can pass callback functions as arguments)
+
+This works really well with Ruby's enumerable methods:
+
+```ruby
+list_of_numbers
+  .map { |n| n + 1 }
+  .select { |n| n % 2 == 0 }
+  .reduce(0) { |a,b| a + b }
+```
+
 ## Side Effects and Purity
+
+The more side effects a function has (working with database or stdout), the less pure your function
+is considered. Purity refers to the level of interaction any code has with the outside world.
+
+Functional programmers like purity. It's easier to test pure function calls without side effects.
 
 ## Currying
 
-## Functors and Monads
+Currying is the act of using smaller, single arity functions in a chain rather than a larger function
+with multiple/complex arguments.
+
+```js
+const dateNight = (who, what, where) => {
+  return `Out with ${who} having fun ${what} at ${where}`;
+};
+// can be curried as
+const nightOut = who => what => where => {
+  return `Out with ${who} having fun ${what} at ${where}`;
+};
+nightOut("wife")("dancing")("club 9");
+```
+
+Currying is similar to partial application of functions.
 
 # Databases
 
 ## First Normal Form (1NF): Atomic Values
 
+1NF says that values in a record need to be atomic and not composed of embedded arrays.
+
 ## Second Normal Form (2NF): Columns Depend on a Single Primary Key
+
+2NF means we need to identify columns that uniquely define the data in our table. For example,
+the primary key of a customers table may be their email address.
 
 ## Third Normal Form (3NF): Non-keys Describe The Key And Nothing Else
 
+3NF says every non-primary field must describe the primary key field. No field should exist in the
+table that does not describe the primary key field. For example, an orders table that includes
+email addresses are bad -- instead it should have a `customer_id` column that references a row in
+the customers table.
+
 ## OLAP And OLTP
+
+For most applications, OLTP is appropriate. OLTP stands for Online Transaction Processing and is
+based on performance -- many reads/writes/deletes.
+
+OLAP stands for Online Analytical Processing. These systems change little over time, apart from
+nightly/weekly loads. These power data warehouses and support data mining.
 
 ## Extraction, Transformation, and Loading (ETL)
 
+Filing taxes is a form of ETL that people do every year: pull all their financial data from their
+banks, savings, investments, etc... and compile it into a single place. They go through it and
+verify it reconciles.
+
+ETL systems range from simple to complex. You can use a set of scripts to perform tasks and load
+up data in your data warehouse.
+
 ## Data Marts and Warehouses
 
-## Analyzing a Data Mart
-
-## Using an OLAP Cube
-
-## Distributed Database Systems
+A data warehouse is like a filing cabinet in your home, where you store all financial information:
+statements, tax documents, receipts. You try to keep it organized. When you need information, you
+pull it out and load it up into something your accountant can understand, like a spreadsheet.
+The spreadsheet is the data mart -- a focused/targeted place that can answer questions.
 
 ## A Shift in Thinking
 
+Data storage design always kept two things in mind: storage capacity and memory/processing speed.
+NoSQL systems are getting popular because they are easier (technically and economically) to build
+distributed databases with. They can utilize multiple smaller servers, scaling horizontally.
+
+SQL servers require ACID compliance, which is a problem in distributed systems. ACID means:
+
+* Atomic - single transaction happens or doesn't, no partial transactions
+* Consistent - entire database is aware of a change in data whenever transaction is completed. The
+  state of the database will change completely, never partially
+* Isolated - one transaction will not affect another if they happen at the same time
+* Durable - when a transaction concludes, nothing can change the data back unless the another
+  transaction occurs. It's written to disk and persists even if system fails.
+
 ## CAP Theorem
+
+Distributed processing can only provide two of the three guarantees at any given time:
+
+* Consistency - state of database will change with each transaction
+* Availability - distributed system will respond in some way to a request
+* Partition Tolerance - distributed system relies on a network of some sort to function. If part of
+  that network goes down, the system should still operate.
 
 ## An Alternative to ACID: BASE
 
+BASE - basically available, soft state, eventually consistent.
+
+ACID is about data paranoia: protect it at all costs. Make sure it's written to disk. BASE is
+the opposite: strength in numbers, more machines, spread the risk.
+
+BASE systems can scale massively by adding more nodes.
+
 ## Sharding
+
+Sharding means distributing load across multiple machines. There are two ways to do this:
+
+* let the machine decide how - modern databases can use primary keys to divide data into equal chunks
+* we decide how - if your system lends itself to a natural way to segregate, for example divide by
+  region or country. Sharding logically might make more sense
 
 ## Replication
 
-## Big Data
-
-## In The Real World
+Replicate the data across nodes in your cluster to have a guarantee it's as accurate as possible.
+If you have data centers across the world, make sure to replicate the data across each region.
 
 # Testing
 
 ## The Nuts and Bolts of TDD
 
-## Just Start
+Steps for test driven development:
+
+1. think about what you need to create
+2. write a simple test to get yourself started
+3. run the test and watch it fail
+4. write code to make the test pass
+5. repeat steps 1-4, constantly refactoring what you've written
 
 ## The Happy Path
 
+The initial test is usually what people call the happy path: it passes when everything works as
+we expect it to work. This tests the basic functionality of your implementation.
+
 ## The Sad Path
+
+The sad path tries to blow up the happy path. It's what happens when you do X. It's a test that
+gets written after the initial happy path implementation is done.
+
+When you read your code, take into consideration how you can break it. Then write tests to break it.
 
 ## BDD
 
-## Features, Scenarios, Expectations
+Behavior Driven Design works like TDD, but you focus on the behavior of the application instead.
+It's a subtle shift. Instead of testing our code, we write down how our application responds.
 
-## Given, When, Then
+Some downsides to TDD:
 
-# Essential Unix
+* The tests are bound to the design of your class. If you change your design, you have to change
+  your test and code.
+* The focus is on engineering instead of application experience
+* Testing proliferates, where you try to get as much code coverage as possible
 
-## Shell Scripts
+With BDD, you write tests that your application will have to deal with under specific circumstances.
 
-## Make
+## Features, Scenarios, Expectations (& Given, When, Then)
 
-## CRON
+Using a different syntax of features, scenarios, and expectations helps you focus more on your
+application behavior. It provides: readability, ubiquity, and focus.
