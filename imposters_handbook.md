@@ -453,147 +453,754 @@ machines. For example, a calculator runs in a browser which runs on an operating
 
 ## A Super Simple First Step: O(1)
 
+```js
+const nums = [1,2,3,4,5];
+const firstNumber = nums[0];
+```
+
+How complex was the lookup operation above? We had five inputs, but only required one operation to
+look up the zero index. Even if the index or inputs change, an array look up will always be `O(1)`.
+
 ## Iterations and Order(n)
+
+```js
+const nums = [1,2,3,4,5];
+let sum = 0;
+for(let num of nums) {
+  sum += num;
+}
+```
+
+How many operations do we have per input? We iterate through each number and run an addition operation
+on each one. This algorithm is linear scaling, or `O(n)`.
+
+This algorithm could be simplified using Carl Friedrich Gauss's sum of series formula:
+
+```
+S = n(n+1)/2
+```
+
+Instead of performing an operation on each element in the array, we can just lookup the last number
+(or get the size) and plug it into the formula. That's a static 3 operations, no matter the size
+of the Array. But instead of `O(3)` we always refer to these static complexity to simply `O(1)`.
 
 ## The Not So Good Approach: O(n^2)
 
+Let's try to determine if an Array has duplicates or not:
+
+```js
+const hasDuplicates = function(nums) {
+  for (let i=0; i<nums.length; i++) {
+    const thisNum = nums[i];
+    for (let j=0; j<nums.length; j++) {
+      if (j !== i) {
+        const otherNum = nums[j];
+        if (otherNum === thisNum) return true;
+      }
+    }
+  }
+  return false;
+}
+```
+
+This algorithm iterates over the array exponentially (via the nested loop). This type of complexity
+is `O(n^2)` or "Order n squared". While this is the simplest solution, we can improve performance wise.
+
 ## Refining to Order(log n)
+
+Assumption 1: is the input sorted? For illustration purposes, let's say yes.
+
+Assumption 2: can we use more storage than just the given array? Let's say yes.
+
+Given these two assumptions, you can use a binary search. This type of algorithm is called divide
+and conquer. A binary search works by dividing the input in two, discarding the half which does not
+contain your search term, and then repeating until your search term is found.
 
 ## Quick Logarithm Review
 
+Logarithms make working with exponents easier.
+
+```
+x ^ 3 = 8
+```
+
+Here it's easy to solve for `x`. What about:
+
+```
+2 ^ x = 512
+```
+
+This can be rewritten as a logarithm: `log2(512) = x` or "log base 2 of 512 equals x". The default
+base is 10, which is written out like `log(100) = x` "or how many times do you multiply 10 by itself
+to arrive at 100? The answer is 2.
+
+For the binary search, we're splitting the input in half, which is log base 2. The complexity for
+the binary search algorithm is `O(log n)`.
+
 ## Rethinking O(n^2) with O(n*log n)
+
+Instead of doing a linear search for each item, we can simply do a binary search. We'll still need
+to iterate through each input though:
+
+```js
+for (let num of nums) {
+  if(searchFor(nums, num)) {
+    return true;
+  }
+}
+return false;
+```
+
+This algorithm is `O(n*log n)` since the nested operation is `O(log n)`.
+
+What if we're searching for a guaranteed duplicate in a range of numbers? For example, the input
+will always be 1 to N, where one of the numbers are duplicated. In this case, we can use the Gauss
+formula to get the sum of the series. Then get the actual sum (an `O(n)` operation). Then simply
+subtract the non-duplicate sum from the actual sum. This algorithm is `O(n)`.
 
 ## A Quick Break for Math Geeks
 
+Check out the [Numberphile](https://www.youtube.com/user/numberphile) YouTube channel for interesting
+math problems.
+
 ## Thinking in Big-O
 
+Some patterns we see between data structures and Big-O:
+
+* Array and Hash access is always `O(1)`
+* List iterations are `O(n)`
+* Nested loops of the same collection are at least `O(n^2)`
+* Divide and conquer algorithms are `O(log n)`
+* Iterations that use divide and conquer are `O(n*log n)`
+* If a nested loop has to be added per input, it's `O(n!)` (find another algorithm)
+
 ## Space Complexity vs Time Complexity
+
+We've only been dealing with time complexity, but space complexity can be measured in the same terms.
+How much does space usage scale according to input?
 
 # Data Structures
 
 ## Arrays
 
+Non-dynamic arrays require a size upfront. Arrays are allocated in adjacent blocks on memory when
+created. If you need to add more items than capacity allows, a resizing operation occurs that's
+expensive. Languages like JavaScript support dynamically sized Arrays.
+
+Arrays are a simple data structure, with quick `O(1)` access when you know which index you need.
+
 ## Stack
+
+With stacks: you can't access items randomly using an index, you can only add/retrieve items from
+the top, and there are three operations (push/pop/peek).
+
+The nature of a stack is Last In, First Out or LIFO.
+
+Stacks work perfectly with algorithms that require: reversing, traversing a graph/tree, checking an
+opening/closing structure (such as balanced parentheses).
 
 ## Queue
 
+A queue is like an Array with some additional rules: can't access values randomly using an index,
+you can only add values in one end and retrieve them from the other, have two operations (enqueue
+and dequeue).
+
+The nature of a queue is First In, First Out or FIFO.
+
+A single queue can be implemented with two stacks. The enqueue operation would be a push to stack A.
+The dequeue operation: pop off of stack B, if stack B is already empty -- pop off of stack A and onto
+B until A is empty first.
+
 ## Linked List
+
+There are two types of linked lists: singly and doubly linked. A singly linked list is made up of
+nodes in memory. A node has: value you want to store and a pointer to the next node. A pointer to
+null means it's the last node, or tail. The first node is called the head.
+
+A doubly linked list node includes an additional pointer to the previous node.
+
+The size of a linked list is dynamic, since adding another node is as simple as updating a few
+pointers. You can even insert values in the middle of the list. Same for deleting.
+
+The downside is that you must always traverse the list to get the item you want, which is an `O(n)`
+operation.
 
 ## Hash Table
 
+A hash table stores data using a computed index, the result of which is an index. This computation
+is called the hash function. Data is then stored at this index location in the table.
+
+Hash table reads/writes are `O(1)`, since you simply run the hash function on the key to look it up.
+In the real-world, you may get duplicate keys called collisions. This happens when the data size is
+large, then the read/write time can be reduced to `O(n/k)` where k is the size of the hash table or
+n is the size of the data set.
+
+Hash tables can implement "open addressing". It resolves a collision by finding the next available
+slot and dropping it there. Look ups may require scanning after hashing. Hash tables can also use
+"separate chaining", which solves collisions by using a linked list in each slot.
+
 ## Dictionary
+
+Dictionaries are hash tables with unique keys for accessing values. The key is guaranteed to be
+unique. Dictionaries provide `O(1)` access to any element. Dictionaries can be a bit larger and use
+more space.
+
+Dictionaries in a language may be implemented as hash tables under the hood.
 
 ## Trees
 
+Trees are a graph data structure with a hierarchical structure. Trees have a single root node, with
+children descending from it. The computer's file system is an example tree.
+
 ## Binary Tree
+
+A binary tree is a specialized tree where each node can have 0, 1, or 2 children nodes. Each node
+can only have one parent (except the root node which has zero).
+
+Each level of tree represents a logarithmic value. The root is `log2(0) = 1`, which has 1 node. The
+next level is `log2(1) = 2`, which has 2 nodes. The next is `log2(2) = 4`, which has 4 nodes.
 
 ## Heap
 
+A heap is an inverted tree that stores data according to a heap property. Every child node belongs
+to a parent node that has a greater priority (or value) for a max heap. The inverse is true for
+a min heap.
+
+They're useful for comparative operations, such as "I need all people in this heap to be age greater
+than 23".
+
+Heaps are used in data storage, graphing algorithms, priority queues, and sorting algorithms. The
+primary advantage is performance, as they're fast for searching since they are pre-sorted.
+
 ## Binary Search Tree
+
+A binary search tree is a heap that's organized based on the values of the nodes, but there is also
+a left-to-right priority. The rules are:
+
+1. all child nodes in the tree to the right of a root node must be greater than the current node
+2. all child nodes in the tree to the left must be less than the current node
+3. a node can only have two children
+
+It becomes very easy to search for an item. The disadvantage is that insertion/deletion can be time
+consuming when the tree grows. Re-ordering may be necessary.
 
 ## Digital Tree (or Trie)
 
+The term comes from retrieval, but is pronounced "try". It can outperform a binary search tree or
+hash table. Tries let you know if a term exists in a body of text.
+
+The advantages of tries are speed and space. Finding a word in a trie is `O(m)` where m is the
+length of the word you're trying to find.
+
+Common prefixes are reused so space usage is kept to a minimum. This is how auto completion usually
+works.
+
 ## Graphs
 
-## So What?
+Graphs are a set of values related in a pair-wise fashion. Nodes are called a "vertex" which are
+connected by an "edge".
+
+Graphs can be directed (if edges flow in one direction) or undirected. They can also be weighted
+or unweighted. When vertices are connected by edges in a circular fashion, it's called a cycle.
+If a graph doesn't have a cycle, it's called a directed acyclic graph. All trees and linked lists
+have been directed acyclic graphs.
 
 # Algorithms: Simple
 
 ## Bubble Sort
 
+The bubble sort iterates through a list, comparing pairs of values. If the left side is larger
+than the right side, it swaps. Otherwise, it keeps the order the same. By the end of the first
+iteration, the largest number will be the last item of the list. Then we repeat this swapping again
+until the next largest number will be the second-to-last item. Repeat until the list is sorted.
+
+The complexity for this sort is `O(n^2)`.
+
 ## Merge Sort
+
+One of the most efficient ways to sort a list and will typically perform well. Time complexity of
+`O(n*log n)`.
+
+Merge Sort splits all elements in a list down to smaller, two element lists which can be sorted
+by one pass. Then it recursively merges the smaller lists back into a larger list, ordering as you
+go.
+
+This is faster than the Bubble Sort because it divides and conquers the list. When merging two
+sorted lists, you'll only need to compare the left-most number since you know it's the smallest.
 
 ## Quicksort
 
+Quicksort is a divide and conquer algorithm that uses pivoting to break the list into smaller chunks.
+In the worst case, quicksort is `O(n^2)` when the pivot is the smallest or largest in the list. In
+the best case, it's `O(n*log n)`. The algorithm works like this:
+
+1. start with a set of elements
+2. pick a pivot (last element by convention, but can be random)
+3. partition list so all items less than pivot value is to the left, all items greater than pivot
+   value are moved to right partition
+4. when you're done partitioning, the pivot will be in its final position
+5. pick another pivot at random, and repeat steps 3-5 until all pivots are in their final position
+
+We can select our pivot more intelligently. This requires an initial step to calculate the median
+value, then make that the pivot. The performance will usually beat the merge sort because sorting
+happens in place (less space complexity).
+
 ## Selection Sort
+
+Selection sort is a simple algorithm. Scan a list of items for the smallest element, then swap that
+element for the first item in the list. Continue until all remaining elements are sorted.
+
+Complexity of this sort is `O(n^2)` at worst (when list is pre-sorted in the reverse order you want)
+to `O(1)` swaps when the list is already sorted. Average performance is `O(n^2)` comparisons and
+`O(n)` swaps.
 
 ## Heap Sort
 
+It's similar to a selection sort, but uses a heap to do so. A Heap sort is `O(n*log n)`.
+
 ## Binary Search
+
+This is a search algorithm for pre-sorted lists (or a lookup in a binary tree). It's a divide and
+conquer algorithm:
+
+1. split the list in two, right down the middle
+2. if the rightmost number (also the largest) on the left list is less than our number, remove that
+   partition completely
+3. otherwise remove the right partition
+4. repeat the split and removal until you find your value
 
 ## Graph Traversal
 
+We've been traversing lists so far, but how to we search throughout a graph? You can use recursion
+or iteration. While recursion can be simpler, it allocates memory onto the stack and can result
+in crashing with a stack overflow error.
+
 ## Depth First Search
 
+A depth first search algorithm will go as deep as possible into a graph until it hits a leaf node.
+Once it hits a leaf, it backtracks back up and to the right until the tree traversal is done.
+
 ## Breadth First Search
+
+A breadth first search algorithm will search nodes in order of their levels. So the root node is
+first, followed by all of the root node's children, followed by all the root node's grandchildren,
+and so on.
 
 # Algorithms: Advanced
 
 ## Dynamic Programming
 
-## Origins
+Dynamic programming solves optimization problems by dividing it into sub-problems and using
+memoization. The problem must be: an optimization problem, dividable into sub-problems, have an
+optimal substructure, reducible to P time through memoization.
 
 ## Fibonacci
 
+The Fibonacci sequence is a series of numbers where the next number is the sum of the two preceding
+numbers: 1, 1, 2, 3, 5, 8, etc...
+
+If you divide each successive number by itself (5/3 or 8/5) you converge on the number phi, which
+is the golden ratio.
+
+To print the Fibonacci sequence up to a given position:
+
+```js
+const calculateFibAt = (n) => {
+  if (n < 2) {
+    return n;
+  } else {
+    return calculateFibAt(n-2) + calculateFibAt(n-1);
+  }
+}
+for (var i = 0; i <= 10; i++) {
+  console.log(calculateFibAt(i));
+}
+```
+
+The time complexity for this algorithm is `O(2^n)`, an exponentially complex solution. This can be
+sped up with some memoization:
+
+```js
+var fibFaster = function(n) {
+  var sequence = [0,1];
+  for (var i=2; i<=n; i++) {
+    sequence.push(sequence[i-2] + sequence[i-1]);
+  }
+  return sequence;
+}
+console.log(fibFaster(10));
+```
+
+The time complexity here is `O(n)`. The space complexity is also `O(n)`.
+
 ## Greedy Algorithms
+
+Greedy algorithms follow a heuristic of making the locally optimal choice at each stage with the
+hope of finding a global optimum.
 
 ## Bellman Ford
 
+Given a graph with weighted wedges, how do you find the shortest path between two vertices?
+
+The Bellman Ford algorithm can do that. It can accommodate negative edges, which Djikstra cannot.
+It's a dynamic programming algorithm that uses memoization. To use Bellman Ford:
+
+1. we're going to measure the cost of going from node S to E, getting the lowest cost to each nodes
+   A-D along the way
+2. make a key/value data structure, the key being the node and the value being the cost
+3. set initial costs/values to infinity (S to S should be set to zero)
+4. traverse through the graph, memoizing the lowest cost into our key/value table as we go
+5. repeat traversal through every possible path (nodes can be visited more than once)
+
+The complexity for this algorithm is `O(n^2)`.
+
 ## Djikstra
+
+Dijkstra doesn't work with negative edge weights. It also only visits each vertex once. The next
+vertex is chosen with these rules:
+
+* it must not have been visited previously
+* it has the smallest cost of the remaining unvisited vertices
 
 # Compilation
 
 ## How a Compiler Works
 
+A compiler is a program that reads code you write and generates something that the runtime engine
+can execute. The steps of compilation are: lexical analysis, parsing, semantic analysis,
+optimization, code generation.
+
 ## Lexical Analysis
+
+This step analyzes the code that's passed to the compiler and splits it into tokens. When you read
+a sentence, you tokenize it into words by splitting them via whitespace and punctuation. Each token
+is then labelled:
+
+```js
+if (x == 10) { console.log("Hello") }
+```
+
+The lexer will generate pseudo code tokens:
+
+```
+{keyword, "if"}
+{paren, }
+{variable, "x"}
+{operator, "=="}
+{number, "10"}
+{left-brace, }
+```
 
 ## Parsing
 
+The parser takes over and applies the tokens to the formalized grammar. It turns tokens into
+language structures.
+
+```js
+if (
+  x == 10 // relation -> predicate
+) {
+  console.log("Hello") // call -> then statement
+}
+/* if then */
+```
+
 ## Semantic Analysis
+
+The compiler tries to figure out what you're trying to do.
+
+```js
+var x = 12;
+var squareIt = function(x) {
+  return x * x;
+}
+y = squareIt(x);
+console.log(y);
+```
+
+The compiler figures out: what will y evaluate to?
 
 ## Lexical Scoping
 
+The compiler figures out the scope of variables.
+
+```js
+if (1 === 1) {
+  var x = 12;
+}
+console.log(x); // 12
+```
+
+Languages have different rules for lexical scoping. In JavaScript, variable can be hoisted up to
+the function block they're declared in.
+
 ## Optimization
+
+This is typically the longest step. Compiler optimization produces faster and more efficient code.
+Some common optimizations include renaming variables to be shorter or changing expressions and
+statements to their optimized forms or replacing variables with literals.
+
+Another example is, if a compiler sees the expression: `number * 0` -- it just replaces it with zero.
 
 ## Code Gen
 
+Some compilers will generate an intermediate language output. Java, for example, will generate
+instructions for its virtual machine which will later compile it down to machine-level code.
+C# does something similar. When it's first run, the virtual machine will compile it down to native
+code. Subsequent runs will use that native code, skipping compilation. This is called JIT or Just
+In Time compilation.
+
+Dynamic languages like Ruby, JavaScript, Python use an interpreter. Ruby reads a file, does all the
+compilation steps above, then executes as needed. This is not as fast as native code.
+
 ## LLVM
+
+LLVM, low level virtual machine, is a collection of modular/reusable compiler toolchain technologies.
+You can use LLVM to build your own compiler. CLANG is an LLVM-based compiler for C.
 
 ## GCC
 
+GCC, GNU Compiler Collection, is another compiler toolchain that provides compilers for C, C++,
+Java, Go, and more. The main differences are licensing (GCC uses GPL and LLVM uses MIT/BSD) and
+sometimes speed.
+
 ## Garbage Collection
+
+Garbage collection cleans up the heap in memory. It's used in high level languages like Java
+or JavaScript. Some languages require manual garbage collection, like C.
+
+Garbage collection requires overhead and can slow things down. It's undecidable - like the Halting
+Problem, we don't know if a process will complete so we cannot know if we can clear all memory.
 
 ## Tracing
 
+Tracing is the most widely used method of garbage collection. When you create an object on the
+heap, there's a pointer to it that exists on the stack. The garbage collector takes a look at root
+objects and their references, tracing those through the stack and heap. Objects that aren't traceable
+will be deallocated.
+
 ## Referencing Counting
 
-## Compile-time
+A count of references are made for each object. When the count goes to zero, the object is deallocated.
+This is how Objective-C's ARC works.
+
+## Compile-time Garbage Collection
+
+The XCode compiler analyzes code written and decides the memory use upfront. It uses strong, weak,
+and unowned object references. So garbage collection is done at compile-time, freeing up the overhead
+of runtime.
 
 # Software Design Patterns
 
+Design Patterns are a controversial topic. From one perspective: we waste precious time on worthless
+trivia. From another, we act disciplined and build for the future.
+
 ## Constructor
+
+Creates an instance of a class using the language's built-in constructor.
+
+```js
+var Thing = function() {
+  // body
+}
+var thing = new Thing();
+```
 
 ## Factory
 
+When instantiating an object gets complex and we want to abstract it to provide a friendlier
+interface. For example, if a Customer constructor takes many arguments: id, name, email, status,
+order list, etc... You might create a `fromDefaults()` class method that creates a customer. You can
+pull that class method out into another class, whose sole job is to create customers:
+
+```
+public class CustomerFactory {
+  public Customer fromDefaults() {
+    var customer = new Customer(...);
+    // ...
+    return customer;
+  }
+
+  public Customer fromExisting(...) { /* ... */ }
+}
+```
+
+You can even use the Abstract Factory Pattern to return different types, inherited from Customer.
+
 ## Builder
+
+With extremely complex constructors, you may want to use a Builder. Builders are a specialized
+factory, that uses method calls to create an object. This works great with immutable objects, since
+a builder can just accumulate attributes and return an immutable object at the end:
+
+```
+var naiveBuilder = new NaiveStringBuilder();
+naiveBuilder.append("this");
+naiveBuilder.append("could be");
+naiveBuilder.append("very long");
+naiveBuilder.append("and blow up");
+naiveBuilder.append("your program...");
+var result = naiveBuilder.toString();
+```
 
 ## Method Chaining
 
+A method can return `self` or `this` so that the caller can continue chaining calls. This works well
+with the builder pattern above:
+
+```
+class NaiveStringBuilder {
+  public NaiveStringBuilder append(String str) {
+    // ...
+    return this;
+  }
+}
+
+naiveBuilder.append("this")
+  .("could be")
+  .("very long")
+  .toString();
+```
+
 ## Singleton
+
+A Singleton class only allows one instance of itself. Here's a naive implementation that doesn't
+take into account threading:
+
+```
+class SingleThing {
+  private static SingleThing _instance;
+
+  protected SingleThing () { } // disallow calling constructor directly
+
+  public static SingleThing instance() {
+    if (_instance == null) {
+      _instance = new SingleThing();
+    }
+    return _instance;
+  }
+]
+```
 
 ## Adapter
 
+Adapters make one interface work with another. ORMs are adapters, which abstract a query interface
+to work with different database engines. For example, you'll use ActiveRecord in Ruby as the
+interface in your application. But ActiveRecord will connect with an adapter under the hood, switching
+adapters depending on if you use PostgreSQL or SQLite3.
+
 ## Bridge
+
+Say you have a class hierarchy of shapes. `Shape` is your abstract class and you have two concrete
+classes: `Circle` and `Square`. Now you want to add colors, but to add that the number of concrete
+classes will grow exponentially: `RedCircle`, `RedSquare`, `BlueCircle`, `BlueSquare`.
+
+The Bridge pattern solves this by switching inheritance to object composition. Instead create a
+separate `Color` abstract class with `Blue` and `Red` concrete classes. Then update `Shape` to contain
+a color (object composition). Now you can keep your original Circle/Square concrete classes.
+
+We're building a "bridge" between Shape and Color.
+
+The GoF pattern says we're building a bridge between abstraction and implementation (this does NOT
+refer to abstract vs concrete classes). The abstraction class is the clean interface which delegates
+to the implementation for complex work. For example: the GUI is the abstraction and the operating
+system API is the implementation layer. With a bridge, you can have several GUIs and several OS APIs
+without exponentially creating new classes.
 
 ## Composite
 
+Compose objects into tree structures then work with these structures as if they were individual
+objects.
+
+For example, your program deals with packaging products into boxes. A `Box` contains one or more
+`Product`s OR other `Box`es. Eventually, everything unwraps to a product.
+
+In this case, the root node could be the outermost box. All leaf nodes are products. In-between
+are other boxes. The top-level box can calculate its price by asking for the price of all of its
+children. A product simply returns its price. A box recursively asks for its contents' prices. The
+box/product should have a common interface.
+
+The Composite pattern lets you run a behavior recursively over all components of the tree.
+
 ## Decorator
+
+This pattern adds behavior to an object by wrapping it, think of it as Russian Dolls. For example,
+you have a `Notification` core class. But you wrap it (by extending it) to create `SMSNotification`
+or `FacebookNotification` or `SlackNotification`. Then you can wrap it further with more specialized
+notifications.
+
+Inheritance is a good way to wrap core objects, but you can also wrap via composition. A decorator
+simply responds to the same interface as its wrapped object.
+
+Decorators can also wrap objects at runtime. You can structure your business logic into layers and
+compose new objects by decorating previous ones.
 
 ## Facade
 
+Facades hide implementation details so clients don't have to think about it.
+
+Imagine you're using a sophisticated API, dealing with many complex objects. But your application
+has one specific task. You can hide that logic behind a Facade, and only expose a single method
+on a single class to your application.
+
 ## Flyweight
+
+Flyweight lets you fit more objects into memory by sharing common parts of state between multiple
+objects.
+
+Objects have intrinsic state (lives within the object, other objects can only read but not change it).
+The rest is extrinsic state (other objects can modify). Intrinsic state can be re-used among multiple
+objects, especially because they don't often change.
 
 ## Command
 
+This pattern formalizes requests from one API to the next. It turns a request into a stand-alone
+object that contains all necessary information.
+
+For example, your GUI application initially had action code implemented in UI classes. When you
+click the "Save Button" it executes the save action. But then you added a MenuItem that has the same
+action. And then a keyboard shortcut.
+
+You can extract the action into a `SaveCommand` class. Then refactor the UI classes to use that class
+when triggered. The next step would be to have multiple commands implement the same interface.
+
 ## Mediator
+
+The Mediator pattern reduces chaotic dependencies between many objects. Objects collaborate only
+through a mediator object.
+
+For example, in a GUI some form objects may want to communicate with each other. If you click one
+button, another one should be disabled. Or if you type in a field, a checkbox will automatically
+change state.
+
+Instead of having the form objects communicate directly with each other, send a message to a
+mediator. Perhaps the parent dialog all the form elements are on.
+
+Aircraft pilots don't talk to each other directly when deciding who gets to land first. They talk to
+the control tower.
 
 ## Observer
 
+This pattern facilitates event based programming. Multiple objects can subscribe to events that
+are happening and be notified when they occur. A callback can be executed on notification.
+
 ## State
+
+The State pattern lets an object change its behavior when its internal state changes. It's closely
+related to the Finite-State Machine.
+
+For example, a `Document` can only be in one of several states at any given time: `Draft`, `Published`,
+or `Archived`. Often times, you'll have internal logic that does conditional branching on the context
+(or state). Instead, you can create a hierarchy of class where each concrete class is based on one
+of the state: `DraftDocument`, `PublishedDocument`, `ArchivedDocument`.
 
 ## Strategy
 
-## In The Real World
+The Strategy pattern lets you define a family of algorithms and put them each in a separate class,
+but have their objects be interchangeable.
+
+For example, a family of algorithms might be how to travel. Exact implementations can be `BikeTravel`,
+`WalkTravel`, `BusTravel`, or `FlightTravel`. These are all interchangeable by the client.
 
 # Software Design Principles
 
