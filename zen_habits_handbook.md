@@ -34,9 +34,13 @@ Take time to edit your commitments to greatly simplify your life.
 You've got a long list of projects and tasks that will never be done. Identify the essential and
 eliminate the rest.
 
-- eliminate tasks and projects - know what's essential - simplify your commitments - simplify your
-information streams (RSS, newspapers, TV, blogs, etc...) - identify and accomplish the big rocks -
-go for biggest values instead of quantity - batch small tasks
+* eliminate tasks and projects
+* know what's essential
+* simplify your commitments
+* simplify your information streams (RSS, newspapers, TV, blogs, etc...)
+* identify and accomplish the big rocks
+* go for biggest values instead of quantity
+* batch small tasks
 
 **Declutter Your Mind**
 
@@ -138,9 +142,16 @@ Some things to help during a slump:
 
 Money can't buy you love or happiness. Some tips to escape materialism:
 
-- limit television - eschew the news - limit internet reading - give up magazines for books - don't
-go to the mall or department stores - monitor your urges - use a 30-day list - declutter - find
-other forms of entertainment - buy used
+* limit television
+* eschew the news
+* limit internet reading
+* give up magazines for books
+* don't go to the mall or department stores
+* monitor your urges
+* use a 30-day list
+* declutter
+* find other forms of entertainment
+* buy used
 
 **Practical Tips for Living the Golden Rule**
 
