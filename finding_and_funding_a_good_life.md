@@ -96,8 +96,54 @@ how much happier they would be with a higher income.
 
 # Regret
 
+Regret can be divided into 4 categories:
+
+* foundational - failure in foresight, responsibility, and prudence with long-term consequences.
+  Small decisions that are immediately enjoyable but have lasting effects due to compounding.
+  Examples include: over-spending/under-saving, not exercising, smoking, drinking excessively, not
+  eating healthy foods, giving up on education too early.
+* boldness - result of playing it safe. Examples include: missed romantic connections, declined
+  job opportunities, not starting a business. Long-term, people tend to regret things they failed
+  to do more than things they did do. Inaction is less painful short-term, regret more so long-term.
+* moral - things we have done that felt wrong. Examples include: hurting people through
+  bullying/insults/ghosting, cheating in relationships/school/theft, disloyalty, disrespect.
+* connection - relationships that have come undone or remain incomplete. Primary relationships
+  (romance/family) are felt more strongly than less socially based ones (work/education).
+
+Prevent future regret by improving your decision quality: widen your options, reality test your
+assumptions, attain distance before deciding, prepare to be wrong.
+
+Manage current regret for decisions that have already been made. Reduce by undoing the decision,
+justifying the decision, or re-appraising the quality of alternatives. Take an "at least" perspective
+or an "even if" perspective.
+
 # A Model for a Good Life
+
+The six building blocks of PERMA are:
+
+* positive emotion - hedonia (feeling good) involves gratitude, savoring small pleasures,
+  mindfulness, self-efficacy, the feeling of control, and hope/optimism. Avoid the hedonic treadmill.
+* engagement - get into the state of flow, which requires complete concentration. For flow, people
+  must know what they have to do moment by moment; and they get immediate feedback; and the activity
+  appropriately matches their ability.
+* relationships - humans are social beings. It's an evolutionary trait that is the primary reason
+  for our survival and flourishing. People with strong ties to friends/family and a commitment to
+  spending time with them have the highest levels of well-being.
+* meaning - we want purpose in our lives. It involves belonging to and serving something bigger
+  than the self. Examples include: being involved with community, family, work, religion, and
+  social causes.
+* accomplishment - achievement, competence, success, and mastery An extreme example is
+  mountaineering which is miserable/dangerous, but an outlet to achieve goals/mastery.
+* vitality - eating well, moving regularly, sleeping deeply for physical/mental health. Avoid high
+  consumption of red/processed meats, refined grains, sweets, high-fat dairy products, butter. Get
+  higher intake of fruits/vegetables.
 
 # Setting Goals
 
-# Conclusion
+Moving towards a good life involves setting goals. Big financial goals anchor the planning process.
+
+Start with objectives, defining what a good life for yourself is. Effective goals are statements of
+a desirable state, not the means to get there, and are abstract. They act as a powerful motivational
+tool. Pursuing goals involves the real work. You turn the goal into an action to create challenging,
+measurable, actionable, and self-set targets. Meeting targets should not feel like a chore. There
+should be intrinsic motivation to pursue it.
