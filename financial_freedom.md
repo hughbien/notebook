@@ -37,8 +37,8 @@ Summarizing this chapter:
 
 * Money is unlimited
 * The traditional retirement approach doesn't work: you spend the most valuable years of your life
-  working fore money and it's not designed for you to retire as quickly as possible
-* Compounding exponentially increases your  money over time. The earlier and more you invest, the
+  working for money and it's not designed for you to retire as quickly as possible
+* Compounding exponentially increases your money over time. The earlier and more you invest, the
   faster your money will grow. Start now.
 * Inflation hurts your savings
 * Don't defer your dreams
